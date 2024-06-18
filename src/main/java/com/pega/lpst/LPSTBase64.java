@@ -13,7 +13,9 @@ public class LPSTBase64 {
      * @return Object The decoded String object
      */
     public static Object decode(Map<Object,Object> inputMap) {
+        if (inputMap == null) throw new AssertionError("inputMap must have value");
         String inputText = (String)inputMap.get("inputText");
+        if (inputText == null) throw new AssertionError("inputMap must contain inputText");
         return new String(Base64.getDecoder().decode(inputText));
     }
 
@@ -23,7 +25,9 @@ public class LPSTBase64 {
      * @return Object The encoded String object
      */
     public static Object encode(Map<Object,Object> inputMap) {
+        if (inputMap == null) throw new AssertionError("inputMap must have value");
         String inputText = (String)inputMap.get("inputText");
-        return new String(Base64.getEncoder().encode(inputText.getBytes()));
+        if (inputText == null) throw new AssertionError("inputMap must contain inputText");
+        return Base64.getEncoder().encodeToString(inputText.getBytes());
     }
 }
