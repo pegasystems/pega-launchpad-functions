@@ -1,6 +1,6 @@
 # Overview
 
-Some sample code and configuration to see how to create your own functions in Pega Launchpad. Use as examples or starter code for your own functions as needed.
+Some sample code and configuration to see how to create your own functions in [Pega Launchpad](https://launchpad.io/). Use as examples or starter code for your own functions as needed.
 
 # Examples
 
