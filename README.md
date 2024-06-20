@@ -16,7 +16,7 @@ This method takes a base64 string and decodes it.
 
 - Function handler: com.pega.lpst.Base64::decode
 - Input parameters:
-  - **inputText (Text)**
+  - **text (Text)**
 - Output parameters:
   - **Type**: Text
 
@@ -31,7 +31,7 @@ This method takes a plain string and encodes it in base64.
 ### Function rule configuration:
 - Function handler: com.pega.lpst.Base64::encode
 - Input parameters:
-  - **inputText (Text)**
+  - **text (Text)**
 - Output parameters:
   - **Type**: Text
 
@@ -46,7 +46,7 @@ This method takes a delimited string, and returns its tokens in a List of object
 ### Function rule configuration:
 - Function handler: com.pega.lpst.Parser::fromDelimitedText
 - Input parameters:
-  - **inputText (Text)**: the delimited string to parse
+  - **text (Text)**: the delimited string to parse
   - **delim (Text)**: optional - the delimiter that was used (default is ",")
 - Output parameters:
   - **Type**: *[choose one of your application's case types, doesn't matter which one]*
@@ -62,9 +62,9 @@ This method takes a delimited string, and returns its tokens in a List of object
   - **Top level structure**: Multiple record
 2. Add source JSON data:
   - **System name**: any identifier you want
-  - **JSON sample**: ```[{"Text":"foo"},{"Text":"bar"}]```
+  - **JSON sample**: ```[{"token":"foo"},{"token":"bar"}]```
 5. Map your data:
-  - **Source field**: Text(STRING)
+  - **Source field**: token(STRING)
   - **Target field**: Your application field
 
 ## CSV To List: Parses a CSV file content into a List of cases

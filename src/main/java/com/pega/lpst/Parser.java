@@ -18,11 +18,11 @@ public class Parser {
      * Convert a string containing delimited values into a List Of Cases for use in app logic
      *
      * @param inputMap Should contain a key "text" with a value of delimited string like "a,b,c,d". Optionally can contain key "delim" that specifies the delimiter being used
-     * @return Object a List of TreeMap objects, where each map contains a single mapping: a key called "Text" and the value of the token
+     * @return Object a List of TreeMap objects, where each map contains a single mapping: a key called "token" and the value of the token
      */
     public static Object fromDelimitedText(Map<Object, Object> inputMap) {
         if (inputMap == null) throw new IllegalArgumentException("inputMap must have value");
-        String text = (String) inputMap.get("inputText");
+        String text = (String) inputMap.get("text");
         if (text == null) throw new IllegalArgumentException("inputMap must have 'text' value");
         String delim = (String) inputMap.get("delim");
         if (delim == null) delim = ",";
@@ -34,7 +34,7 @@ public class Parser {
         StringTokenizer st = new StringTokenizer(text, delim);
         while (st.hasMoreTokens()) {
             String token = st.nextToken();
-            String json = "{\"Text\":\"" + token + "\"}";
+            String json = "{\"token\":\"" + token + "\"}";
             Object o = gson.fromJson(json, Object.class);
             list.add(o);
         }
