@@ -62,14 +62,14 @@ This method takes a delimited string, and returns its tokens in a List of object
   - **Top level structure**: Multiple record
 2. Add source JSON data:
   - **System name**: any identifier you want
-  - **JSON sample**: ```[{"Name":"foo"},{"Name":"bar"}]```
+  - **JSON sample**: ```[{"Text":"foo"},{"Text":"bar"}]```
 5. Map your data:
-  - **Source field**: Name(STRING)
-  - **Target field**: .Name
+  - **Source field**: Text(STRING)
+  - **Target field**: Your application field
 
 ## CSV To List: Parses a CSV file content into a List of cases
 
-This method takes the content of a CSV file (headers required), and returns a list of objects, where each object has a member field in the form **Field1**, **Field2**, .., **FieldN**, corresponding to each column in your CSV file. A maximum of 10 columns are supported. You can use a JSON transform rule to map those fields from each object back into your application object structure.
+This method takes the content of a CSV file (headers required), and returns a list of LinkedTreeMap objects, where each object has member fields where the field name is the column name from your CSV header, and the value is the value for that column for that record. You must use a JSON Transform to map this list of objects back into your application object structure. 
 
 ### Java code info:
 - **Class**: LPSTParser
@@ -93,12 +93,11 @@ This method takes the content of a CSV file (headers required), and returns a li
 - **Top level structure**: Multiple record
 2. Add source JSON data:
 - **System name**: any identifier you want
-- **JSON sample**: A list with a **FieldN** element for each column in your CSV (up to 10 fields), like: ```[{"Field1":"foo","Field2":"foo","Field3":"foo"}]```
-5. Map your data:
-- **Source field**: Field1(STRING)
-- **Target field**: .MyAppField
-- **Source field**: Field2(STRING)
-- **Target field**: .MySecondAppField
-- **Source field**: Field3(STRING)
-- **Target field**: .MyThirdAppField
-- **(etc..)**: up to 10 source fields supported.
+- **JSON sample**: a json array with one element: a json object representing one record in your csv, with name:value pairs corresponding to the column names and record values. Example: ```[{"name":"tim","city":"Waltham","state":"MA"}]```
+3. Map your data. Using the above name/city/state structure as an example:
+- **Source field**: name(STRING)
+- **Target field**: .CustomerName
+- **Source field**: city(STRING)
+- **Target field**: .CustomerCity
+- **Source field**: state(STRING)
+- **Target field**: .CustomerState
