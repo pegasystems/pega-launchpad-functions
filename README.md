@@ -12,7 +12,7 @@ This method takes a base64 string and decodes it.
 - **Class**: [com.pega.lpst.Base64](https://github.com/miratim/PegaLPSTTools/blob/f35c32a7d828132da4490dfe9138e13ebd345671/src/main/java/com/pega/lpst/Base64.java#L8)
 - **Method**: [decode](https://github.com/miratim/PegaLPSTTools/blob/f35c32a7d828132da4490dfe9138e13ebd345671/src/main/java/com/pega/lpst/Base64.java#L14)
 
-### Function rule configuration: 
+### Function rule configuration:
 
 - Function handler: com.pega.lpst.Base64::decode
 - Input parameters:
