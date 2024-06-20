@@ -10,15 +10,15 @@ class Base64Test {
 
     @Test
     void decode() {
-        Map<Object,Object> m = new HashMap<Object,Object>();
+        Map<String,String> m = new HashMap<>();
         m.put("text", "aGVsbG8gd29ybGQ=");
-        assertEquals("hello world", (String)Base64.decode(m));
+        assertEquals("hello world", Base64.decode(m));
     }
 
     @Test
     void encode() {
-        Map<Object,Object> m = new HashMap<Object,Object>();
+        Map<String,String> m = new HashMap<>();
         m.put("text", "hello world");
-        assertEquals("aGVsbG8gd29ybGQ=", (String)Base64.encode(m));
+        assertEquals("aGVsbG8gd29ybGQ=", Base64.encode(m));
     }
 }
