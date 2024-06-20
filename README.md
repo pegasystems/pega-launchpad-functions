@@ -2,6 +2,12 @@
 
 Some sample code and configuration to see how to create your own functions in [Pega Launchpad](https://launchpad.io/). Use as examples or starter code for your own functions as needed.
 
+# References
+
+- Pega Launchpad [overview](https://launchpad.io)
+- Creating [Function](https://docs.pega.com/bundle/launchpad/page/platform/launchpad/creating-custom-functions.html) rules
+- Dependencies: [Apache Commons CSV](https://commons.apache.org/proper/commons-csv/), [Google Gson](https://github.com/google/gson), [Apache PDFBox](https://pdfbox.apache.org/)
+  
 # Obtaining the JAR to upload into a Function rule
 
 You can download the latest JAR release from the [project release page](https://github.com/miratim/PegaLPSTTools/releases), or you can generate the necessary JAR file (including dependencies) for uploading into a Pega Launchpad Function rule, run this command:
@@ -22,7 +28,7 @@ This method takes a base64 string and decodes it.
 - **Class**: [com.pega.lpst.Base64](https://github.com/miratim/PegaLPSTTools/blob/master/src/main/java/com/pega/lpst/Base64.java)
 - **Method**: decode
 
-### Function rule configuration: 
+### Function rule configuration:
 
 - Function handler: com.pega.lpst.Base64::decode
 - Input parameters:
