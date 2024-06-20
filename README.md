@@ -9,8 +9,8 @@ Some sample code and configuration to see how to create your own functions in [P
 This method takes a base64 string and decodes it.
 
 ### Java code info:
-- **Class**: [com.pega.lpst.Base64](https://github.com/miratim/PegaLPSTTools/blob/f35c32a7d828132da4490dfe9138e13ebd345671/src/main/java/com/pega/lpst/Base64.java#L8)
-- **Method**: [decode](https://github.com/miratim/PegaLPSTTools/blob/f35c32a7d828132da4490dfe9138e13ebd345671/src/main/java/com/pega/lpst/Base64.java#L14)
+- **Class**: [com.pega.lpst.Base64](https://github.com/miratim/PegaLPSTTools/blob/master/src/main/java/com/pega/lpst/Base64.java)
+- **Method**: decode
 
 ### Function rule configuration: 
 
@@ -25,8 +25,8 @@ This method takes a base64 string and decodes it.
 This method takes a plain string and encodes it in base64.
 
 ### Java code info:
-- Class:  [com.pega.lpst.Base64](https://github.com/miratim/PegaLPSTTools/blob/f35c32a7d828132da4490dfe9138e13ebd345671/src/main/java/com/pega/lpst/Base64.java#L8)
-- Method: [encode](https://github.com/miratim/PegaLPSTTools/blob/f35c32a7d828132da4490dfe9138e13ebd345671/src/main/java/com/pega/lpst/Base64.java#L26)
+- Class:  [com.pega.lpst.Base64](https://github.com/miratim/PegaLPSTTools/blob/master/src/main/java/com/pega/lpst/Base64.java)
+- Method: encode
 
 ### Function rule configuration:
 - Function handler: com.pega.lpst.Base64::encode
@@ -40,8 +40,8 @@ This method takes a plain string and encodes it in base64.
 This method takes a delimited string, and returns its tokens in a List of objects. You can use a JSON transform to map those tokens back into your application data as required.
 
 ### Java code info:
-- **Class**:  [com.pega.lpst.Parser](https://github.com/miratim/PegaLPSTTools/blob/f35c32a7d828132da4490dfe9138e13ebd345671/src/main/java/com/pega/lpst/Parser.java#L15)
-- **Method**: [fromDelimitedText](https://github.com/miratim/PegaLPSTTools/blob/f35c32a7d828132da4490dfe9138e13ebd345671/src/main/java/com/pega/lpst/Parser.java#L23)
+- **Class**:  [com.pega.lpst.Parser](https://github.com/miratim/PegaLPSTTools/blob/master/src/main/java/com/pega/lpst/Parser.java)
+- **Method**: fromDelimitedText
 
 ### Function rule configuration:
 - Function handler: com.pega.lpst.Parser::fromDelimitedText
@@ -72,8 +72,8 @@ This method takes a delimited string, and returns its tokens in a List of object
 This method takes the content of a CSV file (headers required), and returns a list of LinkedTreeMap objects, where each object has member fields where the field name is the column name from your CSV header, and the value is the value for that column for that record. You must use a JSON Transform to map this list of objects back into your application object structure. 
 
 ### Java code info:
-- **Class**: [com.pega.lpst.Parser](https://github.com/miratim/PegaLPSTTools/blob/f35c32a7d828132da4490dfe9138e13ebd345671/src/main/java/com/pega/lpst/Parser.java#L15)
-- **Method**: [fromCsv](https://github.com/miratim/PegaLPSTTools/blob/f35c32a7d828132da4490dfe9138e13ebd345671/src/main/java/com/pega/lpst/Parser.java#L51)
+- **Class**: [com.pega.lpst.Parser](https://github.com/miratim/PegaLPSTTools/blob/master/src/main/java/com/pega/lpst/Parser.java)
+- **Method**: fromCsv
 
 ### Function rule configuration:
 - Function handler: com.pega.lpst.Parser::fromCsv
