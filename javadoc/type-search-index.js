@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"com.pega.lpst","l":"Base64"},{"p":"com.pega.lpst","l":"Parser"}];updateSearchResults();
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"com.pega.lpst","l":"Base64"},{"p":"com.pega.lpst","l":"Parser"},{"p":"com.pega.lpst","l":"PDF"}];updateSearchResults();
