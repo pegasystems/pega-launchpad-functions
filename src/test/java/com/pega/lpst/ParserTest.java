@@ -12,9 +12,9 @@ class ParserTest {
 
     @Test
     void fromDelimitedText() {
-        Map<Object,Object> m = new HashMap<Object,Object>();
+        Map<String,String> m = new HashMap<>();
         m.put("text", "tim,frank,parag");
-        List<Map> l = (List<Map>)Parser.fromDelimitedText(m);
+        List<Map<?,?>> l = Parser.fromDelimitedText(m);
         assertNotNull(l);
         assertEquals(3, l.size());
 
@@ -28,9 +28,9 @@ class ParserTest {
 
     @Test
     void fromCsv() {
-        Map<Object,Object> m = new HashMap<Object,Object>();
+        Map<String,String> m = new HashMap<>();
         m.put("csv", "name,city,state\nTim,Chelmsford,MA\nGabe,Arlington,MA\n");
-        List<Map> l = (List<Map>)Parser.fromCsv(m);
+        List<Map<?,?>> l = Parser.fromCsv(m);
         assertNotNull(l);
         assertEquals(2, l.size());
 

@@ -1,3 +1,4 @@
+
 plugins {
     id("java")
 }
@@ -14,6 +15,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
     implementation("org.apache.commons:commons-csv:1.11.0")
     implementation("com.google.code.gson:gson:2.11.0")
+    compileOnly("org.jetbrains:annotations:24.1.0")
 }
 
 tasks.test {
@@ -31,4 +33,5 @@ tasks.jar {
         .map(::zipTree) // OR .map { zipTree(it) }
     from(dependencies)
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    shouldRunAfter(tasks.build)
 }
