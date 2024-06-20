@@ -2,6 +2,12 @@
 
 Some sample code and configuration to see how to create your own functions in [Pega Launchpad](https://launchpad.io/). Use as examples or starter code for your own functions as needed.
 
+# References
+
+- Pega Launchpad [overview](https://launchpad.io)
+- Creating [Function](https://docs.pega.com/bundle/launchpad/page/platform/launchpad/creating-custom-functions.html) rules
+- Dependencies: [Apache Commons CSV](https://commons.apache.org/proper/commons-csv/), [Google Gson](https://github.com/google/gson)
+  
 # Build Instructions
 
 To generate the necessary JAR file (including dependencies) for uploading into a Pega Launchpad Function rule, run this command:
