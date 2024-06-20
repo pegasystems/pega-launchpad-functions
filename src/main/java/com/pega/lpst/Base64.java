@@ -1,12 +1,11 @@
 package com.pega.lpst;
 
-import java.util.Base64;
 import java.util.Map;
 
 /**
  * Simple passthrough to java base64 decode and encode methods
  */
-public class LPSTBase64 {
+public class Base64 {
     /**
      * Decode a base64 string to text
      * @param inputMap Expected to contain a key of "inputText" and a value of the base64 string to decode
@@ -16,7 +15,7 @@ public class LPSTBase64 {
         if (inputMap == null) throw new IllegalArgumentException("inputMap must have value");
         String inputText = (String)inputMap.get("inputText");
         if (inputText == null) throw new IllegalArgumentException("inputMap must contain inputText");
-        return new String(Base64.getDecoder().decode(inputText));
+        return new String(java.util.Base64.getDecoder().decode(inputText));
     }
 
     /**
@@ -28,6 +27,6 @@ public class LPSTBase64 {
         if (inputMap == null) throw new IllegalArgumentException("inputMap must have value");
         String inputText = (String)inputMap.get("inputText");
         if (inputText == null) throw new IllegalArgumentException("inputMap must contain inputText");
-        return Base64.getEncoder().encodeToString(inputText.getBytes());
+        return java.util.Base64.getEncoder().encodeToString(inputText.getBytes());
     }
 }

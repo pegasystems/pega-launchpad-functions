@@ -9,12 +9,12 @@ Some sample code and configuration to see how to create your own functions in [P
 This method takes a base64 string and decodes it.
 
 ### Java code info:
-- **Class**: LPSTBase64
+- **Class**: com.pega.lpst.Base64
 - **Method**: decode
 
 ### Function rule configuration:
 
-- Function handler: com.pega.lpst.LPSTBase64::decode
+- Function handler: com.pega.lpst.Base64::decode
 - Input parameters:
   - **inputText (Text)**
 - Output parameters:
@@ -25,11 +25,11 @@ This method takes a base64 string and decodes it.
 This method takes a plain string and encodes it in base64.
 
 ### Java code info:
-- Class: LPSTBase64
+- Class:  com.pega.lpst.Base64
 - Method: encode
 
 ### Function rule configuration:
-- Function handler: com.pega.lpst.LPSTBase64::encode
+- Function handler: com.pega.lpst.Base64::encode
 - Input parameters:
   - **inputText (Text)**
 - Output parameters:
@@ -40,11 +40,11 @@ This method takes a plain string and encodes it in base64.
 This method takes a delimited string, and returns its tokens in a List of objects. You can use a JSON transform to map those tokens back into your application data as required.
 
 ### Java code info:
-- **Class**: LPSTParser
-- **Method**: textToListOfObjects
+- **Class**:  com.pega.lpst.Parser
+- **Method**: fromDelimitedText
 
 ### Function rule configuration:
-- Function handler: com.pega.lpst.LPSTParser::textToListOfObjects
+- Function handler: com.pega.lpst.Parser::fromDelimitedText
 - Input parameters:
   - **inputText (Text)**: the delimited string to parse
   - **delim (Text)**: optional - the delimiter that was used (default is ",")
@@ -72,11 +72,11 @@ This method takes a delimited string, and returns its tokens in a List of object
 This method takes the content of a CSV file (headers required), and returns a list of LinkedTreeMap objects, where each object has member fields where the field name is the column name from your CSV header, and the value is the value for that column for that record. You must use a JSON Transform to map this list of objects back into your application object structure. 
 
 ### Java code info:
-- **Class**: LPSTParser
-- **Method**: csvToListOfObjects
+- **Class**: com.pega.lpst.Parser
+- **Method**: fromCsv
 
 ### Function rule configuration:
-- Function handler: com.pega.lpst.LPSTParser::csvToListOfObjects
+- Function handler: com.pega.lpst.Parser::fromCsv
 - Input parameters:
   - **csv (Text)**: csv file content to parse
 - Output parameters:

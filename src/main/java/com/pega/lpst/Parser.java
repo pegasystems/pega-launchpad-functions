@@ -12,7 +12,7 @@ import java.util.*;
 /**
  * Useful examples of string parsing for use with your app logic
  */
-public class LPSTParser {
+public class Parser {
 
     /**
      * Convert a string containing delimited values into a List Of Cases for use in app logic
@@ -20,7 +20,7 @@ public class LPSTParser {
      * @param inputMap Should contain a key "text" with a value of delimited string like "a,b,c,d". Optionally can contain key "delim" that specifies the delimiter being used
      * @return Object a List of TreeMap objects, where each map contains a single mapping: a key called "Text" and the value of the token
      */
-    public static Object textToListOfObjects(Map<Object, Object> inputMap) {
+    public static Object fromDelimitedText(Map<Object, Object> inputMap) {
         if (inputMap == null) throw new IllegalArgumentException("inputMap must have value");
         String text = (String) inputMap.get("inputText");
         if (text == null) throw new IllegalArgumentException("inputMap must have 'text' value");
@@ -48,7 +48,7 @@ public class LPSTParser {
      * @param inputMap Must contain key 'csv' with a value of a csv string.
      * @return Object a List of TreeMap objects, where each map contains a column->value mapping, where the key of the mapping is the column header value.
      */
-    public static Object csvToListOfObjects(Map<Object, Object> inputMap) {
+    public static Object fromCsv(Map<Object, Object> inputMap) {
         if (inputMap == null) throw new IllegalArgumentException("inputMap must have value");
         String csv = (String) inputMap.get("csv");
         if (csv == null) throw new IllegalArgumentException("inputMap must have 'csv' value");
