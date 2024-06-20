@@ -21,7 +21,7 @@ public class Parser {
      * @return Object a List of TreeMap objects, where each map contains a single mapping: a key called "token" and the value of the token
      */
     public static Object fromDelimitedText(Map<Object, Object> inputMap) {
-        if (inputMap == null) throw new IllegalArgumentException("inputMap must have value");
+        if (inputMap == null) throw new IllegalArgumentException("inputMap must not be null");
         String text = (String) inputMap.get("text");
         if (text == null) throw new IllegalArgumentException("inputMap must have 'text' value");
         String delim = (String) inputMap.get("delim");
@@ -49,7 +49,7 @@ public class Parser {
      * @return Object a List of TreeMap objects, where each map contains a column->value mapping, where the key of the mapping is the column header value.
      */
     public static Object fromCsv(Map<Object, Object> inputMap) {
-        if (inputMap == null) throw new IllegalArgumentException("inputMap must have value");
+        if (inputMap == null) throw new IllegalArgumentException("inputMap must not be null");
         String csv = (String) inputMap.get("csv");
         if (csv == null) throw new IllegalArgumentException("inputMap must have 'csv' value");
 
