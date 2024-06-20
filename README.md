@@ -2,6 +2,14 @@
 
 Some sample code and configuration to see how to create your own functions in [Pega Launchpad](https://launchpad.io/). Use as examples or starter code for your own functions as needed.
 
+# Build Instructions
+
+To generate the necessary JAR file (including dependencies) for uploading into a Pega Launchpad Function rule, run this command:
+
+```gradlew jar```
+
+This will create/update the ```lpst-1.0-SNAPSHOT.jar``` file under the ```./build/libs``` folder in your workspace. 
+
 # Examples
 
 ## Base64 Decode: decodes a base64 string
