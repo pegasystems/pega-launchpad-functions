@@ -2,13 +2,15 @@
 
 Some sample code and configuration to see how to create your own functions in [Pega Launchpad](https://launchpad.io/). Use as examples or starter code for your own functions as needed.
 
-# Build Instructions
+# Obtaining the JAR to upload into a Function rule
 
-To generate the necessary JAR file (including dependencies) for uploading into a Pega Launchpad Function rule, run this command:
+You can download the latest JAR release from the [project release page](https://github.com/miratim/PegaLPSTTools/releases), or you can generate the necessary JAR file (including dependencies) for uploading into a Pega Launchpad Function rule, run this command:
 
-```gradlew jar```
+```gradlew build```
 
-This will create/update the ```lpst-1.0-SNAPSHOT.jar``` file under the ```./build/libs``` folder in your workspace. 
+This will create/update the ```lpst-*-SNAPSHOT.jar``` file under the ```./build/libs``` folder in your workspace. 
+
+Note the JAR embeds all the dependent JARs, creating a fairly large file. This is necessary so the Function can be invoked as a lambda.
 
 # Examples
 
@@ -109,3 +111,25 @@ This method takes the content of a CSV file (headers required), and returns a li
 - **Target field**: .CustomerCity
 - **Source field**: state(STRING)
 - **Target field**: .CustomerState
+
+## PDF: Set fields in form and generate filled-in PDF
+
+This method takes a base64-encoded PDF form, and a json string containing field->value mappings, and returns a base64-encoded PDF with those fields filled in as specified.
+
+For the below example, a [sample PDF](https://github.com/miratim/PegaLPSTTools/blob/master/src/test/resources/com/pega/lpst/FillFormField.pdf) with two text fields is used as the input:
+![img.png](img.png)
+
+The output is base64 encoded, and can be passed to the platform attachment function ```CreateAdHocFileAttachment``` to create a file and attach it to the current case:
+![img_1.png](img_1.png)
+
+### Java code info:
+- Class:  [com.pega.lpst.PDF](https://github.com/miratim/PegaLPSTTools/blob/master/src/main/java/com/pega/lpst/PDF.java)
+- Method: setFields
+
+### Function rule configuration:
+- Function handler: com.pega.lpst.PDF::setFields
+- Input parameters:
+  - **inputForm (Text)**: Base64-encoded PDF document that has form elements.
+  - **fieldJson (Text)**: Single json object that specifies the fields and values to set. Example for the sample PDF: ```{"fieldsContainer.nestedSampleField":"Value for nestedSampleField","sampleField":"Value for sampleField"}```
+- Output parameters:
+  - **Type**: Text: The base64-encoded PDF with the specified fields set to the specified values

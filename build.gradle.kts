@@ -15,6 +15,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
     implementation("org.apache.commons:commons-csv:1.11.0")
     implementation("com.google.code.gson:gson:2.11.0")
+    implementation("org.apache.pdfbox:pdfbox:3.0.2")
     compileOnly("org.jetbrains:annotations:24.1.0")
 }
 
