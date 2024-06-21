@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "com.pega.lpst"
-version = "0.1.1-SNAPSHOT"
+version = "0.1.3-SNAPSHOT"
 
 repositories {
     mavenCentral()
