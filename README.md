@@ -138,4 +138,22 @@ The output is base64 encoded, and can be passed to the platform attachment funct
   - **inputForm (Text)**: Base64-encoded PDF document that has form elements.
   - **fieldJson (Text)**: Single json object that specifies the fields and values to set. Example for the sample PDF: ```{"fieldsContainer.nestedSampleField":"Value for nestedSampleField","sampleField":"Value for sampleField"}```
 - Output parameters:
-  - **Type**: Text: The base64-encoded PDF with the specified fields set to the specified values
+  - **Type**: Text: The base64-encoded PDF with the specified fields set to the specified value
+
+## Regular Expression: evaluate text against a regex
+
+This method takes a regex string, and a text string, and sees if the pattern matches the text
+
+### Java code info:
+- **Class**: [com.pega.lpst.Text](https://github.com/miratim/PegaLPSTTools/blob/master/src/main/java/com/pega/lpst/Text.java)
+- **Method**: regex
+
+### Function rule configuration:
+
+- Function handler: com.pega.lpst.Text::regex
+- Input parameters:
+  - **regex (Text)**: A regular expression [pattern](https://docs.oracle.com/en/java/javase/22/docs/api/java.base/java/util/regex/Pattern.html)
+  - **text (Text)**: The text to evaluate
+  - **caseInsensitive (Text)**: Optional - true or false
+- Output parameters:
+  - **Type**: Boolean: true if the text matches the regular expression pattern, false otherwise
