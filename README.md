@@ -2,6 +2,19 @@
 
 Some sample code and configuration to see how to create your own functions in [Pega Launchpad](https://launchpad.io/). Use as examples or starter code for your own functions as needed.
 
+# Table of Contents
+<!-- TOC -->
+* [References](#references)
+* [Obtaining the JAR to upload into a Function rule](#obtaining-the-jar-to-upload-into-a-function-rule)
+* [Examples](#examples)
+  * [Base64 Decode: decodes a base64 string](#base64-decode-decodes-a-base64-string)
+  * [Base64 Encode: encodes a string with base64](#base64-encode-encodes-a-string-with-base64)
+  * [Text To List: Parses a delimited string into a List of cases](#text-to-list-parses-a-delimited-string-into-a-list-of-cases)
+  * [CSV To List: Parses a CSV file content into a List of cases](#csv-to-list-parses-a-csv-file-content-into-a-list-of-cases)
+  * [PDF: Set fields in form and generate filled-in PDF](#pdf-set-fields-in-form-and-generate-filled-in-pdf)
+  * [Regular Expression: evaluate text against a regex](#regular-expression-evaluate-text-against-a-regex)
+<!-- TOC -->
+
 # References
 
 - Pega Launchpad [overview](https://launchpad.io)
@@ -24,11 +37,11 @@ Note the JAR embeds all the dependent JARs, creating a fairly large file. This i
 
 This method takes a base64 string and decodes it.
 
-### Java code info:
+### Java code info
 - **Class**: [com.pega.lpst.Base64](https://github.com/miratim/PegaLPSTTools/blob/master/src/main/java/com/pega/lpst/Base64.java)
 - **Method**: decode
 
-### Function rule configuration:
+### Function rule configuration
 
 - Function handler: com.pega.lpst.Base64::decode
 - Input parameters:
@@ -40,11 +53,11 @@ This method takes a base64 string and decodes it.
 
 This method takes a plain string and encodes it in base64.
 
-### Java code info:
+### Java code info
 - Class:  [com.pega.lpst.Base64](https://github.com/miratim/PegaLPSTTools/blob/master/src/main/java/com/pega/lpst/Base64.java)
 - Method: encode
 
-### Function rule configuration:
+### Function rule configuration
 - Function handler: com.pega.lpst.Base64::encode
 - Input parameters:
   - **text (Text)**
@@ -55,11 +68,11 @@ This method takes a plain string and encodes it in base64.
 
 This method takes a delimited string, and returns its tokens in a List of Map<String,String> objects. You can use a JSON transform to map those tokens back into your application data as required.
 
-### Java code info:
+### Java code info
 - **Class**:  [com.pega.lpst.Parser](https://github.com/miratim/PegaLPSTTools/blob/master/src/main/java/com/pega/lpst/Parser.java)
 - **Method**: fromDelimitedText
 
-### Function rule configuration:
+### Function rule configuration
 - Function handler: com.pega.lpst.Parser::fromDelimitedText
 - Input parameters:
   - **text (Text)**: the delimited string to parse
@@ -69,7 +82,7 @@ This method takes a delimited string, and returns its tokens in a List of Map<St
   - **Cardinality**: Multiple
   - Note: JSON Transform rule will be required
 
-### JSON Transform rule configuration:
+### JSON Transform rule configuration
 
 1. Create JSON Transform rule with:
   - **Name**: the same name as your function (not required, just easier for author)
@@ -87,11 +100,11 @@ This method takes a delimited string, and returns its tokens in a List of Map<St
 
 This method takes the content of a CSV file (headers required), and returns a list of Map<?,?> objects, where each object has member fields where the field name is the column name from your CSV header, and the value is the value for that column for that record. You must use a JSON Transform to map this list of objects back into your application object structure. 
 
-### Java code info:
+### Java code info
 - **Class**: [com.pega.lpst.Parser](https://github.com/miratim/PegaLPSTTools/blob/master/src/main/java/com/pega/lpst/Parser.java)
 - **Method**: fromCsv
 
-### Function rule configuration:
+### Function rule configuration
 - Function handler: com.pega.lpst.Parser::fromCsv
 - Input parameters:
   - **csv (Text)**: csv file content to parse
@@ -100,7 +113,7 @@ This method takes the content of a CSV file (headers required), and returns a li
   - **Cardinality**: Multiple
   - Note: JSON Transform rule will be required
 
-### JSON Transform rule configuration:
+### JSON Transform rule configuration
 
 1. Create JSON Transform rule with:
 - **Name**: the same name as your function (not required, just easier for author)
@@ -128,11 +141,11 @@ For the below example, a [sample PDF](https://github.com/miratim/PegaLPSTTools/b
 The output is base64 encoded, and can be passed to the platform attachment function ```CreateAdHocFileAttachment``` to create a file and attach it to the current case:
 ![img_1.png](img_1.png)
 
-### Java code info:
+### Java code info
 - Class:  [com.pega.lpst.PDF](https://github.com/miratim/PegaLPSTTools/blob/master/src/main/java/com/pega/lpst/PDF.java)
 - Method: setFields
 
-### Function rule configuration:
+### Function rule configuration
 - Function handler: com.pega.lpst.PDF::setFields
 - Input parameters:
   - **inputForm (Text)**: Base64-encoded PDF document that has form elements.
@@ -144,11 +157,11 @@ The output is base64 encoded, and can be passed to the platform attachment funct
 
 This method takes a regex string, and a text string, and sees if the pattern matches the text
 
-### Java code info:
+### Java code info
 - **Class**: [com.pega.lpst.Text](https://github.com/miratim/PegaLPSTTools/blob/master/src/main/java/com/pega/lpst/Text.java)
 - **Method**: regex
 
-### Function rule configuration:
+### Function rule configuration
 
 - Function handler: com.pega.lpst.Text::regex
 - Input parameters:
