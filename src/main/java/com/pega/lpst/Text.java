@@ -2,7 +2,7 @@ package com.pega.lpst;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Map;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -27,5 +27,30 @@ public class Text {
         Matcher m = p.matcher(text);
 
         return m.find();
+    }
+
+    /**
+     * Wrapper for the java String.format() method, to substitute values into a string and return the formatted string
+     * @param inputMap Must contain key 'format' with a valid java String [format](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Formatter.html#syntax), a key 'values' with a comma-delimited string of values to use, and optionally a key 'locale' for the specific java [locale string](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Locale.html) to use for formatting.
+     * @return String the formatted string result
+     */
+    public static String format(@NotNull Map<String,String> inputMap) {
+        String text = inputMap.get("format");
+        if (text == null) throw new IllegalArgumentException("text cannot be null");
+        String values = inputMap.get("values");
+        if (values == null) throw new IllegalArgumentException("values cannot be null");
+
+        String locale = inputMap.get("locale");
+        Locale l = locale != null ? Locale.forLanguageTag(locale) : Locale.getDefault();
+
+        List<String> valueList = new ArrayList<>();
+
+        StringTokenizer st = new StringTokenizer(values, ",");
+
+        while (st.hasMoreTokens()) {
+            valueList.add(st.nextToken());
+        }
+
+        return String.format(l, text, valueList.toArray());
     }
 }
