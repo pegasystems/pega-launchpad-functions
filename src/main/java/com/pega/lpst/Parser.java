@@ -102,7 +102,8 @@ public class Parser {
     public static List<Map<?,?>> fromJsonArray(@NotNull Map<String,String> inputMap) {
         String json = inputMap.get("json");
         if (json == null) throw new IllegalArgumentException("inputMap must have 'json' value");
-        return new Gson().fromJson(json, List.class);
+        @SuppressWarnings("unchecked") List<Map<?,?>> list = new Gson().fromJson(json, List.class);
+        return list;
     }
 
 }
