@@ -16,7 +16,7 @@ Some sample code and configuration to see how to create your own functions in [P
   * [PDF: Set fields in form and generate filled-in PDF](#pdf-set-fields-in-form-and-generate-filled-in-pdf)
   * [Regular Expression: evaluate text against a regex](#regular-expression-evaluate-text-against-a-regex)
   * [JSON: deserialize a json string with a single top-level object](#json-deserialize-a-json-string-with-a-single-top-level-object)
-<!-- TOC -->
+  * [JSON: deserialize a json string with a top-level array of objects](#json-deserialize-a-json-string-with-a-top-level-array-of-objects)
 
 # References
 
@@ -176,7 +176,7 @@ This method takes a regex string, and a text string, and sees if the pattern mat
 
 ## JSON: deserialize a json string with a single top-level object
 
-This method takes a json string, containing a single top-level object, and returns a TreeMap
+This method takes a json string, containing a single top-level object, and returns a TreeMap. The returned map can be processed by a JSON Transform to map values back into your application data structure.
 
 ### Java code info
 - **Class**: [com.pega.lpst.Parser](https://github.com/miratim/PegaLPSTTools/blob/master/src/main/java/com/pega/lpst/Parser.java)
@@ -203,3 +203,34 @@ This method takes a json string, containing a single top-level object, and retur
 - **System name**: any identifier you want
 - **JSON sample**: ```(example json structure from your use case)```
 3. Map your data from the JSON structure into your application object structure
+
+
+## JSON: deserialize a json string with a top-level array of objects 
+
+This method takes a json string, containing a top-level array of objects, and returns a List of TreeMap objects. The returned maps can be processed by a JSON Transform to map values back into your application data structure.
+
+### Java code info
+- **Class**: [com.pega.lpst.Parser](https://github.com/miratim/PegaLPSTTools/blob/master/src/main/java/com/pega/lpst/Parser.java)
+- **Method**: fromJsonArray
+
+### Function rule configuration
+
+- Function handler: com.pega.lpst.Parser::fromJsonArray
+- Input parameters:
+  - **json (Text)**: The json string to evaluate
+- Output parameters:
+  - **Type**: *[choose the application case type you want to map data into]*
+  - **Cardinality**: Multiple
+  - Note: JSON Transform rule will be required
+
+### JSON Transform rule configuration
+
+1. Create JSON Transform rule with:
+- **Name**: the same name as your function (not required, just easier for author)
+- **Purpose**: Deserialize (JSON to Pega Object)
+- **Library**: Same as the case type chosen for the Function rule's output parameter **Type**
+- **Top level structure**: Multiple records
+2. Add source JSON data:
+- **System name**: any identifier you want
+- **JSON sample**: ```(example json structure from your use case)```
+3. Map your data from the JSON structure into a multi-object field in your application object structure  
