@@ -81,4 +81,28 @@ public class Parser {
         return l;
     }
 
+    /**
+     * Deserialize a json string containing a single top-level object into a TreeMap structure. Output of function can be evaluated by a JSON transform to map data into pega object structure.
+     *
+     * @param inputMap Must contain key 'json' with a value of a json string.
+     * @return Map<?,?> a TreeMap object, where the map contains a key->value mapping. Each map may contain embedded maps.
+     */
+    public static Map<?,?> fromJsonObject(@NotNull Map<String,String> inputMap) {
+        String json = inputMap.get("json");
+        if (json == null) throw new IllegalArgumentException("inputMap must have 'json' value");
+        return (Map<?,?>)new Gson().fromJson(json, Map.class);
+    }
+
+    /**
+     * Deserialize a json string containing a top-level object array into a TreeMap structure. Output of function can be evaluated by a JSON transform to map data into pega object structure.
+     *
+     * @param inputMap Must contain key 'json' with a value of a json string.
+     * @return Object a List of TreeMap objects, where each map contains a key->value mapping. Each map may contain embedded maps.
+     */
+    public static List<Map<?,?>> fromJsonArray(@NotNull Map<String,String> inputMap) {
+        String json = inputMap.get("json");
+        if (json == null) throw new IllegalArgumentException("inputMap must have 'json' value");
+        return new Gson().fromJson(json, List.class);
+    }
+
 }
