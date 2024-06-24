@@ -234,8 +234,7 @@ This method takes a json string, containing a single top-level object, and retur
 - **JSON sample**: ```(example json structure from your use case)```
 3. Map your data from the JSON structure into your application object structure
 
-
-## JSON: deserialize a json string with a top-level array of objects
+## deserialize a json string with a top-level array of objects
 
 This method takes a json string, containing a top-level array of objects, and returns a List of TreeMap objects. The returned maps can be processed by a JSON Transform to map values back into your application data structure.
 
