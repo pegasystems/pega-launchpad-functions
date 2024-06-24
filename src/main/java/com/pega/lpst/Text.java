@@ -1,5 +1,7 @@
 package com.pega.lpst;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -14,7 +16,7 @@ public class Text {
      * @param inputMap Must contain key 'regex' with regular expression to compile, key 'text' with the string to evaluate against the pattern, and optionally key 'caseInsensitive' as true or false for the Pattern behavior
      * @return Boolean true if pattern found in text, false otherwise
      */
-    public static Boolean regex(Map<String,String> inputMap) {
+    public static Boolean regex(@NotNull Map<String,String> inputMap) {
         String regex = inputMap.get("regex");
         if (regex == null) throw new IllegalArgumentException("regex cannot be null");
         String text = inputMap.get("text");

@@ -49,4 +49,29 @@ class ParserTest {
         assertEquals("MA", l.get(1).get("state"));
 
     }
+
+    @Test
+    void fromJsonObject() {
+        Map<String,String> input = new HashMap<>();
+        input.put("json", "{\"name\":\"tim\", \"city\":\"chelmsford\", \"account\":{\"number\":\"1234\"}}");
+        Map<?,?> output = Parser.fromJsonObject(input);
+        assertEquals("tim", output.get("name"));
+        assertEquals("chelmsford", output.get("city"));
+        assertEquals("1234", ((Map<?,?>)output.get("account")).get("number"));
+    }
+
+    @Test
+    void fromJsonArray() {
+        Map<String,String> input = new HashMap<>();
+        input.put("json", "[{\"name\":\"tim\", \"city\":\"chelmsford\", \"account\":{\"number\":\"1234\"}},{\"name\":\"gabe\", \"city\":\"arlington\", \"account\":{\"number\":\"5678\"}}]");
+        List<Map<?,?>> output = Parser.fromJsonArray(input);
+        Map<?,?> firstRecord = output.get(0);
+        assertEquals("tim", firstRecord.get("name"));
+        assertEquals("chelmsford", firstRecord.get("city"));
+        assertEquals("1234", ((Map<?,?>)firstRecord.get("account")).get("number"));
+        Map<?,?> secondRecord = output.get(1);
+        assertEquals("gabe", secondRecord.get("name"));
+        assertEquals("arlington", secondRecord.get("city"));
+        assertEquals("5678", ((Map<?,?>)secondRecord.get("account")).get("number"));
+    }
 }

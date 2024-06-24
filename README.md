@@ -4,6 +4,8 @@ Some sample code and configuration to see how to create your own functions in [P
 
 # Table of Contents
 <!-- TOC -->
+* [Overview](#overview)
+* [Table of Contents](#table-of-contents)
 * [References](#references)
 * [Obtaining the JAR to upload into a Function rule](#obtaining-the-jar-to-upload-into-a-function-rule)
 * [Examples](#examples)
@@ -13,6 +15,7 @@ Some sample code and configuration to see how to create your own functions in [P
   * [CSV To List: Parses a CSV file content into a List of cases](#csv-to-list-parses-a-csv-file-content-into-a-list-of-cases)
   * [PDF: Set fields in form and generate filled-in PDF](#pdf-set-fields-in-form-and-generate-filled-in-pdf)
   * [Regular Expression: evaluate text against a regex](#regular-expression-evaluate-text-against-a-regex)
+  * [JSON: deserialize a json string with a single top-level object](#json-deserialize-a-json-string-with-a-single-top-level-object)
 <!-- TOC -->
 
 # References
@@ -170,3 +173,33 @@ This method takes a regex string, and a text string, and sees if the pattern mat
   - **caseInsensitive (Text)**: Optional - true or false
 - Output parameters:
   - **Type**: Boolean: true if the text matches the regular expression pattern, false otherwise
+
+## JSON: deserialize a json string with a single top-level object
+
+This method takes a json string, containing a single top-level object, and returns a TreeMap
+
+### Java code info
+- **Class**: [com.pega.lpst.Parser](https://github.com/miratim/PegaLPSTTools/blob/master/src/main/java/com/pega/lpst/Parser.java)
+- **Method**: fromJsonObject
+
+### Function rule configuration
+
+- Function handler: com.pega.lpst.Parser::fromJsonObject
+- Input parameters:
+  - **json (Text)**: The json string to evaluate
+- Output parameters:
+  - **Type**: *[choose the application case type you want to map data into]*
+  - **Cardinality**: Single
+  - Note: JSON Transform rule will be required
+
+### JSON Transform rule configuration
+
+1. Create JSON Transform rule with:
+- **Name**: the same name as your function (not required, just easier for author)
+- **Purpose**: Deserialize (JSON to Pega Object)
+- **Library**: Same as the case type chosen for the Function rule's output parameter **Type**
+- **Top level structure**: Single record
+2. Add source JSON data:
+- **System name**: any identifier you want
+- **JSON sample**: ```(example json structure from your use case)```
+3. Map your data from the JSON structure into your application object structure
