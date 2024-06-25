@@ -154,6 +154,10 @@ For the below example, a [sample PDF](https://github.com/miratim/PegaLPSTTools/b
 The output is base64 encoded, and can be passed to the platform attachment function ```CreateAdHocFileAttachment``` to create a file and attach it to the current case:
 ![img_1.png](img_1.png)
 
+To discover the actual fields names of a PDF file, there are a couple of options:
+1. Use the [pdftk](https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/) command line tool
+2. Use the [pdfbox](https://pdfbox.apache.org/) java library to iterate through all fields in a form and set the value of that field to the qualified name of the field.
+
 ### Java code info
 - Class:  [com.pega.lpst.PDF](https://github.com/miratim/PegaLPSTTools/blob/master/src/main/java/com/pega/lpst/PDF.java)
 - Method: setFields
