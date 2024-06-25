@@ -21,7 +21,7 @@ Some sample code and configuration to see how to create your own functions in [P
   * [Format a java string with substitution values](#format-a-java-string-with-substitution-values)
 * [JSON examples](#json-examples)
   * [deserialize a json string with a single top-level object](#deserialize-a-json-string-with-a-single-top-level-object)
-  * [JSON: deserialize a json string with a top-level array of objects](#deserialize a json string with a top-level array of objects)
+  * [JSON: deserialize a json string with a top-level array of objects](#deserialize-a-json-string-with-a-top-level-array-of-objects)
 <!-- TOC -->
 
 # References
