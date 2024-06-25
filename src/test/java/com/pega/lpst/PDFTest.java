@@ -13,28 +13,11 @@ import static org.junit.jupiter.api.Assertions.*;
 class PDFTest {
 
     @Test
-    void setFields() {
+    void setFieldsWithBase64() {
 
         String inputPDF;
 
-        File inFile = new File("src/test/resources/com/pega/lpst/FillFormField.pdf");
-        try (FileInputStream fis = new FileInputStream(inFile)) {
-            byte [] bytes = new byte[(int)inFile.length()];
-            assertEquals(inFile.length(), fis.read(bytes));
-            inputPDF = Base64.getEncoder().encodeToString(bytes);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        String outputPDF;
-        File outFile = new File("src/test/resources/com/pega/lpst/FillFormFieldExpectedOutput.pdf");
-        try (FileInputStream fis = new FileInputStream(outFile)) {
-            byte [] bytes = new byte[(int)outFile.length()];
-            assertEquals(outFile.length(), fis.read(bytes));
-            outputPDF = Base64.getEncoder().encodeToString(bytes);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        inputPDF = openPDF("src/test/resources/com/pega/lpst/FillFormField.pdf");
 
         Map<String, String> inputMap = new HashMap<>();
         inputMap.put("inputForm", inputPDF);
@@ -46,6 +29,47 @@ class PDFTest {
         inputMap.put("fieldJson", json);
 
         String result = PDF.setFields(inputMap);
-        assertEquals(outputPDF, result);
+
+        String expectedPDF = openPDF("src/test/resources/com/pega/lpst/FillFormFieldExpectedOutput.pdf");
+
+        assertEquals(expectedPDF, result);
+    }
+
+    private static String openPDF(String fileName) {
+        String inputPDF;
+        File inFile = new File(fileName);
+        try (FileInputStream fis = new FileInputStream(inFile)) {
+            byte [] bytes;
+            try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+                int length;
+                byte[] buffer = new byte[1024];// buffer for portion of data from connection
+                while ((length = fis.read(buffer)) > -1) {
+                    baos.write(buffer, 0, length);
+                }
+                bytes = baos.toByteArray();
+            }
+            assertEquals(inFile.length(), bytes.length);
+            inputPDF = Base64.getEncoder().encodeToString(bytes);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return inputPDF;
+    }
+
+    @Test
+    void setFieldsWithURL() {
+        Map<String, String> inputMap = new HashMap<>();
+        inputMap.put("inputURL", "https://svn.apache.org/viewvc/pdfbox/trunk/examples/src/main/resources/org/apache/pdfbox/examples/interactive/form/FillFormField.pdf?view=co");
+
+        Map<String,String> fieldMapping = new HashMap<>();
+        fieldMapping.put("sampleField", "Value for sampleField");
+        fieldMapping.put("fieldsContainer.nestedSampleField", "Value for nestedSampleField");
+        String json = new Gson().toJson(fieldMapping);
+        inputMap.put("fieldJson", json);
+
+        String result = PDF.setFields(inputMap);
+
+        String expectedPDF = openPDF("src/test/resources/com/pega/lpst/FillFormFieldExpectedOutputFromURL.pdf");
+        assertEquals(expectedPDF, result);
     }
 }
