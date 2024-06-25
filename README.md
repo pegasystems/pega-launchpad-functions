@@ -151,10 +151,12 @@ This method takes the content of a CSV file (headers required), and returns a li
 This method takes a base64-encoded PDF form, and a json string containing field->value mappings, and returns a base64-encoded PDF with those fields filled in as specified.
 
 For the below example, a [sample PDF](https://github.com/miratim/PegaLPSTTools/blob/master/src/test/resources/com/pega/lpst/FillFormField.pdf) with two text fields is used as the input:
-![img.png](img.png)
+
+![img.png](images/SamplePDFInput.png)
 
 The output is base64 encoded, and can be passed to the platform attachment function ```CreateAdHocFileAttachment``` to create a file and attach it to the current case:
-![img_1.png](img_1.png)
+
+![img_1.png](images/SamplePDFOutput.png)
 
 To discover the actual fields names of a PDF file, there are a couple of options:
 1. Use the [pdftk](https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/) command line tool
