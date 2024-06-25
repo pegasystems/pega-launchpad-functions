@@ -1,5 +1,6 @@
-package com.pega.lpst;
+package com.pega.launchpad;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -12,7 +13,7 @@ class Base64Test {
     void decode() {
         Map<String,String> m = new HashMap<>();
         m.put("text", "aGVsbG8gd29ybGQ=");
-        assertEquals("hello world", Base64.decode(m));
+        Assertions.assertEquals("hello world", Base64.decode(m));
     }
 
     @Test

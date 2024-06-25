@@ -1,4 +1,4 @@
-package com.pega.lpst;
+package com.pega.launchpad;
 
 import com.google.gson.Gson;
 import org.apache.pdfbox.Loader;

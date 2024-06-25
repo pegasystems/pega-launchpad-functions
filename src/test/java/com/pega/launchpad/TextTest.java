@@ -1,5 +1,6 @@
-package com.pega.lpst;
+package com.pega.launchpad;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
@@ -14,7 +15,7 @@ class TextTest {
         Map<String,String> inputMap = new HashMap<>();
         inputMap.put("regex", "a*b");
         inputMap.put("text", "aaaaab");
-        assertTrue(Text.regex(inputMap));
+        Assertions.assertTrue(Text.regex(inputMap));
     }
 
     @Test
