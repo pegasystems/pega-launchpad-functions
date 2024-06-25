@@ -1,4 +1,4 @@
-package com.pega.lpst;
+package com.pega.launchpad;
 
 import com.google.gson.Gson;
 import org.junit.jupiter.api.Test;
@@ -17,7 +17,7 @@ class PDFTest {
 
         String inputPDF;
 
-        inputPDF = openPDF("src/test/resources/com/pega/lpst/FillFormField.pdf");
+        inputPDF = openPDF("src/test/resources/com/pega/launchpad/FillFormField.pdf");
 
         Map<String, String> inputMap = new HashMap<>();
         inputMap.put("inputForm", inputPDF);
@@ -30,7 +30,7 @@ class PDFTest {
 
         String result = PDF.setFields(inputMap);
 
-        String expectedPDF = openPDF("src/test/resources/com/pega/lpst/FillFormFieldExpectedOutput.pdf");
+        String expectedPDF = openPDF("src/test/resources/com/pega/launchpad/FillFormFieldExpectedOutput.pdf");
 
         assertEquals(expectedPDF, result);
     }
@@ -69,7 +69,7 @@ class PDFTest {
 
         String result = PDF.setFields(inputMap);
 
-        String expectedPDF = openPDF("src/test/resources/com/pega/lpst/FillFormFieldExpectedOutputFromURL.pdf");
+        String expectedPDF = openPDF("src/test/resources/com/pega/launchpad/FillFormFieldExpectedOutputFromURL.pdf");
         assertEquals(expectedPDF, result);
     }
 }

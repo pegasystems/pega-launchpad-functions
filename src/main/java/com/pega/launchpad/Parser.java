@@ -1,4 +1,4 @@
-package com.pega.lpst;
+package com.pega.launchpad;
 
 import com.google.gson.Gson;
 import org.apache.commons.csv.CSVFormat;
@@ -85,7 +85,7 @@ public class Parser {
      * Deserialize a json string containing a single top-level object into a TreeMap structure. Output of function can be evaluated by a JSON transform to map data into pega object structure.
      *
      * @param inputMap Must contain key 'json' with a value of a json string.
-     * @return Map<?,?> a TreeMap object, where the map contains a key->value mapping. Each map may contain embedded maps.
+     * @return Map a TreeMap object, where the map contains a key->value mapping. Each map may contain embedded maps.
      */
     public static Map<?,?> fromJsonObject(@NotNull Map<String,String> inputMap) {
         String json = inputMap.get("json");
