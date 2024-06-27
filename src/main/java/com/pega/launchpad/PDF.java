@@ -19,11 +19,47 @@ import java.util.Base64;
 public class PDF {
 
     /**
+     * Given a PDF form via URL, and a map of fields and values, set those fields in the form to those values, and return the resulting PDF document
+     * @param inputMap Expects key of 'inputURL' with a URL pointing at a PDF file, and a key of 'fieldJson' with a value that is a json string containing the fully-qualified field names and the values to set them to. Example: {"sampleField": "Value for sampleField", "fieldsContainer.nestedSampleField": "Value for nestedSampleField"}
+     * @return String Base64 encoded PDF document, with fields filled in
+     */
+    public static String setFieldsWithURL(@NotNull Map<String, String> inputMap) {
+        String fieldJson = inputMap.get("fieldJson");
+        if (fieldJson == null) throw new IllegalArgumentException("fieldJson cannot be null");
+
+        @SuppressWarnings("unchecked") Map<String, String> fieldMap = (Map<String, String>) new Gson().fromJson(fieldJson, Map.class);
+
+        byte[] pdf;
+
+        String inputURL = inputMap.get("inputURL");
+        if (inputURL == null) {
+            throw new IllegalArgumentException("inputURL cannot be null");
+        }
+        try {
+            URL url = new URL(inputURL);
+            try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+                try (InputStream is = url.openStream()) {
+                    int length;
+                    byte[] buffer = new byte[1024];// buffer for portion of data from connection
+                    while ((length = is.read(buffer)) > -1) {
+                        baos.write(buffer, 0, length);
+                    }
+                }
+                pdf = baos.toByteArray();
+            }
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
+
+        return setFieldsInPDF(pdf, fieldMap);
+    }
+
+    /**
      * Given a PDF form, and a map of fields and values, set those fields in the form to those values, and return the resulting PDF document
      * @param inputMap Expects key of 'inputForm' with value of a PDF document encoded in base64, and a key of 'fieldJson' with a value that is a json string containing the fully-qualified field names and the values to set them to. Example: {"sampleField": "Value for sampleField", "fieldsContainer.nestedSampleField": "Value for nestedSampleField"}
      * @return String Base64 encoded PDF document, with fields filled in
      */
-    public static String setFields(@NotNull Map<String, String> inputMap) {
+    public static String setFieldsWithBase64(@NotNull Map<String, String> inputMap) {
         String fieldJson = inputMap.get("fieldJson");
         if (fieldJson == null) throw new IllegalArgumentException("fieldJson cannot be null");
 
@@ -32,29 +68,11 @@ public class PDF {
         byte[] pdf;
 
         String inputForm = inputMap.get("inputForm");
-        if (inputForm != null) {
-            pdf = Base64.getDecoder().decode(inputForm);
-        } else {
-            String inputURL = inputMap.get("inputURL");
-            if (inputURL == null) {
-                throw new IllegalArgumentException("inputURL cannot be null if inputForm is null");
-            }
-            try {
-                URL url = new URL(inputURL);
-                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-                    try (InputStream is = url.openStream()) {
-                        int length;
-                        byte[] buffer = new byte[1024];// buffer for portion of data from connection
-                        while ((length = is.read(buffer)) > -1) {
-                            baos.write(buffer, 0, length);
-                        }
-                    }
-                    pdf = baos.toByteArray();
-                }
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
+        if (inputForm == null) {
+            throw new IllegalArgumentException("inputForm cannot be null");
         }
+
+        pdf = Base64.getDecoder().decode(inputForm);
 
         return setFieldsInPDF(pdf, fieldMap);
     }

@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"com.pega.launchpad","l":"Parser"}];updateSearchResults();
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"com.pega.launchpad","l":"Base64"},{"p":"com.pega.launchpad","l":"Parser"},{"p":"com.pega.launchpad","l":"PDF"},{"p":"com.pega.launchpad","l":"Text"}];updateSearchResults();
