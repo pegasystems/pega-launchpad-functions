@@ -28,7 +28,7 @@ class PDFTest {
         String json = new Gson().toJson(fieldMapping);
         inputMap.put("fieldJson", json);
 
-        String result = PDF.setFields(inputMap);
+        String result = PDF.setFieldsWithBase64(inputMap);
 
         String expectedPDF = openPDF("src/test/resources/com/pega/launchpad/FillFormFieldExpectedOutput.pdf");
 
@@ -67,7 +67,7 @@ class PDFTest {
         String json = new Gson().toJson(fieldMapping);
         inputMap.put("fieldJson", json);
 
-        String result = PDF.setFields(inputMap);
+        String result = PDF.setFieldsWithURL(inputMap);
 
         String expectedPDF = openPDF("src/test/resources/com/pega/launchpad/FillFormFieldExpectedOutputFromURL.pdf");
         assertEquals(expectedPDF, result);
