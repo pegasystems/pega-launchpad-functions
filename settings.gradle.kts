@@ -1,2 +1,2 @@
-rootProject.name = "lpst"
+rootProject.name = "pega-launchpad-functions"
 

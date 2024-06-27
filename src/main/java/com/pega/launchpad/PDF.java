@@ -1,4 +1,4 @@
-package com.pega.lpst;
+package com.pega.launchpad;
 
 import com.google.gson.Gson;
 import org.apache.pdfbox.Loader;
@@ -9,6 +9,7 @@ import org.apache.pdfbox.pdmodel.interactive.form.PDField;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.*;
+import java.net.URL;
 import java.util.*;
 import java.util.Base64;
 
@@ -23,15 +24,43 @@ public class PDF {
      * @return String Base64 encoded PDF document, with fields filled in
      */
     public static String setFields(@NotNull Map<String, String> inputMap) {
-        String inputForm = inputMap.get("inputForm");
-        if (inputForm == null) throw new IllegalArgumentException("inputForm cannot be null");
-
         String fieldJson = inputMap.get("fieldJson");
         if (fieldJson == null) throw new IllegalArgumentException("fieldJson cannot be null");
 
         @SuppressWarnings("unchecked") Map<String, String> fieldMap = (Map<String, String>) new Gson().fromJson(fieldJson, Map.class);
 
-        try (PDDocument pdfDocument = Loader.loadPDF(Base64.getDecoder().decode(inputForm))) {
+        byte[] pdf;
+
+        String inputForm = inputMap.get("inputForm");
+        if (inputForm != null) {
+            pdf = Base64.getDecoder().decode(inputForm);
+        } else {
+            String inputURL = inputMap.get("inputURL");
+            if (inputURL == null) {
+                throw new IllegalArgumentException("inputURL cannot be null if inputForm is null");
+            }
+            try {
+                URL url = new URL(inputURL);
+                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+                    try (InputStream is = url.openStream()) {
+                        int length;
+                        byte[] buffer = new byte[1024];// buffer for portion of data from connection
+                        while ((length = is.read(buffer)) > -1) {
+                            baos.write(buffer, 0, length);
+                        }
+                    }
+                    pdf = baos.toByteArray();
+                }
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        }
+
+        return setFieldsInPDF(pdf, fieldMap);
+    }
+
+    private static String setFieldsInPDF(byte[] pdf, Map<String, String> fieldMap) {
+        try (PDDocument pdfDocument = Loader.loadPDF(pdf)) {
             // get the document catalog
             PDAcroForm acroForm = pdfDocument.getDocumentCatalog().getAcroForm();
 

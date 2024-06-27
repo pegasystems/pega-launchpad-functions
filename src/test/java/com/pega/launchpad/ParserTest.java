@@ -1,4 +1,4 @@
-package com.pega.lpst;
+package com.pega.launchpad;
 
 import org.junit.jupiter.api.Test;
 

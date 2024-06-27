@@ -170,6 +170,7 @@ To discover the actual fields names of a PDF file, there are a couple of options
 - Function handler: com.pega.lpst.PDF::setFields
 - Input parameters:
   - **inputForm (Text)**: Base64-encoded PDF document that has form elements.
+  - **inputURL (Text)**: If inputForm is not provided, inputURL can be used to retrieve a PDF from any valid URL
   - **fieldJson (Text)**: Single json object that specifies the fields and values to set. Example for the sample PDF: ```{"fieldsContainer.nestedSampleField":"Value for nestedSampleField","sampleField":"Value for sampleField"}```
 - Output parameters:
   - **Type**: Text: The base64-encoded PDF with the specified fields set to the specified value
