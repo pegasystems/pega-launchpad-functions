@@ -1,7 +1,10 @@
 package com.pega.launchpad;
 
 import com.google.gson.Gson;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.apache.pdfbox.Loader;
+import org.apache.pdfbox.pdfwriter.compress.CompressParameters;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.interactive.form.PDAcroForm;
 import org.apache.pdfbox.pdmodel.interactive.form.PDCheckBox;
@@ -37,16 +40,16 @@ public class PDF {
         }
         try {
             URL url = new URL(inputURL);
-            try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-                try (InputStream is = url.openStream()) {
-                    int length;
-                    byte[] buffer = new byte[1024];// buffer for portion of data from connection
-                    while ((length = is.read(buffer)) > -1) {
-                        baos.write(buffer, 0, length);
-                    }
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            try (BufferedInputStream bis = new BufferedInputStream(url.openStream())) {
+                int length;
+                final byte[] buffer = new byte[8192];// buffer for portion of data from connection
+
+                while ((length = bis.read(buffer, 0, 8192)) > -1) {
+                    baos.write(buffer, 0, length);
                 }
-                pdf = baos.toByteArray();
             }
+            pdf = baos.toByteArray();
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
@@ -87,22 +90,26 @@ public class PDF {
                 for (String fieldKey : fieldMap.keySet()) {
                     String value = fieldMap.get(fieldKey);
                     PDField field = acroForm.getField(fieldKey);
-                    if (field instanceof PDCheckBox) {
-                        @SuppressWarnings("all") PDCheckBox checkboxField = (PDCheckBox)field;
-                        if (Boolean.parseBoolean(value)) {
-                            checkboxField.check();
+                    if (field != null) {
+                        if (field instanceof PDCheckBox) {
+                            @SuppressWarnings("all") PDCheckBox checkboxField = (PDCheckBox) field;
+                            if (Boolean.parseBoolean(value)) {
+                                checkboxField.check();
+                            } else {
+                                checkboxField.unCheck();
+                            }
                         } else {
-                            checkboxField.unCheck();
+                            field.setValue(value);
                         }
-                    } else {
-                        field.setValue(value);
                     }
                 }
             }
 
             // Save and close the filled out form.
-            try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-                pdfDocument.save(baos);
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            try (BufferedOutputStream bos = new BufferedOutputStream(baos)) {
+                pdfDocument.save(bos);
+                bos.close();
                 return Base64.getEncoder().encodeToString(baos.toByteArray());
             }
 
