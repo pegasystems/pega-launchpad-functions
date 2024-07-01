@@ -5,6 +5,7 @@
 This repository contains some sample code and configuration to learn how to create your own [functions](https://docs.pega.com/bundle/launchpad/page/platform/launchpad/creating-custom-functions.html) in Pega Launchpad. Use as examples or starter code for your own functions as needed.
 
 # Table of Contents
+
 <!-- TOC -->
 * [Overview](#overview)
 * [Table of Contents](#table-of-contents)
@@ -17,7 +18,8 @@ This repository contains some sample code and configuration to learn how to crea
   * [Text To List: Parses a delimited string into a List of cases](#text-to-list-parses-a-delimited-string-into-a-list-of-cases)
   * [CSV To List: Parses a CSV file content into a List of cases](#csv-to-list-parses-a-csv-file-content-into-a-list-of-cases)
 * [PDF examples](#pdf-examples)
-  * [Set fields in form and generate filled-in PDF](#set-fields-in-form-and-generate-filled-in-pdf)
+  * [Set fields in PDF file (base64) and generate filled-in PDF](#set-fields-in-pdf-file-base64-and-generate-filled-in-pdf)
+  * [Set fields in PDF file (URL) and generate filled-in PDF](#set-fields-in-pdf-file-url-and-generate-filled-in-pdf)
 * [Text examples](#text-examples)
   * [Regular Expression: evaluate text against a regex](#regular-expression-evaluate-text-against-a-regex)
   * [Format a java string with substitution values](#format-a-java-string-with-substitution-values)
