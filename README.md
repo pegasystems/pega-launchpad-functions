@@ -31,9 +31,9 @@ This repository contains some sample code and configuration to learn how to crea
 
 # Obtaining a JAR to upload into a Function rule
 
-You can download the latest JAR releases for each module from the [project release page](https://github.com/miratim/PegaLPSTTools/releases), or you can generate the necessary JAR file (including dependencies) for uploading into a Pega Launchpad Function rule, run this command:
+You can download the latest JAR releases for each module from the [project release page](https://github.com/miratim/PegaLPSTTools/releases), or you can generate the necessary JAR file (including dependencies) for uploading into a Pega Launchpad Function rule by running this command in your local workspace:
 
 ```gradlew build```
 
-This will create/update the ```pega-launchpad-functions-*.jar``` files in the various modules, under their ```build/libs``` directory.
+This will create/update the ```module-vX.Y.Z-SNAPSHOT.jar``` files in the various modules, under their ```build/libs``` directory.
 
