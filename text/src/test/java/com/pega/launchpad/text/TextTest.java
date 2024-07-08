@@ -1,4 +1,4 @@
-package com.pega.launchpad;
+package com.pega.launchpad.text;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
