@@ -22,10 +22,12 @@ This repository contains some sample code and configuration to learn how to crea
 
 # Modules
 
-1. Base64 functions: [base64](base64/README.md)
-2. Parsing functions: [parser](parser/README.md)
-3. PDF functions: [pdf](pdf/README.md)
-4. Text functions: [text](text/README.md)
+| Name | Description | Latest JAR file |
+| ----------- | -- | ----------------|
+| [base64](base64/README.md) | Encoding/decoding base64 strings | [jar](https://github.com/miratim/PegaLPSTTools/releases/download/v0.1.6/base64-0.1.6-SNAPSHOT.jar) |
+| [parser](parser/README.md) | CSV and JSON parsing | [jar](https://github.com/miratim/PegaLPSTTools/releases/download/v0.1.6/parser-0.1.6-SNAPSHOT.jar) | 
+| [pdf](pdf/README.md) | PDF form filler | [jar](https://github.com/miratim/PegaLPSTTools/releases/download/v0.1.6/pdf-0.1.6-SNAPSHOT.jar) | 
+| [text](text/README.md) | string utilities | [jar](https://github.com/miratim/PegaLPSTTools/releases/download/v0.1.6/text-0.1.6-SNAPSHOT.jar) | 
 
 # Obtaining a JAR to upload into a Function rule
 
