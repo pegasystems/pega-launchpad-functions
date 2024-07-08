@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "com.pega.launchpad.text"
-version = "0.1.4-SNAPSHOT"
+version = "0.1.6-SNAPSHOT"
 
 repositories {
     mavenCentral()
