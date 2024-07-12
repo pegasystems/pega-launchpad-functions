@@ -66,3 +66,63 @@ This method takes the content of a CSV file (headers required), and returns a li
 - **Target field**: .CustomerCity
 - **Source field**: state(STRING)
 - **Target field**: .CustomerState
+
+## json: deserialize a json string with a single top-level object
+
+This method takes a json string, containing a single top-level object, and returns a TreeMap. The returned map can be processed by a JSON Transform to map values back into your application data structure.
+
+### Java code info
+- **Class**: [com.pega.launchpad.parser.Parser](https://github.com/miratim/PegaLPSTTools/blob/master/src/main/java/com/pega/launchpad/parser/Parser.java)
+- **Method**: fromJsonObject
+
+### Function rule configuration
+
+- Function handler: com.pega.launchpad.parser.Parser::fromJsonObject
+- Input parameters:
+  - **json (Text)**: The json string to evaluate
+- Output parameters:
+  - **Type**: *[choose the application case type you want to map data into]*
+  - **Cardinality**: Single
+  - Note: JSON Transform rule will be required
+
+### JSON Transform rule configuration
+
+1. Create JSON Transform rule with:
+- **Name**: the same name as your function (not required, just easier for author)
+- **Purpose**: Deserialize (JSON to Pega Object)
+- **Library**: Same as the case type chosen for the Function rule's output parameter **Type**
+- **Top level structure**: Single record
+2. Add source JSON data:
+- **System name**: any identifier you want
+- **JSON sample**: ```(example json structure from your use case)```
+3. Map your data from the JSON structure into your application object structure
+
+## json deserialize a json string with a top-level array of objects
+
+This method takes a json string, containing a top-level array of objects, and returns a List of TreeMap objects. The returned maps can be processed by a JSON Transform to map values back into your application data structure.
+
+### Java code info
+- **Class**: [com.pega.launchpad.parser.Parser](https://github.com/miratim/PegaLPSTTools/blob/master/src/main/java/com/pega/launchpad/parser/Parser.java)
+- **Method**: fromJsonArray
+
+### Function rule configuration
+
+- Function handler: com.pega.launchpad.parser.Parser::fromJsonArray
+- Input parameters:
+  - **json (Text)**: The json string to evaluate
+- Output parameters:
+  - **Type**: *[choose the application case type you want to map data into]*
+  - **Cardinality**: Multiple
+  - Note: JSON Transform rule will be required
+
+### JSON Transform rule configuration
+
+1. Create JSON Transform rule with:
+- **Name**: the same name as your function (not required, just easier for author)
+- **Purpose**: Deserialize (JSON to Pega Object)
+- **Library**: Same as the case type chosen for the Function rule's output parameter **Type**
+- **Top level structure**: Multiple records
+2. Add source JSON data:
+- **System name**: any identifier you want
+- **JSON sample**: ```(example json structure from your use case)```
+3. Map your data from the JSON structure into a multi-object field in your application object structure  
