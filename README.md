@@ -25,6 +25,7 @@ This repository contains some sample code and configuration to learn how to crea
 | Name | Description | Latest JAR file |
 | ----------- | -- | ----------------|
 | [base64](base64/README.md) | Encoding/decoding base64 strings | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.6/base64-0.1.6-SNAPSHOT.jar) |
+| [net](net/README.md) | REST and HTTP utilities | [net](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.6/net-0.1.6-SNAPSHOT.jar) | 
 | [parser](parser/README.md) | CSV and JSON parsing | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.6/parser-0.1.6-SNAPSHOT.jar) | 
 | [pdf](pdf/README.md) | PDF form filler | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.6/pdf-0.1.6-SNAPSHOT.jar) | 
 | [text](text/README.md) | string utilities | [jar](https://github.com/pegasystems/pega-launchpad-functions/download/v0.1.6/text-0.1.6-SNAPSHOT.jar) | 
