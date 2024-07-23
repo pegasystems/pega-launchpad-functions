@@ -39,18 +39,4 @@ Send an HTTP request, and map the response body and headers into a Map that can 
 3. Map your data:
 - For headers, map values from **responseHeaders** embedded values to your case as needed
 - For the response body itself, map values from **responseBody** embedded objects to your case
-
-## encode a string with base64
-
-This method takes a plain string and encodes it in base64.
-
-### Java code info
-- **Class**: [com.pega.launchpad.base64.Base64](src/main/java/com/pega/launchpad/base64/Base64.java)
-- Method: encode
-
-### Function rule configuration
-- Function handler: com.pega.launchpad.base64.Base64::encode
-- Input parameters:
-  - **text (Text)**
-- Output parameters:
-  - **Type**: Text
+  
