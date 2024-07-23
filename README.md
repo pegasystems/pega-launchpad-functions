@@ -24,14 +24,14 @@ This repository contains some sample code and configuration to learn how to crea
 
 | Name | Description | Latest JAR file |
 | ----------- | -- | ----------------|
-| [base64](base64/README.md) | Encoding/decoding base64 strings | [jar](https://github.com/miratim/PegaLPSTTools/releases/download/v0.1.6/base64-0.1.6-SNAPSHOT.jar) |
-| [parser](parser/README.md) | CSV and JSON parsing | [jar](https://github.com/miratim/PegaLPSTTools/releases/download/v0.1.6/parser-0.1.6-SNAPSHOT.jar) | 
-| [pdf](pdf/README.md) | PDF form filler | [jar](https://github.com/miratim/PegaLPSTTools/releases/download/v0.1.6/pdf-0.1.6-SNAPSHOT.jar) | 
-| [text](text/README.md) | string utilities | [jar](https://github.com/miratim/PegaLPSTTools/releases/download/v0.1.6/text-0.1.6-SNAPSHOT.jar) | 
+| [base64](base64/README.md) | Encoding/decoding base64 strings | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.6/base64-0.1.6-SNAPSHOT.jar) |
+| [parser](parser/README.md) | CSV and JSON parsing | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.6/parser-0.1.6-SNAPSHOT.jar) | 
+| [pdf](pdf/README.md) | PDF form filler | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.6/pdf-0.1.6-SNAPSHOT.jar) | 
+| [text](text/README.md) | string utilities | [jar](https://github.com/pegasystems/pega-launchpad-functions/download/v0.1.6/text-0.1.6-SNAPSHOT.jar) | 
 
 # Obtaining a JAR to upload into a Function rule
 
-You can download the latest JAR releases for each module from the [project release page](https://github.com/miratim/PegaLPSTTools/releases), or you can generate the necessary JAR file (including dependencies) for uploading into a Pega Launchpad Function rule by running this command in your local workspace:
+You can download the latest JAR releases for each module from the [project release page](https://github.com/pegasystems/pega-launchpad-functions/releases), or you can generate the necessary JAR file (including dependencies) for uploading into a Pega Launchpad Function rule by running this command in your local workspace:
 
 ```gradlew build```
 
