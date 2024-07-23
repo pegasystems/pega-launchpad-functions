@@ -1,4 +1,11 @@
-# Text examples
+# Text functions
+
+<!-- TOC -->
+* [Text functions](#text-functions)
+  * [Regular Expression: evaluate text against a regex](#regular-expression-evaluate-text-against-a-regex)
+  * [Format a java string with substitution values](#format-a-java-string-with-substitution-values)
+<!-- TOC -->
+
 
 ## Regular Expression: evaluate text against a regex
 
