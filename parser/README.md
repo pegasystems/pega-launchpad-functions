@@ -1,4 +1,12 @@
-# Parser examples
+# Parser functions
+
+<!-- TOC -->
+* [Parser functions](#parser-functions)
+  * [Text To List: Parses a delimited string into a List of cases](#text-to-list-parses-a-delimited-string-into-a-list-of-cases)
+  * [CSV To List: Parses a CSV file content into a List of cases](#csv-to-list-parses-a-csv-file-content-into-a-list-of-cases)
+  * [json: deserialize a json string with a single top-level object](#json-deserialize-a-json-string-with-a-single-top-level-object)
+  * [json deserialize a json string with a top-level array of objects](#json-deserialize-a-json-string-with-a-top-level-array-of-objects)
+<!-- TOC -->
 
 ## Text To List: Parses a delimited string into a List of cases
 

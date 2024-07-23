@@ -1,4 +1,11 @@
-# PDF examples
+# PDF functions
+
+<!-- TOC -->
+* [PDF functions](#pdf-functions)
+  * [Set fields in PDF file (base64) and generate filled-in PDF](#set-fields-in-pdf-file-base64-and-generate-filled-in-pdf)
+  * [Set fields in PDF file (URL) and generate filled-in PDF](#set-fields-in-pdf-file-url-and-generate-filled-in-pdf)
+<!-- TOC -->
+
 
 ## Set fields in PDF file (base64) and generate filled-in PDF
 

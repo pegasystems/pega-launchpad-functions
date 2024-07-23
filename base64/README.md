@@ -1,4 +1,10 @@
-# Base64 examples
+# Base64 functions
+
+<!-- TOC -->
+* [Base64 functions](#base64-examples)
+  * [Decode a base64 string](#decode-a-base64-string)
+  * [encode a string with base64](#encode-a-string-with-base64)
+<!-- TOC -->
 
 ## Decode a base64 string
 
