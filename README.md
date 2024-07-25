@@ -18,17 +18,17 @@ This repository contains some sample code and configuration to learn how to crea
 
 - Pega Launchpad [overview](https://launchpad.io)
 - Creating [Function](https://docs.pega.com/bundle/launchpad/page/platform/launchpad/creating-custom-functions.html) rules
-- Dependencies: [Apache Commons CSV](https://commons.apache.org/proper/commons-csv/), [Google Gson](https://github.com/google/gson), [Apache PDFBox](https://pdfbox.apache.org/)
 
 # Modules
 
-| Name | Description | Latest JAR file |
-| ----------- | -- | ----------------|
+| Name                       | Description                      | Latest JAR file                                                                                                   |
+|----------------------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------|
 | [base64](base64/README.md) | Encoding/decoding base64 strings | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.6/base64-0.1.6-SNAPSHOT.jar) |
-| [net](net/README.md) | REST and HTTP utilities | [net](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.6/net-0.1.6-SNAPSHOT.jar) | 
-| [parser](parser/README.md) | CSV and JSON parsing | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.6/parser-0.1.6-SNAPSHOT.jar) | 
-| [pdf](pdf/README.md) | PDF form filler | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.6/pdf-0.1.6-SNAPSHOT.jar) | 
-| [text](text/README.md) | string utilities | [jar](https://github.com/pegasystems/pega-launchpad-functions/download/v0.1.6/text-0.1.6-SNAPSHOT.jar) | 
+| [email](email/README.md)   | email utilities                  | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.6/email-0.1.6-SNAPSHOT.jar)  | 
+| [net](net/README.md)       | REST and HTTP utilities          | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.6/net-0.1.6-SNAPSHOT.jar)    | 
+| [parser](parser/README.md) | CSV and JSON parsing             | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.6/parser-0.1.6-SNAPSHOT.jar) | 
+| [pdf](pdf/README.md)       | PDF form filler                  | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.6/pdf-0.1.6-SNAPSHOT.jar)    | 
+| [text](text/README.md)     | string utilities                 | [jar](https://github.com/pegasystems/pega-launchpad-functions/download/v0.1.6/text-0.1.6-SNAPSHOT.jar)            | 
 
 # Obtaining a JAR to upload into a Function rule
 
