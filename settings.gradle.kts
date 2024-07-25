@@ -1,2 +1,2 @@
 rootProject.name = "pega-launchpad-functions"
-include("base64", "parser", "pdf", "text", "net")
+include("base64", "email", "parser", "pdf", "text", "net")
