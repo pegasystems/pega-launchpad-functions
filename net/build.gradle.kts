@@ -17,6 +17,7 @@ dependencies {
     implementation("com.fasterxml.jackson.core:jackson-core:2.17.1")
     implementation("com.fasterxml.jackson.core:jackson-databind:2.17.1")
     implementation("com.fasterxml.jackson.core:jackson-annotations:2.17.1")
+    implementation("com.google.code.gson:gson:2.11.0")
     compileOnly("org.jetbrains:annotations:24.1.0")
 }
 
