@@ -14,7 +14,7 @@ class HttpRequestWithMappedResponseHeadersTest {
         inputMap.put("url", "https://my.api.mockaroo.com/CustomerRegistration?key=5828ac60");
         inputMap.put("body", "{ \"first_name\":\"Sibley\", \"last_name\":\"Berthod\", \"address\":\"513 Talisman Crossing\", \"city\":\"Mirões\", \"state\":\"Aveiro\", \"country\":\"Portugal\", \"email\":\"sberthod0@merriam-webster.com\" }");
         Response r = HttpRequestWithMappedResponseHeaders.send(inputMap);
-        System.out.println(r);
+        System.out.println("send: " + r);
     }
 
     @Test
@@ -24,7 +24,7 @@ class HttpRequestWithMappedResponseHeadersTest {
         inputMap.put("url", "https://my.api.mockaroo.com/EmptyResponseBody?key=5828ac60&__method=POST");
         inputMap.put("body", "{}");
         Response r = HttpRequestWithMappedResponseHeaders.send(inputMap);
-        System.out.println(r);
+        System.out.println("sendNoResponseBody: " + r);
     }
 
     @Test
@@ -34,7 +34,6 @@ class HttpRequestWithMappedResponseHeadersTest {
         inputMap.put("url", "https://my.api.mockaroo.com/Company?key=5828ac60");
         inputMap.put("body", "{}");
         Response r = HttpRequestWithMappedResponseHeaders.send(inputMap);
-        System.out.println(r);
+        System.out.println("sendWithGet:" + r);
     }
-
 }

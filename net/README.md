@@ -15,7 +15,7 @@ Send an HTTP request, and map the response body and headers into a Map that can 
 
 ### Function rule configuration
 
-- Function handler: com.pega.launchpad.net.HttpRequestWithMappedResponseHeader::send
+- Function handler: com.pega.launchpad.net.HttpRequestWithMappedResponseHeaders::send
 - Input parameters:
   - **url (Text)** - The URL of the REST service to call
   - **method (Text)** - The HTTP method to use: POST, PUT, PATCH, DELETE
@@ -35,7 +35,7 @@ Send an HTTP request, and map the response body and headers into a Map that can 
 - **Top level structure**: Same as the cardinality chosen for your Function Rule's output parameter
 2. Add example JSON response:
 - **System name**: any identifier you want
-- **JSON sample**: ```{"responseHeaders":..json object with headers..},{"responseBody":..json object/array for the expected JSON response}```
+- **JSON sample**: ```{"responseHeaders":..json object with name=value json elements..},{"responseBody":..json object/array for the expected JSON response}```
 3. Map your data:
 - For headers, map values from **responseHeaders** embedded values to your case as needed
 - For the response body itself, map values from **responseBody** list or embedded object to your case
