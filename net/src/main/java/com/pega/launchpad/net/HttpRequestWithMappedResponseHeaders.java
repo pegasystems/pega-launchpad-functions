@@ -3,6 +3,7 @@ package com.pega.launchpad.net;
 import com.fasterxml.jackson.core.StreamReadFeature;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.*;
@@ -13,6 +14,7 @@ import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -93,10 +95,15 @@ public class HttpRequestWithMappedResponseHeaders {
                     CFresponse.responseHeaders.put(header.getName(), header.getValue());
                 }
 
-                TypeReference<Map<?, ?>> typeRef = new TypeReference<>() {};
                 byte[] responseBody = entity1.getContent().readAllBytes();
                 if (responseBody == null || responseBody.length == 0) responseBody = "{}".getBytes();
-                CFresponse.responseBody = mapper.readValue(responseBody, typeRef);
+
+                String responseBodyString = new String(responseBody);
+                if (responseBodyString.trim().startsWith("[")) {
+                    CFresponse.responseBody = new Gson().fromJson(responseBodyString, List.class);
+                } else {
+                    CFresponse.responseBody = new Gson().fromJson(responseBodyString, Map.class);
+                }
 
 
                 EntityUtils.consume(entity1);
