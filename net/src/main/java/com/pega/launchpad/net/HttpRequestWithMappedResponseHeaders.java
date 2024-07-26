@@ -94,7 +94,10 @@ public class HttpRequestWithMappedResponseHeaders {
                 }
 
                 TypeReference<Map<?, ?>> typeRef = new TypeReference<>() {};
-                CFresponse.responseBody = mapper.readValue(entity1.getContent().readAllBytes(), typeRef);
+                byte[] responseBody = entity1.getContent().readAllBytes();
+                if (responseBody == null || responseBody.length == 0) responseBody = "{}".getBytes();
+                CFresponse.responseBody = mapper.readValue(responseBody, typeRef);
+
 
                 EntityUtils.consume(entity1);
             }
