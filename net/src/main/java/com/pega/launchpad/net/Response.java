@@ -13,6 +13,6 @@ public class Response {
     public Response(){}
 
     public String toString() {
-        return  "Headers: " + new Gson().toJson(responseHeaders) + "\r\n" + "Body: " + new Gson().toJson(responseBody);
+        return new Gson().toJson(this);
     }
 }

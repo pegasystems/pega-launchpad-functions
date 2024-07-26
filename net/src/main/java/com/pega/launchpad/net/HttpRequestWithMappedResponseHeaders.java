@@ -24,7 +24,7 @@ public class HttpRequestWithMappedResponseHeaders {
 
     /**
      * Send an HTTP request, and map the response body and headers into a Map that can be processed by a JSON transform
-     * @param inputMap Expects a key 'url', a key 'method' with one of these values: 'post', 'put', 'patch', 'delete', and a key 'body' with the JSON for the request body. Optionally you can provide http headers as json name-value pairs, with key 'headers'.
+     * @param inputMap Expects a key 'url', a key 'method' with one of these values: 'get', 'post', 'put', 'patch', 'delete', and a key 'body' with the JSON for the request body. Optionally you can provide http headers as json name-value pairs, with key 'headers'.
      * @return Response a POJO containing the responseBody and responseHeaders as a map
      * @throws IOException error with http request
      */
