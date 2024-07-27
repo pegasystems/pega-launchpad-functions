@@ -18,7 +18,7 @@ Send an HTTP request, and map the response body and headers into a Map that can 
 - Function handler: com.pega.launchpad.net.HttpRequestWithMappedResponseHeaders::send
 - Input parameters:
   - **url (Text)** - The URL of the REST service to call
-  - **method (Text)** - The HTTP method to use: POST, PUT, PATCH, DELETE
+  - **method (Text)** - The HTTP method to use: GET, POST, PUT, PATCH, DELETE
   - **body (Text)** - The JSON string of the request body to send
   - **headers (Text)** - Optional, a JSON object containing key-value pairs, each will be added as headers to the HTTP Request
 - Output parameters:
