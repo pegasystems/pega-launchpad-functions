@@ -36,6 +36,24 @@ Send an HTTP request, and map the response body and headers into a Map that can 
 2. Add example JSON response:
 - **System name**: any identifier you want
 - **JSON sample**: ```{"responseHeaders":..json object with name=value json elements..},{"responseBody":..json object/array for the expected JSON response}```
+- For example, a GET call to https://api.lyrics.ovh/v1/beatles/Yesterday would need to use a JSON sample like this to properly define the JSON transform:
+```
+{
+   "responseBody":{
+      "lyrics":"Yesterday, \nall my troubles seemed so far away,\r\nNow it looks as though they\u0027re here to stay,\r\nOh I believe in yesterday.\r\nSuddenly, \n\nI\u0027m not half the man I used to be,\n\nThere\u0027s a shadow hanging over me.\n\nOh yesterday came suddenly.\n\n\n\nWhy she had to go? \n\nI don\u0027t know she woldn\u0027t say.\n\nI said something wrong, \n\nnow I long for yesterday.\n\n\n\nYesterday, \n\nlove was such an easy game to play,\n\nNow I need a place to hide away,\n\nOh I believe in yesterday.\n\n\n\nWhy she had to go? \n\nI don\u0027t know she woldn\u0027t say.\n\nI said something wrong, \n\nnow I long for yesterday.\n\n\n\nYesterday, \n\nlove was such an easy game to play,\n\nNow I need a place to hide away,\n\nOh I believe in yesterday.\n\n\n\n\n\n(Thanks to Beatles4ever for correcting these lyrics)"
+   },
+   "responseHeaders":{
+      "Server":"nginx/1.18.0",
+      "Access-Control-Allow-Origin":"*",
+      "ETag":"W/\"325-2IYNwg6VyIduC0mDNRUyapNrfN0\"",
+      "Connection":"keep-alive",
+      "Content-Length":"805",
+      "Date":"Sat, 27 Jul 2024 01:18:19 GMT",
+      "Content-Type":"application/json; charset\u003dutf-8",
+      "X-Powered-By":"Express"
+   }
+}
+```
 3. Map your data:
 - For headers, map values from **responseHeaders** embedded values to your case as needed
 - For the response body itself, map values from **responseBody** list or embedded object to your case
