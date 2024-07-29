@@ -88,6 +88,14 @@ public class HttpRequestWithMappedResponseHeaders {
             try (CloseableHttpResponse response1 = httpClient.execute(request)) {
                 HttpEntity entity1 = response1.getEntity();
 
+                // Get the response status
+                CFresponse.responseStatus = new HashMap<>();
+                CFresponse.responseStatus.put("statusCode", Integer.toString(response1.getStatusLine().getStatusCode()));
+                CFresponse.responseStatus.put("reason", response1.getStatusLine().getReasonPhrase());
+                CFresponse.responseStatus.put("protocolName", response1.getStatusLine().getProtocolVersion().getProtocol());
+                CFresponse.responseStatus.put("protocolMajorVersion", Integer.toString(response1.getStatusLine().getProtocolVersion().getMajor()));
+                CFresponse.responseStatus.put("protocolMinorVersion", Integer.toString(response1.getStatusLine().getProtocolVersion().getMajor()));
+
                 // Get response headers out of response, then construct a map out of them
                 Header[] allHeaders = response1.getAllHeaders();
                 CFresponse.responseHeaders = new HashMap<>();
