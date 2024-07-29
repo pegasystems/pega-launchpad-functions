@@ -46,4 +46,15 @@ class HttpRequestWithMappedResponseHeadersTest {
         Response r = HttpRequestWithMappedResponseHeaders.send(inputMap);
         System.out.println("getLyrics:" + r);
     }
+
+    @Test
+    void getLyricsBadResponse() throws Exception {
+        Map<String, String> inputMap = new HashMap<>();
+        inputMap.put("method", "get");
+        inputMap.put("url", "https://api.lyrics.ovh/v1/beatles/Tomorrow");
+        inputMap.put("body", "{}");
+        Response r = HttpRequestWithMappedResponseHeaders.send(inputMap);
+        System.out.println("getLyricsBadResponse:" + r);
+    }
+
 }
