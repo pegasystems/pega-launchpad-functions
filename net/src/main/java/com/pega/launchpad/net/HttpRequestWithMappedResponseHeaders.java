@@ -1,11 +1,9 @@
 package com.pega.launchpad.net;
 
-import com.fasterxml.jackson.core.StreamReadFeature;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.*;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -30,9 +28,6 @@ public class HttpRequestWithMappedResponseHeaders {
      */
     public static Response send(Map<String, String> inputMap) throws IOException {
         Response CFresponse = new Response();
-
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.enable(StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION.mappedFeature());
 
         // Default URL is a test URL, intended to be used with GET
         String url = inputMap.get("url");
@@ -59,13 +54,15 @@ public class HttpRequestWithMappedResponseHeaders {
                 break;
         }
 
+        // Set request timeout
+        String timeout = inputMap.getOrDefault("connectionTimeout", "30000");
+        request.setConfig(RequestConfig.copy(RequestConfig.DEFAULT).setConnectTimeout(Integer.parseInt(timeout)).build());
+
         // Set request headers
         String reqHeaders = inputMap.getOrDefault("headers", "");
         if (!reqHeaders.isEmpty()) {
             // Manually parse JSON string key-value pairs, then add each header name + value to the request
-            TypeReference<HashMap<String, String>> typeRef = new TypeReference<>() {
-            };
-            Map<String, String> map = mapper.readValue(reqHeaders, typeRef);
+            @SuppressWarnings("unchecked") Map<String, String> map = new Gson().fromJson(reqHeaders, HashMap.class);
             for (Map.Entry<String, String> entry : map.entrySet()) {
                 request.setHeader(entry.getKey(), entry.getValue());
             }
@@ -89,6 +86,7 @@ public class HttpRequestWithMappedResponseHeaders {
                 HttpEntity entity1 = response1.getEntity();
 
                 // Get the response status
+
                 CFresponse.responseStatus = new HashMap<>();
                 CFresponse.responseStatus.put("statusCode", Integer.toString(response1.getStatusLine().getStatusCode()));
                 CFresponse.responseStatus.put("reason", response1.getStatusLine().getReasonPhrase());
@@ -107,7 +105,7 @@ public class HttpRequestWithMappedResponseHeaders {
                 if (responseBody == null || responseBody.length == 0) responseBody = "{}".getBytes();
 
                 String responseBodyString = new String(responseBody);
-                if (responseBodyString.trim().startsWith("[")) {
+                if (responseBodyString.strip().startsWith("[")) {
                     CFresponse.responseBody = new Gson().fromJson(responseBodyString, List.class);
                 } else {
                     CFresponse.responseBody = new Gson().fromJson(responseBodyString, Map.class);
