@@ -11,9 +11,9 @@ repositories {
 }
 
 dependencies {
-    testImplementation(platform("org.junit:junit-bom:5.10.2"))
+    testImplementation(platform("org.junit:junit-bom:5.11.3"))
     testImplementation("org.junit.jupiter:junit-jupiter")
-    implementation("org.apache.httpcomponents:httpclient:4.5.14")
+    implementation("org.apache.httpcomponents.client5:httpclient5:5.4")
     implementation("com.google.code.gson:gson:2.11.0")
     compileOnly("org.jetbrains:annotations:24.1.0")
 }
