@@ -1,14 +1,14 @@
 package com.pega.launchpad.net;
 
 import com.google.gson.Gson;
-import org.apache.http.Header;
-import org.apache.http.HttpEntity;
-import org.apache.http.client.config.RequestConfig;
-import org.apache.http.client.methods.*;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.util.EntityUtils;
+import org.apache.hc.client5.http.classic.methods.*;
+import org.apache.hc.client5.http.config.RequestConfig;
+import org.apache.hc.client5.http.entity.EntityBuilder;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
+import org.apache.hc.client5.http.impl.classic.HttpClients;
+import org.apache.hc.core5.http.Header;
+import org.apache.hc.core5.http.HttpEntity;
+import org.apache.hc.core5.util.Timeout;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -27,7 +27,6 @@ public class HttpRequestWithMappedResponseHeaders {
      * @throws IOException error with http request
      */
     public static Response send(Map<String, String> inputMap) throws IOException {
-        Response CFresponse = new Response();
 
         // Default URL is a test URL, intended to be used with GET
         String url = inputMap.get("url");
@@ -35,7 +34,7 @@ public class HttpRequestWithMappedResponseHeaders {
         if (url == null) throw new IllegalArgumentException("url must be specified");
 
         // Default method is GET
-        HttpRequestBase request;
+        HttpUriRequestBase request;
         switch (inputMap.getOrDefault("method", "").strip().toLowerCase()) {
             case "post":
                 request = new HttpPost(url);
@@ -56,7 +55,8 @@ public class HttpRequestWithMappedResponseHeaders {
 
         // Set request timeout
         String timeout = inputMap.getOrDefault("connectionTimeout", "30000");
-        request.setConfig(RequestConfig.copy(RequestConfig.DEFAULT).setConnectTimeout(Integer.parseInt(timeout)).build());
+        request.
+                setConfig(RequestConfig.copy(RequestConfig.DEFAULT).setConnectionRequestTimeout(Timeout.ofMilliseconds(Integer.parseInt(timeout))).build());
 
         // Set request headers
         String reqHeaders = inputMap.getOrDefault("headers", "");
@@ -69,53 +69,52 @@ public class HttpRequestWithMappedResponseHeaders {
         }
 
         // Set request body - only necessary for POST/PUT/PATCH, if provided
-        String reqBody = inputMap.getOrDefault("body", "");
-        if (!reqBody.isEmpty()) {
-            if (request instanceof HttpPost) {
-                ((HttpPost) request).setEntity(new StringEntity(reqBody));
-            } else if (request instanceof HttpPut) {
-                ((HttpPut) request).setEntity(new StringEntity(reqBody));
-            } else if (request instanceof HttpPatch) {
-                ((HttpPatch) request).setEntity(new StringEntity(reqBody));
+        if (!(request instanceof HttpGet)) {
+            String reqBody = inputMap.getOrDefault("body", "");
+            if (!reqBody.isEmpty()) {
+                HttpEntity entity = EntityBuilder.create().setText(reqBody).build();
+                request.setEntity(entity);
             }
         }
 
         // Execute the request
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
-            try (CloseableHttpResponse response1 = httpClient.execute(request)) {
-                HttpEntity entity1 = response1.getEntity();
+            return httpClient.execute(request, response -> {
+                Response localResponse = new Response();
 
-                // Get the response status
+                try (HttpEntity entity1 = response.getEntity()) {
+                    // Get the response status
 
-                CFresponse.responseStatus = new HashMap<>();
-                CFresponse.responseStatus.put("statusCode", Integer.toString(response1.getStatusLine().getStatusCode()));
-                CFresponse.responseStatus.put("reason", response1.getStatusLine().getReasonPhrase());
-                CFresponse.responseStatus.put("protocolName", response1.getStatusLine().getProtocolVersion().getProtocol());
-                CFresponse.responseStatus.put("protocolMajorVersion", Integer.toString(response1.getStatusLine().getProtocolVersion().getMajor()));
-                CFresponse.responseStatus.put("protocolMinorVersion", Integer.toString(response1.getStatusLine().getProtocolVersion().getMajor()));
+                    localResponse.responseStatus = new HashMap<>();
+                    localResponse.responseStatus.put("statusCode", Integer.toString(response.getCode()));
+                    localResponse.responseStatus.put("reason", response.getReasonPhrase());
+                    localResponse.responseStatus.put("protocolName", response.getVersion().getProtocol());
+                    localResponse.responseStatus.put("protocolMajorVersion", Integer.toString(response.getVersion().getMajor()));
+                    localResponse.responseStatus.put("protocolMinorVersion", Integer.toString(response.getVersion().getMinor()));
 
-                // Get response headers out of response, then construct a map out of them
-                Header[] allHeaders = response1.getAllHeaders();
-                CFresponse.responseHeaders = new HashMap<>();
-                for (Header header : allHeaders) {
-                    CFresponse.responseHeaders.put(header.getName(), header.getValue());
+                    // Get response headers out of response, then construct a map out of them
+                    Header[] allHeaders = response.getHeaders();
+                    localResponse.responseHeaders = new HashMap<>();
+                    for (Header header : allHeaders) {
+                        localResponse.responseHeaders.put(header.getName(), header.getValue());
+                    }
+
+                    byte[] responseBody = entity1.getContent().readAllBytes();
+                    if (responseBody == null || responseBody.length == 0) {
+                        localResponse.responseBody = new Object();
+                    } else {
+                        String responseBodyString = new String(responseBody).strip();
+                        if (responseBodyString.startsWith("[")) {
+                            localResponse.responseBody = new Gson().fromJson(responseBodyString, List.class);
+                        } else if (responseBodyString.startsWith("{")){
+                            localResponse.responseBody = new Gson().fromJson(responseBodyString, Map.class);
+                        } else {
+                            localResponse.responseBody = new Object();
+                        }
+                    }
                 }
-
-                byte[] responseBody = entity1.getContent().readAllBytes();
-                if (responseBody == null || responseBody.length == 0) responseBody = "{}".getBytes();
-
-                String responseBodyString = new String(responseBody);
-                if (responseBodyString.strip().startsWith("[")) {
-                    CFresponse.responseBody = new Gson().fromJson(responseBodyString, List.class);
-                } else {
-                    CFresponse.responseBody = new Gson().fromJson(responseBodyString, Map.class);
-                }
-
-
-                EntityUtils.consume(entity1);
-            }
+                return localResponse;
+            });
         }
-
-        return CFresponse;
     }
 }
