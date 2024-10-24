@@ -42,8 +42,8 @@ This will create/update the ```module-vX.Y.Z-SNAPSHOT.jar``` files in the variou
 
 1. Clone this git project to your local filesystems: ```git clone https://github.com/pegasystems/pega-launchpad-functions.git```
 2. In IntelliJ, open this project from your local folder
-3. Configure Settings -> Build, Execution, Deployment -> Build Tools -> Gradle to use openjdk-22 (add it if you don't have it)
-4. Configure Project Settings -> Project -> to use openjdk-22, language level 17
+3. Configure Settings -> Build, Execution, Deployment -> Build Tools -> Gradle to use a jdk 11, like semeru-11-*. Add/download from there if needed
+4. Configure Project Settings -> Project -> to use semeru-11-*, language level 11
 
-To run gradle build scripts from command line, make sure you are using at least JDK 17. Check your path and JAVA_HOME settings, download new jdk if necessary.
+To run gradle build scripts from command line, make sure you are using at least JDK 11, but nothing higher than that. Check your path and JAVA_HOME settings, download new jdk if necessary.
 
