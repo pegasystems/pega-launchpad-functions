@@ -23,12 +23,12 @@ This repository contains some sample code and configuration to learn how to crea
 
 | Name                       | Description                      | Latest JAR file                                                                                                   |
 |----------------------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| [base64](base64/) | Encoding/decoding base64 strings | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.7/base64-0.1.7-SNAPSHOT.jar) |
-| [email](email/)   | email utilities                  | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.7/email-0.1.7-SNAPSHOT.jar)  | 
-| [net](net/)       | REST and HTTP utilities          | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.7/net-0.1.7-SNAPSHOT.jar)    | 
-| [parser](parser/) | CSV and JSON parsing             | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.7/parser-0.1.7-SNAPSHOT.jar) | 
-| [pdf](pdf/)       | PDF form filler                  | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.7/pdf-0.1.7-SNAPSHOT.jar)    | 
-| [text](text/)     | string utilities                 | [jar](https://github.com/pegasystems/pega-launchpad-functions/download/v0.1.7/text-0.1.7-SNAPSHOT.jar)            | 
+| [base64](base64/) | Encoding/decoding base64 strings | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.8/base64-0.1.8-SNAPSHOT.jar) |
+| [email](email/)   | email utilities                  | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.8/email-0.1.8-SNAPSHOT.jar)  | 
+| [net](net/)       | REST and HTTP utilities          | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.8/net-0.1.8-SNAPSHOT.jar)    | 
+| [parser](parser/) | CSV and JSON parsing             | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.8/parser-0.1.8-SNAPSHOT.jar) | 
+| [pdf](pdf/)       | PDF form filler                  | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.8/pdf-0.1.8-SNAPSHOT.jar)    | 
+| [text](text/)     | string utilities                 | [jar](https://github.com/pegasystems/pega-launchpad-functions/download/v0.1.8/text-0.1.8-SNAPSHOT.jar)            | 
 
 # Obtaining a JAR to upload into a Function rule
 
@@ -37,4 +37,13 @@ You can download the latest JAR releases for each module from the [project relea
 ```gradlew build```
 
 This will create/update the ```module-vX.Y.Z-SNAPSHOT.jar``` files in the various modules, under their ```build/libs``` directory.
+
+# Setting up IntellJ workspace for this project
+
+1. Clone this git project to your local filesystems: ```git clone https://github.com/pegasystems/pega-launchpad-functions.git```
+2. In IntelliJ, open this project from your local folder
+3. Configure Settings -> Build, Execution, Deployment -> Build Tools -> Gradle to use openjdk-22 (add it if you don't have it)
+4. Configure Project Settings -> Project -> to use openjdk-22, language level 17
+
+To run gradle build scripts from command line, make sure you are using at least JDK 17. Check your path and JAVA_HOME settings, download new jdk if necessary.
 
