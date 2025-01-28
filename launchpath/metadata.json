@@ -1,9 +1,9 @@
 [
   {
     "Name": "Civic Sync",
-    "Description": "Bring your town or city into the digital age with this all in one digital platform for operating your town or city.",
+    "Description": "We need rule references in LP Studio RAFAL!!!!!",
     "ID": "d0895a09-9812-4ab6-8f98-849c792d244d",
-    "Version": "0.10.0",
+    "Version": "0.12.0",
     "Path": "https://github.com/pegasystems/pega-launchpad-functions/blob/refs/heads/master/launchpath/SampleApplication.zip.dat"
   }
 ]
