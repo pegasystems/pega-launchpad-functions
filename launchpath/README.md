@@ -1,4 +1,4 @@
-# Fast Track Chrome Extension
+# LaunchPath Chrome Extension
 
 This extension is a prototype.  It is designed to swap out the URL to Civic Sync to a provider specific URL so that providers can reference a local reference application installed in their provider.
 
