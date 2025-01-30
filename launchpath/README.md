@@ -1,13 +1,5 @@
-# LaunchPath Chrome Extension
+# Learn Pega Launchpad™ with a sample application
 
-This extension is a prototype.  It is designed to swap out the URL to Civic Sync to a provider specific URL so that providers can reference a local reference application installed in their provider.
+Learn Pega Launchpad™ with a sample application is an interactive journey designed to help new developers without prior experience with Pega products build their first application in Pega Launchpad, and then deliver it to clients. This guide introduces key application building blocks, from creating processes, user tasks, and UX, through reporting, integration, automation, and application security, to creating Subscribers and enabling them to use the application.
 
-## Installation (for testing)
-
-* Download the ZIP file
-* Go to [chrome://extensions](chrome://extensions) in your browser.
-* Enable Developer Mode
-* Click "Load Unpacked"
-* Select This Folder
-* Click the Details button for the extension
-* Update the destination URL
+To earn more explore [Learn Pega Launchpad with a sample application](https://docs.pega.com/category/learn-launchpad-with-sample-application)
