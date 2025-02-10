@@ -3,7 +3,7 @@
     "Name": "Civic Sync",
     "Description": "Civic Sync is a sample application that showcases proven solutions built in Pega Launchpad™. Application developers can explore the sample application directly, and learn more by viewing documentation content. This application highlights an application designed to assist cities and towns in efficient municipal management, providing a robust platform for handling a variety of administrative tasks.",
     "ID": "d0895a09-9812-4ab6-8f98-849c792d244d",
-    "Version": "0.37.0",
+    "Version": "1.00.0",
     "Path": "https://github.com/pegasystems/pega-launchpad-functions/blob/refs/heads/master/launchpath/SampleApplication1000.zip.dat"
   }
 ]
