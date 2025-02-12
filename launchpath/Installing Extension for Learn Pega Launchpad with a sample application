@@ -1,13 +1,15 @@
 # LaunchPath Chrome Extension
 
-This extension is a prototype.  It is designed to swap out the URL to Civic Sync to a provider specific URL so that providers can reference a local reference application installed in their provider.
+It is designed to swap out the URL to Civic Sync to a specific URL so you can reference application installed in your isolation.
 
-## Installation (for testing)
+## Installation:
 
-* Download the ZIP file
-* Go to [chrome://extensions](chrome://extensions) in your browser.
-* Enable Developer Mode
-* Click "Load Unpacked"
-* Select This Folder
-* Click the Details button for the extension
-* Update the destination URL
+1. Download the ZIP file, and unzip to the local folder
+2. Go to [chrome://extensions](chrome://extensions) in your browser.
+3. Enable Developer Mode
+4. Click "Load Unpacked"
+5. Select unzipped Folder
+6. To configure extension:
+  * Click the Details button for the extension
+  * Scroll down and click Extension options
+  * follow instruction in the options section
