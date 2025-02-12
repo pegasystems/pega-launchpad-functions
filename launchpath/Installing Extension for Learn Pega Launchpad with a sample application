@@ -4,7 +4,7 @@ It is designed to swap out the URL to Civic Sync to a specific URL so you can re
 
 ## Installation:
 
-1. Download the ZIP file, and unzip to the local folder
+1. Download the "Extension for Learn Pega Launchpad with a sample application.zip" file, and unzip to the local folder
 2. Go to [chrome://extensions](chrome://extensions) in your browser.
 3. Enable Developer Mode
 4. Click "Load Unpacked"
