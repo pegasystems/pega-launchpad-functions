@@ -13,6 +13,27 @@ For a given address value, use the [Google Maps Geocoding API](https://developer
 - **Class**: [com.pega.launchpad.geocoding.Geocoding](src/main/java/com/pega/launchpad/geocoding/Geocoding.java)
 - **Method**: getAddressComponents
 
+The method returns a flat set of text values:
+
+* FormattedAddress: is a string containing the human-readable address of this location.
+* PlaceID: Google place ID
+* Country: indicates the national political entity, and is typically the highest order type returned by the Geocoder.
+* CountryShort: abbreviation of Country
+* PostalCode: indicates a postal code as used to address postal mail within the country.
+* PostalCodeSuffix: optional postal code suffix
+* StreetNumber: The house/building number
+* Route: indicates a named route (such as "US 101").
+* Locality: indicates an incorporated city or town political entity.
+* Sublocality: indicates a first-order civil entity below a locality.
+* AdminAreaLevel1: indicates a first-order civil entity below the country level. Within the United States, these administrative levels are states. Not all nations exhibit these administrative levels.
+* AdminAreaLevel2: indicates a second-order civil entity below the country level. Within the United States, these administrative levels are counties.
+* AdminAreaLevel3: indicates a third-order civil entity below the country level. This type indicates a minor civil division. Not all nations exhibit these administrative levels.
+* AdminAreaLevel4: indicates a fourth-order civil entity below the country level. This type indicates a minor civil division. Not all nations exhibit these administrative levels.
+* AdminAreaLevel5: indicates a fifth-order civil entity below the country level. This type indicates a minor civil division. Not all nations exhibit these administrative levels.
+* Premise: indicates a named location, usually a building or collection of buildings with a common name.
+* Latitude: Latitude
+* Longitude: Longitude
+
 ### Function rule configuration
 
 - Function handler: com.pega.launchpad.geocoding.Geocoding::getAddressComponents
