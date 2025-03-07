@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "com.pega.launchpad.parser"
-version = "0.1.8-SNAPSHOT"
+version = "0.1.9-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -13,8 +13,8 @@ repositories {
 dependencies {
     testImplementation(platform("org.junit:junit-bom:5.11.3"))
     testImplementation("org.junit.jupiter:junit-jupiter")
-    implementation("org.apache.commons:commons-csv:1.12.0")
-    implementation("com.google.code.gson:gson:2.11.0")
+    implementation("org.apache.commons:commons-csv:1.13.0")
+    implementation("com.google.code.gson:gson:2.12.1")
     compileOnly("org.jetbrains:annotations:24.1.0")
 }
 
