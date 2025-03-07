@@ -21,14 +21,15 @@ This repository contains some sample code and configuration to learn how to crea
 
 # Modules
 
-| Name                       | Description                      | Latest JAR file                                                                                                   |
-|----------------------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| [base64](base64/) | Encoding/decoding base64 strings | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.8/base64-0.1.8-SNAPSHOT.jar) |
-| [email](email/)   | email utilities                  | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.8/email-0.1.8-SNAPSHOT.jar)  | 
-| [net](net/)       | REST and HTTP utilities          | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.8/net-0.1.8-SNAPSHOT.jar)    | 
-| [parser](parser/) | CSV and JSON parsing             | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.8/parser-0.1.8-SNAPSHOT.jar) | 
-| [pdf](pdf/)       | PDF form filler                  | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.8/pdf-0.1.8-SNAPSHOT.jar)    | 
-| [text](text/)     | string utilities                 | [jar](https://github.com/pegasystems/pega-launchpad-functions/download/v0.1.8/text-0.1.8-SNAPSHOT.jar)            | 
+| Name                    | Description                      | Latest JAR file                                                                                                      |
+|-------------------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| [base64](base64/)       | Encoding/decoding base64 strings | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.8/base64-0.1.9-SNAPSHOT.jar)    |
+| [email](email/)         | email utilities                  | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.8/email-0.1.9-SNAPSHOT.jar)     | 
+| [geocoding](geocoding/) | Geocoding utilities              | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.8/geocoding-0.1.9-SNAPSHOT.jar) |
+| [net](net/)             | REST and HTTP utilities          | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.8/net-0.1.9-SNAPSHOT.jar)       | 
+| [parser](parser/)       | CSV and JSON parsing             | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.8/parser-0.1.9-SNAPSHOT.jar)    | 
+| [pdf](pdf/)             | PDF form filler                  | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.8/pdf-0.1.9-SNAPSHOT.jar)       | 
+| [text](text/)           | string utilities                 | [jar](https://github.com/pegasystems/pega-launchpad-functions/download/v0.1.8/text-0.1.9-SNAPSHOT.jar)               | 
 
 # Obtaining a JAR to upload into a Function rule
 
