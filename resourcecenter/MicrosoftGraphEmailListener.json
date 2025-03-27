@@ -1,0 +1,2839 @@
+{
+  "ApplicationNamespace": "ResourceLibrary",
+  "Class": [
+    {
+      "Type": "Class",
+      "Description": "EmailContent",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "BusinessObject",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "EmailContent",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceLibrary",
+      "Name": "EmailContent",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "History-EmailIntake",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "History",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "History-EmailIntake",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceLibrary",
+      "Name": "History-EmailIntake",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "Email Intake",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "Case",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "EmailIntake",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceLibrary",
+      "Name": "Email Intake",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "History-EmailContent",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "History",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "History-EmailContent",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceLibrary",
+      "Name": "History-EmailContent",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "CaseStatus": [
+    {
+      "Type": "CaseStatus",
+      "Description": "Open-In progress",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Open-InProgress",
+      "Namespace": "ResourceLibrary",
+      "Name": "Open-In progress",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "CaseStatus",
+      "Description": "Pending-Withdrawn",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Pending-Withdrawn",
+      "Namespace": "ResourceLibrary",
+      "Name": "Pending-Withdrawn",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "CaseStatus",
+      "Description": "Pending-Completed",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Pending-Completed",
+      "Namespace": "ResourceLibrary",
+      "Name": "Pending-Completed",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "CaseStatus",
+      "Description": "New-Email Intake creation",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "New-EmailIntakeCreation",
+      "Namespace": "ResourceLibrary",
+      "Name": "New-Email Intake creation",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "CaseStatus",
+      "Description": "Resolved-Withdrawn",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Resolved-Withdrawn2",
+      "Namespace": "ResourceLibrary",
+      "Name": "Resolved-Withdrawn",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "CaseStatus",
+      "Description": "Resolved-Completed",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Resolved-Completed2",
+      "Namespace": "ResourceLibrary",
+      "Name": "Resolved-Completed",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "DataPage": [
+    {
+      "DataPageMode": "ListOfRecords",
+      "Description": "EmailContent list",
+      "Reusability": "Private",
+      "DataConnection": {
+        "CallReference": {
+          "ReferenceID": "EmailContentList",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "EmailContent",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "DataConnection",
+        "CallInputs": []
+      },
+      "SchemaVersion": "0-2-0",
+      "CallType": "DataPage",
+      "Namespace": "ResourceLibrary",
+      "Name": "EmailContent list",
+      "ObjectType": {
+        "ReferenceID": "EmailContent",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "DataPage",
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "List",
+          "Type": "TypeReference",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "EmailContent",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        }
+      },
+      "RuleResolutionID": "EmailContentList",
+      "Inputs": [],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DataPageMode": "ListOfRecords",
+      "Description": "EmailIntake list",
+      "Reusability": "Private",
+      "DataConnection": {
+        "CallReference": {
+          "ReferenceID": "EmailIntakeList",
+          "ReferenceScope": {
+            "ReferenceID": "EmailIntake",
+            "Namespace": "ResourceLibrary"
+          },
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "DataConnection",
+        "CallInputs": []
+      },
+      "SchemaVersion": "0-2-0",
+      "CallType": "DataPage",
+      "Namespace": "ResourceLibrary",
+      "Name": "EmailIntake list",
+      "ObjectType": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "DataPage",
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "List",
+          "Type": "TypeReference",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "EmailIntake",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        }
+      },
+      "RuleResolutionID": "EmailIntakeList",
+      "Inputs": [],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DataPageMode": "SingleRecord",
+      "Description": "EmailIntake lookup",
+      "Reusability": "Private",
+      "DataConnection": {
+        "CallReference": {
+          "ReferenceID": "EmailIntakeLookup",
+          "ReferenceScope": {
+            "ReferenceID": "EmailIntake",
+            "Namespace": "ResourceLibrary"
+          },
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "DataConnection",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "Variable",
+              "Name": "ID"
+            }
+          }
+        ]
+      },
+      "SchemaVersion": "0-2-0",
+      "CallType": "DataPage",
+      "Namespace": "ResourceLibrary",
+      "Name": "EmailIntake lookup",
+      "ObjectType": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "DataPage",
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "EmailIntake",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        }
+      },
+      "RuleResolutionID": "EmailIntakeLookup",
+      "Inputs": [
+        {
+          "Description": "object key",
+          "Mode": "SingleRecord",
+          "Name": "ID",
+          "Required": "true",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          }
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DataPageMode": "SingleRecord",
+      "Description": "EmailContent lookup",
+      "Reusability": "Private",
+      "DataConnection": {
+        "CallReference": {
+          "ReferenceID": "EmailContentLookup",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "EmailContent",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "DataConnection",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "Variable",
+              "Name": "ID"
+            }
+          }
+        ]
+      },
+      "SchemaVersion": "0-2-0",
+      "CallType": "DataPage",
+      "Namespace": "ResourceLibrary",
+      "Name": "EmailContent lookup",
+      "ObjectType": {
+        "ReferenceID": "EmailContent",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "DataPage",
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "EmailContent",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        }
+      },
+      "RuleResolutionID": "EmailContentLookup",
+      "Inputs": [
+        {
+          "Description": "object key",
+          "Mode": "SingleRecord",
+          "Name": "ID",
+          "Required": "true",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          }
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DataPageMode": "SingleRecord",
+      "Description": "Retrieves the access token needed to connect to Graph API",
+      "Reusability": "Private",
+      "DataConnection": {
+        "CallReference": {
+          "ReferenceID": "GetMicrosoftGraphAccessToken",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "EmailIntake",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "DataConnection"
+      },
+      "SchemaVersion": "0-2-0",
+      "IsNative": false,
+      "CallType": "DataPage",
+      "Namespace": "ResourceLibrary",
+      "Name": "GetAccessToken",
+      "ObjectType": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "UseAutomationSource": false,
+      "Type": "DataPage",
+      "Output": {
+        "ObjectType": {
+          "TypeReferenceID": "EmailIntake",
+          "Type": "TypeReference",
+          "Namespace": "ResourceLibrary"
+        },
+        "Description": "",
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "GetAccessToken",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "View": [
+    {
+      "Type": "View",
+      "Description": "Email Intake list",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "Data-Portal",
+        "Namespace": "PegaPlatform"
+      },
+      "RuleResolutionID": "EmailIntakeList",
+      "ViewType": "landingpage",
+      "Namespace": "ResourceLibrary",
+      "Template": "ListPage",
+      "Name": "Email Intake list",
+      "ViewMetadata": "{\"name\":\"Email Intake list\",\"type\":\"View\",\"config\":{\"type\":\"listpage\",\"template\":\"ListPage\",\"icon\":\"pi pi-headline\",\"title\":\"@L Email Intake list\",\"personalization\":true,\"grouping\":true,\"globalSearch\":true,\"reorderFields\":true,\"toggleFieldVisibility\":true,\"showUploadRecords\":true,\"referenceList\":\"EmailIntakeList\",\"ruleClass\":\"Data-Portal\",\"ruleClassNamespace\":\"ResourceLibrary\",\"presets\":[{\"name\":\"presets\",\"label\":\"Email Intake list\",\"template\":\"Table\",\"config\":{},\"children\":[{\"name\":\"Columns\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .BusinessID\",\"label\": \"@L ID\",\"displayAsLink\":true}},{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .Name\",\"label\": \"@L Name\",\"displayAsLink\":true}},{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .Status\",\"label\": \"@L Status\",\"displayAsLink\":false}},{\"type\":\"TextArea\",\"config\":{\"value\":\"@P .Description\",\"label\":\"@L Description\"}}]}]}],\"actions\":[{\"action\":\"UPLOAD_RECORDS\",\"config\":{\"label\":\"@L Upload\",\"objectType\":\"EmailIntake\"}}]}}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "ShowLatestEmails_EmailContent",
+      "ContextMetadata": "",
+      "AutoGenerated": false,
+      "ViewType": "multirecordlist",
+      "Namespace": "ResourceLibrary",
+      "Name": "Show Latest Emails_EmailContent",
+      "Template": "SimpleTable",
+      "ViewMetadata": "{\"name\":\"ShowLatestEmails_EmailContent\",\"type\":\"View\",\"config\":{\"type\":\"multirecordlist\",\"contextClass\":\"EmailContent\",\"referenceList\":\"@P .EmailContent\",\"targetClassLabel\":\"@L EmailContent\",\"heading\":\"@L EmailContent\",\"name\":\"EmailContent\",\"ruleClass\":\"EmailIntake\",\"ruleNamespace\":\"ResourceLibrary\",\"ruleClassNamespace\":\"ResourceLibrary\",\"renderMode\":\"ReadOnly\",\"multiRecordDisplayAs\":\"table\",\"template\":\"SimpleTable\",\"children\":[{\"name\":\"Columns\",\"type\":\"Region\",\"children\":[{\"type\":\"RichText\",\"config\":{\"value\":\"@P .EmailFrom\",\"label\":\"@L Email From\"}},{\"type\":\"RichText\",\"config\":{\"value\":\"@P .EmailTo\",\"label\":\"@L Email To\"}},{\"type\":\"RichText\",\"config\":{\"value\":\"@P .subject\",\"label\":\"@L subject\"}},{\"type\":\"RichText\",\"config\":{\"value\":\"@P .Body\",\"label\":\"@L Body\"}}]}],\"parentClass\":\"EmailIntake\"},\"ID\":\"2d995c1f-3019-410a-805f-ee2b57b2596f\"}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "View to collect details for Object creation.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Create",
+      "AutoGenerated": false,
+      "ViewType": "embeddedform",
+      "Namespace": "PegaPlatform",
+      "Name": "Create",
+      "Template": "DefaultForm",
+      "ViewMetadata": "{\"name\":\"Create\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"EmailIntake\",\"ruleClassNamespace\":\"PegaPlatform\",\"label\":\"@L View to collect details for Object creation.\"},\"children\":[{\"type\":\"Region\",\"name\":\"Fields\",\"children\":[{\"type\":\"TextArea\",\"config\":{\"label\":\"@L Resource Description\",\"value\":\"@P .Description\",\"readOnly\":true}}]}],\"ID\":\"5a1c8a9c-27fa-4077-a23e-4ed41483e9a9\"}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "View to collect details for Object creation.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "EmailContent",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Create",
+      "AutoGenerated": true,
+      "ViewType": "embeddedform",
+      "Namespace": "PegaPlatform",
+      "Template": "DefaultForm",
+      "Name": "Create",
+      "ViewMetadata": "{\"name\":\"Create\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"BusinessObject\",\"ruleClassNamespace\":\"PegaPlatform\",\"label\":\"@L View to collect details for Object creation.\"},\"children\":[{\"type\":\"Region\",\"name\":\"Fields\",\"children\":[]}],\"ID\":\"86b7273f-c4d8-43e4-89b3-3931d4018a18\"}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "ShowLatestEmails",
+      "ContextMetadata": "",
+      "ViewType": "form",
+      "Namespace": "ResourceLibrary",
+      "Name": "Latest Emails From Microsoft 365",
+      "Template": "DefaultForm",
+      "ViewMetadata": "{\"name\":\"ShowLatestEmails\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"EmailIntake\",\"ruleClassNamespace\":\"ResourceLibrary\",\"label\":\"@L Show Latest Emails\"},\"children\":[{\"name\":\"Fields\",\"type\":\"Region\",\"children\":[{\"type\":\"reference\",\"config\":{\"name\":\"ShowLatestEmails_EmailContent\",\"inheritedProps\":[{\"prop\":\"label\",\"value\":\"@L Email Content\"}],\"authorContext\":\".EmailContent\",\"ruleClass\":\"EmailIntake\",\"ruleNamespace\":\"ResourceLibrary\",\"ruleClassNamespace\":\"ResourceLibrary\",\"type\":\"view\"}}]}],\"ID\":\"ba6e4d2f-0439-41ba-a3e2-0a3e5112b373\"}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "Update details",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Edit",
+      "AutoGenerated": true,
+      "ViewType": "",
+      "Namespace": "PegaPlatform",
+      "Template": "DefaultForm",
+      "Name": "Edit",
+      "ViewMetadata": "{\"name\":\"Edit\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"BusinessObject\",\"label\":\"Update case details\"},\"children\":[{\"name\":\"Fields\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .Name\",\"label\":\"@L Label\"}},{\"type\":\"TextArea\",\"config\":{\"value\":\"@P .Description\",\"label\":\"@L Description\"}}]}],\"ID\":\"4e78a729-1eb6-4e4e-94c2-6dc6e112fc86\"}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "Update details",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "EmailContent",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Edit",
+      "AutoGenerated": true,
+      "ViewType": "",
+      "Namespace": "PegaPlatform",
+      "Template": "DefaultForm",
+      "Name": "Edit",
+      "ViewMetadata": "{\"name\":\"Edit\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"BusinessObject\",\"label\":\"Update case details\"},\"children\":[{\"name\":\"Fields\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .Name\",\"label\":\"@L Label\"}},{\"type\":\"TextArea\",\"config\":{\"value\":\"@P .Description\",\"label\":\"@L Description\"}}]}],\"ID\":\"4e78a729-1eb6-4e4e-94c2-6dc6e112fc86\"}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "EmailContent list",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "Data-Portal",
+        "Namespace": "PegaPlatform"
+      },
+      "RuleResolutionID": "EmailContentList",
+      "ViewType": "landingpage",
+      "Namespace": "ResourceLibrary",
+      "Template": "ListPage",
+      "Name": "EmailContent list",
+      "ViewMetadata": "{\"name\":\"EmailContent list\",\"type\":\"View\",\"config\":{\"type\":\"listpage\",\"template\":\"ListPage\",\"icon\":\"pi pi-headline\",\"title\":\"@L EmailContent list\",\"personalization\":true,\"grouping\":true,\"globalSearch\":true,\"reorderFields\":true,\"toggleFieldVisibility\":true,\"showUploadRecords\":true,\"referenceList\":\"EmailContentList\",\"ruleClass\":\"Data-Portal\",\"ruleClassNamespace\":\"ResourceLibrary\",\"presets\":[{\"name\":\"presets\",\"label\":\"EmailContent list\",\"template\":\"Table\",\"config\":{},\"children\":[{\"name\":\"Columns\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .BusinessID\",\"label\": \"@L ID\",\"displayAsLink\":true}},{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .Name\",\"label\": \"@L Name\",\"displayAsLink\":true}},{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .Status\",\"label\": \"@L Status\",\"displayAsLink\":false}},{\"type\":\"TextArea\",\"config\":{\"value\":\"@P .Description\",\"label\":\"@L Description\"}}]}]}],\"actions\":[{\"action\":\"UPLOAD_RECORDS\",\"config\":{\"label\":\"@L Upload\",\"objectType\":\"EmailContent\"}}]}}",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "IntegrationSystem": [
+    {
+      "Type": "IntegrationSystem",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "1-0-0",
+      "SourceType": "BaseURL",
+      "RuleResolutionID": "MicrosoftGraphAPI",
+      "BaseURL": "https://login.microsoftonline.com/",
+      "BaseURLSource": "CONSTANT",
+      "Namespace": "ResourceLibrary",
+      "Name": "Microsoft Graph API",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "IntegrationSystem",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "1-0-0",
+      "SourceType": "BaseURL",
+      "RuleResolutionID": "MicrosoftGraphAPI2",
+      "BaseURL": "https://graph.microsoft.com",
+      "BaseURLSource": "CONSTANT",
+      "Namespace": "ResourceLibrary",
+      "Name": "Microsoft Graph API1",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "DataConnection": [
+    {
+      "Connector": {
+        "CallReference": {
+          "ReferenceID": "GetEmailsFromMicrosoftGraph",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "EmailIntake",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "RESTConnector",
+        "CallInputs": [
+          {
+            "ParameterName": "Access Token",
+            "Source": {
+              "Type": "Variable",
+              "Name": "Access Token"
+            }
+          }
+        ]
+      },
+      "Description": "Connects to Microsoft Graph to retrieve emails from the email account specified in Get token connect rule",
+      "Reusability": "Private",
+      "ConnectionType": "REST_CONNECTOR",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "CallType": "Library",
+      "Operation": "READ",
+      "Namespace": "ResourceLibrary",
+      "Name": "Connect To Microsoft Graph",
+      "Type": "DataConnection",
+      "ResponseJSONTransform": {
+        "ReferenceID": "MapGraphResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "ConnectToMicrosoftGraph",
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "EmailIntake",
+          "Namespace": "ResourceLibrary"
+        },
+        "Description": "",
+        "Mode": "SingleRecord"
+      },
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            },
+            "Namespace": "PegaPlatform"
+          },
+          "Description": "Access Token",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "Access Token",
+          "Type": ""
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Description": "EmailContent lookup",
+      "Reusability": "Private",
+      "Query": {
+        "CallReference": {
+          "ReferenceScope": {
+            "ReferenceID": "EmailContent",
+            "Namespace": "ResourceLibrary"
+          },
+          "ReferenceID": "EmailContentLookup",
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "Query",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "Variable",
+              "Name": "ID"
+            }
+          }
+        ]
+      },
+      "ConnectionType": "QUERY",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "EmailContent",
+        "Namespace": "ResourceLibrary"
+      },
+      "Operation": "READ",
+      "Namespace": "ResourceLibrary",
+      "Name": "EmailContent lookup",
+      "Type": "DataConnection",
+      "Output": {
+        "ObjectType": {
+          "TypeReferenceID": "EmailContent",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        },
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "EmailContentLookup",
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            }
+          },
+          "Description": "object key",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "ID"
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "DataConnection",
+      "Description": "EmailIntake list",
+      "Reusability": "Private",
+      "Query": {
+        "CallReference": {
+          "ReferenceScope": {
+            "ReferenceID": "EmailIntake",
+            "Namespace": "ResourceLibrary"
+          },
+          "ReferenceID": "EmailIntakeList",
+          "Namespace": "ResourceLibrary"
+        },
+        "CallInputs": [],
+        "CallType": "Query"
+      },
+      "ConnectionType": "QUERY",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "List",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "EmailIntake",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        },
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "EmailIntakeList",
+      "Operation": "READ",
+      "Namespace": "ResourceLibrary",
+      "Name": "EmailIntake list",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Description": "EmailIntake lookup",
+      "Reusability": "Private",
+      "Query": {
+        "CallReference": {
+          "ReferenceScope": {
+            "ReferenceID": "EmailIntake",
+            "Namespace": "ResourceLibrary"
+          },
+          "ReferenceID": "EmailIntakeLookup",
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "Query",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "Variable",
+              "Name": "ID"
+            }
+          }
+        ]
+      },
+      "ConnectionType": "QUERY",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "Operation": "READ",
+      "Namespace": "ResourceLibrary",
+      "Name": "EmailIntake lookup",
+      "Type": "DataConnection",
+      "Output": {
+        "ObjectType": {
+          "TypeReferenceID": "EmailIntake",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        },
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "EmailIntakeLookup",
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            }
+          },
+          "Description": "object key",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "ID"
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Connector": {
+        "CallReference": {
+          "ReferenceID": "GetGraphAPIToken",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "EmailIntake",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "RESTConnector"
+      },
+      "Description": "",
+      "Reusability": "Private",
+      "ConnectionType": "REST_CONNECTOR",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "CallType": "Library",
+      "Operation": "READ",
+      "Namespace": "ResourceLibrary",
+      "Name": "Get Microsoft Graph Access Token",
+      "Type": "DataConnection",
+      "ResponseJSONTransform": {
+        "ReferenceID": "GetToken",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "GetMicrosoftGraphAccessToken",
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "EmailIntake",
+          "Namespace": "ResourceLibrary"
+        },
+        "Description": "",
+        "Mode": "SingleRecord"
+      },
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "DataConnection",
+      "Description": "EmailContent list",
+      "Reusability": "Private",
+      "Query": {
+        "CallReference": {
+          "ReferenceID": "EmailContentList",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "EmailContent",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "Query",
+        "CallInputs": []
+      },
+      "ConnectionType": "QUERY",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "EmailContent",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "List",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "EmailContent",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        },
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "EmailContentList",
+      "Operation": "READ",
+      "Namespace": "ResourceLibrary",
+      "Name": "EmailContent list",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Automation": [
+    {
+      "Type": "Automation",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-0",
+      "IsSystemAutomation": false,
+      "Output": {
+        "Description": "",
+        "Mode": ""
+      },
+      "AppliesTo": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "SetUseCaseDescription",
+      "CallType": "ResourceObject",
+      "RuleSteps": [
+        {
+          "Id": "_rwtenj15u",
+          "Type": "ActionSet",
+          "Sets": [
+            {
+              "Id": "_v9lqcf4og",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "Description",
+                  "Namespace": "PegaPlatform",
+                  "Type": "RuleReference"
+                }
+              },
+              "Source": {
+                "Type": "ConstantText",
+                "Value": "This component is designed to seamlessly integrate with Microsoft 365 email accounts, utilizing the Microsoft Graph API to access and retrieve the latest emails. By submitting a form, the component initiates a request to the API, which returns a JSON response containing the content of newly received emails. This process is facilitated through the REST Connect rule, \"Get Emails from Microsoft Graph,\" ensuring that the application can efficiently process and analyze email content in real time. Please submit this form to view the content of latest emails."
+              }
+            }
+          ]
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "Set Use Case Description",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Automation",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-0",
+      "IsSystemAutomation": false,
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "EmailIntake",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        }
+      },
+      "AppliesTo": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "ConnectToGraphAPI",
+      "CallType": "ResourceObject",
+      "RuleSteps": [
+        {
+          "Id": "_u5elhrpak",
+          "Type": "ActionSet",
+          "Sets": [
+            {
+              "Id": "_y9qrtjgfz",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "AccessToken",
+                  "Namespace": "ResourceLibrary",
+                  "Type": "RuleReference"
+                }
+              },
+              "Source": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Type": "CallExpression",
+                  "CallType": "DataConnection",
+                  "CallReference": {
+                    "Type": "RuleReference",
+                    "ReferenceID": "GetMicrosoftGraphAccessToken",
+                    "Namespace": "ResourceLibrary",
+                    "ReferenceScope": {
+                      "Type": "RuleReference",
+                      "ReferenceID": "EmailIntake",
+                      "Namespace": "ResourceLibrary"
+                    }
+                  }
+                },
+                "Field": {
+                  "Type": "RuleReference",
+                  "ReferenceID": "AccessToken",
+                  "Namespace": "ResourceLibrary"
+                }
+              }
+            },
+            {
+              "Id": "_c6m9uompa",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "AccessToken",
+                  "Namespace": "ResourceLibrary",
+                  "Type": "RuleReference"
+                }
+              },
+              "Source": {
+                "Type": "ExpressionGroup",
+                "ExpressionType": "+",
+                "Expressions": [
+                  {
+                    "Type": "ConstantText",
+                    "Value": "Bearer "
+                  },
+                  {
+                    "Type": "FieldReference",
+                    "Root": {
+                      "Type": "Variable",
+                      "Name": "Primary"
+                    },
+                    "Field": {
+                      "Type": "RuleReference",
+                      "ReferenceID": "AccessToken",
+                      "Namespace": "ResourceLibrary"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "Id": "_ms1tb85u1",
+          "Type": "ActionSet",
+          "Sets": [
+            {
+              "Id": "_5v1tcgtgm",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "EmailContent",
+                  "Namespace": "ResourceLibrary",
+                  "Type": "RuleReference"
+                }
+              },
+              "Source": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Type": "CallExpression",
+                  "CallType": "DataConnection",
+                  "CallReference": {
+                    "Type": "RuleReference",
+                    "ReferenceID": "ConnectToMicrosoftGraph",
+                    "Namespace": "ResourceLibrary",
+                    "ReferenceScope": {
+                      "Type": "RuleReference",
+                      "ReferenceID": "EmailIntake",
+                      "Namespace": "ResourceLibrary"
+                    }
+                  },
+                  "CallInputs": [
+                    {
+                      "Type": "CallInput",
+                      "ParameterName": "Access Token",
+                      "Source": {
+                        "Type": "FieldReference",
+                        "Root": {
+                          "Type": "Variable",
+                          "Name": "Primary"
+                        },
+                        "Field": {
+                          "Type": "RuleReference",
+                          "ReferenceID": "AccessToken",
+                          "Namespace": "ResourceLibrary"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "Field": {
+                  "Type": "RuleReference",
+                  "ReferenceID": "EmailContent",
+                  "Namespace": "ResourceLibrary"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Id": "_9g384rjnr",
+          "Type": "ActionReturn",
+          "Source": {
+            "Type": "Variable",
+            "Name": "Primary"
+          }
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "Connect To Graph API",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Field": [
+    {
+      "DisplayAs": "RichText",
+      "Type": "Field",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "EmailContent",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "EmailTo",
+      "Namespace": "ResourceLibrary",
+      "Name": "Email To",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "ObjectReference",
+      "Description": "This field holds the reference to a Email Intake instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "RecordClass": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "AppliesTo": {
+        "ReferenceID": "History-EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "SingleRecord",
+      "RelationshipType": "Peer",
+      "Namespace": "ResourceLibrary",
+      "Name": "Email Intake Reference",
+      "DataAccess": "Refer",
+      "DataSource": {
+        "CallReference": {
+          "ReferenceID": "EmailIntakeLookup",
+          "ReferenceScope": {
+            "ReferenceID": "EmailIntake",
+            "Namespace": "ResourceLibrary"
+          },
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "DataPage",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "FieldReference",
+              "Root": {
+                "Type": "Variable",
+                "Name": "Current"
+              },
+              "Field": {
+                "Type": "RuleReference",
+                "ReferenceID": "ID",
+                "Namespace": "PegaPlatform"
+              }
+            }
+          }
+        ]
+      },
+      "Type": "Field",
+      "RuleResolutionID": "ObjectReference",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "RichText",
+      "Type": "Field",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "EmailContent",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "subject",
+      "Namespace": "ResourceLibrary",
+      "Name": "subject",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "RichText",
+      "Type": "Field",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "NewEmailContentFromGraphAPI",
+      "Namespace": "ResourceLibrary",
+      "Name": "New Email Content From Graph API",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "RichText",
+      "Type": "Field",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "EmailContent",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "EmailFrom",
+      "Namespace": "ResourceLibrary",
+      "Name": "Email From",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "EmbeddedData",
+      "Type": "Field",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "RecordClass": {
+        "ReferenceID": "EmailContent",
+        "Namespace": "ResourceLibrary"
+      },
+      "AppliesTo": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "ListOfRecords",
+      "RuleResolutionID": "EmailContent",
+      "Namespace": "ResourceLibrary",
+      "Name": "Email Content",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Field",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "AccessToken",
+      "Namespace": "ResourceLibrary",
+      "Name": "AccessToken",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "RichText",
+      "Type": "Field",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "EmailContent",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "Body",
+      "Namespace": "ResourceLibrary",
+      "Name": "Body",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "ObjectReference",
+      "Description": "This field holds the reference to a EmailContent instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "RecordClass": {
+        "ReferenceID": "EmailContent",
+        "Namespace": "ResourceLibrary"
+      },
+      "AppliesTo": {
+        "ReferenceID": "History-EmailContent",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "SingleRecord",
+      "RelationshipType": "Peer",
+      "Namespace": "ResourceLibrary",
+      "Name": "EmailContent Reference",
+      "DataAccess": "Refer",
+      "DataSource": {
+        "CallReference": {
+          "ReferenceID": "EmailContentLookup",
+          "ReferenceScope": {
+            "ReferenceID": "EmailContent",
+            "Namespace": "ResourceLibrary"
+          },
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "DataPage",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "FieldReference",
+              "Root": {
+                "Type": "Variable",
+                "Name": "Current"
+              },
+              "Field": {
+                "Type": "RuleReference",
+                "ReferenceID": "ID",
+                "Namespace": "PegaPlatform"
+              }
+            }
+          }
+        ]
+      },
+      "Type": "Field",
+      "RuleResolutionID": "ObjectReference",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Query": [
+    {
+      "Type": "Query",
+      "Description": "Query to lookup EmailIntake instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Filter": {
+        "ExpressionType": "",
+        "Expressions": [
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Field": {
+                "ReferenceID": "ID",
+                "Namespace": "PegaPlatform"
+              },
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              }
+            },
+            "Comparator": "==",
+            "OperandTwo": {
+              "Name": "ID",
+              "Type": "Variable"
+            }
+          }
+        ]
+      },
+      "AppliesTo": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "EmailIntake",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        }
+      },
+      "RuleResolutionID": "EmailIntakeLookup",
+      "Inputs": [
+        {
+          "Description": "object key",
+          "Mode": "SingleRecord",
+          "Name": "ID",
+          "Required": "true",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          },
+          "Type": ""
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "EmailIntake lookup",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Query",
+      "Description": "Query to List all EmailContent instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Filter": {
+        "ExpressionType": "AND",
+        "Expressions": [
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Field": {
+                "ReferenceID": "Status",
+                "Namespace": "PegaPlatform",
+                "Type": "RuleReference"
+              },
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              }
+            },
+            "Comparator": "!=",
+            "OperandTwo": {
+              "Value": "Resolved-Inactive",
+              "Type": "ConstantText"
+            }
+          },
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              },
+              "Field": {
+                "Type": "RuleReference",
+                "ReferenceID": "Status",
+                "Namespace": "PegaPlatform"
+              }
+            },
+            "Comparator": "!=",
+            "OperandTwo": {
+              "Type": "ConstantText",
+              "Value": "Resolved-Cancelled"
+            }
+          }
+        ],
+        "Type": "ExpressionGroup"
+      },
+      "SortBy": [
+        {
+          "Field": {
+            "ReferenceID": "CreateDateTime",
+            "Namespace": "PegaPlatform"
+          },
+          "Direction": "Descending"
+        }
+      ],
+      "AppliesTo": {
+        "ReferenceID": "EmailContent",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "List",
+          "Type": "TypeReference",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "EmailContent",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        }
+      },
+      "RuleResolutionID": "EmailContentList",
+      "Namespace": "ResourceLibrary",
+      "Name": "EmailContent list",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Query",
+      "Description": "Query to lookup EmailContent instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Filter": {
+        "ExpressionType": "",
+        "Expressions": [
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Field": {
+                "ReferenceID": "ID",
+                "Namespace": "PegaPlatform"
+              },
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              }
+            },
+            "Comparator": "==",
+            "OperandTwo": {
+              "Name": "ID",
+              "Type": "Variable"
+            }
+          }
+        ]
+      },
+      "AppliesTo": {
+        "ReferenceID": "EmailContent",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "EmailContent",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        }
+      },
+      "RuleResolutionID": "EmailContentLookup",
+      "Inputs": [
+        {
+          "Description": "object key",
+          "Mode": "SingleRecord",
+          "Name": "ID",
+          "Required": "true",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          },
+          "Type": ""
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "EmailContent lookup",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Query",
+      "Description": "Query to List all EmailIntake instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Filter": {
+        "ExpressionType": "",
+        "Expressions": [
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              },
+              "Field": {
+                "Type": "RuleReference",
+                "ReferenceID": "Status",
+                "Namespace": "PegaPlatform"
+              }
+            },
+            "Comparator": "!=",
+            "OperandTwo": {
+              "Type": "ConstantText",
+              "Value": "Resolved-Cancelled"
+            }
+          }
+        ],
+        "Type": "ExpressionGroup"
+      },
+      "SortBy": [
+        {
+          "Field": {
+            "ReferenceID": "CreateDateTime",
+            "Namespace": "PegaPlatform"
+          },
+          "Direction": "Descending"
+        }
+      ],
+      "AppliesTo": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "List",
+          "Type": "TypeReference",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "EmailIntake",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        }
+      },
+      "RuleResolutionID": "EmailIntakeList",
+      "Namespace": "ResourceLibrary",
+      "Name": "EmailIntake list",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "FullObjectDisplay": [
+    {
+      "Heading": {
+        "Type": "FieldReference",
+        "Root": {
+          "Name": "Primary",
+          "Type": "Variable"
+        },
+        "Field": {
+          "ReferenceID": "Name",
+          "Type": "RuleReference",
+          "Namespace": "PegaPlatform"
+        }
+      },
+      "Description": "Email Intake Display",
+      "Reusability": "PublicMayOverride",
+      "UsePrimaryFields": true,
+      "SchemaVersion": "0-1-0",
+      "AppliesTo": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "ShowLifecycle": true,
+      "Namespace": "ResourceLibrary",
+      "Name": "Email Intake Display",
+      "Type": "FullObjectDisplay",
+      "Utilities": [
+        {
+          "EmbedListUUID__": "_b3lpornzf",
+          "Widget": {
+            "Namespace": "PegaPlatform",
+            "ReferenceID": "Attachments",
+            "Type": "RuleReference"
+          },
+          "Type": "WidgetItem",
+          "Config": "{\"label\":\"@L Attachments\",\"iconName\":\"paper-clip\"}"
+        },
+        {
+          "EmbedListUUID__": "_mhiwyeo3w",
+          "Widget": {
+            "Namespace": "PegaPlatform",
+            "ReferenceID": "Followers",
+            "Type": "RuleReference"
+          },
+          "Type": "WidgetItem",
+          "Config": "{\"label\":\"@L Followers\",\"iconName\":\"user-star\"}"
+        }
+      ],
+      "Subheading": {
+        "Type": "FieldReference",
+        "Root": {
+          "Name": "Primary",
+          "Type": "Variable"
+        },
+        "Field": {
+          "ReferenceID": "BusinessID",
+          "Type": "RuleReference",
+          "Namespace": "PegaPlatform"
+        }
+      },
+      "RuleResolutionID": "EmailIntakeDisplay",
+      "Tabs": [
+        {
+          "EmbedListUUID__": "_1xs9e3ccy",
+          "Heading": "Details",
+          "View": {
+            "ReferenceID": "pyDetailsTabContent",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        },
+        {
+          "EmbedListUUID__": "_9d9yijoln",
+          "Heading": "Pulse",
+          "View": {
+            "ReferenceID": "pyCasePulse",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        },
+        {
+          "EmbedListUUID__": "_xibiu6bb1",
+          "Heading": "History",
+          "View": {
+            "ReferenceID": "History",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        }
+      ],
+      "Icon": "case-solid",
+      "FieldsToHighlight": 0,
+      "SummaryFields": [],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Heading": {
+        "Type": "FieldReference",
+        "Root": {
+          "Name": "Primary",
+          "Type": "Variable"
+        },
+        "Field": {
+          "ReferenceID": "Name",
+          "Type": "RuleReference",
+          "Namespace": "PegaPlatform"
+        }
+      },
+      "Description": "EmailContent Display",
+      "Reusability": "PublicMayOverride",
+      "UsePrimaryFields": true,
+      "SchemaVersion": "0-1-0",
+      "AppliesTo": {
+        "ReferenceID": "EmailContent",
+        "Namespace": "ResourceLibrary"
+      },
+      "ShowLifecycle": false,
+      "Namespace": "ResourceLibrary",
+      "Name": "EmailContent Display",
+      "Type": "FullObjectDisplay",
+      "Utilities": [
+        {
+          "EmbedListUUID__": "_aymvb6g7m",
+          "Widget": {
+            "Namespace": "PegaPlatform",
+            "ReferenceID": "Attachments",
+            "Type": "RuleReference"
+          },
+          "Type": "WidgetItem",
+          "Config": "{\"label\":\"@L Attachments\",\"iconName\":\"paper-clip\"}"
+        },
+        {
+          "EmbedListUUID__": "_o2xf9g3gl",
+          "Widget": {
+            "Namespace": "PegaPlatform",
+            "ReferenceID": "Followers",
+            "Type": "RuleReference"
+          },
+          "Type": "WidgetItem",
+          "Config": "{\"label\":\"@L Followers\",\"iconName\":\"user-star\"}"
+        }
+      ],
+      "Subheading": {
+        "Type": "FieldReference",
+        "Root": {
+          "Name": "Primary",
+          "Type": "Variable"
+        },
+        "Field": {
+          "ReferenceID": "BusinessID",
+          "Type": "RuleReference",
+          "Namespace": "PegaPlatform"
+        }
+      },
+      "RuleResolutionID": "EmailContentDisplay",
+      "Tabs": [
+        {
+          "EmbedListUUID__": "_m9hos9b12",
+          "Heading": "Details",
+          "View": {
+            "ReferenceID": "pyDetailsTabContent",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        },
+        {
+          "EmbedListUUID__": "_utibk35ku",
+          "Heading": "Pulse",
+          "View": {
+            "ReferenceID": "pyCasePulse",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        },
+        {
+          "EmbedListUUID__": "_uhwhrb3a4",
+          "Heading": "History",
+          "View": {
+            "ReferenceID": "History",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        }
+      ],
+      "Icon": "disc-stack-solid",
+      "FieldsToHighlight": 0,
+      "SummaryFields": [],
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Portal": [
+    {
+      "DisableNotifications": false,
+      "Description": "Default application work portal",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-3",
+      "NavigationPages": [
+        {
+          "Page": {
+            "ReferenceID": "Home",
+            "ReferenceScope": {
+              "ReferenceID": "Data-Portal",
+              "Namespace": "PegaPlatform"
+            }
+          }
+        },
+        {
+          "Page": {
+            "ReferenceID": "EmailIntakeList",
+            "ReferenceScope": {
+              "ReferenceID": "Data-Portal",
+              "Namespace": "PegaPlatform"
+            },
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        {
+          "Page": {
+            "ReferenceID": "EmailContentList",
+            "Namespace": "ResourceLibrary",
+            "ReferenceScope": {
+              "ReferenceID": "Data-Portal",
+              "Namespace": "PegaPlatform"
+            }
+          }
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "Work Portal",
+      "Template": "work",
+      "CreateMenu": "Custom",
+      "Type": "Portal",
+      "RuleResolutionID": "WebPortal",
+      "AvailableCaseToCreate": [
+        {
+          "CaseType": {
+            "ReferenceID": "EmailIntake",
+            "Namespace": "ResourceLibrary",
+            "ReferenceScope": {
+              "ReferenceID": "EmailIntake",
+              "Namespace": "ResourceLibrary"
+            }
+          }
+        }
+      ],
+      "DisableRecents": false,
+      "ActionToBePerformed": "MODIFIED"
+    }
+  ],
+  "CaseType": [
+    {
+      "Description": "This case type uses Microsoft Graph API to access and interact with data in Microsoft 365, including Microsoft Outlook inboxes. Specifically, it allows developers to access the emails, calendar events, contacts, and other data from a user's Outlook mailbox within Microsoft 365 (formerly Office 365) and Exchange Online.",
+      "Reusability": "Private",
+      "Category": "Case",
+      "SchemaVersion": "2-11-0",
+      "AppliesTo": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "InitializationStage": {
+        "Stage": {
+          "ReferenceID": "EmailIntakeCreation",
+          "Namespace": "ResourceLibrary"
+        },
+        "EntryStatus": {
+          "ReferenceID": "New-EmailIntakeCreation",
+          "Namespace": "ResourceLibrary"
+        }
+      },
+      "OptionalActions": [
+        {
+          "Action": {
+            "ReferenceID": "Edit",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsCaseOpen",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "pyChangeStage",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsCaseOpen",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "ReassignTask",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsCaseOpen",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "Reopen",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsCaseResolved",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "RestartCurrentStage",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsCaseOpen",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "ResolveCase",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsCaseOpen",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "ChangeCaseGoalAndDeadline",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "HasCaseSLA",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "ChangeAssignmentGoalAndDeadline",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "HasAssignmentSLA",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        }
+      ],
+      "PrimaryFields": [
+        {
+          "ReferenceID": "Name",
+          "Namespace": "PegaPlatform"
+        },
+        {
+          "ReferenceID": "Description",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "InitialUrgency": 10,
+      "PrimaryStages": [
+        {
+          "Stage": {
+            "ReferenceID": "InProgress",
+            "Namespace": "ResourceLibrary"
+          },
+          "EntryStatus": {
+            "ReferenceID": "Open-InProgress",
+            "Namespace": "ResourceLibrary"
+          },
+          "Transition": "Manual",
+          "SkipStage": {
+            "SkipType": "Never"
+          }
+        },
+        {
+          "Stage": {
+            "ReferenceID": "Completed",
+            "Namespace": "ResourceLibrary"
+          },
+          "EntryStatus": {
+            "ReferenceID": "Pending-Completed",
+            "Namespace": "ResourceLibrary"
+          },
+          "Transition": "Resolution",
+          "SkipStage": {
+            "SkipType": "Never"
+          },
+          "ResolutionConfiguration": {
+            "Status": {
+              "ReferenceID": "Resolved-Completed2",
+              "Namespace": "ResourceLibrary"
+            }
+          }
+        }
+      ],
+      "AlternateStages": [
+        {
+          "Stage": {
+            "ReferenceID": "Withdrawn",
+            "Namespace": "ResourceLibrary"
+          },
+          "EntryStatus": {
+            "ReferenceID": "Pending-Withdrawn",
+            "Namespace": "ResourceLibrary"
+          },
+          "Transition": "Resolution",
+          "ResolutionConfiguration": {
+            "Status": {
+              "ReferenceID": "Resolved-Withdrawn2",
+              "Namespace": "ResourceLibrary"
+            }
+          }
+        }
+      ],
+      "Name": "Email Intake",
+      "PluralName": "",
+      "LookupDataPage": {
+        "ReferenceID": "EmailIntakeLookup",
+        "Namespace": "ResourceLibrary"
+      },
+      "ListDataPage": {
+        "ReferenceID": "EmailIntakeList",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "CaseType",
+      "IdPrefix": "E-",
+      "RuleResolutionID": "EmailIntake",
+      "EnableGetNextWork": true,
+      "Display": {
+        "ReferenceID": "EmailIntakeDisplay",
+        "Namespace": "ResourceLibrary"
+      },
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Description": "",
+      "Reusability": "Private",
+      "Category": "Data",
+      "SchemaVersion": "2-11-0",
+      "AppliesTo": {
+        "ReferenceID": "EmailContent",
+        "Namespace": "ResourceLibrary"
+      },
+      "OptionalActions": [
+        {
+          "Action": {
+            "ReferenceID": "Edit",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Always"
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "Create",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Always"
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "MarkAsActive",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsDataInactive",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "MarkAsInactive",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsDataActive",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        }
+      ],
+      "PrimaryFields": [
+        {
+          "ReferenceID": "Name",
+          "Namespace": "PegaPlatform"
+        },
+        {
+          "ReferenceID": "Description",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "PrimaryStages": [],
+      "AlternateStages": [],
+      "Name": "EmailContent",
+      "PluralName": "",
+      "LookupDataPage": {
+        "ReferenceID": "EmailContentLookup",
+        "Namespace": "ResourceLibrary"
+      },
+      "ListDataPage": {
+        "ReferenceID": "EmailContentList",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "CaseType",
+      "IdPrefix": "E-",
+      "RuleResolutionID": "EmailContent",
+      "Display": {
+        "ReferenceID": "EmailContentDisplay",
+        "Namespace": "ResourceLibrary"
+      },
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "JSONTransform": [
+    {
+      "Description": "Map Email Content From Graph API to email Intake object",
+      "Reusability": "Private",
+      "SchemaVersion": "3-1-1",
+      "AppliesTo": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "Auto-mapAll": false,
+      "Direction": "DESERIALIZE",
+      "SampleJSONData": "{\"description\":\"input\",\"id\":\"input\",\"name\":\"Graph Response\",\"inspectionResult\":\"{\\\"JsonInspectionResponse\\\":{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonInspectionResponse\\\",\\\"jsonDocument\\\":{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonDocument\\\",\\\"fields\\\":{\\\"field\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"https://graph.microsoft.com/v1.0/$metadata#users('558beaba-0dd5-4cd9-8a44-6179f52b7930')/messages\\\",\\\"path\\\":\\\"/@odata.context\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"@odata.context\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"collectionType\\\":\\\"LIST\\\",\\\"path\\\":\\\"/value<>\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"value\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"W/\\\\\\\"CQAAABYAAABjkKe0rKCjQ78zo74L5KbYAAB/8r0M\\\\\\\"\\\",\\\"path\\\":\\\"/value<>/@odata.etag\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"@odata.etag\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"AAMkADRlODQ1NGRiLWY1ZDktNGIzZi1iZjE3LTJmYjFlOGYxOWY3NABGAAAAAADUBqsrnTalR5cYL9iDNuKuBwBjkKe0rKCjQ78zo74L5KbYAAAAAAEMAABjkKe0rKCjQ78zo74L5KbYAAB-8IUhAAA=\\\",\\\"path\\\":\\\"/value<>/id\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"id\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"2025-03-10T10:39:29Z\\\",\\\"path\\\":\\\"/value<>/createdDateTime\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"createdDateTime\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"2025-03-10T10:39:31Z\\\",\\\"path\\\":\\\"/value<>/lastModifiedDateTime\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"lastModifiedDateTime\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"CQAAABYAAABjkKe0rKCjQ78zo74L5KbYAAB/8r0M\\\",\\\"path\\\":\\\"/value<>/changeKey\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"changeKey\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"2025-03-10T10:39:29Z\\\",\\\"path\\\":\\\"/value<>/receivedDateTime\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"receivedDateTime\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"2025-03-10T10:39:27Z\\\",\\\"path\\\":\\\"/value<>/sentDateTime\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"sentDateTime\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":false,\\\"path\\\":\\\"/value<>/hasAttachments\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"BOOLEAN\\\",\\\"name\\\":\\\"hasAttachments\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"<DM8PR13MB51123E18AD293F74912A34D2F5D62@DM8PR13MB5112.namprd13.prod.outlook.com>\\\",\\\"path\\\":\\\"/value<>/internetMessageId\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"internetMessageId\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"Re: Luca Migliorini added a new comment on PRV-022DQB : Asystel-BDF\\\",\\\"path\\\":\\\"/value<>/subject\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"subject\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"How hard did we urge them to continue to proceed with their internal deployment in parallel? They will learn a lot from their internal deployment that will help with their early client deployments. Does priority 2 mean it is not going ahead as planned?\\\\r\\\\n_\\\",\\\"path\\\":\\\"/value<>/bodyPreview\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"bodyPreview\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"normal\\\",\\\"path\\\":\\\"/value<>/importance\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"importance\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"AQMkADRlODQ1NGRiLWY1ZDktNGIzZi1iZjE3LTJmYjFlOGYxOWY3NAAuAAAD1AarK502pUeXGC-YgzbirgEAY5CntKygo0O-M6O_C_Sm2AAAAgEMAAAA\\\",\\\"path\\\":\\\"/value<>/parentFolderId\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"parentFolderId\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"AAQkADRlODQ1NGRiLWY1ZDktNGIzZi1iZjE3LTJmYjFlOGYxOWY3NAAQANpkSFlqR-JPkcw8G7If8X8=\\\",\\\"path\\\":\\\"/value<>/conversationId\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"conversationId\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"AQHbkaWr2mRIWWpH8k+RzDwbsh/xf7NsLhmA\\\",\\\"path\\\":\\\"/value<>/conversationIndex\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"conversationIndex\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":false,\\\"path\\\":\\\"/value<>/isDeliveryReceiptRequested\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"BOOLEAN\\\",\\\"name\\\":\\\"isDeliveryReceiptRequested\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":false,\\\"path\\\":\\\"/value<>/isReadReceiptRequested\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"BOOLEAN\\\",\\\"name\\\":\\\"isReadReceiptRequested\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":false,\\\"path\\\":\\\"/value<>/isRead\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"BOOLEAN\\\",\\\"name\\\":\\\"isRead\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":false,\\\"path\\\":\\\"/value<>/isDraft\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"BOOLEAN\\\",\\\"name\\\":\\\"isDraft\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"https://outlook.office365.com/owa/?ItemID=AAMkADRlODQ1NGRiLWY1ZDktNGIzZi1iZjE3LTJmYjFlOGYxOWY3NABGAAAAAADUBqsrnTalR5cYL9iDNuKuBwBjkKe0rKCjQ78zo74L5KbYAAAAAAEMAABjkKe0rKCjQ78zo74L5KbYAAB%2F8IUhAAA%3D&exvsurl=1&viewmodel=ReadMessageItem\\\",\\\"path\\\":\\\"/value<>/webLink\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"webLink\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"focused\\\",\\\"path\\\":\\\"/value<>/inferenceClassification\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"inferenceClassification\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/value<>/body\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"body\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"text\\\",\\\"path\\\":\\\"/value<>/body/contentType\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"contentType\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"How hard did we urge them to continue to proceed with their internal deployment in parallel? They will learn a lot from their internal deployment that will help with their early client deployments. Does priority 2 mean it is not going ahead as planned?\\\\r\\\\n________________________________\\\\r\\\\nFrom: Provider Management Updates <ProviderManagementUpdates@pega.com>\\\\r\\\\nSent: Monday, March 10, 2025 6:17:47 AM\\\\r\\\\nTo: Huehn, John <John.Huehn@pega.com>\\\\r\\\\nSubject: Luca Migliorini added a new comment on PRV-022DQB : Asystel-BDF\\\\r\\\\n\\\\r\\\\n\\\\r\\\\nLuca Migliorini added a new comment on PRV-022DQB : Asystel-BDF<https://providermanagementapp-o4m1x7-prod.lp.trials.pegaservice.net/cases/STE6UHJvdmlkZXJNYW5hZ2VtZW50QXBwX19Qcm92aWRlcl82NzFmZjk1NWQ4NmRmZjIyOTdlZTc4MTg>\\\\r\\\\n\\\\r\\\\n\\\\r\\\\n\\\\r\\\\nLuca Migliorini\\\\r\\\\n\\\\r\\\\nFrom today's call with Dawid and Asystel development team, we understood they have presented Complidoo application to a new Prospect who is interested to implement the solution and asked some custom capabilities. Next Step is planned for 1st April in Rome, when Asystel will demo the solution with new capabilities required by this prospect. Internal adoption is moved to Priority 2 to give priority to this Prospect.\\\\r\\\\n\\\",\\\"path\\\":\\\"/value<>/body/content\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"content\\\"}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/value<>/sender\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"sender\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/value<>/sender/emailAddress\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"emailAddress\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"Huehn, John\\\",\\\"path\\\":\\\"/value<>/sender/emailAddress/name\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"name\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"John.Huehn@pega.com\\\",\\\"path\\\":\\\"/value<>/sender/emailAddress/address\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"address\\\"}]}}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/value<>/from\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"from\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/value<>/from/emailAddress\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"emailAddress\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"Huehn, John\\\",\\\"path\\\":\\\"/value<>/from/emailAddress/name\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"name\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"John.Huehn@pega.com\\\",\\\"path\\\":\\\"/value<>/from/emailAddress/address\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"address\\\"}]}}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"collectionType\\\":\\\"LIST\\\",\\\"path\\\":\\\"/value<>/toRecipients<>\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"toRecipients\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/value<>/toRecipients<>/emailAddress\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"emailAddress\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"Provider Management Updates\\\",\\\"path\\\":\\\"/value<>/toRecipients<>/emailAddress/name\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"name\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"ProviderManagementUpdates@pega.com\\\",\\\"path\\\":\\\"/value<>/toRecipients<>/emailAddress/address\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"address\\\"}]}}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/value<>/flag\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"flag\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"notFlagged\\\",\\\"path\\\":\\\"/value<>/flag/flagStatus\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"flagStatus\\\"}]}}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"https://graph.microsoft.com/v1.0/me/messages?%24filter=isRead+eq+false&%24top=4&%24skip=4\\\",\\\"path\\\":\\\"/@odata.nextLink\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"@odata.nextLink\\\"}]}},\\\"executionTime\\\":1}}\",\"showFields\":true,\"documentType\":\"JSON\",\"inspectionType\":\"INSTANCE\",\"inspectionSource\":\"{\\\"@odata.context\\\":\\\"https://graph.microsoft.com/v1.0/$metadata#users('558beaba-0dd5-4cd9-8a44-6179f52b7930')/messages\\\",\\\"value\\\":[{\\\"@odata.etag\\\":\\\"W/\\\\\\\"CQAAABYAAABjkKe0rKCjQ78zo74L5KbYAAB/8r0M\\\\\\\"\\\",\\\"id\\\":\\\"AAMkADRlODQ1NGRiLWY1ZDktNGIzZi1iZjE3LTJmYjFlOGYxOWY3NABGAAAAAADUBqsrnTalR5cYL9iDNuKuBwBjkKe0rKCjQ78zo74L5KbYAAAAAAEMAABjkKe0rKCjQ78zo74L5KbYAAB-8IUhAAA=\\\",\\\"createdDateTime\\\":\\\"2025-03-10T10:39:29Z\\\",\\\"lastModifiedDateTime\\\":\\\"2025-03-10T10:39:31Z\\\",\\\"changeKey\\\":\\\"CQAAABYAAABjkKe0rKCjQ78zo74L5KbYAAB/8r0M\\\",\\\"categories\\\":[],\\\"receivedDateTime\\\":\\\"2025-03-10T10:39:29Z\\\",\\\"sentDateTime\\\":\\\"2025-03-10T10:39:27Z\\\",\\\"hasAttachments\\\":false,\\\"internetMessageId\\\":\\\"<DM8PR13MB51123E18AD293F74912A34D2F5D62@DM8PR13MB5112.namprd13.prod.outlook.com>\\\",\\\"subject\\\":\\\"Re: Luca Migliorini added a new comment on PRV-022DQB : Asystel-BDF\\\",\\\"bodyPreview\\\":\\\"How hard did we urge them to continue to proceed with their internal deployment in parallel? They will learn a lot from their internal deployment that will help with their early client deployments. Does priority 2 mean it is not going ahead as planned?\\\\r\\\\n_\\\",\\\"importance\\\":\\\"normal\\\",\\\"parentFolderId\\\":\\\"AQMkADRlODQ1NGRiLWY1ZDktNGIzZi1iZjE3LTJmYjFlOGYxOWY3NAAuAAAD1AarK502pUeXGC-YgzbirgEAY5CntKygo0O-M6O_C_Sm2AAAAgEMAAAA\\\",\\\"conversationId\\\":\\\"AAQkADRlODQ1NGRiLWY1ZDktNGIzZi1iZjE3LTJmYjFlOGYxOWY3NAAQANpkSFlqR-JPkcw8G7If8X8=\\\",\\\"conversationIndex\\\":\\\"AQHbkaWr2mRIWWpH8k+RzDwbsh/xf7NsLhmA\\\",\\\"isDeliveryReceiptRequested\\\":false,\\\"isReadReceiptRequested\\\":false,\\\"isRead\\\":false,\\\"isDraft\\\":false,\\\"webLink\\\":\\\"https://outlook.office365.com/owa/?ItemID=AAMkADRlODQ1NGRiLWY1ZDktNGIzZi1iZjE3LTJmYjFlOGYxOWY3NABGAAAAAADUBqsrnTalR5cYL9iDNuKuBwBjkKe0rKCjQ78zo74L5KbYAAAAAAEMAABjkKe0rKCjQ78zo74L5KbYAAB%2F8IUhAAA%3D&exvsurl=1&viewmodel=ReadMessageItem\\\",\\\"inferenceClassification\\\":\\\"focused\\\",\\\"body\\\":{\\\"contentType\\\":\\\"text\\\",\\\"content\\\":\\\"How hard did we urge them to continue to proceed with their internal deployment in parallel? They will learn a lot from their internal deployment that will help with their early client deployments. Does priority 2 mean it is not going ahead as planned?\\\\r\\\\n________________________________\\\\r\\\\nFrom: Provider Management Updates <ProviderManagementUpdates@pega.com>\\\\r\\\\nSent: Monday, March 10, 2025 6:17:47 AM\\\\r\\\\nTo: Huehn, John <John.Huehn@pega.com>\\\\r\\\\nSubject: Luca Migliorini added a new comment on PRV-022DQB : Asystel-BDF\\\\r\\\\n\\\\r\\\\n\\\\r\\\\nLuca Migliorini added a new comment on PRV-022DQB : Asystel-BDF<https://providermanagementapp-o4m1x7-prod.lp.trials.pegaservice.net/cases/STE6UHJvdmlkZXJNYW5hZ2VtZW50QXBwX19Qcm92aWRlcl82NzFmZjk1NWQ4NmRmZjIyOTdlZTc4MTg>\\\\r\\\\n\\\\r\\\\n\\\\r\\\\n\\\\r\\\\nLuca Migliorini\\\\r\\\\n\\\\r\\\\nFrom today's call with Dawid and Asystel development team, we understood they have presented Complidoo application to a new Prospect who is interested to implement the solution and asked some custom capabilities. Next Step is planned for 1st April in Rome, when Asystel will demo the solution with new capabilities required by this prospect. Internal adoption is moved to Priority 2 to give priority to this Prospect.\\\\r\\\\n\\\"},\\\"sender\\\":{\\\"emailAddress\\\":{\\\"name\\\":\\\"Huehn, John\\\",\\\"address\\\":\\\"John.Huehn@pega.com\\\"}},\\\"from\\\":{\\\"emailAddress\\\":{\\\"name\\\":\\\"Huehn, John\\\",\\\"address\\\":\\\"John.Huehn@pega.com\\\"}},\\\"toRecipients\\\":[{\\\"emailAddress\\\":{\\\"name\\\":\\\"Provider Management Updates\\\",\\\"address\\\":\\\"ProviderManagementUpdates@pega.com\\\"}}],\\\"ccRecipients\\\":[],\\\"bccRecipients\\\":[],\\\"replyTo\\\":[],\\\"flag\\\":{\\\"flagStatus\\\":\\\"notFlagged\\\"}},{\\\"@odata.etag\\\":\\\"W/\\\\\\\"CQAAABYAAABjkKe0rKCjQ78zo74L5KbYAAB+rqRZ\\\\\\\"\\\",\\\"id\\\":\\\"AAMkADRlODQ1NGRiLWY1ZDktNGIzZi1iZjE3LTJmYjFlOGYxOWY3NABGAAAAAADUBqsrnTalR5cYL9iDNuKuBwBjkKe0rKCjQ78zo74L5KbYAAAAAAEMAABjkKe0rKCjQ78zo74L5KbYAAB_rEMHAAA=\\\",\\\"createdDateTime\\\":\\\"2025-03-07T21:26:28Z\\\",\\\"lastModifiedDateTime\\\":\\\"2025-03-07T21:26:29Z\\\",\\\"changeKey\\\":\\\"CQAAABYAAABjkKe0rKCjQ78zo74L5KbYAAB+rqRZ\\\",\\\"categories\\\":[],\\\"receivedDateTime\\\":\\\"2025-03-07T21:26:28Z\\\",\\\"sentDateTime\\\":\\\"2025-03-07T21:26:26Z\\\",\\\"hasAttachments\\\":false,\\\"internetMessageId\\\":\\\"<BLAPR13MB4579AAF87B11BEF3D4EDC1A584D52@BLAPR13MB4579.namprd13.prod.outlook.com>\\\",\\\"subject\\\":\\\"RE: John Huehn mentioned you in APP-050KPX : Rewards\\\",\\\"bodyPreview\\\":\\\"@Huehn, John Reached out to Adqura!\\\\r\\\\n\\\\r\\\\nFrom: Provider Management Updates <ProviderManagementUpdates@pega.com>\\\\r\\\\nSent: Friday, March 7, 2025 9:32 AM\\\\r\\\\nTo: Lisitskaya, Lena <Lena.Lisitskaya@pega.com>\\\\r\\\\nSubject: John Huehn mentioned you in APP-050KPX : Rewards\\\",\\\"importance\\\":\\\"normal\\\",\\\"parentFolderId\\\":\\\"AQMkADRlODQ1NGRiLWY1ZDktNGIzZi1iZjE3LTJmYjFlOGYxOWY3NAAuAAAD1AarK502pUeXGC-YgzbirgEAY5CntKygo0O-M6O_C_Sm2AAAAgEMAAAA\\\",\\\"conversationId\\\":\\\"AAQkADRlODQ1NGRiLWY1ZDktNGIzZi1iZjE3LTJmYjFlOGYxOWY3NAAQAJsc6Na_RMFNh7KYHYirY6A=\\\",\\\"conversationIndex\\\":\\\"AQHbj22lmxzo1r5EwU2HspgdiKtjoLNoME4A\\\",\\\"isDeliveryReceiptRequested\\\":false,\\\"isReadReceiptRequested\\\":false,\\\"isRead\\\":false,\\\"isDraft\\\":false,\\\"webLink\\\":\\\"https://outlook.office365.com/owa/?ItemID=AAMkADRlODQ1NGRiLWY1ZDktNGIzZi1iZjE3LTJmYjFlOGYxOWY3NABGAAAAAADUBqsrnTalR5cYL9iDNuKuBwBjkKe0rKCjQ78zo74L5KbYAAAAAAEMAABjkKe0rKCjQ78zo74L5KbYAAB%2BrEMHAAA%3D&exvsurl=1&viewmodel=ReadMessageItem\\\",\\\"inferenceClassification\\\":\\\"focused\\\",\\\"body\\\":{\\\"contentType\\\":\\\"text\\\",\\\"content\\\":\\\"@Huehn, John<mailto:John.Huehn@pega.com> Reached out to Adqura!\\\\r\\\\n\\\\r\\\\nFrom: Provider Management Updates <ProviderManagementUpdates@pega.com>\\\\r\\\\nSent: Friday, March 7, 2025 9:32 AM\\\\r\\\\nTo: Lisitskaya, Lena <Lena.Lisitskaya@pega.com>\\\\r\\\\nSubject: John Huehn mentioned you in APP-050KPX : Rewards\\\\r\\\\n\\\\r\\\\n\\\\r\\\\nJohn Huehn mentioned you in a comment in APP-050KPX : Rewards<https://providermanagementapp-o4m1x7-prod.lp.trials.pegaservice.net/cases/STE6UHJvdmlkZXJNYW5hZ2VtZW50QXBwX19BcHBsaWNhdGlvbl82NmRlZWIwZDYxODUwNjJiNTk2OTUwZDk>\\\\r\\\\n\\\\r\\\\n\\\\r\\\\n\\\\r\\\\nJohn Huehn\\\\r\\\\n\\\\r\\\\n@Lena Lisitskaya @Pratima Edarapalli @Frank Apap - I would like to have a call with Adqura's CEO to understand how strategic their SaaS plans are to their business and whether I can help them with their efforts.\\\\r\\\\n\\\\r\\\\nLena, can you please help me coordinate that?\\\\r\\\\n\\\"},\\\"sender\\\":{\\\"emailAddress\\\":{\\\"name\\\":\\\"Lisitskaya, Lena\\\",\\\"address\\\":\\\"Lena.Lisitskaya@pega.com\\\"}},\\\"from\\\":{\\\"emailAddress\\\":{\\\"name\\\":\\\"Lisitskaya, Lena\\\",\\\"address\\\":\\\"Lena.Lisitskaya@pega.com\\\"}},\\\"toRecipients\\\":[{\\\"emailAddress\\\":{\\\"name\\\":\\\"Provider Management Updates\\\",\\\"address\\\":\\\"ProviderManagementUpdates@pega.com\\\"}},{\\\"emailAddress\\\":{\\\"name\\\":\\\"Huehn, John\\\",\\\"address\\\":\\\"John.Huehn@pega.com\\\"}}],\\\"ccRecipients\\\":[],\\\"bccRecipients\\\":[],\\\"replyTo\\\":[],\\\"flag\\\":{\\\"flagStatus\\\":\\\"notFlagged\\\"}},{\\\"@odata.etag\\\":\\\"W/\\\\\\\"CQAAABYAAABjkKe0rKCjQ78zo74L5KbYAAB+rpx8\\\\\\\"\\\",\\\"id\\\":\\\"AAMkADRlODQ1NGRiLWY1ZDktNGIzZi1iZjE3LTJmYjFlOGYxOWY3NABGAAAAAADUBqsrnTalR5cYL9iDNuKuBwBjkKe0rKCjQ78zo74L5KbYAAAAAAEMAABjkKe0rKCjQ78zo74L5KbYAAB_rEMGAAA=\\\",\\\"createdDateTime\\\":\\\"2025-03-07T17:13:49Z\\\",\\\"lastModifiedDateTime\\\":\\\"2025-03-07T17:13:50Z\\\",\\\"changeKey\\\":\\\"CQAAABYAAABjkKe0rKCjQ78zo74L5KbYAAB+rpx8\\\",\\\"categories\\\":[],\\\"receivedDateTime\\\":\\\"2025-03-07T17:13:50Z\\\",\\\"sentDateTime\\\":\\\"2025-03-07T17:13:45Z\\\",\\\"hasAttachments\\\":false,\\\"internetMessageId\\\":\\\"<FFD215EF-1ED7-46C0-AA90-5AE535186450@pega.com>\\\",\\\"subject\\\":\\\"Re: Sasi Bhushan Veeramachaneni mentioned you in APP-314NHJ : Booking and invoice management\\\",\\\"bodyPreview\\\":\\\"Thanks Sasi\\\\r\\\\n\\\\r\\\\nFrom: Provider Management Updates <ProviderManagementUpdates@pega.com>\\\\r\\\\nReply-To: Provider Management Updates <ProviderManagementUpdates@pega.com>\\\\r\\\\nDate: Friday, March 7, 2025 at 11:41 AM\\\\r\\\\nTo: John Huehn <John.Huehn@pega.com>\\\\r\\\\nSubject: Sasi\\\",\\\"importance\\\":\\\"normal\\\",\\\"parentFolderId\\\":\\\"AQMkADRlODQ1NGRiLWY1ZDktNGIzZi1iZjE3LTJmYjFlOGYxOWY3NAAuAAAD1AarK502pUeXGC-YgzbirgEAY5CntKygo0O-M6O_C_Sm2AAAAgEMAAAA\\\",\\\"conversationId\\\":\\\"AAQkADRlODQ1NGRiLWY1ZDktNGIzZi1iZjE3LTJmYjFlOGYxOWY3NAAQANF0f3ijc95HnyiP1Q4ioMk=\\\",\\\"conversationIndex\\\":\\\"AQHbj3++0XR/eKNz3kefKI/VDiKgybNn6ZGA\\\",\\\"isDeliveryReceiptRequested\\\":null,\\\"isReadReceiptRequested\\\":false,\\\"isRead\\\":false,\\\"isDraft\\\":false,\\\"webLink\\\":\\\"https://outlook.office365.com/owa/?ItemID=AAMkADRlODQ1NGRiLWY1ZDktNGIzZi1iZjE3LTJmYjFlOGYxOWY3NABGAAAAAADUBqsrnTalR5cYL9iDNuKuBwBjkKe0rKCjQ78zo74L5KbYAAAAAAEMAABjkKe0rKCjQ78zo74L5KbYAAB%2BrEMGAAA%3D&exvsurl=1&viewmodel=ReadMessageItem\\\",\\\"inferenceClassification\\\":\\\"focused\\\",\\\"body\\\":{\\\"contentType\\\":\\\"text\\\",\\\"content\\\":\\\"Thanks Sasi\\\\r\\\\n\\\\r\\\\nFrom: Provider Management Updates <ProviderManagementUpdates@pega.com>\\\\r\\\\nReply-To: Provider Management Updates <ProviderManagementUpdates@pega.com>\\\\r\\\\nDate: Friday, March 7, 2025 at 11:41 AM\\\\r\\\\nTo: John Huehn <John.Huehn@pega.com>\\\\r\\\\nSubject: Sasi Bhushan Veeramachaneni mentioned you in APP-314NHJ : Booking and invoice management\\\\r\\\\n\\\\r\\\\n\\\\r\\\\nSasi Bhushan Veeramachaneni mentioned you in a comment in APP-314NHJ : Booking and invoice management<https://providermanagementapp-o4m1x7-prod.lp.trials.pegaservice.net/cases/STE6UHJvdmlkZXJNYW5hZ2VtZW50QXBwX19BcHBsaWNhdGlvbl82NmU3Y2M1YTExNmNjZDc5ZjczZDQ1OWE>\\\\r\\\\n\\\\r\\\\n\\\\r\\\\n\\\\r\\\\nSasi Bhushan Veeramachaneni\\\\r\\\\n\\\\r\\\\nHi @John Huehn , This is the application. AI4Process team gave demo to the subscriber. The subscriber is happy with the demo.\\\\r\\\\n\\\\r\\\\nAI4Process team is going to meet Subscriber next week. They are currently evaluating for best pricing model before going to the subscriber. As of today they are positive about how things are going on.\\\\r\\\\n\\\"},\\\"sender\\\":{\\\"emailAddress\\\":{\\\"name\\\":\\\"Huehn, John\\\",\\\"address\\\":\\\"John.Huehn@pega.com\\\"}},\\\"from\\\":{\\\"emailAddress\\\":{\\\"name\\\":\\\"Huehn, John\\\",\\\"address\\\":\\\"John.Huehn@pega.com\\\"}},\\\"toRecipients\\\":[{\\\"emailAddress\\\":{\\\"name\\\":\\\"Provider Management Updates\\\",\\\"address\\\":\\\"ProviderManagementUpdates@pega.com\\\"}}],\\\"ccRecipients\\\":[],\\\"bccRecipients\\\":[],\\\"replyTo\\\":[],\\\"flag\\\":{\\\"flagStatus\\\":\\\"notFlagged\\\"}},{\\\"@odata.etag\\\":\\\"W/\\\\\\\"CQAAABYAAABjkKe0rKCjQ78zo74L5KbYAAB+rpx4\\\\\\\"\\\",\\\"id\\\":\\\"AAMkADRlODQ1NGRiLWY1ZDktNGIzZi1iZjE3LTJmYjFlOGYxOWY3NABGAAAAAADUBqsrnTalR5cYL9iDNuKuBwBjkKe0rKCjQ78zo74L5KbYAAAAAAEMAABjkKe0rKCjQ78zo74L5KbYAAB_rEMFAAA=\\\",\\\"createdDateTime\\\":\\\"2025-03-07T17:13:36Z\\\",\\\"lastModifiedDateTime\\\":\\\"2025-03-07T17:13:38Z\\\",\\\"changeKey\\\":\\\"CQAAABYAAABjkKe0rKCjQ78zo74L5KbYAAB+rpx4\\\",\\\"categories\\\":[],\\\"receivedDateTime\\\":\\\"2025-03-07T17:13:37Z\\\",\\\"sentDateTime\\\":\\\"2025-03-07T17:13:35Z\\\",\\\"hasAttachments\\\":false,\\\"internetMessageId\\\":\\\"<E130EBD7-7360-41B8-A54D-F45D2425B2B1@pega.com>\\\",\\\"subject\\\":\\\"Re: Parag Jain mentioned you in APP-033DZV : Insights Driven Protocol\\\",\\\"bodyPreview\\\":\\\"Thanks Parag.\\\\r\\\\n\\\\r\\\\nFrom: Provider Management Updates <ProviderManagementUpdates@pega.com>\\\\r\\\\nReply-To: Provider Management Updates <ProviderManagementUpdates@pega.com>\\\\r\\\\nDate: Friday, March 7, 2025 at 11:49 AM\\\\r\\\\nTo: John Huehn <John.Huehn@pega.com>\\\\r\\\\nSubject: Pa\\\",\\\"importance\\\":\\\"normal\\\",\\\"parentFolderId\\\":\\\"AQMkADRlODQ1NGRiLWY1ZDktNGIzZi1iZjE3LTJmYjFlOGYxOWY3NAAuAAAD1AarK502pUeXGC-YgzbirgEAY5CntKygo0O-M6O_C_Sm2AAAAgEMAAAA\\\",\\\"conversationId\\\":\\\"AAQkADRlODQ1NGRiLWY1ZDktNGIzZi1iZjE3LTJmYjFlOGYxOWY3NAAQAKPwfvK-yzhDoG37YxExYfY=\\\",\\\"conversationIndex\\\":\\\"AQHbj4Dyo/B+8r/LOEOgbftjETFh9rNn6YKA\\\",\\\"isDeliveryReceiptRequested\\\":null,\\\"isReadReceiptRequested\\\":false,\\\"isRead\\\":false,\\\"isDraft\\\":false,\\\"webLink\\\":\\\"https://outlook.office365.com/owa/?ItemID=AAMkADRlODQ1NGRiLWY1ZDktNGIzZi1iZjE3LTJmYjFlOGYxOWY3NABGAAAAAADUBqsrnTalR5cYL9iDNuKuBwBjkKe0rKCjQ78zo74L5KbYAAAAAAEMAABjkKe0rKCjQ78zo74L5KbYAAB%2BrEMFAAA%3D&exvsurl=1&viewmodel=ReadMessageItem\\\",\\\"inferenceClassification\\\":\\\"focused\\\",\\\"body\\\":{\\\"contentType\\\":\\\"text\\\",\\\"content\\\":\\\"Thanks Parag.\\\\r\\\\n\\\\r\\\\nFrom: Provider Management Updates <ProviderManagementUpdates@pega.com>\\\\r\\\\nReply-To: Provider Management Updates <ProviderManagementUpdates@pega.com>\\\\r\\\\nDate: Friday, March 7, 2025 at 11:49 AM\\\\r\\\\nTo: John Huehn <John.Huehn@pega.com>\\\\r\\\\nSubject: Parag Jain mentioned you in APP-033DZV : Insights Driven Protocol\\\\r\\\\n\\\\r\\\\n\\\\r\\\\nParag Jain mentioned you in a comment in APP-033DZV : Insights Driven Protocol<https://providermanagementapp-o4m1x7-prod.lp.trials.pegaservice.net/cases/STE6UHJvdmlkZXJNYW5hZ2VtZW50QXBwX19BcHBsaWNhdGlvbl82NmQ5Y2I5ODllNzRmOTYyOGZhOGMxMDc>\\\\r\\\\n\\\\r\\\\n\\\\r\\\\n\\\\r\\\\nParag Jain\\\\r\\\\n\\\\r\\\\n@John Huehn Hemab is slated to sign at the end of this quarter and tentative go live April 15th.\\\\r\\\\n\\\\r\\\\nI just posted under details a table with subscriber go live schedule for Espero.\\\\r\\\\n\\\"},\\\"sender\\\":{\\\"emailAddress\\\":{\\\"name\\\":\\\"Huehn, John\\\",\\\"address\\\":\\\"John.Huehn@pega.com\\\"}},\\\"from\\\":{\\\"emailAddress\\\":{\\\"name\\\":\\\"Huehn, John\\\",\\\"address\\\":\\\"John.Huehn@pega.com\\\"}},\\\"toRecipients\\\":[{\\\"emailAddress\\\":{\\\"name\\\":\\\"Provider Management Updates\\\",\\\"address\\\":\\\"ProviderManagementUpdates@pega.com\\\"}}],\\\"ccRecipients\\\":[],\\\"bccRecipients\\\":[],\\\"replyTo\\\":[],\\\"flag\\\":{\\\"flagStatus\\\":\\\"notFlagged\\\"}}],\\\"@odata.nextLink\\\":\\\"https://graph.microsoft.com/v1.0/me/messages?%24filter=isRead+eq+false&%24top=4&%24skip=4\\\"}\",\"inspectionParameters\":{\"key\":\"value\"},\"lazyLoad\":false}",
+      "Namespace": "ResourceLibrary",
+      "Name": "Map Graph Response",
+      "TopLevelStructure": "OBJECT",
+      "Type": "JSONTransform",
+      "RuleResolutionID": "MapGraphResponse",
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "EmailIntake",
+          "Namespace": "ResourceLibrary"
+        },
+        "Description": "",
+        "Mode": "SingleRecord"
+      },
+      "MappingsDefinition": "{\"AtlasMapping\":{\"jsonType\":\"io.atlasmap.v2.AtlasMapping\",\"dataSource\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"input\",\"name\":\"Graph Response\",\"description\":\"input\",\"uri\":\"atlas:json:input\",\"dataSourceType\":\"SOURCE\"},{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"output\",\"name\":\"EmailIntake\",\"description\":\"output\",\"uri\":\"atlas:json:output\",\"dataSourceType\":\"TARGET\"}],\"mappings\":{\"mapping\":[{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.914610\",\"inputFieldGroup\":{\"jsonType\":\"io.atlasmap.v2.FieldGroup\",\"actions\":[],\"field\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"address\",\"path\":\"/value<>/toRecipients<>/emailAddress/address\",\"fieldType\":\"STRING\",\"docId\":\"input\"}]},\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"EmailTo\",\"path\":\"/ResourceLibrary;;EmailContent<>/ResourceLibrary;;EmailTo\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.608065\",\"inputFieldGroup\":{\"jsonType\":\"io.atlasmap.v2.FieldGroup\",\"actions\":[],\"field\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"address\",\"path\":\"/value<>/sender/emailAddress/address\",\"fieldType\":\"STRING\",\"docId\":\"input\"}]},\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"EmailFrom\",\"path\":\"/ResourceLibrary;;EmailContent<>/ResourceLibrary;;EmailFrom\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.831188\",\"inputFieldGroup\":{\"jsonType\":\"io.atlasmap.v2.FieldGroup\",\"actions\":[],\"field\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"subject\",\"path\":\"/value<>/subject\",\"fieldType\":\"STRING\",\"docId\":\"input\"}]},\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"subject\",\"path\":\"/ResourceLibrary;;EmailContent<>/ResourceLibrary;;subject\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.260196\",\"inputFieldGroup\":{\"jsonType\":\"io.atlasmap.v2.FieldGroup\",\"actions\":[],\"field\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"content\",\"path\":\"/value<>/body/content\",\"fieldType\":\"STRING\",\"docId\":\"input\"}]},\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"Body\",\"path\":\"/ResourceLibrary;;EmailContent<>/ResourceLibrary;;Body\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]}]},\"name\":\"UI.0\",\"version\":\"1.0.0\",\"lookupTables\":{\"lookupTable\":[]},\"constants\":{\"constant\":[]},\"properties\":{\"property\":[]}}}",
+      "TopElementStructure": "",
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            },
+            "Namespace": "PegaPlatform"
+          },
+          "Type": "",
+          "Description": "This is a JSON string that will be transformed to a Pega object",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "JSON string"
+        }
+      ],
+      "MappingModel": "",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "3-1-1",
+      "AppliesTo": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "Direction": "DESERIALIZE",
+      "SampleJSONData": "{\"description\":\"input\",\"id\":\"input\",\"name\":\"Access Token\",\"inspectionResult\":\"{\\\"JsonInspectionResponse\\\":{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonInspectionResponse\\\",\\\"jsonDocument\\\":{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonDocument\\\",\\\"fields\\\":{\\\"field\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"Bearer\\\",\\\"path\\\":\\\"/token_type\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"token_type\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"profile openid email https://graph.microsoft.com/Mail.Read https://graph.microsoft.com/Mail.Read.Shared https://graph.microsoft.com/Mail.ReadBasic https://graph.microsoft.com/Mail.ReadWrite https://graph.microsoft.com/Mail.ReadWrite.Shared https://graph.microsoft.com/Mail.Send https://graph.microsoft.com/Mail.Send.Shared https://graph.microsoft.com/.default\\\",\\\"path\\\":\\\"/scope\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"scope\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":4125,\\\"path\\\":\\\"/expires_in\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"INTEGER\\\",\\\"name\\\":\\\"expires_in\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":4125,\\\"path\\\":\\\"/ext_expires_in\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"INTEGER\\\",\\\"name\\\":\\\"ext_expires_in\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"eyJ0eXAiOiJKV1QiLCJub25jZSI6Ikh1ajMwZ1RPZDhsdm9EUWZYa1A2T2FPX0lCV051aDVYemFuX0oxd0NUVDAiLCJhbGciOiJSUzI1NiIsIng1dCI6ImltaTBZMnowZFlLeEJ0dEFxS19UdDVoWUJUayIsImtpZCI6ImltaTBZMnowZFlLeEJ0dEFxS19UdDVoWUJUayJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC80NWQzMGYwNC05OGZkLTRkMzgtYmRjMC05ZDgxNDIyMTgwZjQvIiwiaWF0IjoxNzQwMzg3NDI4LCJuYmYiOjE3NDAzODc0MjgsImV4cCI6MTc0MDM5MTg1NCwiYWNjdCI6MCwiYWNyIjoiMSIsImFpbyI6IkFWUUFxLzhaQUFBQVNvcFpWT3JzcDBkaFRBbTN6MzBaekRYNnFPMnhxbE9PM1pnWDY5Z2lUU3E3RllGQ0R3V1VkNzk5dnhNMW95T2ZCcXc5UVlrNW9wZU5yMW5mcExJTzVHbHE0MXFvRUR6S3lBY3AvUndEc2JFPSIsImFtciI6WyJwd2QiXSwiYXBwX2Rpc3BsYXluYW1lIjoiTVNHUkFQSC1FbWFpbC1EZWxlZ2F0ZWRfY2l2aWNzeXNAcGVnYS5jb20iLCJhcHBpZCI6IjMzNTU0ZWIwLTU4ODYtNDZlMC04YTliLTcxMzIzMmI1ODRkNyIsImFwcGlkYWNyIjoiMSIsImdpdmVuX25hbWUiOiJjaXZpY3N5cyIsImlkdHlwIjoidXNlciIsImlwYWRkciI6IjM0LjIwNS4xOTMuNjIiLCJuYW1lIjoiY2l2aWNzeXMiLCJvaWQiOiI2ZjMzNWUyOC0zZjhhLTRhOGQtOGY4Yy1lNDMxMzhmOGQwZDAiLCJvbnByZW1fc2lkIjoiUy0xLTUtMjEtMTYxNDg5NTc1NC03MDY2OTk4MjYtODM5NTIyMTE1LTE5MDEyMyIsInBsYXRmIjoiMTQiLCJwdWlkIjoiMTAwMzIwMDM1OTYyMkRFOSIsInJoIjoiMS5BVm9BQkFfVFJmMllPRTI5d0oyQlFpR0E5QU1BQUFBQUFBQUF3QUFBQUFBQUFBQldBZXBhQUEuIiwic2NwIjoiTWFpbC5SZWFkIE1haWwuUmVhZC5TaGFyZWQgTWFpbC5SZWFkQmFzaWMgTWFpbC5SZWFkV3JpdGUgTWFpbC5SZWFkV3JpdGUuU2hhcmVkIE1haWwuU2VuZCBNYWlsLlNlbmQuU2hhcmVkIHByb2ZpbGUgb3BlbmlkIGVtYWlsIiwic2lkIjoiMDAyMjM1ZTktNzU3Ni1jODVhLWUyNDYtNDRiYjg0NzUxNmNiIiwic3ViIjoiTGRYdnl3NjBTb1hNSmVQZWhFTFJOMkNoczFuSFpHQVdHWVRfQzhkSGlxMCIsInRlbmFudF9yZWdpb25fc2NvcGUiOiJOQSIsInRpZCI6IjQ1ZDMwZjA0LTk4ZmQtNGQzOC1iZGMwLTlkODE0MjIxODBmNCIsInVuaXF1ZV9uYW1lIjoiY2l2aWNzeXNAcGVnYS5jb20iLCJ1cG4iOiJjaXZpY3N5c0BwZWdhLmNvbSIsInV0aSI6InY3cWxmVGdVTGtTeGdJUVJEQVVxQUEiLCJ2ZXIiOiIxLjAiLCJ3aWRzIjpbImI3OWZiZjRkLTNlZjktNDY4OS04MTQzLTc2YjE5NGU4NTUwOSJdLCJ4bXNfaWRyZWwiOiIyNCAxIiwieG1zX3N0Ijp7InN1YiI6IkxGdVFSUENsNnkyNGlXY0Z3UjZsajVUbk1oQm8wTWd2M2xZUlZ2bVU4R3cifSwieG1zX3RjZHQiOjEzMjEwMzgzNDl9.bgyB7TSZMbvfxW33BR3R4POu7xUpYVf0u9cB_-Gkhwk4ZTa4Qgem7WZ2NnFiLRG77DhxKkpY0TCS9a3fVt81_CNHy6wtTUB-yGb_qiFQ9jDf-3cHepLP9yFYa_sz8Ds2jVPS1GUNlssncbL0l9s3HIJNRsgnSUDAHEi_8zvVSuP9MmVod6rLCXnee6xfkYcOykwDXvAWiw_XpEuvSmE7Jw3tXZjH6pw_0zp-1iVWmhYWM8YlE6-8cQpUt7WuxQXICzkNhUIjnEv46ulX6aPVRghRHZKB-iUoY3II9k4Hi5fPwqZRQ3wbQQgGsuY37TDpmeJxZ_xOsAwjjWPoGKDwDg\\\",\\\"path\\\":\\\"/access_token\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"access_token\\\"}]}},\\\"executionTime\\\":0}}\",\"showFields\":true,\"documentType\":\"JSON\",\"inspectionType\":\"INSTANCE\",\"inspectionSource\":\"{\\\"token_type\\\":\\\"Bearer\\\",\\\"scope\\\":\\\"profile openid email https://graph.microsoft.com/Mail.Read https://graph.microsoft.com/Mail.Read.Shared https://graph.microsoft.com/Mail.ReadBasic https://graph.microsoft.com/Mail.ReadWrite https://graph.microsoft.com/Mail.ReadWrite.Shared https://graph.microsoft.com/Mail.Send https://graph.microsoft.com/Mail.Send.Shared https://graph.microsoft.com/.default\\\",\\\"expires_in\\\":4125,\\\"ext_expires_in\\\":4125,\\\"access_token\\\":\\\"eyJ0eXAiOiJKV1QiLCJub25jZSI6Ikh1ajMwZ1RPZDhsdm9EUWZYa1A2T2FPX0lCV051aDVYemFuX0oxd0NUVDAiLCJhbGciOiJSUzI1NiIsIng1dCI6ImltaTBZMnowZFlLeEJ0dEFxS19UdDVoWUJUayIsImtpZCI6ImltaTBZMnowZFlLeEJ0dEFxS19UdDVoWUJUayJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC80NWQzMGYwNC05OGZkLTRkMzgtYmRjMC05ZDgxNDIyMTgwZjQvIiwiaWF0IjoxNzQwMzg3NDI4LCJuYmYiOjE3NDAzODc0MjgsImV4cCI6MTc0MDM5MTg1NCwiYWNjdCI6MCwiYWNyIjoiMSIsImFpbyI6IkFWUUFxLzhaQUFBQVNvcFpWT3JzcDBkaFRBbTN6MzBaekRYNnFPMnhxbE9PM1pnWDY5Z2lUU3E3RllGQ0R3V1VkNzk5dnhNMW95T2ZCcXc5UVlrNW9wZU5yMW5mcExJTzVHbHE0MXFvRUR6S3lBY3AvUndEc2JFPSIsImFtciI6WyJwd2QiXSwiYXBwX2Rpc3BsYXluYW1lIjoiTVNHUkFQSC1FbWFpbC1EZWxlZ2F0ZWRfY2l2aWNzeXNAcGVnYS5jb20iLCJhcHBpZCI6IjMzNTU0ZWIwLTU4ODYtNDZlMC04YTliLTcxMzIzMmI1ODRkNyIsImFwcGlkYWNyIjoiMSIsImdpdmVuX25hbWUiOiJjaXZpY3N5cyIsImlkdHlwIjoidXNlciIsImlwYWRkciI6IjM0LjIwNS4xOTMuNjIiLCJuYW1lIjoiY2l2aWNzeXMiLCJvaWQiOiI2ZjMzNWUyOC0zZjhhLTRhOGQtOGY4Yy1lNDMxMzhmOGQwZDAiLCJvbnByZW1fc2lkIjoiUy0xLTUtMjEtMTYxNDg5NTc1NC03MDY2OTk4MjYtODM5NTIyMTE1LTE5MDEyMyIsInBsYXRmIjoiMTQiLCJwdWlkIjoiMTAwMzIwMDM1OTYyMkRFOSIsInJoIjoiMS5BVm9BQkFfVFJmMllPRTI5d0oyQlFpR0E5QU1BQUFBQUFBQUF3QUFBQUFBQUFBQldBZXBhQUEuIiwic2NwIjoiTWFpbC5SZWFkIE1haWwuUmVhZC5TaGFyZWQgTWFpbC5SZWFkQmFzaWMgTWFpbC5SZWFkV3JpdGUgTWFpbC5SZWFkV3JpdGUuU2hhcmVkIE1haWwuU2VuZCBNYWlsLlNlbmQuU2hhcmVkIHByb2ZpbGUgb3BlbmlkIGVtYWlsIiwic2lkIjoiMDAyMjM1ZTktNzU3Ni1jODVhLWUyNDYtNDRiYjg0NzUxNmNiIiwic3ViIjoiTGRYdnl3NjBTb1hNSmVQZWhFTFJOMkNoczFuSFpHQVdHWVRfQzhkSGlxMCIsInRlbmFudF9yZWdpb25fc2NvcGUiOiJOQSIsInRpZCI6IjQ1ZDMwZjA0LTk4ZmQtNGQzOC1iZGMwLTlkODE0MjIxODBmNCIsInVuaXF1ZV9uYW1lIjoiY2l2aWNzeXNAcGVnYS5jb20iLCJ1cG4iOiJjaXZpY3N5c0BwZWdhLmNvbSIsInV0aSI6InY3cWxmVGdVTGtTeGdJUVJEQVVxQUEiLCJ2ZXIiOiIxLjAiLCJ3aWRzIjpbImI3OWZiZjRkLTNlZjktNDY4OS04MTQzLTc2YjE5NGU4NTUwOSJdLCJ4bXNfaWRyZWwiOiIyNCAxIiwieG1zX3N0Ijp7InN1YiI6IkxGdVFSUENsNnkyNGlXY0Z3UjZsajVUbk1oQm8wTWd2M2xZUlZ2bVU4R3cifSwieG1zX3RjZHQiOjEzMjEwMzgzNDl9.bgyB7TSZMbvfxW33BR3R4POu7xUpYVf0u9cB_-Gkhwk4ZTa4Qgem7WZ2NnFiLRG77DhxKkpY0TCS9a3fVt81_CNHy6wtTUB-yGb_qiFQ9jDf-3cHepLP9yFYa_sz8Ds2jVPS1GUNlssncbL0l9s3HIJNRsgnSUDAHEi_8zvVSuP9MmVod6rLCXnee6xfkYcOykwDXvAWiw_XpEuvSmE7Jw3tXZjH6pw_0zp-1iVWmhYWM8YlE6-8cQpUt7WuxQXICzkNhUIjnEv46ulX6aPVRghRHZKB-iUoY3II9k4Hi5fPwqZRQ3wbQQgGsuY37TDpmeJxZ_xOsAwjjWPoGKDwDg\\\"}\",\"inspectionParameters\":{\"key\":\"value\"},\"lazyLoad\":false}",
+      "Namespace": "ResourceLibrary",
+      "Name": "GetToken",
+      "TopLevelStructure": "OBJECT",
+      "Type": "JSONTransform",
+      "Output": {
+        "Description": "",
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "EmailIntake",
+          "Namespace": "ResourceLibrary"
+        },
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "GetToken",
+      "TopElementStructure": "",
+      "MappingsDefinition": "{\"AtlasMapping\":{\"jsonType\":\"io.atlasmap.v2.AtlasMapping\",\"dataSource\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"input\",\"name\":\"Access Token\",\"description\":\"input\",\"uri\":\"atlas:json:input\",\"dataSourceType\":\"SOURCE\"},{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"output\",\"name\":\"EmailIntake\",\"description\":\"output\",\"uri\":\"atlas:json:output\",\"dataSourceType\":\"TARGET\"}],\"mappings\":{\"mapping\":[{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.146048\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"access_token\",\"path\":\"/access_token\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"AccessToken\",\"path\":\"/ResourceLibrary;;AccessToken\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]}]},\"name\":\"UI.0\",\"version\":\"1.0.0\",\"lookupTables\":{\"lookupTable\":[]},\"constants\":{\"constant\":[]},\"properties\":{\"property\":[]}}}",
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            },
+            "Namespace": "PegaPlatform"
+          },
+          "Description": "This is a JSON string that will be transformed to a Pega object",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "JSON string"
+        }
+      ],
+      "MappingModel": "",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Action": [
+    {
+      "Type": "Action",
+      "PreProcessing": {
+        "Automation": {
+          "CallReference": {
+            "ReferenceID": "SetUseCaseDescription",
+            "Namespace": "ResourceLibrary"
+          },
+          "CallType": "Automation",
+          "CallInputs": []
+        }
+      },
+      "Description": "Collect Email Intake info",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-1",
+      "AppliesTo": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "CollectEmailIntakeInfo",
+      "PostProcessing": {
+        "Automation": {
+          "CallReference": {
+            "ReferenceID": "ConnectToGraphAPI",
+            "Namespace": "ResourceLibrary"
+          },
+          "CallType": "Automation",
+          "CallInputs": []
+        }
+      },
+      "View": {
+        "ReferenceID": "Create",
+        "Namespace": "PegaPlatform"
+      },
+      "AllowOn": "INDIVIDUAL_AND_BULK",
+      "Namespace": "ResourceLibrary",
+      "Name": "Collect Email Intake info",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Action",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-1",
+      "AppliesTo": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "ShowLatestEmails",
+      "View": {
+        "ReferenceID": "ShowLatestEmails",
+        "Namespace": "ResourceLibrary"
+      },
+      "AllowOn": "INDIVIDUAL_AND_BULK",
+      "Namespace": "ResourceLibrary",
+      "Name": "ShowLatestEmails",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Stage": [
+    {
+      "Type": "Stage",
+      "Description": "Email Intake creation",
+      "Reusability": "Private",
+      "SchemaVersion": "2-2-0",
+      "AppliesTo": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "EmailIntakeCreation",
+      "Processes": [
+        {
+          "Process": {
+            "ReferenceID": "CreateNewEmailIntake",
+            "Namespace": "ResourceLibrary"
+          },
+          "SkipProcess": {
+            "SkipType": "Never"
+          }
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "Email Intake creation",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Stage",
+      "Description": "In progress",
+      "Reusability": "Private",
+      "SchemaVersion": "2-2-0",
+      "AppliesTo": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "InProgress",
+      "Processes": [
+        {
+          "Process": {
+            "ReferenceID": "ShowLatestEmailContent",
+            "Namespace": "ResourceLibrary"
+          },
+          "SkipProcess": {
+            "SkipType": "Never"
+          }
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "In progress",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Stage",
+      "Description": "Withdrawn",
+      "Reusability": "Private",
+      "SchemaVersion": "2-2-0",
+      "AppliesTo": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Withdrawn",
+      "Processes": [],
+      "Namespace": "ResourceLibrary",
+      "Name": "Withdrawn",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Stage",
+      "Description": "Completed",
+      "Reusability": "Private",
+      "SchemaVersion": "2-2-0",
+      "AppliesTo": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Completed",
+      "Processes": [],
+      "Namespace": "ResourceLibrary",
+      "Name": "Completed",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Process": [
+    {
+      "Connectors": [
+        {
+          "ID": "69a60457-0a8c-4797-bf90-cad38e02afbb",
+          "To": "269aadda-72a6-4500-84cb-5ac840ab20bc",
+          "Type": "Process-Connector"
+        },
+        {
+          "ID": "ef6ef707-db8f-4668-bc9f-9da0b94f7897",
+          "To": "46a34a51-bfa1-460a-bea9-18467a93f732",
+          "Type": "Process-Connector"
+        }
+      ],
+      "Type": "Process",
+      "Description": "Show Latest Email Content",
+      "Reusability": "Private",
+      "SchemaVersion": "2-1-1",
+      "AppliesTo": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "ShowLatestEmailContent",
+      "Nodes": [
+        {
+          "ID": "b434b186-59f5-4af2-80ed-19c508831022",
+          "Type": "Start",
+          "ToConnectors": [
+            {
+              "ID": "ef6ef707-db8f-4668-bc9f-9da0b94f7897",
+              "Type": "Process-Connector"
+            }
+          ],
+          "Name": "Start"
+        },
+        {
+          "ID": "46a34a51-bfa1-460a-bea9-18467a93f732",
+          "Type": "Assignment",
+          "ToConnectors": [
+            {
+              "ID": "69a60457-0a8c-4797-bf90-cad38e02afbb",
+              "Type": "Process-Connector",
+              "Name": "Submit",
+              "Value": "Submit"
+            }
+          ],
+          "Name": "Show Latest Emails",
+          "Action": {
+            "ReferenceID": "ShowLatestEmails",
+            "Namespace": "ResourceLibrary"
+          },
+          "Routing": {
+            "RoutingType": "CurrentUser"
+          }
+        },
+        {
+          "ID": "269aadda-72a6-4500-84cb-5ac840ab20bc",
+          "Type": "End",
+          "ToConnectors": [],
+          "Name": "End"
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "Show Latest Email Content",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Connectors": [
+        {
+          "ID": "d4a36551-c494-4b22-9ed0-ed0edda4d04a",
+          "To": "157b1fdd-f210-4415-84ee-f53ec2bfe7a6",
+          "Type": "Process-Connector"
+        },
+        {
+          "ID": "81b89637-9734-4399-87d7-afaf478691cb",
+          "To": "68b87bfb-29ec-4467-9c9f-3d3c1bc8cf9b",
+          "Type": "Process-Connector"
+        }
+      ],
+      "Type": "Process",
+      "Description": "Create new Email Intake",
+      "Reusability": "Private",
+      "SchemaVersion": "2-1-1",
+      "AppliesTo": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "CreateNewEmailIntake",
+      "Nodes": [
+        {
+          "ID": "6b7f73e9-50b2-4ec8-9491-11dfc65bb602",
+          "Type": "Start",
+          "ToConnectors": [
+            {
+              "ID": "81b89637-9734-4399-87d7-afaf478691cb",
+              "Type": "Process-Connector"
+            }
+          ],
+          "Name": "Start"
+        },
+        {
+          "ID": "68b87bfb-29ec-4467-9c9f-3d3c1bc8cf9b",
+          "Type": "Assignment",
+          "ToConnectors": [
+            {
+              "ID": "d4a36551-c494-4b22-9ed0-ed0edda4d04a",
+              "Type": "Process-Connector",
+              "Name": "Submit",
+              "Value": "Submit"
+            }
+          ],
+          "Name": "Collect Email Intake info",
+          "Action": {
+            "ReferenceID": "CollectEmailIntakeInfo",
+            "Namespace": "ResourceLibrary"
+          },
+          "Routing": {
+            "RoutingType": "CurrentUser"
+          }
+        },
+        {
+          "ID": "157b1fdd-f210-4415-84ee-f53ec2bfe7a6",
+          "Type": "End",
+          "ToConnectors": [],
+          "Name": "End"
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "Create new Email Intake",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "RESTConnector": [
+    {
+      "MappingType": "",
+      "ResourceParams": [
+        {
+          "EmptyBehavior": "SKIP",
+          "EncodingType": "URL",
+          "ParamValue": {
+            "Type": "ConstantText",
+            "Value": "v1.0"
+          },
+          "Name": "version"
+        },
+        {
+          "EmptyBehavior": "SKIP",
+          "EncodingType": "URL",
+          "ParamValue": {
+            "Type": "ConstantText",
+            "Value": "me"
+          },
+          "Name": "user"
+        },
+        {
+          "EmptyBehavior": "SKIP",
+          "EncodingType": "URL",
+          "ParamValue": {
+            "Type": "ConstantText",
+            "Value": "messages"
+          },
+          "Name": "type"
+        }
+      ],
+      "Description": "",
+      "Reusability": "Private",
+      "IsSystemGenerated": false,
+      "SchemaVersion": "0-3-0",
+      "MSTimeout": 3000,
+      "Timeout": 3,
+      "AppliesTo": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "Method": "GET",
+      "IntegrationSystem": {
+        "ReferenceID": "MicrosoftGraphAPI2",
+        "Namespace": "ResourceLibrary"
+      },
+      "Namespace": "ResourceLibrary",
+      "Name": "Get Emails from Microsoft Graph",
+      "Type": "RESTConnector",
+      "RuleResolutionID": "GetEmailsFromMicrosoftGraph",
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "Text",
+          "Format": {
+            "Type": "RuleReference",
+            "ReferenceID": "TextParagraph",
+            "Namespace": "PegaPlatform"
+          },
+          "Namespace": "PegaPlatform"
+        },
+        "Description": "",
+        "Mode": "SingleRecord"
+      },
+      "QueryParams": [
+        {
+          "EmptyBehavior": "SKIP",
+          "EncodingType": "URL",
+          "ParamValue": {
+            "Type": "ConstantText",
+            "Value": "isRead eq false"
+          },
+          "Name": "$filter"
+        },
+        {
+          "EmptyBehavior": "SKIP",
+          "EncodingType": "URL",
+          "ParamValue": {
+            "Type": "ConstantText",
+            "Value": "5"
+          },
+          "Name": "$top"
+        }
+      ],
+      "UseDirectURL": false,
+      "RequestHeaders": [
+        {
+          "Description": "Prefer",
+          "ParamValue": {
+            "Type": "ConstantText",
+            "Value": "outlook.body-content-type='text'"
+          },
+          "Name": "Prefer"
+        },
+        {
+          "Description": "Authorization",
+          "ParamValue": {
+            "Type": "Variable",
+            "Name": "Access Token"
+          },
+          "Name": "Authorization"
+        }
+      ],
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            },
+            "Namespace": "PegaPlatform"
+          },
+          "Type": "",
+          "Description": "Access Token",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "Access Token"
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "MappingType": "xwwwformurlencoded",
+      "ResourceParams": [
+        {
+          "EmptyBehavior": "SKIP",
+          "EncodingType": "URL",
+          "ParamValue": {
+            "Type": "ConstantText",
+            "Value": "45d30f04-98fd-4d38-bdc0-9d81422180f4"
+          },
+          "Name": "Tenant ID"
+        },
+        {
+          "EmptyBehavior": "SKIP",
+          "EncodingType": "URL",
+          "ParamValue": {
+            "Type": "ConstantText",
+            "Value": "oauth2"
+          },
+          "Name": "oauth2"
+        },
+        {
+          "EmptyBehavior": "SKIP",
+          "EncodingType": "URL",
+          "ParamValue": {
+            "Type": "ConstantText",
+            "Value": "v2.0"
+          },
+          "Name": "Version"
+        },
+        {
+          "EmptyBehavior": "SKIP",
+          "EncodingType": "URL",
+          "ParamValue": {
+            "Type": "ConstantText",
+            "Value": "token"
+          },
+          "Name": "Type"
+        }
+      ],
+      "mapping": "xwwwformurlencoded",
+      "Description": "",
+      "Reusability": "Private",
+      "IsSystemGenerated": false,
+      "SchemaVersion": "0-3-0",
+      "MSTimeout": 3000,
+      "Timeout": 3,
+      "AppliesTo": {
+        "ReferenceID": "EmailIntake",
+        "Namespace": "ResourceLibrary"
+      },
+      "Method": "POST",
+      "IntegrationSystem": {
+        "ReferenceID": "MicrosoftGraphAPI",
+        "Namespace": "ResourceLibrary"
+      },
+      "Namespace": "ResourceLibrary",
+      "Name": "Get Graph API Token",
+      "FormInput": [
+        {
+          "Description": "grant_type",
+          "ParamValue": {
+            "Type": "ConstantText",
+            "Value": "password"
+          },
+          "Name": "grant_type"
+        },
+        {
+          "Description": "client_id",
+          "ParamValue": {
+            "Type": "ConstantText",
+            "Value": "1d6010ec-4123-4c9f-b061-2d2fb1430dcf"
+          },
+          "Name": "client_id"
+        },
+        {
+          "Description": "client_secret",
+          "ParamValue": {
+            "Type": "ConstantText",
+            "Value": "o8oQylF9b04Q+Tyt6cu7CNzOIxugG0xq9gDHPxnBUUI="
+          },
+          "Name": "client_secret"
+        },
+        {
+          "Description": "username",
+          "ParamValue": {
+            "Type": "ConstantText",
+            "Value": "ProviderManagementUpdates@pega.com"
+          },
+          "Name": "username"
+        },
+        {
+          "Description": "password",
+          "ParamValue": {
+            "Type": "ConstantText",
+            "Value": "LJB8DX',titW*CW'GC3A8qSPZ"
+          },
+          "Name": "password"
+        },
+        {
+          "Description": "scope",
+          "ParamValue": {
+            "Type": "ConstantText",
+            "Value": "https://graph.microsoft.com/.default"
+          },
+          "Name": "scope"
+        }
+      ],
+      "Type": "RESTConnector",
+      "RuleResolutionID": "GetGraphAPIToken",
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "Text",
+          "Format": {
+            "Type": "RuleReference",
+            "ReferenceID": "Text",
+            "Namespace": "PegaPlatform"
+          },
+          "Namespace": "PegaPlatform"
+        },
+        "Description": "",
+        "Mode": "SingleRecord"
+      },
+      "UseDirectURL": false,
+      "ActionToBePerformed": "ADDED"
+    }
+  ]
+}

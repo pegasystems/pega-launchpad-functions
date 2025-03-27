@@ -1,0 +1,2818 @@
+{
+  "ApplicationNamespace": "ResourceLibrary",
+  "CaseStatus": [
+    {
+      "Type": "CaseStatus",
+      "Description": "Resolved-Completed",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Resolved-Completed2",
+      "Namespace": "ResourceLibrary",
+      "Name": "Resolved-Completed",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "CaseStatus",
+      "Description": "Pending-Completed",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Pending-Completed",
+      "Namespace": "ResourceLibrary",
+      "Name": "Pending-Completed",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "CaseStatus",
+      "Description": "New-ImageAnalysis creation",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "New-ImageAnalysisCreation",
+      "Namespace": "ResourceLibrary",
+      "Name": "New-ImageAnalysis creation",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "CaseStatus",
+      "Description": "Pending-Withdrawn",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Pending-Withdrawn",
+      "Namespace": "ResourceLibrary",
+      "Name": "Pending-Withdrawn",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "CaseStatus",
+      "Description": "Resolved-Withdrawn",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Resolved-Withdrawn2",
+      "Namespace": "ResourceLibrary",
+      "Name": "Resolved-Withdrawn",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "CaseStatus",
+      "Description": "Open-In progress",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Open-InProgress",
+      "Namespace": "ResourceLibrary",
+      "Name": "Open-In progress",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Process": [
+    {
+      "Connectors": [
+        {
+          "ID": "05c8897c-9786-43b6-a68c-454d0c6878f2",
+          "To": "b3e47768-11bf-4975-aaaf-4096b3a8ee92",
+          "Type": "Process-Connector"
+        },
+        {
+          "ID": "ebe4f62d-c26d-4056-9bf6-bde6b0cc31e2",
+          "To": "a3f36756-1655-42be-a77d-718ef63997a6",
+          "Type": "Process-Connector"
+        }
+      ],
+      "Type": "Process",
+      "Description": "Create new ImageAnalysis",
+      "Reusability": "Private",
+      "SchemaVersion": "2-1-1",
+      "AppliesTo": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "CreateNewImageAnalysis",
+      "Nodes": [
+        {
+          "ID": "1e9a9cb4-5877-4b75-878a-7cef21d1aa1c",
+          "Type": "Start",
+          "ToConnectors": [
+            {
+              "ID": "ebe4f62d-c26d-4056-9bf6-bde6b0cc31e2",
+              "Type": "Process-Connector"
+            }
+          ],
+          "Name": "Start"
+        },
+        {
+          "ID": "a3f36756-1655-42be-a77d-718ef63997a6",
+          "Type": "Assignment",
+          "ToConnectors": [
+            {
+              "ID": "05c8897c-9786-43b6-a68c-454d0c6878f2",
+              "Type": "Process-Connector",
+              "Name": "Submit",
+              "Value": "Submit"
+            }
+          ],
+          "Name": "Collect ImageAnalysis info",
+          "Action": {
+            "ReferenceID": "CollectImageAnalysisInfo",
+            "Namespace": "ResourceLibrary"
+          },
+          "Routing": {
+            "RoutingType": "CurrentUser"
+          }
+        },
+        {
+          "ID": "b3e47768-11bf-4975-aaaf-4096b3a8ee92",
+          "Type": "End",
+          "ToConnectors": [],
+          "Name": "End"
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "Create new ImageAnalysis",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Connectors": [
+        {
+          "ID": "19992e47-0f35-4383-a6b7-59b1e7f26439",
+          "To": "e4471925-9837-4c55-a95e-145623fadd45",
+          "Type": "Process-Connector"
+        },
+        {
+          "ID": "7ce93a82-41d8-4ace-a6cd-ab25a61e5735",
+          "To": "4b61c51b-bb2d-41cc-9477-a69a43edc6c1",
+          "Type": "Process-Connector"
+        }
+      ],
+      "Type": "Process",
+      "Description": "Get AI Summary",
+      "Reusability": "Private",
+      "SchemaVersion": "2-1-1",
+      "AppliesTo": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "GetAISummary",
+      "Nodes": [
+        {
+          "ID": "0ddf2df5-d823-4ee6-bdb5-738e12131dfb",
+          "Type": "Start",
+          "ToConnectors": [
+            {
+              "ID": "7ce93a82-41d8-4ace-a6cd-ab25a61e5735",
+              "Type": "Process-Connector"
+            }
+          ],
+          "Name": "Start"
+        },
+        {
+          "ID": "4b61c51b-bb2d-41cc-9477-a69a43edc6c1",
+          "Type": "Assignment",
+          "ToConnectors": [
+            {
+              "ID": "19992e47-0f35-4383-a6b7-59b1e7f26439",
+              "Type": "Process-Connector",
+              "Name": "Submit",
+              "Value": "Submit"
+            }
+          ],
+          "Name": "Get AI Summary",
+          "Action": {
+            "ReferenceID": "GetAISummary",
+            "Namespace": "ResourceLibrary"
+          },
+          "Routing": {
+            "RoutingType": "CurrentUser"
+          }
+        },
+        {
+          "ID": "e4471925-9837-4c55-a95e-145623fadd45",
+          "Type": "End",
+          "ToConnectors": [],
+          "Name": "End"
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "Get AI Summary",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Stage": [
+    {
+      "Type": "Stage",
+      "Description": "In progress",
+      "Reusability": "Private",
+      "SchemaVersion": "2-2-0",
+      "AppliesTo": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "InProgress",
+      "Processes": [
+        {
+          "Process": {
+            "ReferenceID": "GetAISummary",
+            "Namespace": "ResourceLibrary"
+          },
+          "SkipProcess": {
+            "SkipType": "Never"
+          }
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "In progress",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Stage",
+      "Description": "ImageAnalysis creation",
+      "Reusability": "Private",
+      "SchemaVersion": "2-2-0",
+      "AppliesTo": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "ImageAnalysisCreation",
+      "Processes": [
+        {
+          "Process": {
+            "ReferenceID": "CreateNewImageAnalysis",
+            "Namespace": "ResourceLibrary"
+          },
+          "SkipProcess": {
+            "SkipType": "Never"
+          }
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "ImageAnalysis creation",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Stage",
+      "Description": "Withdrawn",
+      "Reusability": "Private",
+      "SchemaVersion": "2-2-0",
+      "AppliesTo": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Withdrawn",
+      "Processes": [],
+      "Namespace": "ResourceLibrary",
+      "Name": "Withdrawn",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Stage",
+      "Description": "Completed",
+      "Reusability": "Private",
+      "SchemaVersion": "2-2-0",
+      "AppliesTo": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Completed",
+      "Processes": [],
+      "Namespace": "ResourceLibrary",
+      "Name": "Completed",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "DynamicText": [
+    {
+      "Type": "DynamicText",
+      "Description": "Image to be analyzed",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "Content": "<p>Please attach the image to this field for AI analysis</p>",
+      "AppliesTo": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "ImageAttachment_additionalInfo",
+      "Namespace": "ResourceLibrary",
+      "Name": "ImageAttachment_additionalInfo",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "DynamicText",
+      "Description": "OpenAI Analysis",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "Content": "<p>This field shows the results from the OpenAI's image analysis</p>",
+      "AppliesTo": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "OpenAIAnalysis_additionalInfo",
+      "Namespace": "ResourceLibrary",
+      "Name": "OpenAI Analysis_additionalInfo",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "DynamicText",
+      "Description": "system/user",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "Content": "",
+      "AppliesTo": {
+        "ReferenceID": "OpenAIRequestObject",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "role_additionalInfo",
+      "Namespace": "ResourceLibrary",
+      "Name": "role_additionalInfo",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "DynamicText",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "Content": "<p>User input guiding the AI on how to interpret or process the attached image.</p>",
+      "AppliesTo": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "UserPrompt_additionalInfo",
+      "Namespace": "ResourceLibrary",
+      "Name": "User Prompt_additionalInfo",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "DataPage": [
+    {
+      "DataPageMode": "SingleRecord",
+      "Description": "ImageAnalysis lookup",
+      "Reusability": "Private",
+      "DataConnection": {
+        "CallReference": {
+          "ReferenceID": "ImageAnalysisLookup",
+          "ReferenceScope": {
+            "ReferenceID": "ImageAnalysis",
+            "Namespace": "ResourceLibrary"
+          },
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "DataConnection",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "Variable",
+              "Name": "ID"
+            }
+          }
+        ]
+      },
+      "SchemaVersion": "0-2-0",
+      "CallType": "DataPage",
+      "Namespace": "ResourceLibrary",
+      "Name": "ImageAnalysis lookup",
+      "ObjectType": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "DataPage",
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "ImageAnalysis",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        }
+      },
+      "RuleResolutionID": "ImageAnalysisLookup",
+      "Inputs": [
+        {
+          "Description": "object key",
+          "Mode": "SingleRecord",
+          "Name": "ID",
+          "Required": "true",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          }
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DataPageMode": "SingleRecord",
+      "Description": "OpenAIRequestObject lookup",
+      "Reusability": "Private",
+      "DataConnection": {
+        "CallReference": {
+          "ReferenceID": "OpenAIRequestObjectLookup",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "OpenAIRequestObject",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "DataConnection",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "Variable",
+              "Name": "ID"
+            }
+          }
+        ]
+      },
+      "SchemaVersion": "0-2-0",
+      "CallType": "DataPage",
+      "Namespace": "ResourceLibrary",
+      "Name": "OpenAIRequestObject lookup",
+      "ObjectType": {
+        "ReferenceID": "OpenAIRequestObject",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "DataPage",
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "OpenAIRequestObject",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        }
+      },
+      "RuleResolutionID": "OpenAIRequestObjectLookup",
+      "Inputs": [
+        {
+          "Description": "object key",
+          "Mode": "SingleRecord",
+          "Name": "ID",
+          "Required": "true",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          }
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DataPageMode": "ListOfRecords",
+      "Description": "OpenAIRequestObject list",
+      "Reusability": "Private",
+      "DataConnection": {
+        "CallReference": {
+          "ReferenceID": "OpenAIRequestObjectList",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "OpenAIRequestObject",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "DataConnection",
+        "CallInputs": []
+      },
+      "SchemaVersion": "0-2-0",
+      "CallType": "DataPage",
+      "Namespace": "ResourceLibrary",
+      "Name": "OpenAIRequestObject list",
+      "ObjectType": {
+        "ReferenceID": "OpenAIRequestObject",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "DataPage",
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "List",
+          "Type": "TypeReference",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "OpenAIRequestObject",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        }
+      },
+      "RuleResolutionID": "OpenAIRequestObjectList",
+      "Inputs": [],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DataPageMode": "ListOfRecords",
+      "Description": "ImageAnalysis list",
+      "Reusability": "Private",
+      "DataConnection": {
+        "CallReference": {
+          "ReferenceID": "ImageAnalysisList",
+          "ReferenceScope": {
+            "ReferenceID": "ImageAnalysis",
+            "Namespace": "ResourceLibrary"
+          },
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "DataConnection",
+        "CallInputs": []
+      },
+      "SchemaVersion": "0-2-0",
+      "CallType": "DataPage",
+      "Namespace": "ResourceLibrary",
+      "Name": "ImageAnalysis list",
+      "ObjectType": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "DataPage",
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "List",
+          "Type": "TypeReference",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "ImageAnalysis",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        }
+      },
+      "RuleResolutionID": "ImageAnalysisList",
+      "Inputs": [],
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Action": [
+    {
+      "Type": "Action",
+      "Description": "Collect ImageAnalysis info",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-1",
+      "AppliesTo": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "CollectImageAnalysisInfo",
+      "PostProcessing": {
+        "Automation": {
+          "CallReference": {
+            "ReferenceID": "GenerateImageSummary",
+            "Namespace": "ResourceLibrary"
+          },
+          "CallType": "Automation",
+          "CallInputs": []
+        }
+      },
+      "View": {
+        "ReferenceID": "Create",
+        "Namespace": "PegaPlatform"
+      },
+      "AllowOn": "INDIVIDUAL_AND_BULK",
+      "Namespace": "ResourceLibrary",
+      "Name": "Collect ImageAnalysis info",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Action",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-1",
+      "AppliesTo": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "GetAISummary",
+      "View": {
+        "ReferenceID": "GetAISummary",
+        "Namespace": "ResourceLibrary"
+      },
+      "AllowOn": "INDIVIDUAL_AND_BULK",
+      "Namespace": "ResourceLibrary",
+      "Name": "GetAISummary",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "JSONTransform": [
+    {
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "3-1-1",
+      "AppliesTo": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "Auto-mapAll": false,
+      "Direction": "SERIALIZE",
+      "SampleJSONData": "{\"description\":\"output\",\"id\":\"output\",\"name\":\"Open AI Request\",\"inspectionResult\":\"{\\\"JsonInspectionResponse\\\":{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonInspectionResponse\\\",\\\"jsonDocument\\\":{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonDocument\\\",\\\"fields\\\":{\\\"field\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"collectionType\\\":\\\"LIST\\\",\\\"path\\\":\\\"/messages<>\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"messages\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"system\\\",\\\"path\\\":\\\"/messages<>/role\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"role\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"You are a helpful assistant who can create a table from the data provided and embed the table to a pdf. Finally you need to convert the pdf to base64 and return the base64 string\\\",\\\"path\\\":\\\"/messages<>/content\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"content\\\"}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":150,\\\"path\\\":\\\"/max_tokens\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"INTEGER\\\",\\\"name\\\":\\\"max_tokens\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":0.5,\\\"path\\\":\\\"/temperature\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"DOUBLE\\\",\\\"name\\\":\\\"temperature\\\"}]}},\\\"executionTime\\\":0}}\",\"showFields\":true,\"documentType\":\"JSON\",\"inspectionType\":\"INSTANCE\",\"inspectionSource\":\"{\\\"messages\\\":[{\\\"role\\\":\\\"system\\\",\\\"content\\\":\\\"You are a helpful assistant who can create a table from the data provided and embed the table to a pdf. Finally you need to convert the pdf to base64 and return the base64 string\\\"},{\\\"role\\\":\\\"user\\\",\\\"content\\\":\\\"Create a table with the columns \\\\\\\"Provider\\\\\\\", \\\\\\\"Application\\\\\\\", \\\\\\\"Risks\\\\\\\", and \\\\\\\"Comments\\\\\\\". Use the following data: \\\\n- AWS, Textract, Data Breach, Sensitive Data Handling\\\\n- Azure, Cognitive Services, Misuse of AI, Regulation compliance\\\\n- Google, Cloud Vision, Privacy Issues, User Consent Required\\\"}],\\\"max_tokens\\\":150,\\\"temperature\\\":0.5}\",\"inspectionParameters\":{\"key\":\"value\"},\"lazyLoad\":false}",
+      "Namespace": "ResourceLibrary",
+      "Name": "Image Analysis Request",
+      "TopLevelStructure": "OBJECT",
+      "Type": "JSONTransform",
+      "RuleResolutionID": "ImageAnalysisRequest",
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "Text",
+          "Format": {
+            "Type": "RuleReference",
+            "ReferenceID": "Text",
+            "Namespace": "PegaPlatform"
+          },
+          "Namespace": "PegaPlatform"
+        },
+        "Description": "",
+        "Mode": "SingleRecord"
+      },
+      "MappingsDefinition": "{\"AtlasMapping\":{\"jsonType\":\"io.atlasmap.v2.AtlasMapping\",\"dataSource\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"input\",\"name\":\"ImageAnalysis\",\"description\":\"input\",\"uri\":\"atlas:json:input\",\"dataSourceType\":\"SOURCE\"},{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"output\",\"name\":\"Open AI Request\",\"description\":\"output\",\"uri\":\"atlas:json:output\",\"dataSourceType\":\"TARGET\"}],\"mappings\":{\"mapping\":[{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.201240\",\"inputFieldGroup\":{\"jsonType\":\"io.atlasmap.v2.FieldGroup\",\"actions\":[],\"field\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"role\",\"path\":\"/ResourceLibrary;;AIMessageObject<>/ResourceLibrary;;role\",\"fieldType\":\"STRING\",\"docId\":\"input\"}]},\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"role\",\"path\":\"/messages<>/role\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.870701\",\"inputFieldGroup\":{\"jsonType\":\"io.atlasmap.v2.FieldGroup\",\"actions\":[],\"field\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"prompt\",\"path\":\"/ResourceLibrary;;AIMessageObject<>/ResourceLibrary;;prompt\",\"fieldType\":\"STRING\",\"docId\":\"input\"}]},\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"content\",\"path\":\"/messages<>/content\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]}]},\"name\":\"UI.0\",\"version\":\"1.0.0\",\"lookupTables\":{\"lookupTable\":[]},\"constants\":{\"constant\":[]},\"properties\":{\"property\":[]}}}",
+      "TopElementStructure": "",
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "ImageAnalysis",
+            "Namespace": "ResourceLibrary"
+          },
+          "Type": "",
+          "Description": "This is a Pega object that will be transformed to a JSON string",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "Pega object"
+        }
+      ],
+      "MappingModel": "",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "3-1-1",
+      "AppliesTo": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "Auto-mapAll": false,
+      "Direction": "DESERIALIZE",
+      "SampleJSONData": "{\"description\":\"input\",\"id\":\"input\",\"name\":\"OpenAI Response\",\"inspectionResult\":\"{\\\"JsonInspectionResponse\\\":{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonInspectionResponse\\\",\\\"jsonDocument\\\":{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonDocument\\\",\\\"fields\\\":{\\\"field\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"collectionType\\\":\\\"LIST\\\",\\\"path\\\":\\\"/choices<>\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"choices\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"stop\\\",\\\"path\\\":\\\"/choices<>/finish_reason\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"finish_reason\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":0,\\\"path\\\":\\\"/choices<>/index\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"INTEGER\\\",\\\"name\\\":\\\"index\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/choices<>/message\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"message\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"{\\\\n  \\\\\\\"AIHealthRecommendations\\\\\\\": [\\\\n    {\\\\n      \\\\\\\"SymptomName\\\\\\\": \\\\\\\"Headache\\\\\\\",\\\\n      \\\\\\\"PossibleCauses\\\\\\\": \\\\\\\"Stress, dehydration, eye strain, sinus congestion, caffeine withdrawal\\\\\\\",\\\\n      \\\\\\\"FrequencyOfObservationInPeople\\\\\\\": \\\\\\\"Common\\\\\\\",\\\\n      \\\\\\\"SignificanceOfImpact\\\\\\\": \\\\\\\"Can affect daily activities and productivity\\\\\\\",\\\\n      \\\\\\\"TipsToAvoidThisCondition\\\\\\\": \\\\\\\"Stay hydrated, manage stress, take breaks from screen time, get enough sleep\\\\\\\",\\\\n      \\\\\\\"GuidanceForRecovery\\\\\\\": \\\\\\\"Rest in a quiet and dark room, apply a cold or warm compress to the forehead\\\\\\\",\\\\n      \\\\\\\"FoodsToConsume\\\\\\\": \\\\\\\"Drink plenty of water, consume foods rich in magnesium and omega-3 fatty acids\\\\\\\",\\\\n      \\\\\\\"RecommendedNote\\\\\\\": \\\\\\\"If symptoms persist or worsen, consult a healthcare professional.\\\\\\\"\\\\n    },\\\\n    {\\\\n      \\\\\\\"SymptomName\\\\\\\": \\\\\\\"Chest pain\\\\\\\",\\\\n      \\\\\\\"PossibleCauses\\\\\\\": \\\\\\\"Heartburn, muscle strain, anxiety, heart attack\\\\\\\",\\\\n      \\\\\\\"FrequencyOfObservationInPeople\\\\\\\": \\\\\\\"Common\\\\\\\",\\\\n      \\\\\\\"SignificanceOfImpact\\\\\\\": \\\\\\\"Can be a sign of a serious condition\\\\\\\",\\\\n      \\\\\\\"TipsToAvoidThisCondition\\\\\\\": \\\\\\\"Maintain a healthy weight, exercise regularly, manage stress, avoid smoking and excessive alcohol consumption\\\\\\\",\\\\n      \\\\\\\"GuidanceForRecovery\\\\\\\": \\\\\\\"If experiencing severe chest pain, call emergency services immediately\\\\\\\",\\\\n      \\\\\\\"FoodsToConsume\\\\\\\": \\\\\\\"Eat a balanced diet rich in fruits, vegetables, whole grains, and lean proteins\\\\\\\",\\\\n      \\\\\\\"RecommendedNote\\\\\\\": \\\\\\\"If you are experiencing chest pain, it is important to seek immediate medical attention as it may be a sign of a heart attack.\\\\\\\"\\\\n    },\\\\n    {\\\\n      \\\\\\\"SymptomName\\\\\\\": \\\\\\\"Difficulty breathing\\\\\\\",\\\\n      \\\\\\\"PossibleCauses\\\\\\\": \\\\\\\"Asthma, allergies, respiratory infection, anxiety, heart disease\\\\\\\",\\\\n      \\\\\\\"FrequencyOfObservationInPeople\\\\\\\": \\\\\\\"Common\\\\\\\",\\\\n      \\\\\\\"SignificanceOfImpact\\\\\\\": \\\\\\\"Can be a sign of a serious respiratory or cardiac condition\\\\\\\",\\\\n      \\\\\\\"TipsToAvoidThisCondition\\\\\\\": \\\\\\\"Avoid triggers, such as allergens and pollutants, practice deep breathing exercises, maintain a healthy lifestyle\\\\\\\",\\\\n      \\\\\\\"GuidanceForRecovery\\\\\\\": \\\\\\\"If experiencing severe difficulty breathing, seek immediate medical attention\\\\\\\",\\\\n      \\\\\\\"FoodsToConsume\\\\\\\": \\\\\\\"Consume foods rich in antioxidants, such as fruits and vegetables\\\\\\\",\\\\n      \\\\\\\"RecommendedNote\\\\\\\": \\\\\\\"If you are experiencing severe difficulty breathing, it is important to seek immediate medical attention as it may be a sign of a serious condition.\\\\\\\"\\\\n    },\\\\n    {\\\\n      \\\\\\\"SymptomName\\\\\\\": \\\\\\\"Fatigue\\\\\\\",\\\\n      \\\\\\\"PossibleCauses\\\\\\\": \\\\\\\"Lack of sleep, poor diet, sedentary lifestyle, anemia, thyroid disorders\\\\\\\",\\\\n      \\\\\\\"FrequencyOfObservationInPeople\\\\\\\": \\\\\\\"Common\\\\\\\",\\\\n      \\\\\\\"SignificanceOfImpact\\\\\\\": \\\\\\\"Can affect daily functioning and quality of life\\\\\\\",\\\\n      \\\\\\\"TipsToAvoidThisCondition\\\\\\\": \\\\\\\"Get enough sleep, eat a balanced diet, exercise regularly, manage stress\\\\\\\",\\\\n      \\\\\\\"GuidanceForRecovery\\\\\\\": \\\\\\\"Take breaks, prioritize rest and relaxation, consider incorporating gentle exercise into your routine\\\\\\\",\\\\n      \\\\\\\"FoodsToConsume\\\\\\\": \\\\\\\"Eat a balanced diet including foods rich in iron, vitamin B12, and antioxidants\\\\\\\",\\\\n      \\\\\\\"RecommendedNote\\\\\\\": \\\\\\\"If fatigue persists despite lifestyle changes, it is recommended to consult a healthcare professional.\\\\\\\"\\\\n    }\\\\n  ]\\\\n}\\\",\\\"path\\\":\\\"/choices<>/message/content\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"content\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"assistant\\\",\\\"path\\\":\\\"/choices<>/message/role\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"role\\\"}]}}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":1717577261,\\\"path\\\":\\\"/created\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"INTEGER\\\",\\\"name\\\":\\\"created\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"chatcmpl-9WgazRTKvOVpt5kO7cSCi1mrtiCR7\\\",\\\"path\\\":\\\"/id\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"id\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"gpt-35-turbo\\\",\\\"path\\\":\\\"/model\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"model\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"chat.completion\\\",\\\"path\\\":\\\"/object\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"object\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"path\\\":\\\"/system_fingerprint\\\",\\\"name\\\":\\\"system_fingerprint\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/usage\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"usage\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":675,\\\"path\\\":\\\"/usage/completion_tokens\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"INTEGER\\\",\\\"name\\\":\\\"completion_tokens\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":196,\\\"path\\\":\\\"/usage/prompt_tokens\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"INTEGER\\\",\\\"name\\\":\\\"prompt_tokens\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":871,\\\"path\\\":\\\"/usage/total_tokens\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"INTEGER\\\",\\\"name\\\":\\\"total_tokens\\\"}]}}]}},\\\"executionTime\\\":0}}\",\"showFields\":true,\"documentType\":\"JSON\",\"inspectionType\":\"INSTANCE\",\"inspectionSource\":\"{\\\"choices\\\":[{\\\"finish_reason\\\":\\\"stop\\\",\\\"index\\\":0,\\\"message\\\":{\\\"content\\\":\\\"{\\\\n  \\\\\\\"AIHealthRecommendations\\\\\\\": [\\\\n    {\\\\n      \\\\\\\"SymptomName\\\\\\\": \\\\\\\"Headache\\\\\\\",\\\\n      \\\\\\\"PossibleCauses\\\\\\\": \\\\\\\"Stress, dehydration, eye strain, sinus congestion, caffeine withdrawal\\\\\\\",\\\\n      \\\\\\\"FrequencyOfObservationInPeople\\\\\\\": \\\\\\\"Common\\\\\\\",\\\\n      \\\\\\\"SignificanceOfImpact\\\\\\\": \\\\\\\"Can affect daily activities and productivity\\\\\\\",\\\\n      \\\\\\\"TipsToAvoidThisCondition\\\\\\\": \\\\\\\"Stay hydrated, manage stress, take breaks from screen time, get enough sleep\\\\\\\",\\\\n      \\\\\\\"GuidanceForRecovery\\\\\\\": \\\\\\\"Rest in a quiet and dark room, apply a cold or warm compress to the forehead\\\\\\\",\\\\n      \\\\\\\"FoodsToConsume\\\\\\\": \\\\\\\"Drink plenty of water, consume foods rich in magnesium and omega-3 fatty acids\\\\\\\",\\\\n      \\\\\\\"RecommendedNote\\\\\\\": \\\\\\\"If symptoms persist or worsen, consult a healthcare professional.\\\\\\\"\\\\n    },\\\\n    {\\\\n      \\\\\\\"SymptomName\\\\\\\": \\\\\\\"Chest pain\\\\\\\",\\\\n      \\\\\\\"PossibleCauses\\\\\\\": \\\\\\\"Heartburn, muscle strain, anxiety, heart attack\\\\\\\",\\\\n      \\\\\\\"FrequencyOfObservationInPeople\\\\\\\": \\\\\\\"Common\\\\\\\",\\\\n      \\\\\\\"SignificanceOfImpact\\\\\\\": \\\\\\\"Can be a sign of a serious condition\\\\\\\",\\\\n      \\\\\\\"TipsToAvoidThisCondition\\\\\\\": \\\\\\\"Maintain a healthy weight, exercise regularly, manage stress, avoid smoking and excessive alcohol consumption\\\\\\\",\\\\n      \\\\\\\"GuidanceForRecovery\\\\\\\": \\\\\\\"If experiencing severe chest pain, call emergency services immediately\\\\\\\",\\\\n      \\\\\\\"FoodsToConsume\\\\\\\": \\\\\\\"Eat a balanced diet rich in fruits, vegetables, whole grains, and lean proteins\\\\\\\",\\\\n      \\\\\\\"RecommendedNote\\\\\\\": \\\\\\\"If you are experiencing chest pain, it is important to seek immediate medical attention as it may be a sign of a heart attack.\\\\\\\"\\\\n    },\\\\n    {\\\\n      \\\\\\\"SymptomName\\\\\\\": \\\\\\\"Difficulty breathing\\\\\\\",\\\\n      \\\\\\\"PossibleCauses\\\\\\\": \\\\\\\"Asthma, allergies, respiratory infection, anxiety, heart disease\\\\\\\",\\\\n      \\\\\\\"FrequencyOfObservationInPeople\\\\\\\": \\\\\\\"Common\\\\\\\",\\\\n      \\\\\\\"SignificanceOfImpact\\\\\\\": \\\\\\\"Can be a sign of a serious respiratory or cardiac condition\\\\\\\",\\\\n      \\\\\\\"TipsToAvoidThisCondition\\\\\\\": \\\\\\\"Avoid triggers, such as allergens and pollutants, practice deep breathing exercises, maintain a healthy lifestyle\\\\\\\",\\\\n      \\\\\\\"GuidanceForRecovery\\\\\\\": \\\\\\\"If experiencing severe difficulty breathing, seek immediate medical attention\\\\\\\",\\\\n      \\\\\\\"FoodsToConsume\\\\\\\": \\\\\\\"Consume foods rich in antioxidants, such as fruits and vegetables\\\\\\\",\\\\n      \\\\\\\"RecommendedNote\\\\\\\": \\\\\\\"If you are experiencing severe difficulty breathing, it is important to seek immediate medical attention as it may be a sign of a serious condition.\\\\\\\"\\\\n    },\\\\n    {\\\\n      \\\\\\\"SymptomName\\\\\\\": \\\\\\\"Fatigue\\\\\\\",\\\\n      \\\\\\\"PossibleCauses\\\\\\\": \\\\\\\"Lack of sleep, poor diet, sedentary lifestyle, anemia, thyroid disorders\\\\\\\",\\\\n      \\\\\\\"FrequencyOfObservationInPeople\\\\\\\": \\\\\\\"Common\\\\\\\",\\\\n      \\\\\\\"SignificanceOfImpact\\\\\\\": \\\\\\\"Can affect daily functioning and quality of life\\\\\\\",\\\\n      \\\\\\\"TipsToAvoidThisCondition\\\\\\\": \\\\\\\"Get enough sleep, eat a balanced diet, exercise regularly, manage stress\\\\\\\",\\\\n      \\\\\\\"GuidanceForRecovery\\\\\\\": \\\\\\\"Take breaks, prioritize rest and relaxation, consider incorporating gentle exercise into your routine\\\\\\\",\\\\n      \\\\\\\"FoodsToConsume\\\\\\\": \\\\\\\"Eat a balanced diet including foods rich in iron, vitamin B12, and antioxidants\\\\\\\",\\\\n      \\\\\\\"RecommendedNote\\\\\\\": \\\\\\\"If fatigue persists despite lifestyle changes, it is recommended to consult a healthcare professional.\\\\\\\"\\\\n    }\\\\n  ]\\\\n}\\\",\\\"role\\\":\\\"assistant\\\"}}],\\\"created\\\":1717577261,\\\"id\\\":\\\"chatcmpl-9WgazRTKvOVpt5kO7cSCi1mrtiCR7\\\",\\\"model\\\":\\\"gpt-35-turbo\\\",\\\"object\\\":\\\"chat.completion\\\",\\\"system_fingerprint\\\":null,\\\"usage\\\":{\\\"completion_tokens\\\":675,\\\"prompt_tokens\\\":196,\\\"total_tokens\\\":871}}\",\"inspectionParameters\":{\"key\":\"value\"},\"lazyLoad\":false}",
+      "Namespace": "ResourceLibrary",
+      "Name": "Image Analysis Response",
+      "TopLevelStructure": "OBJECT",
+      "Type": "JSONTransform",
+      "RuleResolutionID": "ImageAnalysisResponse",
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "ImageAnalysis",
+          "Namespace": "ResourceLibrary"
+        },
+        "Description": "",
+        "Mode": "SingleRecord"
+      },
+      "MappingsDefinition": "{\"AtlasMapping\":{\"jsonType\":\"io.atlasmap.v2.AtlasMapping\",\"dataSource\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"input\",\"name\":\"OpenAI Response\",\"description\":\"input\",\"uri\":\"atlas:json:input\",\"dataSourceType\":\"SOURCE\"},{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"output\",\"name\":\"ImageAnalysis\",\"description\":\"output\",\"uri\":\"atlas:json:output\",\"dataSourceType\":\"TARGET\"}],\"mappings\":{\"mapping\":[{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.999477\",\"inputFieldGroup\":{\"jsonType\":\"io.atlasmap.v2.FieldGroup\",\"actions\":[{\"delimiter\":\" \",\"delimitingEmptyValues\":\"true\",\"@type\":\"Concatenate\"}],\"field\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"content\",\"path\":\"/choices<>/message/content\",\"fieldType\":\"STRING\",\"docId\":\"input\"}]},\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"OpenAIAnalysis\",\"path\":\"/ResourceLibrary;;OpenAIAnalysis\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]}]},\"name\":\"UI.0\",\"version\":\"1.0.0\",\"lookupTables\":{\"lookupTable\":[]},\"constants\":{\"constant\":[]},\"properties\":{\"property\":[]}}}",
+      "TopElementStructure": "",
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            },
+            "Namespace": "PegaPlatform"
+          },
+          "Description": "This is a JSON string that will be transformed to a Pega object",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "JSON string",
+          "Type": ""
+        }
+      ],
+      "MappingModel": "",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Query": [
+    {
+      "Type": "Query",
+      "Description": "Query to List all OpenAIRequestObject instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Filter": {
+        "ExpressionType": "AND",
+        "Expressions": [
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Field": {
+                "ReferenceID": "Status",
+                "Namespace": "PegaPlatform",
+                "Type": "RuleReference"
+              },
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              }
+            },
+            "Comparator": "!=",
+            "OperandTwo": {
+              "Value": "Resolved-Inactive",
+              "Type": "ConstantText"
+            }
+          },
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              },
+              "Field": {
+                "Type": "RuleReference",
+                "ReferenceID": "Status",
+                "Namespace": "PegaPlatform"
+              }
+            },
+            "Comparator": "!=",
+            "OperandTwo": {
+              "Type": "ConstantText",
+              "Value": "Resolved-Cancelled"
+            }
+          }
+        ],
+        "Type": "ExpressionGroup"
+      },
+      "SortBy": [
+        {
+          "Field": {
+            "ReferenceID": "CreateDateTime",
+            "Namespace": "PegaPlatform"
+          },
+          "Direction": "Descending"
+        }
+      ],
+      "AppliesTo": {
+        "ReferenceID": "OpenAIRequestObject",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "List",
+          "Type": "TypeReference",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "OpenAIRequestObject",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        }
+      },
+      "RuleResolutionID": "OpenAIRequestObjectList",
+      "Namespace": "ResourceLibrary",
+      "Name": "OpenAIRequestObject list",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Query",
+      "Description": "Query to List all ImageAnalysis instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Filter": {
+        "ExpressionType": "",
+        "Expressions": [
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              },
+              "Field": {
+                "Type": "RuleReference",
+                "ReferenceID": "Status",
+                "Namespace": "PegaPlatform"
+              }
+            },
+            "Comparator": "!=",
+            "OperandTwo": {
+              "Type": "ConstantText",
+              "Value": "Resolved-Cancelled"
+            }
+          }
+        ],
+        "Type": "ExpressionGroup"
+      },
+      "SortBy": [
+        {
+          "Field": {
+            "ReferenceID": "CreateDateTime",
+            "Namespace": "PegaPlatform"
+          },
+          "Direction": "Descending"
+        }
+      ],
+      "AppliesTo": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "List",
+          "Type": "TypeReference",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "ImageAnalysis",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        }
+      },
+      "RuleResolutionID": "ImageAnalysisList",
+      "Namespace": "ResourceLibrary",
+      "Name": "ImageAnalysis list",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Query",
+      "Description": "Query to lookup ImageAnalysis instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Filter": {
+        "ExpressionType": "",
+        "Expressions": [
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Field": {
+                "ReferenceID": "ID",
+                "Namespace": "PegaPlatform"
+              },
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              }
+            },
+            "Comparator": "==",
+            "OperandTwo": {
+              "Name": "ID",
+              "Type": "Variable"
+            }
+          }
+        ]
+      },
+      "AppliesTo": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "ImageAnalysis",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        }
+      },
+      "RuleResolutionID": "ImageAnalysisLookup",
+      "Inputs": [
+        {
+          "Description": "object key",
+          "Mode": "SingleRecord",
+          "Name": "ID",
+          "Required": "true",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          },
+          "Type": ""
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "ImageAnalysis lookup",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Query",
+      "Description": "Query to lookup OpenAIRequestObject instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Filter": {
+        "ExpressionType": "",
+        "Expressions": [
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Field": {
+                "ReferenceID": "ID",
+                "Namespace": "PegaPlatform"
+              },
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              }
+            },
+            "Comparator": "==",
+            "OperandTwo": {
+              "Name": "ID",
+              "Type": "Variable"
+            }
+          }
+        ]
+      },
+      "AppliesTo": {
+        "ReferenceID": "OpenAIRequestObject",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "OpenAIRequestObject",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        }
+      },
+      "RuleResolutionID": "OpenAIRequestObjectLookup",
+      "Inputs": [
+        {
+          "Description": "object key",
+          "Mode": "SingleRecord",
+          "Name": "ID",
+          "Required": "true",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          },
+          "Type": ""
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "OpenAIRequestObject lookup",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "CaseType": [
+    {
+      "Description": "This case type illustrates the application of OpenAI models for image summarization",
+      "Reusability": "Private",
+      "Category": "Case",
+      "SchemaVersion": "2-11-0",
+      "AppliesTo": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "InitializationStage": {
+        "Stage": {
+          "ReferenceID": "ImageAnalysisCreation",
+          "Namespace": "ResourceLibrary"
+        },
+        "EntryStatus": {
+          "ReferenceID": "New-ImageAnalysisCreation",
+          "Namespace": "ResourceLibrary"
+        }
+      },
+      "OptionalActions": [
+        {
+          "Action": {
+            "ReferenceID": "Edit",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsCaseOpen",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "pyChangeStage",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsCaseOpen",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "ReassignTask",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsCaseOpen",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "Reopen",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsCaseResolved",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "RestartCurrentStage",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsCaseOpen",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "ResolveCase",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsCaseOpen",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "ChangeCaseGoalAndDeadline",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "HasCaseSLA",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "ChangeAssignmentGoalAndDeadline",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "HasAssignmentSLA",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        }
+      ],
+      "PrimaryFields": [
+        {
+          "ReferenceID": "Name",
+          "Namespace": "PegaPlatform"
+        },
+        {
+          "ReferenceID": "Description",
+          "Namespace": "PegaPlatform"
+        },
+        {
+          "ReferenceID": "ImageAttachment",
+          "Namespace": "ResourceLibrary"
+        },
+        {
+          "ReferenceID": "Base64Text",
+          "Namespace": "ResourceLibrary"
+        },
+        {
+          "ReferenceID": "OpenAIAnalysis",
+          "Namespace": "ResourceLibrary"
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "InitialUrgency": 10,
+      "PrimaryStages": [
+        {
+          "Stage": {
+            "ReferenceID": "InProgress",
+            "Namespace": "ResourceLibrary"
+          },
+          "EntryStatus": {
+            "ReferenceID": "Open-InProgress",
+            "Namespace": "ResourceLibrary"
+          },
+          "Transition": "Manual",
+          "SkipStage": {
+            "SkipType": "Never"
+          }
+        },
+        {
+          "Stage": {
+            "ReferenceID": "Completed",
+            "Namespace": "ResourceLibrary"
+          },
+          "EntryStatus": {
+            "ReferenceID": "Pending-Completed",
+            "Namespace": "ResourceLibrary"
+          },
+          "Transition": "Resolution",
+          "SkipStage": {
+            "SkipType": "Never"
+          },
+          "ResolutionConfiguration": {
+            "Status": {
+              "ReferenceID": "Resolved-Completed2",
+              "Namespace": "ResourceLibrary"
+            }
+          }
+        }
+      ],
+      "AlternateStages": [
+        {
+          "Stage": {
+            "ReferenceID": "Withdrawn",
+            "Namespace": "ResourceLibrary"
+          },
+          "EntryStatus": {
+            "ReferenceID": "Pending-Withdrawn",
+            "Namespace": "ResourceLibrary"
+          },
+          "Transition": "Resolution",
+          "ResolutionConfiguration": {
+            "Status": {
+              "ReferenceID": "Resolved-Withdrawn2",
+              "Namespace": "ResourceLibrary"
+            }
+          }
+        }
+      ],
+      "Name": "ImageAnalysis",
+      "PluralName": "",
+      "LookupDataPage": {
+        "ReferenceID": "ImageAnalysisLookup",
+        "Namespace": "ResourceLibrary"
+      },
+      "ListDataPage": {
+        "ReferenceID": "ImageAnalysisList",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "CaseType",
+      "IdPrefix": "I-",
+      "RuleResolutionID": "ImageAnalysis",
+      "EnableGetNextWork": true,
+      "Display": {
+        "ReferenceID": "ImageAnalysisDisplay",
+        "Namespace": "ResourceLibrary"
+      },
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Description": "Structure of the request object for OpenAI\n\n",
+      "Reusability": "Private",
+      "Category": "Data",
+      "SchemaVersion": "2-11-0",
+      "AppliesTo": {
+        "ReferenceID": "OpenAIRequestObject",
+        "Namespace": "ResourceLibrary"
+      },
+      "OptionalActions": [
+        {
+          "Action": {
+            "ReferenceID": "Edit",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Always"
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "Create",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Always"
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "MarkAsActive",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsDataInactive",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "MarkAsInactive",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsDataActive",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        }
+      ],
+      "PrimaryFields": [
+        {
+          "ReferenceID": "Name",
+          "Namespace": "PegaPlatform"
+        },
+        {
+          "ReferenceID": "Description",
+          "Namespace": "PegaPlatform"
+        },
+        {
+          "ReferenceID": "role",
+          "Namespace": "ResourceLibrary"
+        },
+        {
+          "ReferenceID": "prompt",
+          "Namespace": "ResourceLibrary"
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "PrimaryStages": [],
+      "AlternateStages": [],
+      "Name": "OpenAI Request Object",
+      "PluralName": "",
+      "LookupDataPage": {
+        "ReferenceID": "OpenAIRequestObjectLookup",
+        "Namespace": "ResourceLibrary"
+      },
+      "ListDataPage": {
+        "ReferenceID": "OpenAIRequestObjectList",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "CaseType",
+      "IdPrefix": "O-",
+      "RuleResolutionID": "OpenAIRequestObject",
+      "Display": {
+        "ReferenceID": "OpenAIRequestObjectDisplay",
+        "Namespace": "ResourceLibrary"
+      },
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Field": [
+    {
+      "DisplayAs": "RichText",
+      "Type": "Field",
+      "Description": "OpenAI prompt",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "OpenAIRequestObject",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "prompt",
+      "Namespace": "ResourceLibrary",
+      "Name": "prompt",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "AdditionalInfo": {
+        "ReferenceID": "UserPrompt_additionalInfo",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "Field",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "UserPrompt",
+      "Namespace": "ResourceLibrary",
+      "Name": "User Prompt",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "RichText",
+      "AdditionalInfo": {
+        "ReferenceID": "OpenAIAnalysis_additionalInfo",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "Field",
+      "Description": "OpenAI Analysis",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "OpenAIAnalysis",
+      "Namespace": "ResourceLibrary",
+      "Name": "OpenAI Analysis",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "EmbeddedData",
+      "AdditionalInfo": {
+        "ReferenceID": "ImageAttachment_additionalInfo",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "Field",
+      "Description": "Image to be analyzed",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "RecordClass": {
+        "ReferenceID": "Attachment",
+        "Namespace": "PegaPlatform"
+      },
+      "AppliesTo": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "SingleRecord",
+      "RuleResolutionID": "ImageAttachment",
+      "Namespace": "ResourceLibrary",
+      "Name": "ImageAttachment",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "AdditionalInfo": {
+        "ReferenceID": "role_additionalInfo",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "Field",
+      "Description": "system/user",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "OpenAIRequestObject",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "role",
+      "Namespace": "ResourceLibrary",
+      "Name": "role",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "EmbeddedData",
+      "Type": "Field",
+      "Description": "Holds the Request Object to OpenAI",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "RecordClass": {
+        "ReferenceID": "OpenAIRequestObject",
+        "Namespace": "ResourceLibrary"
+      },
+      "AppliesTo": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "ListOfRecords",
+      "RuleResolutionID": "AIMessageObject",
+      "Namespace": "ResourceLibrary",
+      "Name": "AIMessageObject",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Field",
+      "Description": "Base64 string of attached image",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "Base64Text",
+      "Namespace": "ResourceLibrary",
+      "Name": "Base64Text",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "ObjectReference",
+      "Description": "This field holds the reference to a OpenAI Request Object instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "RecordClass": {
+        "ReferenceID": "OpenAIRequestObject",
+        "Namespace": "ResourceLibrary"
+      },
+      "AppliesTo": {
+        "ReferenceID": "History-OpenAIRequestObject",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "SingleRecord",
+      "RelationshipType": "Peer",
+      "Namespace": "ResourceLibrary",
+      "Name": "OpenAI Request Object Reference",
+      "DataAccess": "Refer",
+      "DataSource": {
+        "CallReference": {
+          "ReferenceID": "OpenAIRequestObjectLookup",
+          "ReferenceScope": {
+            "ReferenceID": "OpenAIRequestObject",
+            "Namespace": "ResourceLibrary"
+          },
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "DataPage",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "FieldReference",
+              "Root": {
+                "Type": "Variable",
+                "Name": "Current"
+              },
+              "Field": {
+                "Type": "RuleReference",
+                "ReferenceID": "ID",
+                "Namespace": "PegaPlatform"
+              }
+            }
+          }
+        ]
+      },
+      "Type": "Field",
+      "RuleResolutionID": "ObjectReference",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "ObjectReference",
+      "Description": "This field holds the reference to a ImageAnalysis instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "RecordClass": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "AppliesTo": {
+        "ReferenceID": "History-ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "SingleRecord",
+      "RelationshipType": "Peer",
+      "Namespace": "ResourceLibrary",
+      "Name": "ImageAnalysis Reference",
+      "DataAccess": "Refer",
+      "DataSource": {
+        "CallReference": {
+          "ReferenceID": "ImageAnalysisLookup",
+          "ReferenceScope": {
+            "ReferenceID": "ImageAnalysis",
+            "Namespace": "ResourceLibrary"
+          },
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "DataPage",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "FieldReference",
+              "Root": {
+                "Type": "Variable",
+                "Name": "Current"
+              },
+              "Field": {
+                "Type": "RuleReference",
+                "ReferenceID": "ID",
+                "Namespace": "PegaPlatform"
+              }
+            }
+          }
+        ]
+      },
+      "Type": "Field",
+      "RuleResolutionID": "ObjectReference",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "View": [
+    {
+      "Type": "View",
+      "Description": "Update details",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "OpenAIRequestObject",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Edit",
+      "AutoGenerated": true,
+      "ViewType": "",
+      "Namespace": "PegaPlatform",
+      "Template": "DefaultForm",
+      "Name": "Edit",
+      "ViewMetadata": "{\"name\":\"Edit\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"BusinessObject\",\"label\":\"Update case details\"},\"children\":[{\"name\":\"Fields\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .Name\",\"label\":\"@L Label\"}},{\"type\":\"TextArea\",\"config\":{\"value\":\"@P .Description\",\"label\":\"@L Description\"}}]}],\"ID\":\"4e78a729-1eb6-4e4e-94c2-6dc6e112fc86\"}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "Update details",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Edit",
+      "AutoGenerated": true,
+      "ViewType": "",
+      "Namespace": "PegaPlatform",
+      "Template": "DefaultForm",
+      "Name": "Edit",
+      "ViewMetadata": "{\"name\":\"Edit\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"BusinessObject\",\"label\":\"Update case details\"},\"children\":[{\"name\":\"Fields\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .Name\",\"label\":\"@L Label\"}},{\"type\":\"TextArea\",\"config\":{\"value\":\"@P .Description\",\"label\":\"@L Description\"}}]}],\"ID\":\"4e78a729-1eb6-4e4e-94c2-6dc6e112fc86\"}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "GetAISummary",
+      "ContextMetadata": "",
+      "ViewType": "form",
+      "Namespace": "ResourceLibrary",
+      "Name": "Get AI Summary",
+      "Template": "DefaultForm",
+      "ViewMetadata": "{\"name\":\"GetAISummary\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"ImageAnalysis\",\"ruleClassNamespace\":\"ResourceLibrary\",\"label\":\"@L Get AI Summary\"},\"children\":[{\"name\":\"Fields\",\"type\":\"Region\",\"children\":[{\"type\":\"Attachment\",\"config\":{\"value\":\"@ATTACHMENT .ImageAttachment\",\"label\":\"@L ImageAttachment\",\"allowMultiple\":\"false\"}},{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .UserPrompt\",\"label\":\"@L User Prompt\",\"readOnly\":true}},{\"type\":\"RichText\",\"config\":{\"value\":\"@P .OpenAIAnalysis\",\"label\":\"@L OpenAI Analysis\"}}]}],\"ID\":\"6fcfe921-89cb-4eeb-b02a-b189fbdc0df1\"}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "View to collect details for Object creation.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Create",
+      "AutoGenerated": false,
+      "ViewType": "embeddedform",
+      "Namespace": "PegaPlatform",
+      "Name": "Create",
+      "Template": "DefaultForm",
+      "ViewMetadata": "{\"name\":\"Create\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"ImageAnalysis\",\"ruleClassNamespace\":\"PegaPlatform\",\"label\":\"@L View to collect details for Object creation.\"},\"children\":[{\"type\":\"Region\",\"name\":\"Fields\",\"children\":[{\"type\":\"Attachment\",\"config\":{\"allowMultiple\":\"false\",\"label\":\"@L ImageAttachment\",\"value\":\"@ATTACHMENT .ImageAttachment\"}},{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .UserPrompt\",\"label\":\"@L User Prompt\"}}]}],\"ID\":\"93eccf82-f71f-47d2-b97f-854ec37ae49b\"}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "View to collect details for Object creation.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "OpenAIRequestObject",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Create",
+      "AutoGenerated": true,
+      "ViewType": "embeddedform",
+      "Namespace": "PegaPlatform",
+      "Template": "DefaultForm",
+      "Name": "Create",
+      "ViewMetadata": "{\"name\":\"Create\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"BusinessObject\",\"ruleClassNamespace\":\"PegaPlatform\",\"label\":\"@L View to collect details for Object creation.\"},\"children\":[{\"type\":\"Region\",\"name\":\"Fields\",\"children\":[]}],\"ID\":\"86b7273f-c4d8-43e4-89b3-3931d4018a18\"}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "ImageAnalysis list",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "Data-Portal",
+        "Namespace": "PegaPlatform"
+      },
+      "RuleResolutionID": "ImageAnalysisList",
+      "ViewType": "landingpage",
+      "Namespace": "ResourceLibrary",
+      "Template": "ListPage",
+      "Name": "ImageAnalysis list",
+      "ViewMetadata": "{\"name\":\"ImageAnalysis list\",\"type\":\"View\",\"config\":{\"type\":\"listpage\",\"template\":\"ListPage\",\"icon\":\"pi pi-headline\",\"title\":\"@L ImageAnalysis list\",\"personalization\":true,\"grouping\":true,\"globalSearch\":true,\"reorderFields\":true,\"toggleFieldVisibility\":true,\"showUploadRecords\":true,\"referenceList\":\"ImageAnalysisList\",\"ruleClass\":\"Data-Portal\",\"ruleClassNamespace\":\"ResourceLibrary\",\"presets\":[{\"name\":\"presets\",\"label\":\"ImageAnalysis list\",\"template\":\"Table\",\"config\":{},\"children\":[{\"name\":\"Columns\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .BusinessID\",\"label\": \"@L ID\",\"displayAsLink\":true}},{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .Name\",\"label\": \"@L Name\",\"displayAsLink\":true}},{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .Status\",\"label\": \"@L Status\",\"displayAsLink\":false}},{\"type\":\"TextArea\",\"config\":{\"value\":\"@P .Description\",\"label\":\"@L Description\"}}]}]}],\"actions\":[{\"action\":\"UPLOAD_RECORDS\",\"config\":{\"label\":\"@L Upload\",\"objectType\":\"ImageAnalysis\"}}]}}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "OpenAI Request Object list",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "Data-Portal",
+        "Namespace": "PegaPlatform"
+      },
+      "RuleResolutionID": "OpenAIRequestObjectList",
+      "ViewType": "landingpage",
+      "Namespace": "ResourceLibrary",
+      "Name": "OpenAI Request Object list",
+      "Template": "ListPage",
+      "ViewMetadata": "{\"name\":\"OpenAIRequestObjectList\",\"type\":\"View\",\"config\":{\"type\":\"listpage\",\"template\":\"ListPage\",\"icon\":\"pi pi-headline\",\"title\":\"@L OpenAI Request Object list\",\"personalization\":true,\"grouping\":true,\"globalSearch\":true,\"reorderFields\":true,\"toggleFieldVisibility\":true,\"showUploadRecords\":true,\"referenceList\":\"OpenAIRequestObjectList\",\"ruleClass\":\"Data-Portal\",\"ruleClassNamespace\":\"ResourceLibrary\",\"presets\":[{\"name\":\"presets\",\"label\":\"OpenAI Request Object list\",\"template\":\"Table\",\"config\":{},\"children\":[{\"name\":\"Columns\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .BusinessID\",\"label\":\"@L ID\",\"displayAsLink\":true}},{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .Name\",\"label\":\"@L Name\",\"displayAsLink\":true}},{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .Status\",\"label\":\"@L Status\",\"displayAsLink\":false}},{\"type\":\"TextArea\",\"config\":{\"value\":\"@P .Description\",\"label\":\"@L Description\"}}]}]}],\"actions\":[{\"action\":\"UPLOAD_RECORDS\",\"config\":{\"label\":\"@L Upload\",\"objectType\":\"OpenAIRequestObject\"}}],\"rowHeader\":{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .Name\",\"label\":\"@L Name\"}}},\"ID\":\"f80eff97-d7dd-4642-a3c5-7a9335727661\"}",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "DataConnection": [
+    {
+      "Type": "DataConnection",
+      "Description": "OpenAIRequestObject list",
+      "Reusability": "Private",
+      "Query": {
+        "CallReference": {
+          "ReferenceID": "OpenAIRequestObjectList",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "OpenAIRequestObject",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "Query",
+        "CallInputs": []
+      },
+      "ConnectionType": "QUERY",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "OpenAIRequestObject",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "List",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "OpenAIRequestObject",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        },
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "OpenAIRequestObjectList",
+      "Operation": "READ",
+      "Namespace": "ResourceLibrary",
+      "Name": "OpenAIRequestObject list",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Connector": {
+        "CallReference": {
+          "ReferenceScope": {
+            "ReferenceID": "ImageAnalysis",
+            "Namespace": "ResourceLibrary"
+          },
+          "ReferenceID": "GetImageAnalysis",
+          "Namespace": "ResourceLibrary"
+        },
+        "CallInputs": [
+          {
+            "ParameterName": "RequestText",
+            "Source": {
+              "Type": "CallExpression",
+              "CallReference": {
+                "ReferenceID": "ImageAnalysisRequest",
+                "Namespace": "ResourceLibrary",
+                "ReferenceScope": {
+                  "ReferenceID": "ImageAnalysis",
+                  "Namespace": "ResourceLibrary"
+                }
+              },
+              "CallType": "JSONTransform",
+              "CallInputs": [
+                {
+                  "ParameterName": "Pega object",
+                  "Source": {
+                    "Type": "Variable",
+                    "Name": "thisCase"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "CallType": "RESTConnector"
+      },
+      "Description": "",
+      "Reusability": "Private",
+      "ConnectionType": "REST_CONNECTOR",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "Operation": "READ",
+      "Namespace": "ResourceLibrary",
+      "Name": "Image Analysis",
+      "Type": "DataConnection",
+      "ResponseJSONTransform": {
+        "ReferenceID": "ImageAnalysisResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "ImageAnalysis",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        }
+      },
+      "RuleResolutionID": "ImageAnalysis",
+      "Inputs": [
+        {
+          "Mode": "SingleRecord",
+          "Required": "true",
+          "Name": "thisCase",
+          "Description": "Case Object",
+          "ObjectType": {
+            "TypeReferenceID": "ImageAnalysis",
+            "Namespace": "ResourceLibrary",
+            "Type": "TypeReference"
+          }
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "DataConnection",
+      "Description": "ImageAnalysis list",
+      "Reusability": "Private",
+      "Query": {
+        "CallReference": {
+          "ReferenceScope": {
+            "ReferenceID": "ImageAnalysis",
+            "Namespace": "ResourceLibrary"
+          },
+          "ReferenceID": "ImageAnalysisList",
+          "Namespace": "ResourceLibrary"
+        },
+        "CallInputs": [],
+        "CallType": "Query"
+      },
+      "ConnectionType": "QUERY",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "List",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "ImageAnalysis",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        },
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "ImageAnalysisList",
+      "Operation": "READ",
+      "Namespace": "ResourceLibrary",
+      "Name": "ImageAnalysis list",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Description": "ImageAnalysis lookup",
+      "Reusability": "Private",
+      "Query": {
+        "CallReference": {
+          "ReferenceScope": {
+            "ReferenceID": "ImageAnalysis",
+            "Namespace": "ResourceLibrary"
+          },
+          "ReferenceID": "ImageAnalysisLookup",
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "Query",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "Variable",
+              "Name": "ID"
+            }
+          }
+        ]
+      },
+      "ConnectionType": "QUERY",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "Operation": "READ",
+      "Namespace": "ResourceLibrary",
+      "Name": "ImageAnalysis lookup",
+      "Type": "DataConnection",
+      "Output": {
+        "ObjectType": {
+          "TypeReferenceID": "ImageAnalysis",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        },
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "ImageAnalysisLookup",
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            }
+          },
+          "Description": "object key",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "ID"
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Description": "OpenAIRequestObject lookup",
+      "Reusability": "Private",
+      "Query": {
+        "CallReference": {
+          "ReferenceScope": {
+            "ReferenceID": "OpenAIRequestObject",
+            "Namespace": "ResourceLibrary"
+          },
+          "ReferenceID": "OpenAIRequestObjectLookup",
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "Query",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "Variable",
+              "Name": "ID"
+            }
+          }
+        ]
+      },
+      "ConnectionType": "QUERY",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "OpenAIRequestObject",
+        "Namespace": "ResourceLibrary"
+      },
+      "Operation": "READ",
+      "Namespace": "ResourceLibrary",
+      "Name": "OpenAIRequestObject lookup",
+      "Type": "DataConnection",
+      "Output": {
+        "ObjectType": {
+          "TypeReferenceID": "OpenAIRequestObject",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        },
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "OpenAIRequestObjectLookup",
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            }
+          },
+          "Description": "object key",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "ID"
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Portal": [
+    {
+      "CreateMenu": "ShowAll",
+      "Type": "Portal",
+      "Description": "Default application work portal",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-3",
+      "RuleResolutionID": "WebPortal",
+      "AvailableCaseToCreate": [
+        {
+          "CaseType": {
+            "ReferenceID": "ImageAnalysis",
+            "ReferenceScope": {
+              "ReferenceID": "ImageAnalysis",
+              "Namespace": "ResourceLibrary"
+            },
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        {
+          "CaseType": {
+            "ReferenceID": "ContentArray",
+            "Namespace": "ResourceLibrary",
+            "ReferenceScope": {
+              "ReferenceID": "ContentArray",
+              "Namespace": "ResourceLibrary"
+            }
+          }
+        },
+        {
+          "CaseType": {
+            "ReferenceID": "ImageURL",
+            "Namespace": "ResourceLibrary",
+            "ReferenceScope": {
+              "ReferenceID": "ImageURL",
+              "Namespace": "ResourceLibrary"
+            }
+          }
+        },
+        {
+          "CaseType": {
+            "ReferenceID": "OpenAIRequestObject",
+            "Namespace": "ResourceLibrary",
+            "ReferenceScope": {
+              "ReferenceID": "OpenAIRequestObject",
+              "Namespace": "ResourceLibrary"
+            }
+          }
+        }
+      ],
+      "NavigationPages": [
+        {
+          "Page": {
+            "ReferenceID": "Home",
+            "ReferenceScope": {
+              "ReferenceID": "Data-Portal",
+              "Namespace": "PegaPlatform"
+            }
+          }
+        },
+        {
+          "Page": {
+            "ReferenceID": "ImageAnalysisList",
+            "ReferenceScope": {
+              "ReferenceID": "Data-Portal",
+              "Namespace": "PegaPlatform"
+            },
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        {
+          "Page": {
+            "ReferenceID": "ContentArrayList",
+            "Namespace": "ResourceLibrary",
+            "ReferenceScope": {
+              "ReferenceID": "Data-Portal",
+              "Namespace": "PegaPlatform"
+            }
+          }
+        },
+        {
+          "Page": {
+            "ReferenceID": "ImageURLList",
+            "Namespace": "ResourceLibrary",
+            "ReferenceScope": {
+              "ReferenceID": "Data-Portal",
+              "Namespace": "PegaPlatform"
+            }
+          }
+        },
+        {
+          "Page": {
+            "ReferenceID": "OpenAIRequestObjectList",
+            "Namespace": "ResourceLibrary",
+            "ReferenceScope": {
+              "ReferenceID": "Data-Portal",
+              "Namespace": "PegaPlatform"
+            }
+          }
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "Work Portal",
+      "Template": "work",
+      "ActionToBePerformed": "MODIFIED"
+    }
+  ],
+  "FullObjectDisplay": [
+    {
+      "Heading": {
+        "Type": "FieldReference",
+        "Root": {
+          "Name": "Primary",
+          "Type": "Variable"
+        },
+        "Field": {
+          "ReferenceID": "Name",
+          "Type": "RuleReference",
+          "Namespace": "PegaPlatform"
+        }
+      },
+      "Description": "OpenAI Request Object Display",
+      "Reusability": "PublicMayOverride",
+      "UsePrimaryFields": true,
+      "SchemaVersion": "0-1-0",
+      "AppliesTo": {
+        "ReferenceID": "OpenAIRequestObject",
+        "Namespace": "ResourceLibrary"
+      },
+      "ShowLifecycle": false,
+      "Namespace": "ResourceLibrary",
+      "Name": "OpenAI Request Object Display",
+      "Type": "FullObjectDisplay",
+      "Utilities": [
+        {
+          "EmbedListUUID__": "_ud9r73oj3",
+          "Widget": {
+            "Namespace": "PegaPlatform",
+            "ReferenceID": "Attachments",
+            "Type": "RuleReference"
+          },
+          "Type": "WidgetItem",
+          "Config": "{\"label\":\"@L Attachments\",\"iconName\":\"paper-clip\"}"
+        },
+        {
+          "EmbedListUUID__": "_fzxmibad2",
+          "Widget": {
+            "Namespace": "PegaPlatform",
+            "ReferenceID": "Followers",
+            "Type": "RuleReference"
+          },
+          "Type": "WidgetItem",
+          "Config": "{\"label\":\"@L Followers\",\"iconName\":\"user-star\"}"
+        }
+      ],
+      "Subheading": {
+        "Type": "FieldReference",
+        "Root": {
+          "Name": "Primary",
+          "Type": "Variable"
+        },
+        "Field": {
+          "ReferenceID": "BusinessID",
+          "Type": "RuleReference",
+          "Namespace": "PegaPlatform"
+        }
+      },
+      "RuleResolutionID": "OpenAIRequestObjectDisplay",
+      "Tabs": [
+        {
+          "EmbedListUUID__": "_6aswxuxi1",
+          "Heading": "Details",
+          "View": {
+            "ReferenceID": "pyDetailsTabContent",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        },
+        {
+          "EmbedListUUID__": "_wl1a5kiiv",
+          "Heading": "Pulse",
+          "View": {
+            "ReferenceID": "pyCasePulse",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        },
+        {
+          "EmbedListUUID__": "_ljvcdju7r",
+          "Heading": "History",
+          "View": {
+            "ReferenceID": "History",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        }
+      ],
+      "Icon": "disc-stack-solid",
+      "FieldsToHighlight": 0,
+      "SummaryFields": [],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Heading": {
+        "Type": "FieldReference",
+        "Root": {
+          "Name": "Primary",
+          "Type": "Variable"
+        },
+        "Field": {
+          "ReferenceID": "Name",
+          "Type": "RuleReference",
+          "Namespace": "PegaPlatform"
+        }
+      },
+      "Description": "ImageAnalysis Display",
+      "Reusability": "PublicMayOverride",
+      "UsePrimaryFields": true,
+      "SchemaVersion": "0-1-0",
+      "AppliesTo": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "ShowLifecycle": true,
+      "Namespace": "ResourceLibrary",
+      "Name": "ImageAnalysis Display",
+      "Type": "FullObjectDisplay",
+      "Utilities": [
+        {
+          "EmbedListUUID__": "_1ahwj3qd1",
+          "Widget": {
+            "Namespace": "PegaPlatform",
+            "ReferenceID": "Attachments",
+            "Type": "RuleReference"
+          },
+          "Type": "WidgetItem",
+          "Config": "{\"label\":\"@L Attachments\",\"iconName\":\"paper-clip\"}"
+        },
+        {
+          "EmbedListUUID__": "_iu9ucepz2",
+          "Widget": {
+            "Namespace": "PegaPlatform",
+            "ReferenceID": "Followers",
+            "Type": "RuleReference"
+          },
+          "Type": "WidgetItem",
+          "Config": "{\"label\":\"@L Followers\",\"iconName\":\"user-star\"}"
+        }
+      ],
+      "Subheading": {
+        "Type": "FieldReference",
+        "Root": {
+          "Name": "Primary",
+          "Type": "Variable"
+        },
+        "Field": {
+          "ReferenceID": "BusinessID",
+          "Type": "RuleReference",
+          "Namespace": "PegaPlatform"
+        }
+      },
+      "RuleResolutionID": "ImageAnalysisDisplay",
+      "Tabs": [
+        {
+          "EmbedListUUID__": "_8eeupnnd4",
+          "Heading": "Details",
+          "View": {
+            "ReferenceID": "pyDetailsTabContent",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        },
+        {
+          "EmbedListUUID__": "_4kvqivv8w",
+          "Heading": "Pulse",
+          "View": {
+            "ReferenceID": "pyCasePulse",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        },
+        {
+          "EmbedListUUID__": "_zdlxg2b48",
+          "Heading": "History",
+          "View": {
+            "ReferenceID": "History",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        }
+      ],
+      "Icon": "case-solid",
+      "FieldsToHighlight": 0,
+      "SummaryFields": [],
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Class": [
+    {
+      "Type": "Class",
+      "Description": "History-ImageAnalysis",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "History",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "History-ImageAnalysis",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceLibrary",
+      "Name": "History-ImageAnalysis",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "OpenAI Request Object",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "BusinessObject",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "OpenAIRequestObject",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceLibrary",
+      "Name": "OpenAI Request Object",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "ImageAnalysis",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "Case",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "ImageAnalysis",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceLibrary",
+      "Name": "ImageAnalysis",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "History-OpenAIRequestObject",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "History",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "History-OpenAIRequestObject",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceLibrary",
+      "Name": "History-OpenAIRequestObject",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "RESTConnector": [
+    {
+      "MappingType": "default",
+      "mapping": "default",
+      "Description": "Get Image Analysis From OpenAI",
+      "Reusability": "Private",
+      "IsSystemGenerated": false,
+      "SchemaVersion": "0-3-0",
+      "MSTimeout": 30000,
+      "Timeout": 3,
+      "AppliesTo": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "Method": "POST",
+      "IntegrationSystem": {
+        "ReferenceID": "ConnectToOpenAI",
+        "Namespace": "ResourceLibrary"
+      },
+      "Namespace": "ResourceLibrary",
+      "Name": "GetImageAnalysis",
+      "Type": "RESTConnector",
+      "RuleResolutionID": "GetImageAnalysis",
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "Text",
+          "Format": {
+            "Type": "RuleReference",
+            "ReferenceID": "Text",
+            "Namespace": "PegaPlatform"
+          },
+          "Namespace": "PegaPlatform"
+        },
+        "Description": "",
+        "Mode": "SingleRecord"
+      },
+      "UseDirectURL": false,
+      "RequestHeaders": [
+        {
+          "Description": "Content Type",
+          "ParamValue": {
+            "Type": "ConstantText",
+            "Value": "application/json"
+          },
+          "Name": "Content-Type"
+        },
+        {
+          "Description": "API KEY",
+          "ParamValue": {
+            "Type": "ConstantText",
+            "Value": "1556acbc33fc4ba4948440eab71d38c1"
+          },
+          "Name": "api-key"
+        }
+      ],
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            },
+            "Namespace": "PegaPlatform"
+          },
+          "Description": "Request Text",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "RequestText",
+          "Type": ""
+        }
+      ],
+      "RequestBody": {
+        "ValueType": "",
+        "Value": "",
+        "ParamValue": {
+          "Type": "Variable",
+          "Name": "RequestText"
+        },
+        "Name": ""
+      },
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "IntegrationSystem": [
+    {
+      "Type": "IntegrationSystem",
+      "Description": "Connect To OpenAI GPT4o model chat completions",
+      "Reusability": "Private",
+      "SchemaVersion": "1-0-0",
+      "RuleResolutionID": "ConnectToOpenAI",
+      "SourceType": "BaseURL",
+      "BaseURL": "https://aze-apim-infra-01.azure-api.net/ope/openai/deployments/gpt-4o/chat/completions?api-version=2023-05-15",
+      "BaseURLSource": "CONSTANT",
+      "Namespace": "ResourceLibrary",
+      "Name": "ConnectToOpenAI",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Automation": [
+    {
+      "Description": "Generate Image analysis using OpenAI",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-0",
+      "IsSystemAutomation": false,
+      "AppliesTo": {
+        "ReferenceID": "ImageAnalysis",
+        "Namespace": "ResourceLibrary"
+      },
+      "CallType": "ResourceObject",
+      "Namespace": "ResourceLibrary",
+      "Name": "GenerateImageSummary",
+      "Locals": [
+        {
+          "Mode": "SingleRecord",
+          "Name": "thisCase",
+          "Description": "thisCase",
+          "ObjectType": {
+            "TypeReferenceID": "ImageAnalysis",
+            "Namespace": "ResourceLibrary",
+            "Type": "TypeReference"
+          }
+        }
+      ],
+      "Type": "Automation",
+      "Output": {
+        "Description": "Image Summary From AI",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "Text",
+          "Namespace": "PegaPlatform",
+          "Type": "TypeReference",
+          "Format": {
+            "ReferenceID": "TextParagraph",
+            "Namespace": "PegaPlatform",
+            "Type": "RuleReference"
+          }
+        }
+      },
+      "RuleResolutionID": "GenerateImageSummary",
+      "RuleSteps": [
+        {
+          "Id": "_5625em1u1",
+          "Type": "ActionAppend",
+          "VariableName": "AppendedPage",
+          "RuleSteps": [
+            {
+              "Id": "_3utld126d",
+              "Type": "ActionSet",
+              "Sets": [
+                {
+                  "Id": "_6kkfn9pql",
+                  "Target": {
+                    "Type": "FieldReference",
+                    "Root": {
+                      "Name": "AppendedPage",
+                      "Type": "Variable"
+                    },
+                    "Field": {
+                      "ReferenceID": "role",
+                      "Namespace": "ResourceLibrary",
+                      "Type": "RuleReference"
+                    }
+                  },
+                  "Source": {
+                    "Type": "ConstantText",
+                    "Value": "system"
+                  }
+                },
+                {
+                  "Id": "_rgn37focq",
+                  "Target": {
+                    "Type": "FieldReference",
+                    "Root": {
+                      "Name": "AppendedPage",
+                      "Type": "Variable"
+                    },
+                    "Field": {
+                      "ReferenceID": "prompt",
+                      "Namespace": "ResourceLibrary",
+                      "Type": "RuleReference"
+                    }
+                  },
+                  "Source": {
+                    "Type": "ExpressionGroup",
+                    "ExpressionType": "+",
+                    "Expressions": [
+                      {
+                        "Type": "ConstantText",
+                        "Value": "You are a helpful assistant who can analyse the image content provided in the base64 format and summarize the data that is useful to get an insight. ensure that each point in the analysis is added to a new line and each line is numbered. Also ensure you do not include any text or characters before opening curly bracket and after closing curley bracket of the JSON. "
+                      },
+                      {
+                        "Type": "ConstantText",
+                        "Value": "Also ensure the analysis is done based on the following user input : "
+                      },
+                      {
+                        "Type": "FieldReference",
+                        "Root": {
+                          "Type": "Variable",
+                          "Name": "Primary"
+                        },
+                        "Field": {
+                          "Type": "RuleReference",
+                          "ReferenceID": "UserPrompt",
+                          "Namespace": "ResourceLibrary"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "Target": {
+            "Type": "FieldReference",
+            "Root": {
+              "Name": "Primary",
+              "Type": "Variable"
+            },
+            "Field": {
+              "ReferenceID": "AIMessageObject",
+              "Namespace": "ResourceLibrary",
+              "Type": "RuleReference"
+            }
+          }
+        },
+        {
+          "Id": "_naymwvxrt",
+          "Type": "ActionAppend",
+          "VariableName": "AppendedPage",
+          "RuleSteps": [
+            {
+              "Id": "_xzlfhsa7u",
+              "Type": "ActionSet",
+              "Sets": [
+                {
+                  "Id": "_jwma1i20t",
+                  "Target": {
+                    "Type": "FieldReference",
+                    "Root": {
+                      "Name": "AppendedPage",
+                      "Type": "Variable"
+                    },
+                    "Field": {
+                      "ReferenceID": "prompt",
+                      "Namespace": "ResourceLibrary",
+                      "Type": "RuleReference"
+                    }
+                  },
+                  "Source": {
+                    "Type": "ExpressionGroup",
+                    "ExpressionType": "+",
+                    "Expressions": [
+                      {
+                        "Type": "ConstantText",
+                        "Value": "data:image/png;base64,"
+                      },
+                      {
+                        "Type": "CallExpression",
+                        "CallType": "Function",
+                        "CallReference": {
+                          "Type": "RuleReference",
+                          "ReferenceID": "GetFileAttachmentContent",
+                          "Namespace": "PegaPlatform",
+                          "ReferenceScope": {
+                            "Type": "RuleReference",
+                            "ReferenceID": "Attachment",
+                            "Namespace": "PegaPlatform"
+                          }
+                        },
+                        "CallInputs": [
+                          {
+                            "Type": "CallInput",
+                            "ParameterName": "attachmentId",
+                            "Source": {
+                              "Type": "FieldReference",
+                              "Root": {
+                                "Type": "Variable",
+                                "Name": "Primary"
+                              },
+                              "ReferencePath": [
+                                {
+                                  "Type": "FieldReference",
+                                  "Field": {
+                                    "Type": "RuleReference",
+                                    "ReferenceID": "ImageAttachment",
+                                    "Namespace": "ResourceLibrary"
+                                  }
+                                }
+                              ],
+                              "Field": {
+                                "Type": "RuleReference",
+                                "ReferenceID": "ID",
+                                "Namespace": "PegaPlatform"
+                              }
+                            }
+                          },
+                          {
+                            "Type": "CallInput",
+                            "ParameterName": "encoding",
+                            "Source": {
+                              "Type": "ConstantText",
+                              "Value": "base64"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "Id": "_pr7yh88zq",
+                  "Target": {
+                    "Type": "FieldReference",
+                    "Root": {
+                      "Name": "AppendedPage",
+                      "Type": "Variable"
+                    },
+                    "Field": {
+                      "ReferenceID": "role",
+                      "Namespace": "ResourceLibrary",
+                      "Type": "RuleReference"
+                    }
+                  },
+                  "Source": {
+                    "Type": "ConstantText",
+                    "Value": "user"
+                  }
+                }
+              ]
+            }
+          ],
+          "Target": {
+            "Type": "FieldReference",
+            "Root": {
+              "Name": "Primary",
+              "Type": "Variable"
+            },
+            "Field": {
+              "ReferenceID": "AIMessageObject",
+              "Namespace": "ResourceLibrary",
+              "Type": "RuleReference"
+            }
+          }
+        },
+        {
+          "Id": "_fctdf7oz3",
+          "Type": "ActionSet",
+          "Sets": [
+            {
+              "Id": "_9g2m9cs0b",
+              "Target": {
+                "Type": "Variable",
+                "Name": "thisCase"
+              },
+              "Source": {
+                "Type": "Variable",
+                "Name": "Primary"
+              }
+            },
+            {
+              "Id": "_mqm4ao7ya",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "OpenAIAnalysis",
+                  "Namespace": "ResourceLibrary",
+                  "Type": "RuleReference"
+                }
+              },
+              "Source": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Type": "CallExpression",
+                  "CallType": "DataConnection",
+                  "CallReference": {
+                    "Type": "RuleReference",
+                    "ReferenceID": "ImageAnalysis",
+                    "Namespace": "ResourceLibrary",
+                    "ReferenceScope": {
+                      "Type": "RuleReference",
+                      "ReferenceID": "ImageAnalysis",
+                      "Namespace": "ResourceLibrary"
+                    }
+                  },
+                  "CallInputs": [
+                    {
+                      "Type": "CallInput",
+                      "ParameterName": "thisCase",
+                      "Source": {
+                        "Type": "Variable",
+                        "Name": "thisCase"
+                      }
+                    }
+                  ]
+                },
+                "Field": {
+                  "Type": "RuleReference",
+                  "ReferenceID": "OpenAIAnalysis",
+                  "Namespace": "ResourceLibrary"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Id": "_bt2uec7yb",
+          "Type": "ActionReturn",
+          "Source": {
+            "Type": "FieldReference",
+            "Root": {
+              "Name": "thisCase",
+              "Type": "Variable"
+            },
+            "Field": {
+              "ReferenceID": "OpenAIAnalysis",
+              "Namespace": "ResourceLibrary",
+              "Type": "RuleReference"
+            }
+          }
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    }
+  ]
+}
