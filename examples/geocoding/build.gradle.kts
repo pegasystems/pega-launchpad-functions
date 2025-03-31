@@ -3,7 +3,7 @@ plugins {
 }
 
 group = "com.pega.launchpad.geocoding"
-version = "0.1.9-SNAPSHOT"
+version = "0.2.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
