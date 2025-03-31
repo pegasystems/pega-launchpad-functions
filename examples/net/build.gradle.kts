@@ -3,17 +3,19 @@ plugins {
     id("java")
 }
 
-group = "com.pega.launchpad.email"
-version = "0.1.9-SNAPSHOT"
+group = "com.pega.launchpad.net"
+version = "0.2.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    implementation("jakarta.activation:jakarta.activation-api:2.1.3")
-    implementation("jakarta.mail:jakarta.mail-api:2.1.3")
-    implementation("com.sun.mail:jakarta.mail:2.0.1")
+    testImplementation(platform("org.junit:junit-bom:5.11.3"))
+    testImplementation("org.junit.jupiter:junit-jupiter")
+    implementation("org.apache.httpcomponents.client5:httpclient5:5.4.2")
+    implementation("com.google.code.gson:gson:2.12.1")
+    compileOnly("org.jetbrains:annotations:24.1.0")
 }
 
 tasks.test {

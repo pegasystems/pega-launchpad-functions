@@ -10,8 +10,10 @@ This repository contains some sample code and configuration to learn how to crea
 * [Overview](#overview)
 * [Table of Contents](#table-of-contents)
 * [References](#references)
-* [Modules](#modules)
-* [Obtaining a JAR to upload into a Function rule](#obtaining-a-jar-to-upload-into-a-function-rule)
+* [SDK](#sdk)
+* [Example modules](#example-modules)
+  * [Obtaining a JAR to upload into a Function rule](#obtaining-a-jar-to-upload-into-a-function-rule)
+* [Setting up IntellJ workspace for this project](#setting-up-intellj-workspace-for-this-project)
 <!-- TOC -->
 
 # References
@@ -19,25 +21,29 @@ This repository contains some sample code and configuration to learn how to crea
 - Pega Launchpad [overview](https://launchpad.io)
 - Creating [Function](https://docs.pega.com/bundle/launchpad/page/platform/launchpad/creating-custom-functions.html) rules
 
-# Modules
+# SDK
 
-| Name                    | Description                      | Latest JAR file                                                                                                      |
-|-------------------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| [base64](base64/)       | Encoding/decoding base64 strings | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.9/base64-0.1.9-SNAPSHOT.jar)    |
-| [email](email/)         | email utilities                  | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.9/email-0.1.9-SNAPSHOT.jar)     | 
-| [geocoding](geocoding/) | Geocoding utilities              | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.9/geocoding-0.1.9-SNAPSHOT.jar) |
-| [net](net/)             | REST and HTTP utilities          | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.9/net-0.1.9-SNAPSHOT.jar)       | 
-| [parser](parser/)       | CSV and JSON parsing             | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.9/parser-0.1.9-SNAPSHOT.jar)    | 
-| [pdf](pdf/)             | PDF form filler                  | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.9/pdf-0.1.9-SNAPSHOT.jar)       | 
-| [text](text/)           | string utilities                 | [jar](https://github.com/pegasystems/pega-launchpad-functions/download/v0.1.9/text-0.1.9-SNAPSHOT.jar)               | 
+<!-- todo -->
 
-# Obtaining a JAR to upload into a Function rule
+# Example modules
+
+| Name                       | Description                      | Latest JAR file                                                                                                      |
+|----------------------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| [base64](examples/base64/) | Encoding/decoding base64 strings | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.9/base64-0.1.9-SNAPSHOT.jar)    |
+| [email](examples/email/)            | email utilities                  | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.9/email-0.1.9-SNAPSHOT.jar)     | 
+| [geocoding](examples/geocoding/)    | Geocoding utilities              | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.9/geocoding-0.1.9-SNAPSHOT.jar) |
+| [net](examples/net/)                | REST and HTTP utilities          | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.9/net-0.1.9-SNAPSHOT.jar)       | 
+| [parser](examples/parser/)          | CSV and JSON parsing             | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.9/parser-0.1.9-SNAPSHOT.jar)    | 
+| [pdf](examples/pdf/)                | PDF form filler                  | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.9/pdf-0.1.9-SNAPSHOT.jar)       | 
+| [text](examples/text/)              | string utilities                 | [jar](https://github.com/pegasystems/pega-launchpad-functions/download/v0.1.9/text-0.1.9-SNAPSHOT.jar)               | 
+
+## Obtaining a JAR to upload into a Function rule
 
 You can download the latest JAR releases for each module from the [project release page](https://github.com/pegasystems/pega-launchpad-functions/releases), or you can generate the necessary JAR file (including dependencies) for uploading into a Pega Launchpad Function rule by running this command in your local workspace:
 
 ```gradlew build```
 
-This will create/update the ```module-vX.Y.Z-SNAPSHOT.jar``` files in the various modules, under their ```build/libs``` directory.
+This will create/update the ```module-vX.Y.Z-SNAPSHOT.jar``` files in the various example modules, under their ```build/libs``` directory.
 
 # Setting up IntellJ workspace for this project
 
