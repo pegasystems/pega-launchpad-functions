@@ -12,7 +12,7 @@ This repository contains some sample code and configuration to learn how to crea
 * [References](#references)
 * [SDK](#sdk)
 * [Example modules](#example-modules)
-  * [Obtaining a JAR to upload into a Function rule](#obtaining-a-jar-to-upload-into-a-function-rule)
+  * [Example modules: Obtaining a JAR](#example-modules-obtaining-a-jar)
 * [Setting up IntellJ workspace for this project](#setting-up-intellj-workspace-for-this-project)
 <!-- TOC -->
 
@@ -37,7 +37,7 @@ todo
 | [pdf](examples/pdf/)                | PDF form filler                  | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.9/pdf-0.1.9-SNAPSHOT.jar)       | 
 | [text](examples/text/)              | string utilities                 | [jar](https://github.com/pegasystems/pega-launchpad-functions/download/v0.1.9/text-0.1.9-SNAPSHOT.jar)               | 
 
-## Obtaining a JAR to upload into a Function rule
+## Example modules: Obtaining a JAR
 
 You can download the latest JAR releases for each module from the [project release page](https://github.com/pegasystems/pega-launchpad-functions/releases), or you can generate the necessary JAR file (including dependencies) for uploading into a Pega Launchpad Function rule by running this command in your local workspace:
 
