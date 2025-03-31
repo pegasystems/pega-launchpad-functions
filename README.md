@@ -23,7 +23,7 @@ This repository contains some sample code and configuration to learn how to crea
 
 # SDK
 
-<!-- todo -->
+todo
 
 # Example modules
 
