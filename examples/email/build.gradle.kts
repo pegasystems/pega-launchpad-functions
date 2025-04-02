@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "com.pega.launchpad.email"
-version = "0.2.0-SNAPSHOT"
+version = extra["PegaLaunchpadFunctionsGroupVersion"].toString() + "-SNAPSHOT";
 
 repositories {
     mavenCentral()

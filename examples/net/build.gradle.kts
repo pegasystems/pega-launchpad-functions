@@ -4,14 +4,17 @@ plugins {
 }
 
 group = "com.pega.launchpad.net"
-version = "0.2.0-SNAPSHOT"
+version = extra["PegaLaunchpadFunctionsGroupVersion"].toString() + "-SNAPSHOT";
+
 
 repositories {
     mavenCentral()
 }
 
+val junitVersion = extra["PegaLaunchpadFunctionsJunitVersion"].toString();
+
 dependencies {
-    testImplementation(platform("org.junit:junit-bom:5.11.3"))
+    testImplementation(platform("org.junit:junit-bom:${junitVersion}"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     implementation("org.apache.httpcomponents.client5:httpclient5:5.4.2")
     implementation("com.google.code.gson:gson:2.12.1")
