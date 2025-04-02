@@ -3,13 +3,14 @@ plugins {
 }
 
 group = "com.pega.launchpad.sdk"
-version = "0.1.0-SNAPSHOT"
+version = extra["PegaLaunchpadFunctionsGroupVersion"].toString() + "-SNAPSHOT";
 
 repositories {
     mavenCentral()
 }
 
-val junitVersion = "5.11.3"
+val junitVersion = extra["PegaLaunchpadFunctionsJunitVersion"].toString();
+
 dependencies {
     compileOnly ("com.fasterxml.jackson.core:jackson-annotations:2.15.2")
 
