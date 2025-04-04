@@ -3,7 +3,7 @@ plugins {
 }
 
 tasks.register<Zip>("zipNodeJsExamples") {
-    from(".")
+    from("./src")
     archiveFileName.set("nodejs.examples.zip")
     destinationDirectory.set(layout.buildDirectory.dir("distributions"))
 }
