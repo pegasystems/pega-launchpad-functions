@@ -3,7 +3,7 @@ plugins {
 }
 
 tasks.register<Zip>("zipPythonExamples") {
-    from(".")
+    from("./src")
     archiveFileName.set("python.examples.zip")
     destinationDirectory.set(layout.buildDirectory.dir("distributions"))
 }
