@@ -1,0 +1,4387 @@
+{
+  "ApplicationNamespace": "ResourceLibrary",
+  "Automation": [
+    {
+      "Description": "Set Usage Details",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-0",
+      "IsSystemAutomation": false,
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "CallType": "ResourceObject",
+      "Namespace": "ResourceLibrary",
+      "Name": "Set Usage Details",
+      "Type": "Automation",
+      "Output": {
+        "Description": "",
+        "Mode": ""
+      },
+      "RuleResolutionID": "SetUsageDetails",
+      "RuleSteps": [
+        {
+          "Id": "_lir61idjo",
+          "Type": "ActionSet",
+          "Sets": [
+            {
+              "Id": "_1o2qsqu26",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "UseCase",
+                  "Namespace": "ResourceLibrary",
+                  "Type": "RuleReference"
+                }
+              },
+              "Source": {
+                "Type": "Variable",
+                "Name": "UseCase"
+              }
+            },
+            {
+              "Id": "_oyv5cvllu",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "TechnicalDetails",
+                  "Namespace": "ResourceLibrary",
+                  "Type": "RuleReference"
+                }
+              },
+              "Source": {
+                "Type": "Variable",
+                "Name": "TechnicalDetails"
+              }
+            }
+          ]
+        }
+      ],
+      "Inputs": [
+        {
+          "Mode": "SingleRecord",
+          "Required": "true",
+          "Name": "UseCase",
+          "Description": "UseCase",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "TextParagraph",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          },
+          "Type": ""
+        },
+        {
+          "Mode": "SingleRecord",
+          "Required": "true",
+          "Name": "TechnicalDetails",
+          "Description": "TechnicalDetails",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "TextParagraph",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          },
+          "Type": ""
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Description": "Generate Summary From AI",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-0",
+      "IsSystemAutomation": false,
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "CallType": "ResourceObject",
+      "Namespace": "ResourceLibrary",
+      "Name": "Generate Summary From AI",
+      "Locals": [
+        {
+          "Mode": "SingleRecord",
+          "Name": "symptomstext",
+          "Description": "symptomstext",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          }
+        },
+        {
+          "Mode": "SingleRecord",
+          "Name": "CasePage",
+          "Description": "CasePage",
+          "ObjectType": {
+            "TypeReferenceID": "ClinicalTriage",
+            "Namespace": "ResourceLibrary",
+            "Type": "TypeReference"
+          }
+        },
+        {
+          "Mode": "SingleRecord",
+          "Name": "AIPage",
+          "Description": "AIPage",
+          "ObjectType": {
+            "TypeReferenceID": "ClinicalTriage",
+            "Namespace": "ResourceLibrary",
+            "Type": "TypeReference"
+          }
+        },
+        {
+          "Mode": "SingleRecord",
+          "Name": "PJN",
+          "Description": "PJN",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          }
+        }
+      ],
+      "Type": "Automation",
+      "Output": {
+        "Description": "",
+        "Mode": ""
+      },
+      "RuleResolutionID": "GenerateSummaryFromAI",
+      "RuleSteps": [
+        {
+          "Id": "_qu9aowdtv",
+          "Type": "ActionForEach",
+          "VariableName": "CurrentPage",
+          "RuleSteps": [
+            {
+              "Id": "_c3sna8qy4",
+              "Type": "ActionSet",
+              "Sets": [
+                {
+                  "Id": "_0ulklxj8r",
+                  "Target": {
+                    "Type": "Variable",
+                    "Name": "symptomstext"
+                  },
+                  "Source": {
+                    "Type": "ExpressionGroup",
+                    "ExpressionType": "+",
+                    "Expressions": [
+                      {
+                        "Type": "Variable",
+                        "Name": "symptomstext"
+                      },
+                      {
+                        "Type": "FieldReference",
+                        "Root": {
+                          "Type": "Variable",
+                          "Name": "CurrentPage"
+                        },
+                        "Field": {
+                          "Type": "RuleReference",
+                          "ReferenceID": "SymptomList",
+                          "Namespace": "ResourceLibrary"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "List": {
+            "Type": "FieldReference",
+            "Root": {
+              "Name": "Primary",
+              "Type": "Variable"
+            },
+            "Field": {
+              "ReferenceID": "Symptoms",
+              "Namespace": "ResourceLibrary",
+              "Type": "RuleReference"
+            }
+          }
+        },
+        {
+          "Id": "_bqjs143qg",
+          "Type": "ActionAppend",
+          "VariableName": "AppendedPage",
+          "RuleSteps": [
+            {
+              "Id": "_6ejiqble3",
+              "Type": "ActionSet",
+              "Sets": [
+                {
+                  "Id": "_mntdnxrrt",
+                  "Target": {
+                    "Type": "FieldReference",
+                    "Root": {
+                      "Name": "AppendedPage",
+                      "Type": "Variable"
+                    },
+                    "Field": {
+                      "ReferenceID": "role",
+                      "Namespace": "ResourceLibrary",
+                      "Type": "RuleReference"
+                    }
+                  },
+                  "Source": {
+                    "Type": "ConstantText",
+                    "Value": "system"
+                  }
+                },
+                {
+                  "Id": "_qiphyk7k9",
+                  "Target": {
+                    "Type": "FieldReference",
+                    "Root": {
+                      "Name": "AppendedPage",
+                      "Type": "Variable"
+                    },
+                    "Field": {
+                      "ReferenceID": "content",
+                      "Namespace": "ResourceLibrary",
+                      "Type": "RuleReference"
+                    }
+                  },
+                  "Source": {
+                    "Type": "ConstantText",
+                    "Value": "You are a healthcare expert and based on the symptoms of a patient you can clearly guide what condition the patient might be suffering with, is an immediate consultation required."
+                  }
+                }
+              ]
+            }
+          ],
+          "Target": {
+            "Type": "FieldReference",
+            "Root": {
+              "Name": "Primary",
+              "Type": "Variable"
+            },
+            "Field": {
+              "ReferenceID": "OpenAIObject",
+              "Namespace": "ResourceLibrary",
+              "Type": "RuleReference"
+            }
+          }
+        },
+        {
+          "Id": "_m6kczha22",
+          "Type": "ActionAppend",
+          "VariableName": "AppendedPage",
+          "RuleSteps": [
+            {
+              "Id": "_x8z1831lg",
+              "Type": "ActionSet",
+              "Sets": [
+                {
+                  "Id": "_mntdnxrrt",
+                  "Source": {
+                    "Type": "ConstantText",
+                    "Value": "user"
+                  },
+                  "Target": {
+                    "Type": "FieldReference",
+                    "Root": {
+                      "Name": "AppendedPage",
+                      "Type": "Variable"
+                    },
+                    "Field": {
+                      "ReferenceID": "role",
+                      "Namespace": "ResourceLibrary",
+                      "Type": "RuleReference"
+                    }
+                  }
+                },
+                {
+                  "Id": "_qiphyk7k9",
+                  "Source": {
+                    "Type": "ConstantText",
+                    "Value": "patient has following symptoms : \" + symptomstext + \". Age of patient is : \" + Primary.Age + \" and gender of patient is : \" + Primary.Gender + \" and patient has following medical history : \" + Primary.MedicalHistory + \". Make sure you respond with only following fields included: Possible Causes, Is specialist consultation needed, Specialist to visit. Include not more than 10 words for these 3 responses. Make sure you respond in JSON FORMAT without escape characters. Make sure you return only one specialization from the following list: Cardiology, Dermatology, Emergency Medicine, Gastroenterology, Neurology, Pediatrics, Psychiatry, Pulmonology, Rheumatology, General Medicine"
+                  },
+                  "Target": {
+                    "Type": "FieldReference",
+                    "Root": {
+                      "Name": "AppendedPage",
+                      "Type": "Variable"
+                    },
+                    "Field": {
+                      "ReferenceID": "content",
+                      "Namespace": "ResourceLibrary",
+                      "Type": "RuleReference"
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "Target": {
+            "Type": "FieldReference",
+            "Root": {
+              "Name": "Primary",
+              "Type": "Variable"
+            },
+            "Field": {
+              "ReferenceID": "OpenAIObject",
+              "Namespace": "ResourceLibrary",
+              "Type": "RuleReference"
+            }
+          }
+        },
+        {
+          "Id": "_cd2eghcc1",
+          "Type": "ActionSet",
+          "Sets": [
+            {
+              "Id": "_9mi07u1oa",
+              "Target": {
+                "Type": "Variable",
+                "Name": "CasePage"
+              },
+              "Source": {
+                "Type": "Variable",
+                "Name": "Primary"
+              }
+            },
+            {
+              "Id": "_2jfmozlf6",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "AIRecommendation",
+                  "Namespace": "ResourceLibrary",
+                  "Type": "RuleReference"
+                }
+              },
+              "Source": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Type": "CallExpression",
+                  "CallType": "DataConnection",
+                  "CallReference": {
+                    "Type": "RuleReference",
+                    "ReferenceID": "GenerateAilmentSummary",
+                    "Namespace": "ResourceLibrary",
+                    "ReferenceScope": {
+                      "Type": "RuleReference",
+                      "ReferenceID": "ClinicalTriage",
+                      "Namespace": "ResourceLibrary"
+                    }
+                  },
+                  "CallInputs": [
+                    {
+                      "Type": "CallInput",
+                      "ParameterName": "casepage",
+                      "Source": {
+                        "Type": "Variable",
+                        "Name": "CasePage"
+                      }
+                    }
+                  ]
+                },
+                "Field": {
+                  "Type": "RuleReference",
+                  "ReferenceID": "AIRecommendation",
+                  "Namespace": "ResourceLibrary"
+                }
+              }
+            },
+            {
+              "Id": "_t5qrlyi4k",
+              "Target": {
+                "Type": "Variable",
+                "Name": "AIPage"
+              },
+              "Source": {
+                "Type": "CallExpression",
+                "CallType": "JSONTransform",
+                "CallReference": {
+                  "Type": "RuleReference",
+                  "ReferenceID": "AIRecommendation",
+                  "Namespace": "ResourceLibrary",
+                  "ReferenceScope": {
+                    "Type": "RuleReference",
+                    "ReferenceID": "ClinicalTriage",
+                    "Namespace": "ResourceLibrary"
+                  }
+                },
+                "CallInputs": [
+                  {
+                    "Type": "CallInput",
+                    "ParameterName": "JSON string",
+                    "Source": {
+                      "Type": "FieldReference",
+                      "Root": {
+                        "Type": "Variable",
+                        "Name": "Primary"
+                      },
+                      "Field": {
+                        "Type": "RuleReference",
+                        "ReferenceID": "AIRecommendation",
+                        "Namespace": "ResourceLibrary"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "Id": "_wylc4xzbq",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "sSpecialistConsultationNeeded",
+                  "Namespace": "ResourceLibrary",
+                  "Type": "RuleReference"
+                }
+              },
+              "Source": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "AIPage",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "sSpecialistConsultationNeeded",
+                  "Namespace": "ResourceLibrary",
+                  "Type": "RuleReference"
+                }
+              }
+            },
+            {
+              "Id": "_tk256nzqi",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "Specialist",
+                  "Namespace": "ResourceLibrary",
+                  "Type": "RuleReference"
+                }
+              },
+              "Source": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "AIPage",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "Specialist",
+                  "Namespace": "ResourceLibrary",
+                  "Type": "RuleReference"
+                }
+              }
+            },
+            {
+              "Id": "_22fs3ff2h",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "PossibleCauses",
+                  "Namespace": "ResourceLibrary",
+                  "Type": "RuleReference"
+                }
+              },
+              "Source": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "AIPage",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "PossibleCauses",
+                  "Namespace": "ResourceLibrary",
+                  "Type": "RuleReference"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Field": [
+    {
+      "Type": "Field",
+      "Description": "PossibleCauses",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "PossibleCauses",
+      "Namespace": "ResourceLibrary",
+      "Name": "PossibleCauses",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "RichText",
+      "Type": "Field",
+      "Description": "Background Information",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "BackgroundInformation",
+      "Namespace": "ResourceLibrary",
+      "Name": "Background Information",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "EmbeddedData",
+      "Type": "Field",
+      "Description": "Open AI Object",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "RecordClass": {
+        "ReferenceID": "AIMessageObject",
+        "Namespace": "ResourceLibrary"
+      },
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "ListOfRecords",
+      "RuleResolutionID": "OpenAIObject",
+      "Namespace": "ResourceLibrary",
+      "Name": "Open AI Object",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "Currency",
+      "Type": "Field",
+      "Description": "Amount",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "Symptom",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Decimal",
+      "RuleResolutionID": "Amount",
+      "Namespace": "ResourceLibrary",
+      "Name": "Amount",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Field",
+      "Description": "Have you experienced any medical conditions in the past ",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Boolean",
+      "RuleResolutionID": "HaveYouExperiencedAnyMedicalConditionsInThePast",
+      "Namespace": "ResourceLibrary",
+      "Name": "Have you experienced any medical conditions in the past ?",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Field",
+      "Description": "Specialist",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "Specialist",
+      "Namespace": "ResourceLibrary",
+      "Name": "Specialist",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Field",
+      "Description": "Is specialist consultation needed ",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "sSpecialistConsultationNeeded",
+      "Mode": "Boolean",
+      "Namespace": "ResourceLibrary",
+      "Name": "Is specialist consultation needed ?",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "ObjectReference",
+      "Description": "This field holds the reference to a Symptom instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "RecordClass": {
+        "ReferenceID": "Symptom",
+        "Namespace": "ResourceLibrary"
+      },
+      "AppliesTo": {
+        "ReferenceID": "History-Symptom",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "SingleRecord",
+      "RelationshipType": "Peer",
+      "Namespace": "ResourceLibrary",
+      "Name": "Symptom Reference",
+      "DataAccess": "Refer",
+      "DataSource": {
+        "CallReference": {
+          "ReferenceID": "SymptomLookup",
+          "ReferenceScope": {
+            "ReferenceID": "Symptom",
+            "Namespace": "ResourceLibrary"
+          },
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "DataPage",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "FieldReference",
+              "Root": {
+                "Type": "Variable",
+                "Name": "Current"
+              },
+              "Field": {
+                "Type": "RuleReference",
+                "ReferenceID": "ID",
+                "Namespace": "PegaPlatform"
+              }
+            }
+          }
+        ]
+      },
+      "Type": "Field",
+      "RuleResolutionID": "ObjectReference",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "RichText",
+      "Type": "Field",
+      "Description": "Use Case",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "Case",
+        "Namespace": "PegaPlatform"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "UseCase",
+      "Namespace": "ResourceLibrary",
+      "Name": "Use Case",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "RichText",
+      "Type": "Field",
+      "Description": "Technical Details",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "Case",
+        "Namespace": "PegaPlatform"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "TechnicalDetails",
+      "Namespace": "ResourceLibrary",
+      "Name": "Technical Details",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "Dropdown",
+      "Type": "Field",
+      "Description": "Symptom List",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "Symptom",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "SourceType": "DataPage",
+      "RuleResolutionID": "SymptomList",
+      "Source": {
+        "Type": "DataPageSource",
+        "DataSource": {
+          "CallReference": {
+            "ReferenceID": "SymptomList",
+            "Namespace": "ResourceLibrary",
+            "ReferenceScope": {
+              "ReferenceID": "Symptom",
+              "Namespace": "ResourceLibrary"
+            }
+          },
+          "CallType": "DataPage",
+          "CallInputs": []
+        },
+        "Key": {
+          "Type": "FieldReference",
+          "Root": {
+            "Type": "Variable",
+            "Name": "CurrentDataSource"
+          },
+          "Field": {
+            "Type": "RuleReference",
+            "ReferenceID": "Name",
+            "Namespace": "PegaPlatform"
+          }
+        },
+        "Labels": [
+          {
+            "Type": "FieldReference",
+            "Root": {
+              "Type": "Variable",
+              "Name": "CurrentDataSource"
+            },
+            "Field": {
+              "Type": "RuleReference",
+              "ReferenceID": "Name",
+              "Namespace": "PegaPlatform"
+            }
+          }
+        ]
+      },
+      "Namespace": "ResourceLibrary",
+      "Name": "Symptom List",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Field",
+      "Description": "Age",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Integer",
+      "RuleResolutionID": "Age",
+      "Namespace": "ResourceLibrary",
+      "Name": "Age",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "RadioButtons",
+      "Type": "Field",
+      "Description": "Gender",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "SourceType": "PromptList",
+      "RuleResolutionID": "Gender",
+      "Source": {
+        "Type": "KeyValuePairSource",
+        "KeyValuePairs": [
+          {
+            "Key": {
+              "Value": "Male",
+              "Type": "ConstantText"
+            },
+            "Value": {
+              "Value": "Male",
+              "Type": "ConstantText"
+            }
+          },
+          {
+            "Key": {
+              "Value": "Female",
+              "Type": "ConstantText"
+            },
+            "Value": {
+              "Value": "Female",
+              "Type": "ConstantText"
+            }
+          }
+        ]
+      },
+      "Namespace": "ResourceLibrary",
+      "Name": "Gender",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "RichText",
+      "Type": "Field",
+      "Description": "Medical History",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "MedicalHistory",
+      "Namespace": "ResourceLibrary",
+      "Name": "Medical History",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Field",
+      "Description": "Patient Name",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "PatientName",
+      "Namespace": "ResourceLibrary",
+      "Name": "Patient Name",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "RichText",
+      "Type": "Field",
+      "Description": "AI Recommendation",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "AIRecommendation",
+      "Namespace": "ResourceLibrary",
+      "Name": "AI Recommendation",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "RichText",
+      "Type": "Field",
+      "Description": "content",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "AIMessageObject",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "content",
+      "Namespace": "ResourceLibrary",
+      "Name": "content",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "EmbeddedData",
+      "Type": "Field",
+      "Description": "Symptoms",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "RecordClass": {
+        "ReferenceID": "Symptom",
+        "Namespace": "ResourceLibrary"
+      },
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "ListOfRecords",
+      "RuleResolutionID": "Symptoms",
+      "Namespace": "ResourceLibrary",
+      "Name": "Symptoms",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "AdditionalInfo": {
+        "ReferenceID": "role_additionalInfo",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "Field",
+      "Description": "role",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "AIMessageObject",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "role",
+      "Namespace": "ResourceLibrary",
+      "Name": "role",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "ObjectReference",
+      "Description": "This field holds the reference to a AI Message Object instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "RecordClass": {
+        "ReferenceID": "AIMessageObject",
+        "Namespace": "ResourceLibrary"
+      },
+      "AppliesTo": {
+        "ReferenceID": "History-AIMessageObject",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "SingleRecord",
+      "RelationshipType": "Peer",
+      "Namespace": "ResourceLibrary",
+      "Name": "AI Message Object Reference",
+      "DataAccess": "Refer",
+      "DataSource": {
+        "CallReference": {
+          "ReferenceID": "AIMessageObjectLookup",
+          "ReferenceScope": {
+            "ReferenceID": "AIMessageObject",
+            "Namespace": "ResourceLibrary"
+          },
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "DataPage",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "FieldReference",
+              "Root": {
+                "Type": "Variable",
+                "Name": "Current"
+              },
+              "Field": {
+                "Type": "RuleReference",
+                "ReferenceID": "ID",
+                "Namespace": "PegaPlatform"
+              }
+            }
+          }
+        ]
+      },
+      "Type": "Field",
+      "RuleResolutionID": "ObjectReference",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "ObjectReference",
+      "Description": "This field holds the reference to a Clinical Triage instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "RecordClass": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "AppliesTo": {
+        "ReferenceID": "History-ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "SingleRecord",
+      "RelationshipType": "Peer",
+      "Namespace": "ResourceLibrary",
+      "Name": "Clinical Triage Reference",
+      "DataAccess": "Refer",
+      "DataSource": {
+        "CallReference": {
+          "ReferenceID": "ClinicalTriageLookup",
+          "ReferenceScope": {
+            "ReferenceID": "ClinicalTriage",
+            "Namespace": "ResourceLibrary"
+          },
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "DataPage",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "FieldReference",
+              "Root": {
+                "Type": "Variable",
+                "Name": "Current"
+              },
+              "Field": {
+                "Type": "RuleReference",
+                "ReferenceID": "ID",
+                "Namespace": "PegaPlatform"
+              }
+            }
+          }
+        ]
+      },
+      "Type": "Field",
+      "RuleResolutionID": "ObjectReference",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "View": [
+    {
+      "Type": "View",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "BackgroundInformation",
+      "ContextMetadata": "",
+      "ViewType": "form",
+      "Namespace": "ResourceLibrary",
+      "Name": "Background Information",
+      "Template": "DefaultForm",
+      "ViewMetadata": "{\"name\":\"BackgroundInformation\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"ClinicalTriage\",\"ruleClassNamespace\":\"ResourceLibrary\",\"label\":\"@L Background Information\"},\"children\":[{\"name\":\"Fields\",\"type\":\"Region\",\"children\":[{\"type\":\"RichText\",\"config\":{\"value\":\"@P .UseCase\",\"label\":\"@L Use Case\",\"disabled\":false,\"readOnly\":true}},{\"type\":\"RichText\",\"config\":{\"value\":\"@P .TechnicalDetails\",\"label\":\"@L Technical Details\",\"disabled\":false,\"readOnly\":true}}]}],\"ID\":\"121c83f9-83a6-4e7d-853e-7188d274ee1d\"}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "Update details",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Edit",
+      "AutoGenerated": true,
+      "ViewType": "",
+      "Namespace": "PegaPlatform",
+      "Template": "DefaultForm",
+      "Name": "Edit",
+      "ViewMetadata": "{\"name\":\"Edit\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"BusinessObject\",\"label\":\"Update case details\"},\"children\":[{\"name\":\"Fields\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .Name\",\"label\":\"@L Label\"}},{\"type\":\"TextArea\",\"config\":{\"value\":\"@P .Description\",\"label\":\"@L Description\"}}]}],\"ID\":\"4e78a729-1eb6-4e4e-94c2-6dc6e112fc86\"}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "View to collect details for Object creation.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "AIMessageObject",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Create",
+      "AutoGenerated": true,
+      "ViewType": "embeddedform",
+      "Namespace": "PegaPlatform",
+      "Template": "DefaultForm",
+      "Name": "Create",
+      "ViewMetadata": "{\"name\":\"Create\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"BusinessObject\",\"ruleClassNamespace\":\"PegaPlatform\",\"label\":\"@L View to collect details for Object creation.\"},\"children\":[{\"type\":\"Region\",\"name\":\"Fields\",\"children\":[]}],\"ID\":\"86b7273f-c4d8-43e4-89b3-3931d4018a18\"}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "Update details",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "Symptom",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Edit",
+      "AutoGenerated": true,
+      "ViewType": "",
+      "Namespace": "PegaPlatform",
+      "Template": "DefaultForm",
+      "Name": "Edit",
+      "ViewMetadata": "{\"name\":\"Edit\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"BusinessObject\",\"label\":\"Update case details\"},\"children\":[{\"name\":\"Fields\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .Name\",\"label\":\"@L Label\"}},{\"type\":\"TextArea\",\"config\":{\"value\":\"@P .Description\",\"label\":\"@L Description\"}}]}],\"ID\":\"4e78a729-1eb6-4e4e-94c2-6dc6e112fc86\"}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "View to collect details for Object creation.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Create",
+      "AutoGenerated": false,
+      "ViewType": "embeddedform",
+      "Namespace": "PegaPlatform",
+      "Name": "Create",
+      "Template": "DefaultForm",
+      "ViewMetadata": "{\"name\":\"Create\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"ClinicalTriage\",\"ruleClassNamespace\":\"PegaPlatform\",\"label\":\"@L View to collect details for Object creation.\"},\"children\":[{\"type\":\"Region\",\"name\":\"Fields\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .PatientName\",\"label\":\"@L Patient Name\"}},{\"type\":\"Integer\",\"config\":{\"value\":\"@P .Age\",\"label\":\"@L Age\"}},{\"type\":\"RadioButtons\",\"config\":{\"value\":\"@P .Gender\",\"label\":\"@L Gender\",\"listType\":\"associated\",\"datasource\":\"@ASSOCIATED .Gender\"}},{\"type\":\"reference\",\"config\":{\"name\":\"Create_Symptoms\",\"inheritedProps\":[{\"prop\":\"label\",\"value\":\"@L Symptoms\"}],\"authorContext\":\".Symptoms\",\"ruleClass\":\"ClinicalTriage\",\"ruleNamespace\":\"ResourceLibrary\",\"ruleClassNamespace\":\"ResourceLibrary\",\"type\":\"view\"}},{\"type\":\"Checkbox\",\"config\":{\"caption\":\"@L Have you experienced any medical conditions in the past ?\",\"value\":\"@P .HaveYouExperiencedAnyMedicalConditionsInThePast\",\"trueLabel\":\"@L Yes\",\"falseLabel\":\"@L No\"}},{\"type\":\"RichText\",\"config\":{\"value\":\"@P .MedicalHistory\",\"label\":\"@L Medical History\",\"visibility\":\"@E .HaveYouExperiencedAnyMedicalConditionsInThePast == true\"}}]}],\"ID\":\"5cee0afd-00af-4613-b172-04e036e71c0d\"}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Create_Symptoms",
+      "ContextMetadata": "",
+      "AutoGenerated": false,
+      "ViewType": "multirecordlist",
+      "Namespace": "ResourceLibrary",
+      "Name": "Create_Symptoms",
+      "Template": "SimpleTable",
+      "ViewMetadata": "{\"name\":\"Create_Symptoms\",\"type\":\"View\",\"config\":{\"type\":\"multirecordlist\",\"contextClass\":\"Symptom\",\"referenceList\":\"@P .Symptoms\",\"targetClassLabel\":\"@L Symptom\",\"heading\":\"@L Symptom\",\"name\":\"Symptoms\",\"ruleClass\":\"ClinicalTriage\",\"ruleNamespace\":\"ResourceLibrary\",\"ruleClassNamespace\":\"ResourceLibrary\",\"renderMode\":\"Editable\",\"multiRecordDisplayAs\":\"table\",\"template\":\"SimpleTable\",\"children\":[{\"name\":\"Columns\",\"type\":\"Region\",\"children\":[{\"type\":\"Text\",\"config\":{\"value\":\"@P .EmbedListUUID__\",\"label\":\"@L EmbedListUUID__\",\"hide\":true}},{\"type\":\"Dropdown\",\"config\":{\"value\":\"@P .SymptomList\",\"label\":\"@L Symptom List\",\"deferDatasource\":true,\"placeholder\":\"@L Select...\",\"listType\":\"associated\",\"datasource\":\"@ASSOCIATED .SymptomList\"}}]}],\"editMode\":\"tableRows\",\"editModeConfig\":{\"defaultView\":\"Edit\",\"editView\":\"Edit\"},\"parentClass\":\"ClinicalTriage\",\"uniqueField\":\".EmbedListUUID__\"},\"ID\":\"762ef517-be67-4c2b-9ab3-16892e7e6a43\"}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "Symptoms",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "Data-Portal",
+        "Namespace": "PegaPlatform"
+      },
+      "RuleResolutionID": "Symptoms",
+      "ViewType": "landingpage",
+      "Namespace": "ResourceLibrary",
+      "Template": "ListPage",
+      "Name": "Symptoms",
+      "ViewMetadata": "{\"name\":\"Symptoms\",\"type\":\"View\",\"config\":{\"type\":\"listpage\",\"template\":\"ListPage\",\"icon\":\"pi pi-headline\",\"title\":\"@L Symptoms\",\"personalization\":true,\"grouping\":true,\"globalSearch\":true,\"reorderFields\":true,\"toggleFieldVisibility\":true,\"showUploadRecords\":true,\"referenceList\":\"SymptomList\",\"ruleClass\":\"Data-Portal\",\"ruleClassNamespace\":\"ResourceLibrary\",\"presets\":[{\"name\":\"presets\",\"label\":\"Symptoms\",\"template\":\"Table\",\"config\":{},\"children\":[{\"name\":\"Columns\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .BusinessID\",\"label\": \"@L ID\",\"displayAsLink\":true}},{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .Name\",\"label\": \"@L Name\",\"displayAsLink\":true}},{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .Status\",\"label\": \"@L Status\",\"displayAsLink\":false}},{\"type\":\"TextArea\",\"config\":{\"value\":\"@P .Description\",\"label\":\"@L Description\"}}]}]}],\"actions\":[{\"action\":\"UPLOAD_RECORDS\",\"config\":{\"label\":\"@L Upload\",\"objectType\":\"Symptom\"}}]}}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "Update details",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "AIMessageObject",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Edit",
+      "AutoGenerated": true,
+      "ViewType": "",
+      "Namespace": "PegaPlatform",
+      "Template": "DefaultForm",
+      "Name": "Edit",
+      "ViewMetadata": "{\"name\":\"Edit\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"BusinessObject\",\"label\":\"Update case details\"},\"children\":[{\"name\":\"Fields\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .Name\",\"label\":\"@L Label\"}},{\"type\":\"TextArea\",\"config\":{\"value\":\"@P .Description\",\"label\":\"@L Description\"}}]}],\"ID\":\"4e78a729-1eb6-4e4e-94c2-6dc6e112fc86\"}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "AI Message Objects",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "Data-Portal",
+        "Namespace": "PegaPlatform"
+      },
+      "RuleResolutionID": "AIMessageObjects",
+      "ViewType": "landingpage",
+      "Namespace": "ResourceLibrary",
+      "Template": "ListPage",
+      "Name": "AI Message Objects",
+      "ViewMetadata": "{\"name\":\"AI Message Objects\",\"type\":\"View\",\"config\":{\"type\":\"listpage\",\"template\":\"ListPage\",\"icon\":\"pi pi-headline\",\"title\":\"@L AI Message Objects\",\"personalization\":true,\"grouping\":true,\"globalSearch\":true,\"reorderFields\":true,\"toggleFieldVisibility\":true,\"showUploadRecords\":true,\"referenceList\":\"AIMessageObjectList\",\"ruleClass\":\"Data-Portal\",\"ruleClassNamespace\":\"ResourceLibrary\",\"presets\":[{\"name\":\"presets\",\"label\":\"AI Message Objects\",\"template\":\"Table\",\"config\":{},\"children\":[{\"name\":\"Columns\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .BusinessID\",\"label\": \"@L ID\",\"displayAsLink\":true}},{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .Name\",\"label\": \"@L Name\",\"displayAsLink\":true}},{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .Status\",\"label\": \"@L Status\",\"displayAsLink\":false}},{\"type\":\"TextArea\",\"config\":{\"value\":\"@P .Description\",\"label\":\"@L Description\"}}]}]}],\"actions\":[{\"action\":\"UPLOAD_RECORDS\",\"config\":{\"label\":\"@L Upload\",\"objectType\":\"AIMessageObject\"}}]}}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "Clinical Triages",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "Data-Portal",
+        "Namespace": "PegaPlatform"
+      },
+      "RuleResolutionID": "ClinicalTriages",
+      "ViewType": "landingpage",
+      "Namespace": "ResourceLibrary",
+      "Template": "ListPage",
+      "Name": "Clinical Triages",
+      "ViewMetadata": "{\"name\":\"Clinical Triages\",\"type\":\"View\",\"config\":{\"type\":\"listpage\",\"template\":\"ListPage\",\"icon\":\"pi pi-headline\",\"title\":\"@L Clinical Triages\",\"personalization\":true,\"grouping\":true,\"globalSearch\":true,\"reorderFields\":true,\"toggleFieldVisibility\":true,\"showUploadRecords\":true,\"referenceList\":\"ClinicalTriageList\",\"ruleClass\":\"Data-Portal\",\"ruleClassNamespace\":\"ResourceLibrary\",\"presets\":[{\"name\":\"presets\",\"label\":\"Clinical Triages\",\"template\":\"Table\",\"config\":{},\"children\":[{\"name\":\"Columns\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .BusinessID\",\"label\": \"@L ID\",\"displayAsLink\":true}},{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .Name\",\"label\": \"@L Name\",\"displayAsLink\":true}},{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .Status\",\"label\": \"@L Status\",\"displayAsLink\":false}},{\"type\":\"TextArea\",\"config\":{\"value\":\"@P .Description\",\"label\":\"@L Description\"}}]}]}],\"actions\":[{\"action\":\"UPLOAD_RECORDS\",\"config\":{\"label\":\"@L Upload\",\"objectType\":\"ClinicalTriage\"}}]}}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "View to collect details for Object creation.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "Symptom",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Create",
+      "AutoGenerated": true,
+      "ViewType": "embeddedform",
+      "Namespace": "PegaPlatform",
+      "Template": "DefaultForm",
+      "Name": "Create",
+      "ViewMetadata": "{\"name\":\"Create\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"BusinessObject\",\"ruleClassNamespace\":\"PegaPlatform\",\"label\":\"@L View to collect details for Object creation.\"},\"children\":[{\"type\":\"Region\",\"name\":\"Fields\",\"children\":[]}],\"ID\":\"86b7273f-c4d8-43e4-89b3-3931d4018a18\"}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "Details",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "pyReview",
+      "ViewType": "details",
+      "Namespace": "PegaPlatform",
+      "Name": "Details",
+      "Template": "Details",
+      "ViewMetadata": "{\"ID\":\"eb167136-d901-4909-8b5e-dd097facfaa6\",\"name\":\"pyReview\",\"type\":\"View\",\"config\":{\"template\":\"Details\",\"ruleClass\":\"ClinicalTriage\",\"showLabel\":true,\"label\":\"@L Details\"},\"children\":[{\"name\":\"A\",\"type\":\"Region\",\"children\":[{\"type\":\"reference\",\"config\":{\"name\":\"pyReview_ProblemRemediationCase\",\"inheritedProps\":[{\"prop\":\"label\",\"value\":\"@L Problem remediation case\"}],\"ruleClass\":\"Case\",\"type\":\"view\",\"authorContext\":\".ProblemRemediationCase\",\"referenceType\":\"Case\",\"visibility\":\"@E .pzErrorMessage IS_NOT_NULL\"}},{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .pzErrorMessage\",\"label\":\"@L Frozen case reason\",\"visibility\":\"@E .pzErrorMessage IS_NOT_NULL\",\"testId\":\"\"}},{\"type\":\"DateTime\",\"config\":{\"value\":\"@P .CaseSLADeadlineDateTime\",\"label\":\"@L Deadline\",\"formatter\":\"DateTime-Since\",\"showAsFormattedText\":true,\"visibility\":\"@E .CaseSLADeadlineDateTime IS_NOT_NULL\",\"testId\":\"66195354-4476-4d73-9818-f07c88e05464\"}},{\"type\":\"Group\",\"config\":{\"type\":\"any\",\"showHeading\":true,\"collapsible\":false,\"heading\":\"@L Input\"},\"children\":[{\"type\":\"reference\",\"config\":{\"name\":\"Create\",\"inheritedProps\":[{\"prop\":\"label\",\"value\":\"@L View to collect details for Object creation.\"},{\"prop\":\"showLabel\",\"value\":true}],\"ruleClass\":\"ClinicalTriage\",\"ruleNamespace\":\"PegaPlatform\",\"ruleClassNamespace\":\"ResourceLibrary\",\"type\":\"view\"}}]},{\"type\":\"Group\",\"config\":{\"type\":\"any\",\"showHeading\":true,\"collapsible\":false,\"heading\":\"@L Output\"},\"children\":[{\"type\":\"reference\",\"config\":{\"name\":\"ShowRecommendation\",\"inheritedProps\":[{\"prop\":\"label\",\"value\":\"@L Show Recommendation\"},{\"prop\":\"showLabel\",\"value\":true}],\"ruleClass\":\"ClinicalTriage\",\"ruleNamespace\":\"ResourceLibrary\",\"ruleClassNamespace\":\"ResourceLibrary\",\"type\":\"view\"}}]}]}]}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "ShowRecommendation",
+      "ContextMetadata": "",
+      "ViewType": "caseview",
+      "Namespace": "ResourceLibrary",
+      "Name": "Show Recommendation",
+      "Template": "Details",
+      "ViewMetadata": "{\"name\":\"ShowRecommendation\",\"type\":\"View\",\"config\":{\"template\":\"Details\",\"ruleClass\":\"ClinicalTriage\",\"ruleClassNamespace\":\"ResourceLibrary\",\"label\":\"@L Show Recommendation\"},\"children\":[{\"name\":\"A\",\"type\":\"Region\",\"children\":[{\"type\":\"RichText\",\"config\":{\"value\":\"@P .AIRecommendation\",\"label\":\"@L AI Recommendation\"}},{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .PossibleCauses\",\"label\":\"@L PossibleCauses\"}},{\"type\":\"Checkbox\",\"config\":{\"caption\":\"@L Is specialist consultation needed ?\",\"value\":\"@P .sSpecialistConsultationNeeded\",\"trueLabel\":\"@L Yes\",\"falseLabel\":\"@L No\"}},{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .Specialist\",\"label\":\"@L Specialist\"}}]}],\"ID\":\"f56e6bdc-df04-44a5-8901-17e72a91a356\"}",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "ObjectRecord": [
+    {
+      "Status": "Open-Active",
+      "ObjectVersion": "c622187c-f1f0-45be-9755-964a85534c96",
+      "Type": "ObjectRecord",
+      "Description": "Symptom record",
+      "RecordData": {
+        "Name": "Body aches",
+        "Description": ""
+      },
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "Symptom",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Symptom2",
+      "Namespace": "ResourceLibrary",
+      "Name": "Symptom",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Status": "Open-Active",
+      "ObjectVersion": "14c25417-bd62-4f7f-b9f4-d5722ce2ec18",
+      "Type": "ObjectRecord",
+      "Description": "Symptom record",
+      "RecordData": {
+        "Name": "Headache",
+        "Description": ""
+      },
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "Symptom",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Symptom6",
+      "Namespace": "ResourceLibrary",
+      "Name": "Symptom",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Status": "Open-Active",
+      "ObjectVersion": "effdfe13-13f6-4634-82dd-3748060bb01d",
+      "Type": "ObjectRecord",
+      "Description": "Symptom record",
+      "RecordData": {
+        "Name": "Chest Pain",
+        "Description": ""
+      },
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "Symptom",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Symptom9",
+      "Namespace": "ResourceLibrary",
+      "Name": "Symptom",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Status": "Open-Active",
+      "ObjectVersion": "6a5f4925-f180-454a-a5a8-7da7c9b08607",
+      "Type": "ObjectRecord",
+      "Description": "Symptom record",
+      "RecordData": {
+        "Name": "Nausea or vomiting",
+        "Description": ""
+      },
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "Symptom",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Symptom13",
+      "Namespace": "ResourceLibrary",
+      "Name": "Symptom",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Status": "Open-Active",
+      "ObjectVersion": "a876a290-80c7-4832-80d5-51b54157ae1d",
+      "Type": "ObjectRecord",
+      "Description": "Symptom record",
+      "RecordData": {
+        "Name": "Cold",
+        "Description": ""
+      },
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "Symptom",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Symptom11",
+      "Namespace": "ResourceLibrary",
+      "Name": "Symptom",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Status": "Open-Active",
+      "ObjectVersion": "d8b73f82-c135-46e6-9345-4bdc4a78e3d0",
+      "Type": "ObjectRecord",
+      "Description": "Symptom record",
+      "RecordData": {
+        "Name": "Cough",
+        "Description": ""
+      },
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "Symptom",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Symptom",
+      "Namespace": "ResourceLibrary",
+      "Name": "Symptom",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Status": "Open-Active",
+      "ObjectVersion": "50d698b8-f4c0-455c-ac64-fc07ca980f7d",
+      "Type": "ObjectRecord",
+      "Description": "Symptom record",
+      "RecordData": {
+        "Name": "Shortness of breath",
+        "Description": ""
+      },
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "Symptom",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Symptom15",
+      "Namespace": "ResourceLibrary",
+      "Name": "Symptom",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Status": "Open-Active",
+      "ObjectVersion": "79558e2e-df83-4259-be3a-4a6115a76fb8",
+      "Type": "ObjectRecord",
+      "Description": "Symptom record",
+      "RecordData": {
+        "Name": "Rash",
+        "Description": ""
+      },
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "Symptom",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Symptom7",
+      "Namespace": "ResourceLibrary",
+      "Name": "Symptom",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Status": "Open-Active",
+      "ObjectVersion": "9e894d95-172c-4fe4-83af-403dc1030b18",
+      "Type": "ObjectRecord",
+      "Description": "Symptom record",
+      "RecordData": {
+        "Name": "Fever",
+        "Description": ""
+      },
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "Symptom",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Symptom8",
+      "Namespace": "ResourceLibrary",
+      "Name": "Symptom",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Status": "Open-Active",
+      "ObjectVersion": "97dab586-5b91-4781-bde6-51dd0938f0d8",
+      "Type": "ObjectRecord",
+      "Description": "Symptom record",
+      "RecordData": {
+        "Name": "Fatigue",
+        "Description": ""
+      },
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "Symptom",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Symptom10",
+      "Namespace": "ResourceLibrary",
+      "Name": "Symptom",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Status": "Open-Active",
+      "ObjectVersion": "15013aec-a80d-44e9-9ef2-88bf7cabf71b",
+      "Type": "ObjectRecord",
+      "Description": "Symptom record",
+      "RecordData": {
+        "Name": "Dizziness",
+        "Description": ""
+      },
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "Symptom",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Symptom5",
+      "Namespace": "ResourceLibrary",
+      "Name": "Symptom",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Status": "Open-Active",
+      "ObjectVersion": "c2bf2b83-144f-4ef6-8aa5-a468138e4369",
+      "Type": "ObjectRecord",
+      "Description": "Symptom record",
+      "RecordData": {
+        "Name": "Diarrhea",
+        "Description": ""
+      },
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "Symptom",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Symptom12",
+      "Namespace": "ResourceLibrary",
+      "Name": "Symptom",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Status": "Open-Active",
+      "ObjectVersion": "430d7b98-4d90-4f0b-a792-49932b1f971d",
+      "Type": "ObjectRecord",
+      "Description": "Symptom record",
+      "RecordData": {
+        "Name": "Abdominal pain",
+        "Description": ""
+      },
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "Symptom",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Symptom3",
+      "Namespace": "ResourceLibrary",
+      "Name": "Symptom",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Status": "Open-Active",
+      "ObjectVersion": "67d6032a-769e-4b7c-bfa3-e697546d3c91",
+      "Type": "ObjectRecord",
+      "Description": "Symptom record",
+      "RecordData": {
+        "Name": "Sore throat",
+        "Description": ""
+      },
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "Symptom",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Symptom4",
+      "Namespace": "ResourceLibrary",
+      "Name": "Symptom",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Status": "Open-Active",
+      "ObjectVersion": "483c62eb-08da-4192-8439-b874f9fe3422",
+      "Type": "ObjectRecord",
+      "Description": "Symptom record",
+      "RecordData": {
+        "Name": "Joint pain",
+        "Description": ""
+      },
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "Symptom",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Symptom16",
+      "Namespace": "ResourceLibrary",
+      "Name": "Symptom",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Status": "Open-Active",
+      "ObjectVersion": "29a4237a-ae60-4f6d-b5bb-6494581170f2",
+      "Type": "ObjectRecord",
+      "Description": "Symptom record",
+      "RecordData": {
+        "Name": "Swelling",
+        "Description": ""
+      },
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "Symptom",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Symptom14",
+      "Namespace": "ResourceLibrary",
+      "Name": "Symptom",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "DataPage": [
+    {
+      "DataPageMode": "ListOfRecords",
+      "Description": "AIMessageObject list",
+      "Reusability": "Private",
+      "DataConnection": {
+        "CallReference": {
+          "ReferenceID": "AIMessageObjectList",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "AIMessageObject",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "DataConnection",
+        "CallInputs": []
+      },
+      "SchemaVersion": "0-2-0",
+      "CallType": "DataPage",
+      "Namespace": "ResourceLibrary",
+      "Name": "AIMessageObject list",
+      "ObjectType": {
+        "ReferenceID": "AIMessageObject",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "DataPage",
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "List",
+          "Type": "TypeReference",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "AIMessageObject",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        }
+      },
+      "RuleResolutionID": "AIMessageObjectList",
+      "Inputs": [],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DataPageMode": "ListOfRecords",
+      "Description": "ClinicalTriage list",
+      "Reusability": "Private",
+      "DataConnection": {
+        "CallReference": {
+          "ReferenceID": "ClinicalTriageList",
+          "ReferenceScope": {
+            "ReferenceID": "ClinicalTriage",
+            "Namespace": "ResourceLibrary"
+          },
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "DataConnection",
+        "CallInputs": []
+      },
+      "SchemaVersion": "0-2-0",
+      "CallType": "DataPage",
+      "Namespace": "ResourceLibrary",
+      "Name": "ClinicalTriage list",
+      "ObjectType": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "DataPage",
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "List",
+          "Type": "TypeReference",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "ClinicalTriage",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        }
+      },
+      "RuleResolutionID": "ClinicalTriageList",
+      "Inputs": [],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DataPageMode": "ListOfRecords",
+      "Description": "Symptom list",
+      "Reusability": "Private",
+      "DataConnection": {
+        "CallReference": {
+          "ReferenceID": "SymptomList",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "Symptom",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "DataConnection",
+        "CallInputs": []
+      },
+      "SchemaVersion": "0-2-0",
+      "CallType": "DataPage",
+      "Namespace": "ResourceLibrary",
+      "Name": "Symptom list",
+      "ObjectType": {
+        "ReferenceID": "Symptom",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "DataPage",
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "List",
+          "Type": "TypeReference",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "Symptom",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        }
+      },
+      "RuleResolutionID": "SymptomList",
+      "Inputs": [],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DataPageMode": "SingleRecord",
+      "Description": "AIMessageObject lookup",
+      "Reusability": "Private",
+      "DataConnection": {
+        "CallReference": {
+          "ReferenceID": "AIMessageObjectLookup",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "AIMessageObject",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "DataConnection",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "Variable",
+              "Name": "ID"
+            }
+          }
+        ]
+      },
+      "SchemaVersion": "0-2-0",
+      "CallType": "DataPage",
+      "Namespace": "ResourceLibrary",
+      "Name": "AIMessageObject lookup",
+      "ObjectType": {
+        "ReferenceID": "AIMessageObject",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "DataPage",
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "AIMessageObject",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        }
+      },
+      "RuleResolutionID": "AIMessageObjectLookup",
+      "Inputs": [
+        {
+          "Description": "object key",
+          "Mode": "SingleRecord",
+          "Name": "ID",
+          "Required": "true",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          }
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DataPageMode": "SingleRecord",
+      "Description": "Symptom lookup",
+      "Reusability": "Private",
+      "DataConnection": {
+        "CallReference": {
+          "ReferenceID": "SymptomLookup",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "Symptom",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "DataConnection",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "Variable",
+              "Name": "ID"
+            }
+          }
+        ]
+      },
+      "SchemaVersion": "0-2-0",
+      "CallType": "DataPage",
+      "Namespace": "ResourceLibrary",
+      "Name": "Symptom lookup",
+      "ObjectType": {
+        "ReferenceID": "Symptom",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "DataPage",
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "Symptom",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        }
+      },
+      "RuleResolutionID": "SymptomLookup",
+      "Inputs": [
+        {
+          "Description": "object key",
+          "Mode": "SingleRecord",
+          "Name": "ID",
+          "Required": "true",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          }
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DataPageMode": "SingleRecord",
+      "Description": "ClinicalTriage lookup",
+      "Reusability": "Private",
+      "DataConnection": {
+        "CallReference": {
+          "ReferenceID": "ClinicalTriageLookup",
+          "ReferenceScope": {
+            "ReferenceID": "ClinicalTriage",
+            "Namespace": "ResourceLibrary"
+          },
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "DataConnection",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "Variable",
+              "Name": "ID"
+            }
+          }
+        ]
+      },
+      "SchemaVersion": "0-2-0",
+      "CallType": "DataPage",
+      "Namespace": "ResourceLibrary",
+      "Name": "ClinicalTriage lookup",
+      "ObjectType": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "DataPage",
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "ClinicalTriage",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        }
+      },
+      "RuleResolutionID": "ClinicalTriageLookup",
+      "Inputs": [
+        {
+          "Description": "object key",
+          "Mode": "SingleRecord",
+          "Name": "ID",
+          "Required": "true",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          }
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Query": [
+    {
+      "Type": "Query",
+      "Description": "Query to lookup ClinicalTriage instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Filter": {
+        "ExpressionType": "",
+        "Expressions": [
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Field": {
+                "ReferenceID": "ID",
+                "Namespace": "PegaPlatform"
+              },
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              }
+            },
+            "Comparator": "==",
+            "OperandTwo": {
+              "Name": "ID",
+              "Type": "Variable"
+            }
+          }
+        ]
+      },
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "ClinicalTriage",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        }
+      },
+      "RuleResolutionID": "ClinicalTriageLookup",
+      "Inputs": [
+        {
+          "Description": "object key",
+          "Mode": "SingleRecord",
+          "Name": "ID",
+          "Required": "true",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          },
+          "Type": ""
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "ClinicalTriage lookup",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Query",
+      "Description": "Query to lookup Symptom instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Filter": {
+        "ExpressionType": "",
+        "Expressions": [
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Field": {
+                "ReferenceID": "ID",
+                "Namespace": "PegaPlatform"
+              },
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              }
+            },
+            "Comparator": "==",
+            "OperandTwo": {
+              "Name": "ID",
+              "Type": "Variable"
+            }
+          }
+        ]
+      },
+      "AppliesTo": {
+        "ReferenceID": "Symptom",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "Symptom",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        }
+      },
+      "RuleResolutionID": "SymptomLookup",
+      "Inputs": [
+        {
+          "Description": "object key",
+          "Mode": "SingleRecord",
+          "Name": "ID",
+          "Required": "true",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          },
+          "Type": ""
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "Symptom lookup",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Query",
+      "Description": "Query to lookup AIMessageObject instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Filter": {
+        "ExpressionType": "",
+        "Expressions": [
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Field": {
+                "ReferenceID": "ID",
+                "Namespace": "PegaPlatform"
+              },
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              }
+            },
+            "Comparator": "==",
+            "OperandTwo": {
+              "Name": "ID",
+              "Type": "Variable"
+            }
+          }
+        ]
+      },
+      "AppliesTo": {
+        "ReferenceID": "AIMessageObject",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "AIMessageObject",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        }
+      },
+      "RuleResolutionID": "AIMessageObjectLookup",
+      "Inputs": [
+        {
+          "Description": "object key",
+          "Mode": "SingleRecord",
+          "Name": "ID",
+          "Required": "true",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          },
+          "Type": ""
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "AIMessageObject lookup",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Query",
+      "Description": "Query to List all ClinicalTriage instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Filter": {
+        "ExpressionType": "",
+        "Expressions": [
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              },
+              "Field": {
+                "Type": "RuleReference",
+                "ReferenceID": "Status",
+                "Namespace": "PegaPlatform"
+              }
+            },
+            "Comparator": "!=",
+            "OperandTwo": {
+              "Type": "ConstantText",
+              "Value": "Resolved-Cancelled"
+            }
+          }
+        ],
+        "Type": "ExpressionGroup"
+      },
+      "SortBy": [
+        {
+          "Field": {
+            "ReferenceID": "CreateDateTime",
+            "Namespace": "PegaPlatform"
+          },
+          "Direction": "Descending"
+        }
+      ],
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "List",
+          "Type": "TypeReference",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "ClinicalTriage",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        }
+      },
+      "RuleResolutionID": "ClinicalTriageList",
+      "Namespace": "ResourceLibrary",
+      "Name": "ClinicalTriage list",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Query",
+      "Description": "Query to List all AIMessageObject instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Filter": {
+        "ExpressionType": "AND",
+        "Expressions": [
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Field": {
+                "ReferenceID": "Status",
+                "Namespace": "PegaPlatform",
+                "Type": "RuleReference"
+              },
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              }
+            },
+            "Comparator": "!=",
+            "OperandTwo": {
+              "Value": "Resolved-Inactive",
+              "Type": "ConstantText"
+            }
+          },
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              },
+              "Field": {
+                "Type": "RuleReference",
+                "ReferenceID": "Status",
+                "Namespace": "PegaPlatform"
+              }
+            },
+            "Comparator": "!=",
+            "OperandTwo": {
+              "Type": "ConstantText",
+              "Value": "Resolved-Cancelled"
+            }
+          }
+        ],
+        "Type": "ExpressionGroup"
+      },
+      "SortBy": [
+        {
+          "Field": {
+            "ReferenceID": "CreateDateTime",
+            "Namespace": "PegaPlatform"
+          },
+          "Direction": "Descending"
+        }
+      ],
+      "AppliesTo": {
+        "ReferenceID": "AIMessageObject",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "List",
+          "Type": "TypeReference",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "AIMessageObject",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        }
+      },
+      "RuleResolutionID": "AIMessageObjectList",
+      "Namespace": "ResourceLibrary",
+      "Name": "AIMessageObject list",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Query",
+      "Description": "Query to List all Symptom instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Filter": {
+        "ExpressionType": "AND",
+        "Expressions": [
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Field": {
+                "ReferenceID": "Status",
+                "Namespace": "PegaPlatform",
+                "Type": "RuleReference"
+              },
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              }
+            },
+            "Comparator": "!=",
+            "OperandTwo": {
+              "Value": "Resolved-Inactive",
+              "Type": "ConstantText"
+            }
+          },
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              },
+              "Field": {
+                "Type": "RuleReference",
+                "ReferenceID": "Status",
+                "Namespace": "PegaPlatform"
+              }
+            },
+            "Comparator": "!=",
+            "OperandTwo": {
+              "Type": "ConstantText",
+              "Value": "Resolved-Cancelled"
+            }
+          }
+        ],
+        "Type": "ExpressionGroup"
+      },
+      "SortBy": [
+        {
+          "Field": {
+            "ReferenceID": "CreateDateTime",
+            "Namespace": "PegaPlatform"
+          },
+          "Direction": "Descending"
+        }
+      ],
+      "AppliesTo": {
+        "ReferenceID": "Symptom",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "List",
+          "Type": "TypeReference",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "Symptom",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        }
+      },
+      "RuleResolutionID": "SymptomList",
+      "Namespace": "ResourceLibrary",
+      "Name": "Symptom list",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "DataConnection": [
+    {
+      "Description": "AIMessageObject lookup",
+      "Reusability": "Private",
+      "Query": {
+        "CallReference": {
+          "ReferenceScope": {
+            "ReferenceID": "AIMessageObject",
+            "Namespace": "ResourceLibrary"
+          },
+          "ReferenceID": "AIMessageObjectLookup",
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "Query",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "Variable",
+              "Name": "ID"
+            }
+          }
+        ]
+      },
+      "ConnectionType": "QUERY",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "AIMessageObject",
+        "Namespace": "ResourceLibrary"
+      },
+      "Operation": "READ",
+      "Namespace": "ResourceLibrary",
+      "Name": "AIMessageObject lookup",
+      "Type": "DataConnection",
+      "Output": {
+        "ObjectType": {
+          "TypeReferenceID": "AIMessageObject",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        },
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "AIMessageObjectLookup",
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            }
+          },
+          "Description": "object key",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "ID"
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Connector": {
+        "CallReference": {
+          "ReferenceID": "ConnectAIToSummarize",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "ClinicalTriage",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "RESTConnector",
+        "CallInputs": [
+          {
+            "ParameterName": "Prompt",
+            "Source": {
+              "Type": "CallExpression",
+              "CallReference": {
+                "ReferenceID": "AISummarizeRequest",
+                "Namespace": "ResourceLibrary",
+                "ReferenceScope": {
+                  "ReferenceID": "ClinicalTriage",
+                  "Namespace": "ResourceLibrary"
+                }
+              },
+              "CallType": "JSONTransform",
+              "CallInputs": [
+                {
+                  "ParameterName": "Pega object",
+                  "Source": {
+                    "Type": "Variable",
+                    "Name": "casepage"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "Description": "Generate Ailment Summary",
+      "Reusability": "Private",
+      "ConnectionType": "REST_CONNECTOR",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "CallType": "Library",
+      "Operation": "UPSERT",
+      "Namespace": "ResourceLibrary",
+      "Name": "Generate Ailment Summary",
+      "Type": "DataConnection",
+      "ResponseJSONTransform": {
+        "ReferenceID": "AISummarizeResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "GenerateAilmentSummary",
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "ClinicalTriage",
+          "Namespace": "ResourceLibrary"
+        },
+        "Description": "",
+        "Mode": "SingleRecord"
+      },
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "ClinicalTriage",
+            "Namespace": "ResourceLibrary"
+          },
+          "Description": "case page",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "casepage",
+          "Type": ""
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "DataConnection",
+      "Description": "AIMessageObject list",
+      "Reusability": "Private",
+      "Query": {
+        "CallReference": {
+          "ReferenceID": "AIMessageObjectList",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "AIMessageObject",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "Query",
+        "CallInputs": []
+      },
+      "ConnectionType": "QUERY",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "AIMessageObject",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "List",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "AIMessageObject",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        },
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "AIMessageObjectList",
+      "Operation": "READ",
+      "Namespace": "ResourceLibrary",
+      "Name": "AIMessageObject list",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "DataConnection",
+      "Description": "ClinicalTriage list",
+      "Reusability": "Private",
+      "Query": {
+        "CallReference": {
+          "ReferenceScope": {
+            "ReferenceID": "ClinicalTriage",
+            "Namespace": "ResourceLibrary"
+          },
+          "ReferenceID": "ClinicalTriageList",
+          "Namespace": "ResourceLibrary"
+        },
+        "CallInputs": [],
+        "CallType": "Query"
+      },
+      "ConnectionType": "QUERY",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "List",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "ClinicalTriage",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        },
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "ClinicalTriageList",
+      "Operation": "READ",
+      "Namespace": "ResourceLibrary",
+      "Name": "ClinicalTriage list",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "DataConnection",
+      "Description": "Symptom list",
+      "Reusability": "Private",
+      "Query": {
+        "CallReference": {
+          "ReferenceID": "SymptomList",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "Symptom",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "Query",
+        "CallInputs": []
+      },
+      "ConnectionType": "QUERY",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "Symptom",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "List",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "Symptom",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        },
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "SymptomList",
+      "Operation": "READ",
+      "Namespace": "ResourceLibrary",
+      "Name": "Symptom list",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Description": "Symptom lookup",
+      "Reusability": "Private",
+      "Query": {
+        "CallReference": {
+          "ReferenceScope": {
+            "ReferenceID": "Symptom",
+            "Namespace": "ResourceLibrary"
+          },
+          "ReferenceID": "SymptomLookup",
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "Query",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "Variable",
+              "Name": "ID"
+            }
+          }
+        ]
+      },
+      "ConnectionType": "QUERY",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "Symptom",
+        "Namespace": "ResourceLibrary"
+      },
+      "Operation": "READ",
+      "Namespace": "ResourceLibrary",
+      "Name": "Symptom lookup",
+      "Type": "DataConnection",
+      "Output": {
+        "ObjectType": {
+          "TypeReferenceID": "Symptom",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        },
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "SymptomLookup",
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            }
+          },
+          "Description": "object key",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "ID"
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Description": "ClinicalTriage lookup",
+      "Reusability": "Private",
+      "Query": {
+        "CallReference": {
+          "ReferenceScope": {
+            "ReferenceID": "ClinicalTriage",
+            "Namespace": "ResourceLibrary"
+          },
+          "ReferenceID": "ClinicalTriageLookup",
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "Query",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "Variable",
+              "Name": "ID"
+            }
+          }
+        ]
+      },
+      "ConnectionType": "QUERY",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "Operation": "READ",
+      "Namespace": "ResourceLibrary",
+      "Name": "ClinicalTriage lookup",
+      "Type": "DataConnection",
+      "Output": {
+        "ObjectType": {
+          "TypeReferenceID": "ClinicalTriage",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        },
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "ClinicalTriageLookup",
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            }
+          },
+          "Description": "object key",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "ID"
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Class": [
+    {
+      "Type": "Class",
+      "Description": "History-AIMessageObject",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "History",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "History-AIMessageObject",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceLibrary",
+      "Name": "History-AIMessageObject",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "Clinical Triage",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "Case",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "ClinicalTriage",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceLibrary",
+      "Name": "Clinical Triage",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "History-ClinicalTriage",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "History",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "History-ClinicalTriage",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceLibrary",
+      "Name": "History-ClinicalTriage",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "History-Symptom",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "History",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "History-Symptom",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceLibrary",
+      "Name": "History-Symptom",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "AI Message Object",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "BusinessObject",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "AIMessageObject",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceLibrary",
+      "Name": "AI Message Object",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "Symptom",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "BusinessObject",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "Symptom",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceLibrary",
+      "Name": "Symptom",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Process": [
+    {
+      "Connectors": [
+        {
+          "ID": "655bc8f7-547a-40b2-b6cf-47e71b8dc767",
+          "To": "bb3fab75-9cc5-4045-af45-bd3f384bb5ff",
+          "Type": "Process-Connector"
+        },
+        {
+          "ID": "9682aea5-d2ae-459d-864d-9dbaa07c7742",
+          "To": "a14b4c8d-8e63-4fb2-a51a-e1994e06a281",
+          "Type": "Process-Connector"
+        },
+        {
+          "ID": "1234d1da-8d18-4097-9daf-05cbdd203dcf",
+          "To": "0f2c142e-5186-40df-ab80-369bbea44013",
+          "Type": "Process-Connector"
+        },
+        {
+          "ID": "473aa5b0-68d7-493c-842d-04bfbecf4141",
+          "To": "312fa32b-2a9f-403f-b3e9-6823a9ea1593",
+          "Type": "Process-Connector"
+        }
+      ],
+      "Type": "Process",
+      "Description": "Create new Clinical Triage",
+      "Reusability": "Private",
+      "SchemaVersion": "2-1-1",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "CreateNewClinicalTriage",
+      "Nodes": [
+        {
+          "ID": "18d1bd82-af42-4656-bc2a-8d161e4d1f6b",
+          "Type": "Start",
+          "ToConnectors": [
+            {
+              "ID": "9682aea5-d2ae-459d-864d-9dbaa07c7742",
+              "Type": "Process-Connector"
+            }
+          ],
+          "Name": "Start"
+        },
+        {
+          "ID": "a14b4c8d-8e63-4fb2-a51a-e1994e06a281",
+          "Type": "CallAutomation",
+          "Name": "Set Usage Details",
+          "ToConnectors": [
+            {
+              "ID": "1234d1da-8d18-4097-9daf-05cbdd203dcf",
+              "Type": "Process-Connector"
+            }
+          ],
+          "Automation": {
+            "CallReference": {
+              "ReferenceID": "SetUsageDetails",
+              "Namespace": "ResourceLibrary"
+            },
+            "CallType": "Automation",
+            "CallInputs": [
+              {
+                "ParameterName": "UseCase",
+                "Source": {
+                  "Type": "ConstantText",
+                  "Value": "In this case we are going to use AI to act as a medical professional and make some suggestions to the user based on some symptoms they may be feeling. We gather some basic info of the end user and then use that to make an API call to a model to generate the recommendation and return that to the user"
+                }
+              },
+              {
+                "ParameterName": "TechnicalDetails",
+                "Source": {
+                  "Type": "ConstantText",
+                  "Value": "AI Recommendation is used to generate suggestion. Azure Open AI gpt 3.5 turbo is used for this analysis and suggestions."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ID": "0f2c142e-5186-40df-ab80-369bbea44013",
+          "Type": "Assignment",
+          "Name": "Background Information",
+          "ToConnectors": [
+            {
+              "ID": "473aa5b0-68d7-493c-842d-04bfbecf4141",
+              "Type": "Process-Connector",
+              "Value": "Submit",
+              "Name": "Submit"
+            }
+          ],
+          "Routing": {
+            "RoutingType": "CurrentUser"
+          },
+          "Action": {
+            "ReferenceID": "BackgroundInformation",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        {
+          "ID": "312fa32b-2a9f-403f-b3e9-6823a9ea1593",
+          "Type": "Assignment",
+          "ToConnectors": [
+            {
+              "ID": "655bc8f7-547a-40b2-b6cf-47e71b8dc767",
+              "Type": "Process-Connector",
+              "Name": "Submit",
+              "Value": "Submit"
+            }
+          ],
+          "Name": "Collect Clinical Triage info",
+          "Action": {
+            "ReferenceID": "CollectClinicalTriageInfo",
+            "Namespace": "ResourceLibrary"
+          },
+          "Routing": {
+            "RoutingType": "CurrentUser"
+          }
+        },
+        {
+          "ID": "bb3fab75-9cc5-4045-af45-bd3f384bb5ff",
+          "Type": "End",
+          "ToConnectors": [],
+          "Name": "End"
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "Create new Clinical Triage",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Connectors": [
+        {
+          "ID": "fc977978-d57b-447f-9417-b12d1c29490d",
+          "To": "c2373309-7339-4530-a36c-865ac7078ae9",
+          "Type": "Process-Connector"
+        }
+      ],
+      "Type": "Process",
+      "Description": "In progress",
+      "Reusability": "Private",
+      "SchemaVersion": "2-1-1",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "InProgress",
+      "Nodes": [
+        {
+          "ID": "0fa7ca54-871c-45a3-8ae8-e5d69c46bbd2",
+          "Type": "Start",
+          "ToConnectors": [
+            {
+              "ID": "fc977978-d57b-447f-9417-b12d1c29490d",
+              "Type": "Process-Connector"
+            }
+          ],
+          "Name": "Start"
+        },
+        {
+          "ID": "c2373309-7339-4530-a36c-865ac7078ae9",
+          "Type": "End",
+          "ToConnectors": [],
+          "Name": "End"
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "In progress",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "CaseStatus": [
+    {
+      "Type": "CaseStatus",
+      "Description": "Resolved-Completed",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Resolved-Completed2",
+      "Namespace": "ResourceLibrary",
+      "Name": "Resolved-Completed",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "CaseStatus",
+      "Description": "Open-In progress",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Open-InProgress",
+      "Namespace": "ResourceLibrary",
+      "Name": "Open-In progress",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "CaseStatus",
+      "Description": "Resolved-Withdrawn",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Resolved-Withdrawn2",
+      "Namespace": "ResourceLibrary",
+      "Name": "Resolved-Withdrawn",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "CaseStatus",
+      "Description": "Pending-Withdrawn",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Pending-Withdrawn",
+      "Namespace": "ResourceLibrary",
+      "Name": "Pending-Withdrawn",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "CaseStatus",
+      "Description": "Pending-Completed",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Pending-Completed",
+      "Namespace": "ResourceLibrary",
+      "Name": "Pending-Completed",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "CaseStatus",
+      "Description": "New-Clinical Triage creation",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "New-ClinicalTriageCreation",
+      "Namespace": "ResourceLibrary",
+      "Name": "New-Clinical Triage creation",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Stage": [
+    {
+      "Type": "Stage",
+      "Description": "Withdrawn",
+      "Reusability": "Private",
+      "SchemaVersion": "2-2-0",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Withdrawn",
+      "Processes": [],
+      "Namespace": "ResourceLibrary",
+      "Name": "Withdrawn",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Stage",
+      "Description": "Clinical Triage creation",
+      "Reusability": "Private",
+      "SchemaVersion": "2-2-0",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "ClinicalTriageCreation",
+      "Processes": [
+        {
+          "Process": {
+            "ReferenceID": "CreateNewClinicalTriage",
+            "Namespace": "ResourceLibrary"
+          },
+          "SkipProcess": {
+            "SkipType": "Never"
+          }
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "Clinical Triage creation",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Stage",
+      "Description": "Completed",
+      "Reusability": "Private",
+      "SchemaVersion": "2-2-0",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Completed",
+      "Processes": [],
+      "Namespace": "ResourceLibrary",
+      "Name": "Completed",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Stage",
+      "Description": "In progress",
+      "Reusability": "Private",
+      "SchemaVersion": "2-2-0",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "InProgress",
+      "Processes": [
+        {
+          "Process": {
+            "ReferenceID": "InProgress",
+            "Namespace": "ResourceLibrary"
+          },
+          "SkipProcess": {
+            "SkipType": "Never"
+          }
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "In progress",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Action": [
+    {
+      "Type": "Action",
+      "Description": "Collect Clinical Triage info",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-1",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "CollectClinicalTriageInfo",
+      "PostProcessing": {
+        "Automation": {
+          "CallReference": {
+            "ReferenceID": "GenerateSummaryFromAI",
+            "Namespace": "ResourceLibrary"
+          },
+          "CallType": "Automation",
+          "CallInputs": []
+        }
+      },
+      "View": {
+        "ReferenceID": "Create",
+        "Namespace": "PegaPlatform"
+      },
+      "AllowOn": "INDIVIDUAL_AND_BULK",
+      "Namespace": "ResourceLibrary",
+      "Name": "Collect Clinical Triage info",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Action",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-1",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "BackgroundInformation",
+      "View": {
+        "ReferenceID": "BackgroundInformation",
+        "Namespace": "ResourceLibrary"
+      },
+      "AllowOn": "INDIVIDUAL_AND_BULK",
+      "Namespace": "ResourceLibrary",
+      "Name": "BackgroundInformation",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "CaseType": [
+    {
+      "Description": "Symptom",
+      "Reusability": "Private",
+      "Category": "Data",
+      "SchemaVersion": "2-12-0",
+      "AppliesTo": {
+        "ReferenceID": "Symptom",
+        "Namespace": "ResourceLibrary"
+      },
+      "OptionalActions": [
+        {
+          "Action": {
+            "ReferenceID": "Edit",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Always"
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "Create",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Always"
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "MarkAsActive",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsDataInactive",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "MarkAsInactive",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsDataActive",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        }
+      ],
+      "PrimaryFields": [
+        {
+          "ReferenceID": "Name",
+          "Namespace": "PegaPlatform"
+        },
+        {
+          "ReferenceID": "Description",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "PrimaryStages": [],
+      "AlternateStages": [],
+      "Name": "Symptom",
+      "PluralName": "Symptoms",
+      "LookupDataPage": {
+        "ReferenceID": "SymptomLookup",
+        "Namespace": "ResourceLibrary"
+      },
+      "ListDataPage": {
+        "ReferenceID": "SymptomList",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "CaseType",
+      "IdPrefix": "S-",
+      "RuleResolutionID": "Symptom",
+      "Display": {
+        "ReferenceID": "SymptomDisplay",
+        "Namespace": "ResourceLibrary"
+      },
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Description": "Clinical Triage",
+      "Reusability": "Private",
+      "Category": "Case",
+      "SchemaVersion": "2-11-0",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "InitializationStage": {
+        "Stage": {
+          "ReferenceID": "ClinicalTriageCreation",
+          "Namespace": "ResourceLibrary"
+        },
+        "EntryStatus": {
+          "ReferenceID": "New-ClinicalTriageCreation",
+          "Namespace": "ResourceLibrary"
+        }
+      },
+      "OptionalActions": [
+        {
+          "Action": {
+            "ReferenceID": "Edit",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsCaseOpen",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "pyChangeStage",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsCaseOpen",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "ReassignTask",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsCaseOpen",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "Reopen",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsCaseResolved",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "RestartCurrentStage",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsCaseOpen",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "ResolveCase",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsCaseOpen",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "ChangeCaseGoalAndDeadline",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "HasCaseSLA",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "ChangeAssignmentGoalAndDeadline",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "HasAssignmentSLA",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        }
+      ],
+      "PrimaryFields": [
+        {
+          "ReferenceID": "Name",
+          "Namespace": "PegaPlatform"
+        },
+        {
+          "ReferenceID": "Description",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "InitialUrgency": 10,
+      "PrimaryStages": [
+        {
+          "Stage": {
+            "ReferenceID": "InProgress",
+            "Namespace": "ResourceLibrary"
+          },
+          "EntryStatus": {
+            "ReferenceID": "Open-InProgress",
+            "Namespace": "ResourceLibrary"
+          },
+          "Transition": "Manual",
+          "SkipStage": {
+            "SkipType": "Never"
+          }
+        },
+        {
+          "Stage": {
+            "ReferenceID": "Completed",
+            "Namespace": "ResourceLibrary"
+          },
+          "EntryStatus": {
+            "ReferenceID": "Pending-Completed",
+            "Namespace": "ResourceLibrary"
+          },
+          "Transition": "Resolution",
+          "SkipStage": {
+            "SkipType": "Never"
+          },
+          "ResolutionConfiguration": {
+            "Status": {
+              "ReferenceID": "Resolved-Completed2",
+              "Namespace": "ResourceLibrary"
+            }
+          }
+        }
+      ],
+      "AlternateStages": [
+        {
+          "Stage": {
+            "ReferenceID": "Withdrawn",
+            "Namespace": "ResourceLibrary"
+          },
+          "EntryStatus": {
+            "ReferenceID": "Pending-Withdrawn",
+            "Namespace": "ResourceLibrary"
+          },
+          "Transition": "Resolution",
+          "ResolutionConfiguration": {
+            "Status": {
+              "ReferenceID": "Resolved-Withdrawn2",
+              "Namespace": "ResourceLibrary"
+            }
+          }
+        }
+      ],
+      "Name": "Clinical Triage",
+      "PluralName": "Clinical Triages",
+      "LookupDataPage": {
+        "ReferenceID": "ClinicalTriageLookup",
+        "Namespace": "ResourceLibrary"
+      },
+      "ListDataPage": {
+        "ReferenceID": "ClinicalTriageList",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "CaseType",
+      "IdPrefix": "C-",
+      "RuleResolutionID": "ClinicalTriage",
+      "EnableGetNextWork": true,
+      "Display": {
+        "ReferenceID": "ClinicalTriageDisplay",
+        "Namespace": "ResourceLibrary"
+      },
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Description": "AI Message Object",
+      "Reusability": "Private",
+      "Category": "Data",
+      "SchemaVersion": "2-12-0",
+      "AppliesTo": {
+        "ReferenceID": "AIMessageObject",
+        "Namespace": "ResourceLibrary"
+      },
+      "OptionalActions": [
+        {
+          "Action": {
+            "ReferenceID": "Edit",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Always"
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "Create",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Always"
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "MarkAsActive",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsDataInactive",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "MarkAsInactive",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsDataActive",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        }
+      ],
+      "PrimaryFields": [
+        {
+          "ReferenceID": "Name",
+          "Namespace": "PegaPlatform"
+        },
+        {
+          "ReferenceID": "Description",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "PrimaryStages": [],
+      "AlternateStages": [],
+      "Name": "AI Message Object",
+      "PluralName": "AI Message Objects",
+      "LookupDataPage": {
+        "ReferenceID": "AIMessageObjectLookup",
+        "Namespace": "ResourceLibrary"
+      },
+      "ListDataPage": {
+        "ReferenceID": "AIMessageObjectList",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "CaseType",
+      "IdPrefix": "A-",
+      "RuleResolutionID": "AIMessageObject",
+      "Display": {
+        "ReferenceID": "AIMessageObjectDisplay",
+        "Namespace": "ResourceLibrary"
+      },
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Portal": [
+    {
+      "CreateMenu": "ShowAll",
+      "Type": "Portal",
+      "Description": "Default application work portal",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-3",
+      "RuleResolutionID": "WebPortal",
+      "AvailableCaseToCreate": [
+        {
+          "CaseType": {
+            "ReferenceID": "ClinicalTriage",
+            "ReferenceScope": {
+              "ReferenceID": "ClinicalTriage",
+              "Namespace": "ResourceLibrary"
+            },
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        {
+          "CaseType": {
+            "ReferenceID": "AIMessageObject",
+            "Namespace": "ResourceLibrary",
+            "ReferenceScope": {
+              "ReferenceID": "AIMessageObject",
+              "Namespace": "ResourceLibrary"
+            }
+          }
+        },
+        {
+          "CaseType": {
+            "ReferenceID": "Symptom",
+            "Namespace": "ResourceLibrary",
+            "ReferenceScope": {
+              "ReferenceID": "Symptom",
+              "Namespace": "ResourceLibrary"
+            }
+          }
+        }
+      ],
+      "NavigationPages": [
+        {
+          "Page": {
+            "ReferenceID": "Home",
+            "ReferenceScope": {
+              "ReferenceID": "Data-Portal",
+              "Namespace": "PegaPlatform"
+            }
+          }
+        },
+        {
+          "Page": {
+            "ReferenceID": "ClinicalTriages",
+            "ReferenceScope": {
+              "ReferenceID": "Data-Portal",
+              "Namespace": "PegaPlatform"
+            },
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        {
+          "Page": {
+            "ReferenceID": "AIMessageObjects",
+            "Namespace": "ResourceLibrary",
+            "ReferenceScope": {
+              "ReferenceID": "Data-Portal",
+              "Namespace": "PegaPlatform"
+            }
+          }
+        },
+        {
+          "Page": {
+            "ReferenceID": "Symptoms",
+            "Namespace": "ResourceLibrary",
+            "ReferenceScope": {
+              "ReferenceID": "Data-Portal",
+              "Namespace": "PegaPlatform"
+            }
+          }
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "Work Portal",
+      "Template": "work",
+      "ActionToBePerformed": "MODIFIED"
+    }
+  ],
+  "FullObjectDisplay": [
+    {
+      "Heading": {
+        "Type": "FieldReference",
+        "Root": {
+          "Name": "Primary",
+          "Type": "Variable"
+        },
+        "Field": {
+          "ReferenceID": "Name",
+          "Type": "RuleReference",
+          "Namespace": "PegaPlatform"
+        }
+      },
+      "Description": "Symptom Display",
+      "Reusability": "PublicMayOverride",
+      "UsePrimaryFields": true,
+      "SchemaVersion": "0-1-0",
+      "AppliesTo": {
+        "ReferenceID": "Symptom",
+        "Namespace": "ResourceLibrary"
+      },
+      "ShowLifecycle": false,
+      "Namespace": "ResourceLibrary",
+      "Name": "Symptom Display",
+      "Type": "FullObjectDisplay",
+      "Utilities": [
+        {
+          "EmbedListUUID__": "_q3q44bguf",
+          "Widget": {
+            "Namespace": "PegaPlatform",
+            "ReferenceID": "Attachments",
+            "Type": "RuleReference"
+          },
+          "Type": "WidgetItem",
+          "Config": "{\"label\":\"@L Attachments\",\"iconName\":\"paper-clip\"}"
+        },
+        {
+          "EmbedListUUID__": "_kv3yribde",
+          "Widget": {
+            "Namespace": "PegaPlatform",
+            "ReferenceID": "Followers",
+            "Type": "RuleReference"
+          },
+          "Type": "WidgetItem",
+          "Config": "{\"label\":\"@L Followers\",\"iconName\":\"user-star\"}"
+        }
+      ],
+      "Subheading": {
+        "Type": "FieldReference",
+        "Root": {
+          "Name": "Primary",
+          "Type": "Variable"
+        },
+        "Field": {
+          "ReferenceID": "BusinessID",
+          "Type": "RuleReference",
+          "Namespace": "PegaPlatform"
+        }
+      },
+      "RuleResolutionID": "SymptomDisplay",
+      "Tabs": [
+        {
+          "EmbedListUUID__": "_t640mnqwh",
+          "Heading": "Details",
+          "View": {
+            "ReferenceID": "pyDetailsTabContent",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        },
+        {
+          "EmbedListUUID__": "_tm2ytzljx",
+          "Heading": "Pulse",
+          "View": {
+            "ReferenceID": "pyCasePulse",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        },
+        {
+          "EmbedListUUID__": "_yvqvx1nbe",
+          "Heading": "History",
+          "View": {
+            "ReferenceID": "History",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        }
+      ],
+      "Icon": "disc-stack-solid",
+      "FieldsToHighlight": 0,
+      "SummaryFields": [],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Heading": {
+        "Type": "FieldReference",
+        "Root": {
+          "Name": "Primary",
+          "Type": "Variable"
+        },
+        "Field": {
+          "ReferenceID": "Name",
+          "Type": "RuleReference",
+          "Namespace": "PegaPlatform"
+        }
+      },
+      "Description": "AI Message Object Display",
+      "Reusability": "PublicMayOverride",
+      "UsePrimaryFields": true,
+      "SchemaVersion": "0-1-0",
+      "AppliesTo": {
+        "ReferenceID": "AIMessageObject",
+        "Namespace": "ResourceLibrary"
+      },
+      "ShowLifecycle": false,
+      "Namespace": "ResourceLibrary",
+      "Name": "AI Message Object Display",
+      "Type": "FullObjectDisplay",
+      "Utilities": [
+        {
+          "EmbedListUUID__": "_3ch5pweur",
+          "Widget": {
+            "Namespace": "PegaPlatform",
+            "ReferenceID": "Attachments",
+            "Type": "RuleReference"
+          },
+          "Type": "WidgetItem",
+          "Config": "{\"label\":\"@L Attachments\",\"iconName\":\"paper-clip\"}"
+        },
+        {
+          "EmbedListUUID__": "_x14gplaig",
+          "Widget": {
+            "Namespace": "PegaPlatform",
+            "ReferenceID": "Followers",
+            "Type": "RuleReference"
+          },
+          "Type": "WidgetItem",
+          "Config": "{\"label\":\"@L Followers\",\"iconName\":\"user-star\"}"
+        }
+      ],
+      "Subheading": {
+        "Type": "FieldReference",
+        "Root": {
+          "Name": "Primary",
+          "Type": "Variable"
+        },
+        "Field": {
+          "ReferenceID": "BusinessID",
+          "Type": "RuleReference",
+          "Namespace": "PegaPlatform"
+        }
+      },
+      "RuleResolutionID": "AIMessageObjectDisplay",
+      "Tabs": [
+        {
+          "EmbedListUUID__": "_cqogftfwf",
+          "Heading": "Details",
+          "View": {
+            "ReferenceID": "pyDetailsTabContent",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        },
+        {
+          "EmbedListUUID__": "_7qxxo9pjt",
+          "Heading": "Pulse",
+          "View": {
+            "ReferenceID": "pyCasePulse",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        },
+        {
+          "EmbedListUUID__": "_zdn9je99u",
+          "Heading": "History",
+          "View": {
+            "ReferenceID": "History",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        }
+      ],
+      "Icon": "disc-stack-solid",
+      "FieldsToHighlight": 0,
+      "SummaryFields": [],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Heading": {
+        "Type": "FieldReference",
+        "Root": {
+          "Name": "Primary",
+          "Type": "Variable"
+        },
+        "Field": {
+          "ReferenceID": "Name",
+          "Type": "RuleReference",
+          "Namespace": "PegaPlatform"
+        }
+      },
+      "Description": "Clinical Triage Display",
+      "Reusability": "PublicMayOverride",
+      "UsePrimaryFields": false,
+      "SchemaVersion": "0-1-0",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "ShowLifecycle": true,
+      "Namespace": "ResourceLibrary",
+      "Name": "Clinical Triage Display",
+      "Type": "FullObjectDisplay",
+      "Utilities": [
+        {
+          "EmbedListUUID__": "_jk6i3bx86",
+          "Widget": {
+            "Namespace": "PegaPlatform",
+            "ReferenceID": "Attachments",
+            "Type": "RuleReference"
+          },
+          "Type": "WidgetItem",
+          "Config": "{\"label\":\"@L Attachments\",\"iconName\":\"paper-clip\"}"
+        },
+        {
+          "EmbedListUUID__": "_7hfhyzql3",
+          "Widget": {
+            "Namespace": "PegaPlatform",
+            "ReferenceID": "Followers",
+            "Type": "RuleReference"
+          },
+          "Type": "WidgetItem",
+          "Config": "{\"label\":\"@L Followers\",\"iconName\":\"user-star\"}"
+        }
+      ],
+      "Subheading": {
+        "Type": "FieldReference",
+        "Root": {
+          "Name": "Primary",
+          "Type": "Variable"
+        },
+        "Field": {
+          "ReferenceID": "BusinessID",
+          "Type": "RuleReference",
+          "Namespace": "PegaPlatform"
+        }
+      },
+      "RuleResolutionID": "ClinicalTriageDisplay",
+      "Tabs": [
+        {
+          "EmbedListUUID__": "_k2camtrjx",
+          "Heading": "Details",
+          "View": {
+            "ReferenceID": "pyDetailsTabContent",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        },
+        {
+          "EmbedListUUID__": "_gfm5breoj",
+          "Heading": "Pulse",
+          "View": {
+            "ReferenceID": "pyCasePulse",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        },
+        {
+          "EmbedListUUID__": "_cwcpct14p",
+          "Heading": "History",
+          "View": {
+            "ReferenceID": "History",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        }
+      ],
+      "Icon": "case-solid",
+      "FieldsToHighlight": 0,
+      "SummaryFields": [
+        {
+          "Config": "{\"value\":\"@P .TechnicalDetails\",\"label\":\"@L Technical Details\"}",
+          "DisplayAs": "RichText",
+          "EmbedListUUID__": "_tfu9ulhfg",
+          "Field": {
+            "Field": {
+              "ReferenceID": "TechnicalDetails",
+              "Namespace": "ResourceLibrary",
+              "Type": "RuleReference"
+            },
+            "Root": {
+              "Name": "Primary",
+              "Type": "Variable"
+            },
+            "Type": "FieldReference"
+          }
+        },
+        {
+          "Config": "{\"value\":\"@P .UseCase\",\"label\":\"@L Use Case\"}",
+          "DisplayAs": "RichText",
+          "EmbedListUUID__": "_67ek1d9qx",
+          "Field": {
+            "Field": {
+              "ReferenceID": "UseCase",
+              "Namespace": "ResourceLibrary",
+              "Type": "RuleReference"
+            },
+            "Root": {
+              "Name": "Primary",
+              "Type": "Variable"
+            },
+            "Type": "FieldReference"
+          }
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "JSONTransform": [
+    {
+      "Description": "AI Summarize Response",
+      "Reusability": "Private",
+      "SchemaVersion": "3-1-1",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "Auto-mapAll": false,
+      "Direction": "DESERIALIZE",
+      "SampleJSONData": "{\"description\":\"input\",\"id\":\"input\",\"name\":\"Summarize Response\",\"inspectionResult\":\"{\\\"JsonInspectionResponse\\\":{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonInspectionResponse\\\",\\\"jsonDocument\\\":{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonDocument\\\",\\\"fields\\\":{\\\"field\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"collectionType\\\":\\\"LIST\\\",\\\"path\\\":\\\"/choices<>\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"choices\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"stop\\\",\\\"path\\\":\\\"/choices<>/finish_reason\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"finish_reason\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":0,\\\"path\\\":\\\"/choices<>/index\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"INTEGER\\\",\\\"name\\\":\\\"index\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/choices<>/message\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"message\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"{\\\\n \\\\\\\"Possible Causes\\\\\\\": \\\\\\\"Arthritis, viral infection, overexertion\\\\\\\",\\\\n \\\\\\\"Is specialist consultation needed\\\\\\\": \\\\\\\"Not urgent, monitor and manage at home\\\\\\\",\\\\n \\\\\\\"Specialist to visit\\\\\\\": \\\\\\\"Rheumatology\\\\\\\"\\\\n}\\\",\\\"path\\\":\\\"/choices<>/message/content\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"content\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"assistant\\\",\\\"path\\\":\\\"/choices<>/message/role\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"role\\\"}]}}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":1743497197,\\\"path\\\":\\\"/created\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"INTEGER\\\",\\\"name\\\":\\\"created\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"chatcmpl-BHRYTbLOlICXZdqh7qwVyqWE7WdNf\\\",\\\"path\\\":\\\"/id\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"id\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"gpt-3.5-turbo-0125\\\",\\\"path\\\":\\\"/model\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"model\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"chat.completion\\\",\\\"path\\\":\\\"/object\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"object\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"fp_0165350fbb\\\",\\\"path\\\":\\\"/system_fingerprint\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"system_fingerprint\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/usage\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"usage\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":49,\\\"path\\\":\\\"/usage/completion_tokens\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"INTEGER\\\",\\\"name\\\":\\\"completion_tokens\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":180,\\\"path\\\":\\\"/usage/prompt_tokens\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"INTEGER\\\",\\\"name\\\":\\\"prompt_tokens\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":229,\\\"path\\\":\\\"/usage/total_tokens\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"INTEGER\\\",\\\"name\\\":\\\"total_tokens\\\"}]}}]}},\\\"executionTime\\\":0}}\",\"showFields\":true,\"documentType\":\"JSON\",\"inspectionType\":\"INSTANCE\",\"inspectionSource\":\"{\\\"choices\\\":[{\\\"finish_reason\\\":\\\"stop\\\",\\\"index\\\":0,\\\"message\\\":{\\\"content\\\":\\\"{\\\\n \\\\\\\"Possible Causes\\\\\\\": \\\\\\\"Arthritis, viral infection, overexertion\\\\\\\",\\\\n \\\\\\\"Is specialist consultation needed\\\\\\\": \\\\\\\"Not urgent, monitor and manage at home\\\\\\\",\\\\n \\\\\\\"Specialist to visit\\\\\\\": \\\\\\\"Rheumatology\\\\\\\"\\\\n}\\\",\\\"role\\\":\\\"assistant\\\"}}],\\\"created\\\":1743497197,\\\"id\\\":\\\"chatcmpl-BHRYTbLOlICXZdqh7qwVyqWE7WdNf\\\",\\\"model\\\":\\\"gpt-3.5-turbo-0125\\\",\\\"object\\\":\\\"chat.completion\\\",\\\"system_fingerprint\\\":\\\"fp_0165350fbb\\\",\\\"usage\\\":{\\\"completion_tokens\\\":49,\\\"prompt_tokens\\\":180,\\\"total_tokens\\\":229}}\",\"inspectionParameters\":{\"key\":\"value\"},\"lazyLoad\":false}",
+      "Namespace": "ResourceLibrary",
+      "Name": "AI Summarize Response",
+      "TopLevelStructure": "OBJECT",
+      "Type": "JSONTransform",
+      "RuleResolutionID": "AISummarizeResponse",
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "ClinicalTriage",
+          "Namespace": "ResourceLibrary"
+        },
+        "Description": "",
+        "Mode": "SingleRecord"
+      },
+      "MappingsDefinition": "{\"AtlasMapping\":{\"jsonType\":\"io.atlasmap.v2.AtlasMapping\",\"dataSource\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"input\",\"name\":\"Summarize Response\",\"description\":\"input\",\"uri\":\"atlas:json:input\",\"dataSourceType\":\"SOURCE\"},{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"output\",\"name\":\"ClinicalTriage\",\"description\":\"output\",\"uri\":\"atlas:json:output\",\"dataSourceType\":\"TARGET\"}],\"mappings\":{\"mapping\":[{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.222936\",\"inputFieldGroup\":{\"jsonType\":\"io.atlasmap.v2.FieldGroup\",\"actions\":[{\"delimiter\":\" \",\"delimitingEmptyValues\":\"true\",\"@type\":\"Concatenate\"}],\"field\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"content\",\"path\":\"/choices<>/message/content\",\"fieldType\":\"STRING\",\"docId\":\"input\"}]},\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"AIRecommendation\",\"path\":\"/ResourceLibrary;;AIRecommendation\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]}]},\"name\":\"UI.0\",\"version\":\"1.0.0\",\"lookupTables\":{\"lookupTable\":[]},\"constants\":{\"constant\":[]},\"properties\":{\"property\":[]}}}",
+      "TopElementStructure": "",
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            },
+            "Namespace": "PegaPlatform"
+          },
+          "Description": "This is a JSON string that will be transformed to a Pega object",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "JSON string",
+          "Type": ""
+        }
+      ],
+      "MappingModel": "",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Description": "AI Summarize Request",
+      "Reusability": "Private",
+      "SchemaVersion": "3-1-1",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "Auto-mapAll": false,
+      "Direction": "SERIALIZE",
+      "SampleJSONData": "{\"description\":\"output\",\"id\":\"output\",\"name\":\"Summarize the Request\",\"inspectionResult\":\"{\\\"JsonInspectionResponse\\\":{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonInspectionResponse\\\",\\\"jsonDocument\\\":{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonDocument\\\",\\\"fields\\\":{\\\"field\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"gpt-4\\\",\\\"path\\\":\\\"/model\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"model\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"collectionType\\\":\\\"LIST\\\",\\\"path\\\":\\\"/messages<>\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"messages\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"system\\\",\\\"path\\\":\\\"/messages<>/role\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"role\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"You are an AI \\\",\\\"path\\\":\\\"/messages<>/content\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"content\\\"}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":150,\\\"path\\\":\\\"/max_tokens\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"INTEGER\\\",\\\"name\\\":\\\"max_tokens\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":0.5,\\\"path\\\":\\\"/temperature\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"DOUBLE\\\",\\\"name\\\":\\\"temperature\\\"}]}},\\\"executionTime\\\":0}}\",\"showFields\":true,\"documentType\":\"JSON\",\"inspectionType\":\"INSTANCE\",\"inspectionSource\":\"{\\\"model\\\":\\\"gpt-4\\\",\\\"messages\\\":[{\\\"role\\\":\\\"system\\\",\\\"content\\\":\\\"You are an AI \\\"},{\\\"role\\\":\\\"user\\\",\\\"content\\\":\\\"Summarize the legal .\\\"}],\\\"max_tokens\\\":150,\\\"temperature\\\":0.5}\",\"inspectionParameters\":{\"key\":\"value\"},\"lazyLoad\":false}",
+      "Namespace": "ResourceLibrary",
+      "Name": "AI Summarize Request",
+      "TopLevelStructure": "OBJECT",
+      "Type": "JSONTransform",
+      "RuleResolutionID": "AISummarizeRequest",
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "Text",
+          "Format": {
+            "Type": "RuleReference",
+            "ReferenceID": "Text",
+            "Namespace": "PegaPlatform"
+          },
+          "Namespace": "PegaPlatform"
+        },
+        "Description": "",
+        "Mode": "SingleRecord"
+      },
+      "MappingsDefinition": "{\"AtlasMapping\":{\"jsonType\":\"io.atlasmap.v2.AtlasMapping\",\"dataSource\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"input\",\"name\":\"ClinicalTriage\",\"description\":\"input\",\"uri\":\"atlas:json:input\",\"dataSourceType\":\"SOURCE\"},{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"output\",\"name\":\"Summarize the Request\",\"description\":\"output\",\"uri\":\"atlas:json:output\",\"dataSourceType\":\"TARGET\"}],\"mappings\":{\"mapping\":[{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.827926\",\"inputFieldGroup\":{\"jsonType\":\"io.atlasmap.v2.FieldGroup\",\"actions\":[],\"field\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"content\",\"path\":\"/ResourceLibrary;;OpenAIObject<>/ResourceLibrary;;content\",\"fieldType\":\"STRING\",\"docId\":\"input\"}]},\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"content\",\"path\":\"/messages<>/content\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.434510\",\"inputFieldGroup\":{\"jsonType\":\"io.atlasmap.v2.FieldGroup\",\"actions\":[],\"field\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"role\",\"path\":\"/ResourceLibrary;;OpenAIObject<>/ResourceLibrary;;role\",\"fieldType\":\"STRING\",\"docId\":\"input\"}]},\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"role\",\"path\":\"/messages<>/role\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]}]},\"name\":\"UI.0\",\"version\":\"1.0.0\",\"lookupTables\":{\"lookupTable\":[]},\"constants\":{\"constant\":[]},\"properties\":{\"property\":[]}}}",
+      "TopElementStructure": "",
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "ClinicalTriage",
+            "Namespace": "ResourceLibrary"
+          },
+          "Type": "",
+          "Description": "This is a Pega object that will be transformed to a JSON string",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "Pega object"
+        }
+      ],
+      "MappingModel": "",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Description": "AI Recommendation",
+      "Reusability": "Private",
+      "SchemaVersion": "3-1-1",
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "Auto-mapAll": false,
+      "Direction": "DESERIALIZE",
+      "SampleJSONData": "{\"description\":\"input\",\"id\":\"input\",\"name\":\"Consultation Response\",\"inspectionResult\":\"{\\\"JsonInspectionResponse\\\":{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonInspectionResponse\\\",\\\"jsonDocument\\\":{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonDocument\\\",\\\"fields\\\":{\\\"field\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"Arthritis, viral infection, overexertion\\\",\\\"path\\\":\\\"/Possible Causes\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"Possible Causes\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"Not urgent, monitor and manage at home\\\",\\\"path\\\":\\\"/Is specialist consultation needed\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"Is specialist consultation needed\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"Rheumatology\\\",\\\"path\\\":\\\"/Specialist to visit\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"Specialist to visit\\\"}]}},\\\"executionTime\\\":0}}\",\"showFields\":true,\"documentType\":\"JSON\",\"inspectionType\":\"INSTANCE\",\"inspectionSource\":\"{\\\"Possible Causes\\\":\\\"Arthritis, viral infection, overexertion\\\",\\\"Is specialist consultation needed\\\":\\\"Not urgent, monitor and manage at home\\\",\\\"Specialist to visit\\\":\\\"Rheumatology\\\"}\",\"inspectionParameters\":{\"key\":\"value\"},\"lazyLoad\":false}",
+      "Namespace": "ResourceLibrary",
+      "Name": "AI Recommendation",
+      "TopLevelStructure": "OBJECT",
+      "Type": "JSONTransform",
+      "RuleResolutionID": "AIRecommendation",
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "ClinicalTriage",
+          "Namespace": "ResourceLibrary"
+        },
+        "Description": "",
+        "Mode": "SingleRecord"
+      },
+      "MappingsDefinition": "{\"AtlasMapping\":{\"jsonType\":\"io.atlasmap.v2.AtlasMapping\",\"dataSource\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"input\",\"name\":\"Consultation Response\",\"description\":\"input\",\"uri\":\"atlas:json:input\",\"dataSourceType\":\"SOURCE\"},{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"output\",\"name\":\"ClinicalTriage\",\"description\":\"output\",\"uri\":\"atlas:json:output\",\"dataSourceType\":\"TARGET\"}],\"mappings\":{\"mapping\":[{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.136586\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"Is specialist consultation needed\",\"path\":\"/Is specialist consultation needed\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"sSpecialistConsultationNeeded\",\"path\":\"/ResourceLibrary;;sSpecialistConsultationNeeded\",\"fieldType\":\"BOOLEAN\",\"docId\":\"output\",\"actions\":[{\"value\":\"\",\"@type\":\"Equals\"}]}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.709198\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"Possible Causes\",\"path\":\"/Possible Causes\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"PossibleCauses\",\"path\":\"/ResourceLibrary;;PossibleCauses\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.467171\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"Specialist to visit\",\"path\":\"/Specialist to visit\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"Specialist\",\"path\":\"/ResourceLibrary;;Specialist\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]}]},\"name\":\"UI.0\",\"version\":\"1.0.0\",\"lookupTables\":{\"lookupTable\":[]},\"constants\":{\"constant\":[]},\"properties\":{\"property\":[]}}}",
+      "TopElementStructure": "",
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            },
+            "Namespace": "PegaPlatform"
+          },
+          "Description": "This is a JSON string that will be transformed to a Pega object",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "JSON string",
+          "Type": ""
+        }
+      ],
+      "MappingModel": "",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "RESTConnector": [
+    {
+      "MappingType": "default",
+      "mapping": "default",
+      "Description": "Connect AI To Summarize",
+      "Reusability": "Private",
+      "IsSystemGenerated": false,
+      "SchemaVersion": "0-3-0",
+      "MSTimeout": 60000,
+      "Timeout": 3,
+      "AppliesTo": {
+        "ReferenceID": "ClinicalTriage",
+        "Namespace": "ResourceLibrary"
+      },
+      "Method": "POST",
+      "IntegrationSystem": {
+        "ReferenceID": "ConnectToSummarize",
+        "Namespace": "ResourceLibrary"
+      },
+      "Namespace": "ResourceLibrary",
+      "Name": "Connect AI To Summarize",
+      "Type": "RESTConnector",
+      "RuleResolutionID": "ConnectAIToSummarize",
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "Text",
+          "Format": {
+            "Type": "RuleReference",
+            "ReferenceID": "Text",
+            "Namespace": "PegaPlatform"
+          },
+          "Namespace": "PegaPlatform"
+        },
+        "Description": "",
+        "Mode": "SingleRecord"
+      },
+      "UseDirectURL": false,
+      "RequestHeaders": [
+        {
+          "Description": "Content Type",
+          "ParamValue": {
+            "Type": "ConstantText",
+            "Value": "application/json"
+          },
+          "Name": "Content-Type"
+        },
+        {
+          "Description": "api-key",
+          "ParamValue": {
+            "Type": "ConstantText",
+            "Value": "XXXXXX"
+          },
+          "Name": "api-key"
+        }
+      ],
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            },
+            "Namespace": "PegaPlatform"
+          },
+          "Type": "",
+          "Description": "Prompt",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "Prompt"
+        }
+      ],
+      "RequestBody": {
+        "ValueType": "",
+        "Value": "",
+        "ParamValue": {
+          "Type": "Variable",
+          "Name": "Prompt"
+        },
+        "Name": ""
+      },
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "DynamicText": [
+    {
+      "Type": "DynamicText",
+      "Description": "role",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "Content": "",
+      "AppliesTo": {
+        "ReferenceID": "AIMessageObject",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "role_additionalInfo",
+      "Namespace": "ResourceLibrary",
+      "Name": "role_additionalInfo",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Application": [
+    {
+      "Type": "Application",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-4-1",
+      "Version": "0.1.0-1",
+      "IconConfiguration": {
+        "IconClass": "rocket-solid"
+      },
+      "RuleResolutionID": "ResourceLibrary",
+      "Dependencies": [
+        {
+          "Type": "ReleasedAppDependency",
+          "ReleaseID": "179cc36a-f8c6-4758-adc9-7477237d2224"
+        }
+      ],
+      "PreviewAs": "",
+      "DefaultAccessGroup": {
+        "ReferenceID": "DevelopersPreviewOnly",
+        "Namespace": "ResourceLibrary"
+      },
+      "Namespace": "ResourceLibrary",
+      "Name": "Resource Library",
+      "ActionToBePerformed": "MODIFIED"
+    }
+  ],
+  "IntegrationSystem": [
+    {
+      "Type": "IntegrationSystem",
+      "Description": "Connect To Summarize",
+      "Reusability": "Private",
+      "SchemaVersion": "1-0-0",
+      "RuleResolutionID": "ConnectToSummarize",
+      "SourceType": "BaseURL",
+      "BaseURL": "https://aze-openai-01.openai.azure.com/openai/deployments/gpt-35-turbo/chat/completions?api-version=2023-05-15",
+      "BaseURLSource": "CONSTANT",
+      "Namespace": "ResourceLibrary",
+      "Name": "Connect To Summarize",
+      "ActionToBePerformed": "ADDED"
+    }
+  ]
+}
