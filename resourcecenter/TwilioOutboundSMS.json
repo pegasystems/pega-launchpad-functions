@@ -1,0 +1,2398 @@
+{
+  "ApplicationNamespace": "ResourceLibrary",
+  "CaseStatus": [
+    {
+      "Type": "CaseStatus",
+      "Description": "Pending-Completed",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Pending-Completed",
+      "Namespace": "ResourceLibrary",
+      "Name": "Pending-Completed",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "CaseStatus",
+      "Description": "New-Send SMS creation",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "New-SendSMSCreation",
+      "Namespace": "ResourceLibrary",
+      "Name": "New-Send SMS creation",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "CaseStatus",
+      "Description": "Resolved-Withdrawn",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Resolved-Withdrawn2",
+      "Namespace": "ResourceLibrary",
+      "Name": "Resolved-Withdrawn",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "CaseStatus",
+      "Description": "Resolved-Completed",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Resolved-Completed2",
+      "Namespace": "ResourceLibrary",
+      "Name": "Resolved-Completed",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "CaseStatus",
+      "Description": "Pending-Withdrawn",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Pending-Withdrawn",
+      "Namespace": "ResourceLibrary",
+      "Name": "Pending-Withdrawn",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "CaseStatus",
+      "Description": "Open-In progress",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Open-InProgress",
+      "Namespace": "ResourceLibrary",
+      "Name": "Open-In progress",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "DataConnection": [
+    {
+      "Connector": {
+        "CallReference": {
+          "ReferenceID": "GetSendSMSUpdate",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "SendSMS",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "RESTConnector",
+        "CallInputs": [
+          {
+            "ParameterName": "SID",
+            "Source": {
+              "Type": "Variable",
+              "Name": "SID"
+            }
+          }
+        ]
+      },
+      "Description": "Get Send SMS Update",
+      "Reusability": "Private",
+      "ConnectionType": "REST_CONNECTOR",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "CallType": "Library",
+      "Operation": "READ",
+      "Namespace": "ResourceLibrary",
+      "Name": "Get Send SMS Update",
+      "Type": "DataConnection",
+      "ResponseJSONTransform": {
+        "ReferenceID": "TwilioSendSMSRes",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "GetSendSMSUpdate",
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "SendSMS",
+          "Namespace": "ResourceLibrary"
+        },
+        "Description": "",
+        "Mode": "SingleRecord"
+      },
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            },
+            "Namespace": "PegaPlatform"
+          },
+          "Type": "",
+          "Description": "SID",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "SID"
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Description": "SendSMS lookup",
+      "Reusability": "Private",
+      "Query": {
+        "CallReference": {
+          "ReferenceScope": {
+            "ReferenceID": "SendSMS",
+            "Namespace": "ResourceLibrary"
+          },
+          "ReferenceID": "SendSMSLookup",
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "Query",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "Variable",
+              "Name": "ID"
+            }
+          }
+        ]
+      },
+      "ConnectionType": "QUERY",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "Operation": "READ",
+      "Namespace": "ResourceLibrary",
+      "Name": "SendSMS lookup",
+      "Type": "DataConnection",
+      "Output": {
+        "ObjectType": {
+          "TypeReferenceID": "SendSMS",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        },
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "SendSMSLookup",
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            }
+          },
+          "Description": "object key",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "ID"
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "DataConnection",
+      "Description": "SendSMS list",
+      "Reusability": "Private",
+      "Query": {
+        "CallReference": {
+          "ReferenceScope": {
+            "ReferenceID": "SendSMS",
+            "Namespace": "ResourceLibrary"
+          },
+          "ReferenceID": "SendSMSList",
+          "Namespace": "ResourceLibrary"
+        },
+        "CallInputs": [],
+        "CallType": "Query"
+      },
+      "ConnectionType": "QUERY",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "List",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "SendSMS",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        },
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "SendSMSList",
+      "Operation": "READ",
+      "Namespace": "ResourceLibrary",
+      "Name": "SendSMS list",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Connector": {
+        "CallReference": {
+          "ReferenceID": "TwilioSendSMS",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "SendSMS",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "RESTConnector",
+        "CallInputs": [
+          {
+            "ParameterName": "From",
+            "Source": {
+              "Type": "Variable",
+              "Name": "From"
+            }
+          },
+          {
+            "ParameterName": "To",
+            "Source": {
+              "Type": "Variable",
+              "Name": "To"
+            }
+          },
+          {
+            "ParameterName": "Body",
+            "Source": {
+              "Type": "Variable",
+              "Name": "Body"
+            }
+          }
+        ]
+      },
+      "Description": "Twilio Send SMS",
+      "Reusability": "Private",
+      "ConnectionType": "REST_CONNECTOR",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "CallType": "Library",
+      "Operation": "CREATE",
+      "Namespace": "ResourceLibrary",
+      "Name": "Twilio Send SMS",
+      "Type": "DataConnection",
+      "ResponseJSONTransform": {
+        "ReferenceID": "TwilioSendSMSRes",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "TwilioSendSMS",
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "SendSMS",
+          "Namespace": "ResourceLibrary"
+        },
+        "Description": "",
+        "Mode": "SingleRecord"
+      },
+      "Inputs": [
+        {
+          "Mode": "SingleRecord",
+          "Required": "true",
+          "Name": "From",
+          "Description": "From",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Phone",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          }
+        },
+        {
+          "Mode": "SingleRecord",
+          "Required": "true",
+          "Name": "To",
+          "Description": "To",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Phone",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          }
+        },
+        {
+          "Mode": "SingleRecord",
+          "Required": "true",
+          "Name": "Body",
+          "Description": "Body",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          }
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Action": [
+    {
+      "Type": "Action",
+      "Description": "Collect Send SMS info",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-1",
+      "AppliesTo": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "CollectSendSMSInfo",
+      "View": {
+        "ReferenceID": "Create",
+        "Namespace": "PegaPlatform"
+      },
+      "AllowOn": "INDIVIDUAL_AND_BULK",
+      "Namespace": "ResourceLibrary",
+      "Name": "Collect Send SMS info",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Action",
+      "PreProcessing": {
+        "Automation": {
+          "CallReference": {
+            "ReferenceID": "GetSendSMSUpdate",
+            "Namespace": "ResourceLibrary"
+          },
+          "CallType": "Automation",
+          "CallInputs": []
+        }
+      },
+      "Description": "Get Send SMS Update",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-1",
+      "AppliesTo": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "GetSendSMSUpdate",
+      "View": {
+        "ReferenceID": "GetSendSMSUpdate",
+        "Namespace": "ResourceLibrary"
+      },
+      "AllowOn": "INDIVIDUAL_AND_BULK",
+      "Namespace": "ResourceLibrary",
+      "Name": "Get Send SMS Update",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Field": [
+    {
+      "Type": "Field",
+      "Description": "SMS Delivery Status",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "SMSDeliveryStatus",
+      "Namespace": "ResourceLibrary",
+      "Name": "SMS Delivery Status",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "Phone",
+      "Type": "Field",
+      "Description": "To",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "To",
+      "Namespace": "ResourceLibrary",
+      "Name": "To",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Field",
+      "Description": "SMS Response",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "SMSResponse",
+      "Namespace": "ResourceLibrary",
+      "Name": "SMS Response",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "Phone",
+      "Type": "Field",
+      "Description": "From",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "From",
+      "Namespace": "ResourceLibrary",
+      "Name": "From",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "ObjectReference",
+      "Description": "This field holds the reference to a Send SMS instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "RecordClass": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "AppliesTo": {
+        "ReferenceID": "History-SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "SingleRecord",
+      "RelationshipType": "Peer",
+      "Namespace": "ResourceLibrary",
+      "Name": "Send SMS Reference",
+      "DataAccess": "Refer",
+      "DataSource": {
+        "CallReference": {
+          "ReferenceID": "SendSMSLookup",
+          "ReferenceScope": {
+            "ReferenceID": "SendSMS",
+            "Namespace": "ResourceLibrary"
+          },
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "DataPage",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "FieldReference",
+              "Root": {
+                "Type": "Variable",
+                "Name": "Current"
+              },
+              "Field": {
+                "Type": "RuleReference",
+                "ReferenceID": "ID",
+                "Namespace": "PegaPlatform"
+              }
+            }
+          }
+        ]
+      },
+      "Type": "Field",
+      "RuleResolutionID": "ObjectReference",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Field",
+      "Description": "Message Body",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "MessageBody",
+      "Namespace": "ResourceLibrary",
+      "Name": "Message Body",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Field",
+      "Description": "SID",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "SID",
+      "Namespace": "ResourceLibrary",
+      "Name": "SID",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Query": [
+    {
+      "Type": "Query",
+      "Description": "Query to lookup SendSMS instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Filter": {
+        "ExpressionType": "",
+        "Expressions": [
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Field": {
+                "ReferenceID": "ID",
+                "Namespace": "PegaPlatform"
+              },
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              }
+            },
+            "Comparator": "==",
+            "OperandTwo": {
+              "Name": "ID",
+              "Type": "Variable"
+            }
+          }
+        ]
+      },
+      "AppliesTo": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "SendSMS",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        }
+      },
+      "RuleResolutionID": "SendSMSLookup",
+      "Inputs": [
+        {
+          "Description": "object key",
+          "Mode": "SingleRecord",
+          "Name": "ID",
+          "Required": "true",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          },
+          "Type": ""
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "SendSMS lookup",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Query",
+      "Description": "Query to List all SendSMS instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Filter": {
+        "ExpressionType": "",
+        "Expressions": [
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              },
+              "Field": {
+                "Type": "RuleReference",
+                "ReferenceID": "Status",
+                "Namespace": "PegaPlatform"
+              }
+            },
+            "Comparator": "!=",
+            "OperandTwo": {
+              "Type": "ConstantText",
+              "Value": "Resolved-Cancelled"
+            }
+          }
+        ],
+        "Type": "ExpressionGroup"
+      },
+      "SortBy": [
+        {
+          "Field": {
+            "ReferenceID": "CreateDateTime",
+            "Namespace": "PegaPlatform"
+          },
+          "Direction": "Descending"
+        }
+      ],
+      "AppliesTo": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "List",
+          "Type": "TypeReference",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "SendSMS",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        }
+      },
+      "RuleResolutionID": "SendSMSList",
+      "Namespace": "ResourceLibrary",
+      "Name": "SendSMS list",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "RESTConnector": [
+    {
+      "MappingType": "xwwwformurlencoded",
+      "ResourceParams": [
+        {
+          "EmptyBehavior": "SKIP",
+          "EncodingType": "URL",
+          "ParamValue": {
+            "Type": "ConstantText",
+            "Value": "Messages.json"
+          },
+          "Name": "Message"
+        }
+      ],
+      "mapping": "xwwwformurlencoded",
+      "Description": "Twilio Send SMS",
+      "Reusability": "Private",
+      "IsSystemGenerated": false,
+      "SchemaVersion": "0-3-0",
+      "MSTimeout": 60000,
+      "Timeout": 3,
+      "AppliesTo": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "Method": "POST",
+      "IntegrationSystem": {
+        "ReferenceID": "TwilioSendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "Namespace": "ResourceLibrary",
+      "Name": "Twilio Send SMS",
+      "FormInput": [
+        {
+          "Description": "From",
+          "ParamValue": {
+            "Type": "Variable",
+            "Name": "From"
+          },
+          "Name": "From"
+        },
+        {
+          "Description": "To",
+          "ParamValue": {
+            "Type": "Variable",
+            "Name": "To"
+          },
+          "Name": "To"
+        },
+        {
+          "Description": "Body",
+          "ParamValue": {
+            "Type": "Variable",
+            "Name": "Body"
+          },
+          "Name": "Body"
+        }
+      ],
+      "Type": "RESTConnector",
+      "RuleResolutionID": "TwilioSendSMS",
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "Text",
+          "Format": {
+            "Type": "RuleReference",
+            "ReferenceID": "Text",
+            "Namespace": "PegaPlatform"
+          },
+          "Namespace": "PegaPlatform"
+        },
+        "Description": "",
+        "Mode": "SingleRecord"
+      },
+      "UseDirectURL": false,
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Phone",
+              "Namespace": "PegaPlatform"
+            },
+            "Namespace": "PegaPlatform"
+          },
+          "Type": "",
+          "Description": "From",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "From"
+        },
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Phone",
+              "Namespace": "PegaPlatform"
+            },
+            "Namespace": "PegaPlatform"
+          },
+          "Type": "",
+          "Description": "To",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "To"
+        },
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            },
+            "Namespace": "PegaPlatform"
+          },
+          "Type": "",
+          "Description": "Body",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "Body"
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "MappingType": "xwwwformurlencoded",
+      "ResourceParams": [
+        {
+          "EmptyBehavior": "SKIP",
+          "EncodingType": "URL",
+          "ParamValue": {
+            "Type": "ConstantText",
+            "Value": "Messages"
+          },
+          "Name": "Messages"
+        },
+        {
+          "EmptyBehavior": "SKIP",
+          "EncodingType": "URL",
+          "ParamValue": {
+            "Type": "Variable",
+            "Name": "SID"
+          },
+          "Name": "SID"
+        }
+      ],
+      "mapping": "xwwwformurlencoded",
+      "Description": "Get Send SMS Update",
+      "Reusability": "Private",
+      "IsSystemGenerated": false,
+      "SchemaVersion": "0-3-0",
+      "MSTimeout": 60000,
+      "Timeout": 3,
+      "AppliesTo": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "Method": "POST",
+      "IntegrationSystem": {
+        "ReferenceID": "TwilioSendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "Namespace": "ResourceLibrary",
+      "Name": "Get Send SMS Update",
+      "FormInput": [
+        {
+          "Description": "body",
+          "ParamValue": {
+            "Type": "ConstantText",
+            "Value": ""
+          },
+          "Name": "Body"
+        }
+      ],
+      "Type": "RESTConnector",
+      "RuleResolutionID": "GetSendSMSUpdate",
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "Text",
+          "Format": {
+            "Type": "RuleReference",
+            "ReferenceID": "Text",
+            "Namespace": "PegaPlatform"
+          },
+          "Namespace": "PegaPlatform"
+        },
+        "Description": "",
+        "Mode": "SingleRecord"
+      },
+      "UseDirectURL": false,
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            },
+            "Namespace": "PegaPlatform"
+          },
+          "Type": "",
+          "Description": "SID",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "SID"
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "View": [
+    {
+      "Type": "View",
+      "Description": "Get Send SMS Update",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "Namespace": "ResourceLibrary",
+        "ReferenceID": "SendSMS"
+      },
+      "RuleResolutionID": "GetSendSMSUpdate",
+      "ViewType": "embeddedform",
+      "Namespace": "ResourceLibrary",
+      "Template": "DefaultForm",
+      "Name": "Get Send SMS Update",
+      "ViewMetadata": "{\"name\":\"GetSendSMSUpdate\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"SendSMS\",\"ruleClassNamespace\":\"ResourceLibrary\",\"label\":\"@L Get Send SMS Update\"},\"children\":[{\"name\":\"Fields\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .SMSDeliveryStatus\",\"label\":\"@L SMS Delivery Status\",\"disabled\":true}}]}],\"ID\":\"1bc17045-f3f4-4ed9-a04b-879c220bf9f1\"}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "Details",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "pyReview",
+      "ViewType": "details",
+      "Namespace": "PegaPlatform",
+      "Name": "Details",
+      "Template": "Details",
+      "ViewMetadata": "{\"ID\":\"6b965387-f3d2-4b5f-b6ec-d1cabab62016\",\"name\":\"pyReview\",\"type\":\"View\",\"config\":{\"template\":\"Details\",\"ruleClass\":\"SendSMS\",\"showLabel\":true,\"label\":\"@L Details\"},\"children\":[{\"name\":\"A\",\"type\":\"Region\",\"children\":[{\"type\":\"reference\",\"config\":{\"name\":\"pyReview_ProblemRemediationCase\",\"inheritedProps\":[{\"prop\":\"label\",\"value\":\"@L Problem remediation case\"}],\"ruleClass\":\"Case\",\"type\":\"view\",\"authorContext\":\".ProblemRemediationCase\",\"referenceType\":\"Case\",\"visibility\":\"@E .pzErrorMessage IS_NOT_NULL\"}},{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .pzErrorMessage\",\"label\":\"@L Frozen case reason\",\"visibility\":\"@E .pzErrorMessage IS_NOT_NULL\",\"testId\":\"\"}},{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .SMSResponse\",\"label\":\"@L SMS Response\"}},{\"type\":\"DateTime\",\"config\":{\"value\":\"@P .CaseSLADeadlineDateTime\",\"label\":\"@L Deadline\",\"formatter\":\"DateTime-Since\",\"showAsFormattedText\":true,\"visibility\":\"@E .CaseSLADeadlineDateTime IS_NOT_NULL\",\"testId\":\"66195354-4476-4d73-9818-f07c88e05464\"}}]}]}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "Update details",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Edit",
+      "AutoGenerated": true,
+      "ViewType": "",
+      "Namespace": "PegaPlatform",
+      "Template": "DefaultForm",
+      "Name": "Edit",
+      "ViewMetadata": "{\"name\":\"Edit\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"BusinessObject\",\"label\":\"Update case details\"},\"children\":[{\"name\":\"Fields\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .Name\",\"label\":\"@L Label\"}},{\"type\":\"TextArea\",\"config\":{\"value\":\"@P .Description\",\"label\":\"@L Description\"}}]}],\"ID\":\"4e78a729-1eb6-4e4e-94c2-6dc6e112fc86\"}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "Send SMSs",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "Data-Portal",
+        "Namespace": "PegaPlatform"
+      },
+      "RuleResolutionID": "SendSMSs",
+      "ViewType": "landingpage",
+      "Namespace": "ResourceLibrary",
+      "Template": "ListPage",
+      "Name": "Send SMSs",
+      "ViewMetadata": "{\"name\":\"Send SMSs\",\"type\":\"View\",\"config\":{\"type\":\"listpage\",\"template\":\"ListPage\",\"icon\":\"pi pi-headline\",\"title\":\"@L Send SMSs\",\"personalization\":true,\"grouping\":true,\"globalSearch\":true,\"reorderFields\":true,\"toggleFieldVisibility\":true,\"showUploadRecords\":true,\"referenceList\":\"SendSMSList\",\"ruleClass\":\"Data-Portal\",\"ruleClassNamespace\":\"ResourceLibrary\",\"presets\":[{\"name\":\"presets\",\"label\":\"Send SMSs\",\"template\":\"Table\",\"config\":{},\"children\":[{\"name\":\"Columns\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .BusinessID\",\"label\": \"@L ID\",\"displayAsLink\":true}},{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .Name\",\"label\": \"@L Name\",\"displayAsLink\":true}},{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .Status\",\"label\": \"@L Status\",\"displayAsLink\":false}},{\"type\":\"TextArea\",\"config\":{\"value\":\"@P .Description\",\"label\":\"@L Description\"}}]}]}],\"actions\":[{\"action\":\"UPLOAD_RECORDS\",\"config\":{\"label\":\"@L Upload\",\"objectType\":\"SendSMS\"}}]}}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "",
+      "Reusability": "PublicMayReuse",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "ConfigurationSetViews",
+        "Namespace": "PegaPlatform"
+      },
+      "RuleResolutionID": "Twilio",
+      "Namespace": "ResourceLibrary",
+      "ViewType": "custom",
+      "Name": "Twilio",
+      "Template": "Configurations",
+      "ViewMetadata": "{\"name\":\"Twilio\",\"type\":\"View\",\"config\":{\"template\":\"Configurations\",\"ruleClass\":\"ConfigurationSetViews\",\"label\":\"@L Twilio\"},\"children\":[{\"name\":\"Fields\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .TwilioSendSMS\",\"label\":\"@L Twilio Send SMS\"}}]}],\"ID\":\"fa0361ce-5003-4631-b534-a18450d78518\"}",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "ConfigurationSetting": [
+    {
+      "ConfigurationSet": {
+        "ReferenceID": "Twilio",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "ConfigurationSetting",
+      "Description": "Twilio Send SMS",
+      "Reusability": "PublicMayReuse",
+      "SchemaVersion": "0-1-0",
+      "AppliesTo": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "ObjectType": {
+          "TypeReferenceID": "Text",
+          "Namespace": "PegaPlatform",
+          "Type": "TypeReference",
+          "Format": {
+            "ReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "RuleReference"
+          }
+        },
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "TwilioSendSMS",
+      "Namespace": "ResourceLibrary",
+      "Name": "Twilio Send SMS",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "DataPage": [
+    {
+      "DataPageMode": "SingleRecord",
+      "Description": "SendSMS lookup",
+      "Reusability": "Private",
+      "DataConnection": {
+        "CallReference": {
+          "ReferenceID": "SendSMSLookup",
+          "ReferenceScope": {
+            "ReferenceID": "SendSMS",
+            "Namespace": "ResourceLibrary"
+          },
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "DataConnection",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "Variable",
+              "Name": "ID"
+            }
+          }
+        ]
+      },
+      "SchemaVersion": "0-2-0",
+      "CallType": "DataPage",
+      "Namespace": "ResourceLibrary",
+      "Name": "SendSMS lookup",
+      "ObjectType": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "DataPage",
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "SendSMS",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        }
+      },
+      "RuleResolutionID": "SendSMSLookup",
+      "Inputs": [
+        {
+          "Description": "object key",
+          "Mode": "SingleRecord",
+          "Name": "ID",
+          "Required": "true",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          }
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DataPageMode": "ListOfRecords",
+      "Description": "SendSMS list",
+      "Reusability": "Private",
+      "DataConnection": {
+        "CallReference": {
+          "ReferenceID": "SendSMSList",
+          "ReferenceScope": {
+            "ReferenceID": "SendSMS",
+            "Namespace": "ResourceLibrary"
+          },
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "DataConnection",
+        "CallInputs": []
+      },
+      "SchemaVersion": "0-2-0",
+      "CallType": "DataPage",
+      "Namespace": "ResourceLibrary",
+      "Name": "SendSMS list",
+      "ObjectType": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "DataPage",
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "List",
+          "Type": "TypeReference",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "SendSMS",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        }
+      },
+      "RuleResolutionID": "SendSMSList",
+      "Inputs": [],
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Stage": [
+    {
+      "Type": "Stage",
+      "Description": "Withdrawn",
+      "Reusability": "Private",
+      "SchemaVersion": "2-2-0",
+      "AppliesTo": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Withdrawn",
+      "Processes": [],
+      "Namespace": "ResourceLibrary",
+      "Name": "Withdrawn",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Stage",
+      "Description": "In progress",
+      "Reusability": "Private",
+      "SchemaVersion": "2-2-0",
+      "AppliesTo": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "InProgress",
+      "Processes": [
+        {
+          "Process": {
+            "ReferenceID": "InProgress",
+            "Namespace": "ResourceLibrary"
+          },
+          "SkipProcess": {
+            "SkipType": "Never"
+          }
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "In progress",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Stage",
+      "Description": "Completed",
+      "Reusability": "Private",
+      "SchemaVersion": "2-2-0",
+      "AppliesTo": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Completed",
+      "Processes": [],
+      "Namespace": "ResourceLibrary",
+      "Name": "Completed",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Stage",
+      "Description": "Send SMS creation",
+      "Reusability": "Private",
+      "SchemaVersion": "2-2-0",
+      "AppliesTo": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "SendSMSCreation",
+      "Processes": [
+        {
+          "Process": {
+            "ReferenceID": "CreateNewSendSMS",
+            "Namespace": "ResourceLibrary"
+          },
+          "SkipProcess": {
+            "SkipType": "Never"
+          }
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "Send SMS creation",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "IntegrationSystem": [
+    {
+      "Type": "IntegrationSystem",
+      "Description": "Twilio Send SMS",
+      "Reusability": "Private",
+      "AuthProfile": {
+        "ReferenceID": "Twilio",
+        "Namespace": "ResourceLibrary"
+      },
+      "SchemaVersion": "1-0-0",
+      "RuleResolutionID": "TwilioSendSMS",
+      "SourceType": "BaseURL",
+      "BaseURL": "https://api.twilio.com/2010-04-01/Accounts/AC0d13438148b57776fce1ac9dbfc972f7/Messages.json",
+      "BaseURLSource": "REFERENCE",
+      "Namespace": "ResourceLibrary",
+      "Name": "Twilio Send SMS",
+      "BaseURLConfigSetting": {
+        "ReferenceID": "TwilioSendSMS",
+        "ReferenceScope": {
+          "ReferenceID": "SendSMS",
+          "Namespace": "ResourceLibrary"
+        },
+        "Namespace": "ResourceLibrary"
+      },
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Process": [
+    {
+      "Connectors": [
+        {
+          "ID": "931ca54d-3782-47ca-83f5-60f40490214a",
+          "To": "b026d4e5-8fe9-4fe9-b1cd-400a514fd99e",
+          "Type": "Process-Connector"
+        },
+        {
+          "ID": "0ec970c3-ba4e-4eac-8f77-a1a40f75debf",
+          "To": "933610f0-f9b7-43f7-bae0-4561cb3867cd",
+          "Type": "Process-Connector"
+        }
+      ],
+      "Type": "Process",
+      "Description": "In progress",
+      "Reusability": "Private",
+      "SchemaVersion": "2-1-1",
+      "AppliesTo": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "InProgress",
+      "Nodes": [
+        {
+          "ID": "71e7a739-8fab-482d-b6a1-e65daa6a2a86",
+          "Type": "Start",
+          "ToConnectors": [
+            {
+              "ID": "931ca54d-3782-47ca-83f5-60f40490214a",
+              "Type": "Process-Connector"
+            }
+          ],
+          "Name": "Start"
+        },
+        {
+          "ID": "b026d4e5-8fe9-4fe9-b1cd-400a514fd99e",
+          "Type": "CallAutomation",
+          "ToConnectors": [
+            {
+              "ID": "0ec970c3-ba4e-4eac-8f77-a1a40f75debf",
+              "Type": "Process-Connector"
+            }
+          ],
+          "Name": "Send SMS",
+          "Automation": {
+            "CallReference": {
+              "ReferenceID": "SendSMS",
+              "Namespace": "ResourceLibrary"
+            },
+            "CallType": "Automation",
+            "CallInputs": []
+          }
+        },
+        {
+          "ID": "933610f0-f9b7-43f7-bae0-4561cb3867cd",
+          "Type": "End",
+          "ToConnectors": [],
+          "Name": "End"
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "In progress",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Connectors": [
+        {
+          "ID": "9bf34990-30bb-4ada-8746-dc1c1e27b63e",
+          "To": "18df4ab9-416e-4c8d-915b-e78349dd057c",
+          "Type": "Process-Connector"
+        },
+        {
+          "ID": "79b797e6-c33b-4fa8-80a0-d4fa59480536",
+          "To": "8aa98e7e-9a2b-468f-ae05-6d2abf40a1d2",
+          "Type": "Process-Connector"
+        }
+      ],
+      "Type": "Process",
+      "Description": "Create new Send SMS",
+      "Reusability": "Private",
+      "SchemaVersion": "2-1-1",
+      "AppliesTo": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "CreateNewSendSMS",
+      "Nodes": [
+        {
+          "ID": "597beb7d-cd8b-44c4-b668-37181bfdb860",
+          "Type": "Start",
+          "ToConnectors": [
+            {
+              "ID": "79b797e6-c33b-4fa8-80a0-d4fa59480536",
+              "Type": "Process-Connector"
+            }
+          ],
+          "Name": "Start"
+        },
+        {
+          "ID": "8aa98e7e-9a2b-468f-ae05-6d2abf40a1d2",
+          "Type": "Assignment",
+          "ToConnectors": [
+            {
+              "ID": "9bf34990-30bb-4ada-8746-dc1c1e27b63e",
+              "Type": "Process-Connector",
+              "Name": "Submit",
+              "Value": "Submit"
+            }
+          ],
+          "Name": "Collect Send SMS info",
+          "Action": {
+            "ReferenceID": "CollectSendSMSInfo",
+            "Namespace": "ResourceLibrary"
+          },
+          "Routing": {
+            "RoutingType": "CurrentUser"
+          }
+        },
+        {
+          "ID": "18df4ab9-416e-4c8d-915b-e78349dd057c",
+          "Type": "End",
+          "ToConnectors": [],
+          "Name": "End"
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "Create new Send SMS",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Portal": [
+    {
+      "CreateMenu": "ShowAll",
+      "Type": "Portal",
+      "Description": "Default application work portal",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-3",
+      "RuleResolutionID": "WebPortal",
+      "AvailableCaseToCreate": [
+        {
+          "CaseType": {
+            "ReferenceID": "SendSMS",
+            "ReferenceScope": {
+              "ReferenceID": "SendSMS",
+              "Namespace": "ResourceLibrary"
+            },
+            "Namespace": "ResourceLibrary"
+          }
+        }
+      ],
+      "NavigationPages": [
+        {
+          "Page": {
+            "ReferenceID": "Home",
+            "ReferenceScope": {
+              "ReferenceID": "Data-Portal",
+              "Namespace": "PegaPlatform"
+            }
+          }
+        },
+        {
+          "Page": {
+            "ReferenceID": "SendSMSs",
+            "ReferenceScope": {
+              "ReferenceID": "Data-Portal",
+              "Namespace": "PegaPlatform"
+            },
+            "Namespace": "ResourceLibrary"
+          }
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "Work Portal",
+      "Template": "work",
+      "ActionToBePerformed": "MODIFIED"
+    }
+  ],
+  "AuthenticationProfile": [
+    {
+      "AuthenticationScheme": "Basic",
+      "Basic": {
+        "Username": "AC0d13438148b57776fce1ac9dbfc972f7",
+        "Password": "AAAAAnYxrO0ABXNyADVjb20ucGVnYS5mbnguZW5jcnlwdGlvbmVuZ2luZS5tb2RlbC5FbmNyeXB0ZWREYXRhVW5pdAAAAAAAAAABAgACTAAWZGF0YUVuY3J5cHRpb25NZXRhZGF0YXQAPExjb20vcGVnYS9mbngvZW5jcnlwdGlvbmVuZ2luZS9tb2RlbC9EYXRhRW5jcnlwdGlvbk1ldGFkYXRhO1sADWVuY3J5cHRlZERhdGF0AAJbQnhwc3IAOmNvbS5wZWdhLmZueC5lbmNyeXB0aW9uZW5naW5lLm1vZGVsLkRhdGFFbmNyeXB0aW9uTWV0YWRhdGEAAAAAAAAAAQIABUwAGWRhdGFFbmNyeXB0aW9uQWxnb3JpdGhtSWR0ABJMamF2YS9sYW5nL1N0cmluZztbAAZkYXRhSVZxAH4AAlsAEWVuY3J5cHRpb25Db250ZXh0cQB+AAJMABNrZXlXcmFwcGluZ01ldGFkYXRhdAA5TGNvbS9wZWdhL2ZueC9lbmNyeXB0aW9uZW5naW5lL21vZGVsL0tleVdyYXBwaW5nTWV0YWRhdGE7WwAKd3JhcHBlZERFS3EAfgACeHB0ABVBRVMyNTZfR0NNX0JDX05PQkxPQ0t1cgACW0Ks8xf4BghU4AIAAHhwAAAAEJRcjhwyn2+XIcZw3oDZ3V91cQB+AAkAAAAkYTIxYTE5MDktYzY2NC00MWJlLWJmYzUtOWEzY2UwZGFlNTJjc3IAN2NvbS5wZWdhLmZueC5lbmNyeXB0aW9uZW5naW5lLm1vZGVsLktleVdyYXBwaW5nTWV0YWRhdGEAAAAAAAAAAQIABUwAFmtleVdyYXBwaW5nQWxnb3JpdGhtSWRxAH4ABVsABWt3a0lWcQB+AAJMAAdrd2tOYW1lcQB+AAVMAAdrd2tUeXBldAA3TGNvbS9wZWdhL2ZueC9lbmNyeXB0aW9uZW5naW5lL21vZGVsL0VuY3J5cHRpb25LZXlUeXBlO0wACmt3a1ZlcnNpb25xAH4ABXhwcQB+AAh1cQB+AAkAAAAQMjx0+JJUFTgzy1p5efNRtnQAbjYzZjczNjQ5LWY3MGYtNGMwMi05NzM5LWU5YzQ4NDEyYzFkNF9hMjFhMTkwOS1jNjY0LTQxYmUtYmZjNS05YTNjZTBkYWU1MmMvYTIxYTE5MDktYzY2NC00MWJlLWJmYzUtOWEzY2UwZGFlNTJjfnIANWNvbS5wZWdhLmZueC5lbmNyeXB0aW9uZW5naW5lLm1vZGVsLkVuY3J5cHRpb25LZXlUeXBlAAAAAAAAAAASAAB4cgAOamF2YS5sYW5nLkVudW0AAAAAAAAAABIAAHhwdAAMSVNPTEFUSU9OX0lEdAAkN2ZhM2NjNzMtNGRlNy00YzE1LWE2ZDAtNmYyYjEzMjQ5MWU4dXEAfgAJAAAAMC5qPgtUt1iGvAl89n88io2ot26h+zxWI1OkdXX/h/v/8nk3cBWqZ0aNfpQ0MEFa53VxAH4ACQAAADDBVa8P8jV8V3sidcCrqFD0ahfXW/8zA2MJbZ1uFlAb8jI8LeW4FATNIaBIsAMiho0=",
+        "UsePreEmptiveAuthentication": false,
+        "Realm": "",
+        "Hostname": ""
+      },
+      "OAuth2": {
+        "AccessToken": {
+          "Url": ""
+        },
+        "JWTBearer": {
+          "Claims": {
+            "Expiry": 900,
+            "Subject": "",
+            "Issuer": "",
+            "Audience": ""
+          },
+          "PrivateKey": ""
+        },
+        "GrantType": "",
+        "ClientAuthenticationScheme": "",
+        "ClientId": "",
+        "SendClientCredentialsAs": "",
+        "ClientSecret": "",
+        "Scope": "",
+        "SendAccessTokenAs": ""
+      },
+      "Type": "AuthenticationProfile",
+      "Description": "Twilio",
+      "Reusability": "PublicMayOverride",
+      "SchemaVersion": "0-1-0",
+      "PreviewOnly": false,
+      "RuleResolutionID": "Twilio",
+      "Namespace": "ResourceLibrary",
+      "Name": "Twilio",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Class": [
+    {
+      "Type": "Class",
+      "Description": "History-SendSMS",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "History",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "History-SendSMS",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceLibrary",
+      "Name": "History-SendSMS",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "Send SMS",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "Case",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "SendSMS",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceLibrary",
+      "Name": "Send SMS",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "ConfigurationSettingValue": [
+    {
+      "Type": "ConfigurationSettingValue",
+      "Description": "Twilio Send SMS End Point",
+      "Reusability": "PublicMayOverride",
+      "SettingValue": {
+        "Text": "https://api.twilio.com/2010-04-01/Accounts/AC0d13438148b57776fce1ac9dbfc972f7"
+      },
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "Namespace": "ResourceLibrary",
+        "ReferenceID": "SendSMS"
+      },
+      "RuleResolutionID": "TwilioSendSMSEndPoint",
+      "ConfigurationSetting": {
+        "ReferenceID": "TwilioSendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "Namespace": "ResourceLibrary",
+      "Name": "Twilio Send SMS End Point",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "JSONTransform": [
+    {
+      "Description": "Twilio Send SMS Res",
+      "Reusability": "Private",
+      "SchemaVersion": "3-1-1",
+      "AppliesTo": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "Auto-mapAll": false,
+      "Direction": "DESERIALIZE",
+      "SampleJSONData": "{\"description\":\"input\",\"id\":\"input\",\"name\":\"Twilio\",\"inspectionResult\":\"{\\\"JsonInspectionResponse\\\":{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonInspectionResponse\\\",\\\"jsonDocument\\\":{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonDocument\\\",\\\"fields\\\":{\\\"field\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"AC0d13438148b57776fce1ac9dbfc972f7\\\",\\\"path\\\":\\\"/account_sid\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"account_sid\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"2010-04-01\\\",\\\"path\\\":\\\"/api_version\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"api_version\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"Hello, this is a test message\\\",\\\"path\\\":\\\"/body\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"body\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"Wed, 12 Mar 2025 05:19:55 +0000\\\",\\\"path\\\":\\\"/date_created\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"date_created\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"path\\\":\\\"/date_sent\\\",\\\"name\\\":\\\"date_sent\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"Wed, 12 Mar 2025 05:19:55 +0000\\\",\\\"path\\\":\\\"/date_updated\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"date_updated\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"outbound-api\\\",\\\"path\\\":\\\"/direction\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"direction\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"path\\\":\\\"/error_code\\\",\\\"name\\\":\\\"error_code\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"path\\\":\\\"/error_message\\\",\\\"name\\\":\\\"error_message\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"+12498027342\\\",\\\"path\\\":\\\"/from\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"from\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"path\\\":\\\"/messaging_service_sid\\\",\\\"name\\\":\\\"messaging_service_sid\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"0\\\",\\\"path\\\":\\\"/num_media\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"num_media\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"1\\\",\\\"path\\\":\\\"/num_segments\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"num_segments\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"path\\\":\\\"/price\\\",\\\"name\\\":\\\"price\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"USD\\\",\\\"path\\\":\\\"/price_unit\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"price_unit\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"SM7f5447c4afc4f4a39bf2816ba7a74e8b\\\",\\\"path\\\":\\\"/sid\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"sid\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"queued\\\",\\\"path\\\":\\\"/status\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"status\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/subresource_uris\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"subresource_uris\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"/2010-04-01/Accounts/AC0d13438148b57776fce1ac9dbfc972f7/Messages/SM7f5447c4afc4f4a39bf2816ba7a74e8b/Media.json\\\",\\\"path\\\":\\\"/subresource_uris/media\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"media\\\"}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"+18048762703\\\",\\\"path\\\":\\\"/to\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"to\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"/2010-04-01/Accounts/AC0d13438148b57776fce1ac9dbfc972f7/Messages/SM7f5447c4afc4f4a39bf2816ba7a74e8b.json\\\",\\\"path\\\":\\\"/uri\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"uri\\\"}]}},\\\"executionTime\\\":1}}\",\"showFields\":true,\"documentType\":\"JSON\",\"inspectionType\":\"INSTANCE\",\"inspectionSource\":\"{\\\"account_sid\\\":\\\"AC0d13438148b57776fce1ac9dbfc972f7\\\",\\\"api_version\\\":\\\"2010-04-01\\\",\\\"body\\\":\\\"Hello, this is a test message\\\",\\\"date_created\\\":\\\"Wed, 12 Mar 2025 05:19:55 +0000\\\",\\\"date_sent\\\":null,\\\"date_updated\\\":\\\"Wed, 12 Mar 2025 05:19:55 +0000\\\",\\\"direction\\\":\\\"outbound-api\\\",\\\"error_code\\\":null,\\\"error_message\\\":null,\\\"from\\\":\\\"+12498027342\\\",\\\"messaging_service_sid\\\":null,\\\"num_media\\\":\\\"0\\\",\\\"num_segments\\\":\\\"1\\\",\\\"price\\\":null,\\\"price_unit\\\":\\\"USD\\\",\\\"sid\\\":\\\"SM7f5447c4afc4f4a39bf2816ba7a74e8b\\\",\\\"status\\\":\\\"queued\\\",\\\"subresource_uris\\\":{\\\"media\\\":\\\"/2010-04-01/Accounts/AC0d13438148b57776fce1ac9dbfc972f7/Messages/SM7f5447c4afc4f4a39bf2816ba7a74e8b/Media.json\\\"},\\\"to\\\":\\\"+18048762703\\\",\\\"uri\\\":\\\"/2010-04-01/Accounts/AC0d13438148b57776fce1ac9dbfc972f7/Messages/SM7f5447c4afc4f4a39bf2816ba7a74e8b.json\\\"}\",\"inspectionParameters\":{\"key\":\"value\"},\"lazyLoad\":false}",
+      "Namespace": "ResourceLibrary",
+      "Name": "Twilio Send SMS Res",
+      "TopLevelStructure": "OBJECT",
+      "Type": "JSONTransform",
+      "RuleResolutionID": "TwilioSendSMSRes",
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "SendSMS",
+          "Namespace": "ResourceLibrary"
+        },
+        "Description": "",
+        "Mode": "SingleRecord"
+      },
+      "MappingsDefinition": "{\"AtlasMapping\":{\"jsonType\":\"io.atlasmap.v2.AtlasMapping\",\"dataSource\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"input\",\"name\":\"Twilio\",\"description\":\"input\",\"uri\":\"atlas:json:input\",\"dataSourceType\":\"SOURCE\"},{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"output\",\"name\":\"SendSMS\",\"description\":\"output\",\"uri\":\"atlas:json:output\",\"dataSourceType\":\"TARGET\"}],\"mappings\":{\"mapping\":[{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.696678\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"uri\",\"path\":\"/uri\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"Description\",\"path\":\"/PegaPlatform;;Description\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.883219\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"sid\",\"path\":\"/sid\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"SID\",\"path\":\"/ResourceLibrary;;SID\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.213590\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"status\",\"path\":\"/status\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"SMSDeliveryStatus\",\"path\":\"/ResourceLibrary;;SMSDeliveryStatus\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]}]},\"name\":\"UI.0\",\"version\":\"1.0.0\",\"lookupTables\":{\"lookupTable\":[]},\"constants\":{\"constant\":[]},\"properties\":{\"property\":[]}}}",
+      "TopElementStructure": "",
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            },
+            "Namespace": "PegaPlatform"
+          },
+          "Type": "",
+          "Description": "This is a JSON string that will be transformed to a Pega object",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "JSON string"
+        }
+      ],
+      "MappingModel": "",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Automation": [
+    {
+      "Description": "Send SMS",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-0",
+      "IsSystemAutomation": false,
+      "AppliesTo": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "CallType": "ResourceObject",
+      "Namespace": "ResourceLibrary",
+      "Name": "Send SMS",
+      "Type": "Automation",
+      "Locals": [
+        {
+          "Mode": "SingleRecord",
+          "Name": "CaptureSMSResponse",
+          "Description": "CaptureSMSResponse",
+          "ObjectType": {
+            "TypeReferenceID": "SendSMS",
+            "Namespace": "ResourceLibrary",
+            "Type": "TypeReference"
+          }
+        }
+      ],
+      "Output": {
+        "Description": "",
+        "Mode": ""
+      },
+      "RuleResolutionID": "SendSMS",
+      "RuleSteps": [
+        {
+          "Id": "_virvrh9wv",
+          "Type": "ActionSet",
+          "Sets": [
+            {
+              "Id": "_zrhit9qro",
+              "Target": {
+                "Type": "Variable",
+                "Name": "CaptureSMSResponse"
+              },
+              "Source": {
+                "Type": "CallExpression",
+                "CallType": "DataConnection",
+                "CallReference": {
+                  "Type": "RuleReference",
+                  "ReferenceID": "TwilioSendSMS",
+                  "Namespace": "ResourceLibrary",
+                  "ReferenceScope": {
+                    "Type": "RuleReference",
+                    "ReferenceID": "SendSMS",
+                    "Namespace": "ResourceLibrary"
+                  }
+                },
+                "CallInputs": [
+                  {
+                    "Type": "CallInput",
+                    "ParameterName": "From",
+                    "Source": {
+                      "Type": "FieldReference",
+                      "Root": {
+                        "Type": "Variable",
+                        "Name": "Primary"
+                      },
+                      "Field": {
+                        "Type": "RuleReference",
+                        "ReferenceID": "From",
+                        "Namespace": "ResourceLibrary"
+                      }
+                    }
+                  },
+                  {
+                    "Type": "CallInput",
+                    "ParameterName": "To",
+                    "Source": {
+                      "Type": "FieldReference",
+                      "Root": {
+                        "Type": "Variable",
+                        "Name": "Primary"
+                      },
+                      "Field": {
+                        "Type": "RuleReference",
+                        "ReferenceID": "To",
+                        "Namespace": "ResourceLibrary"
+                      }
+                    }
+                  },
+                  {
+                    "Type": "CallInput",
+                    "ParameterName": "Body",
+                    "Source": {
+                      "Type": "FieldReference",
+                      "Root": {
+                        "Type": "Variable",
+                        "Name": "Primary"
+                      },
+                      "Field": {
+                        "Type": "RuleReference",
+                        "ReferenceID": "MessageBody",
+                        "Namespace": "ResourceLibrary"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "Id": "_t9z22crwq",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "SMSResponse",
+                  "Namespace": "ResourceLibrary",
+                  "Type": "RuleReference"
+                }
+              },
+              "Source": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "CaptureSMSResponse",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "Description",
+                  "Namespace": "PegaPlatform",
+                  "Type": "RuleReference"
+                }
+              }
+            },
+            {
+              "Id": "_0gclwgo7k",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "SID",
+                  "Namespace": "ResourceLibrary",
+                  "Type": "RuleReference"
+                }
+              },
+              "Source": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "CaptureSMSResponse",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "SID",
+                  "Namespace": "ResourceLibrary",
+                  "Type": "RuleReference"
+                }
+              }
+            },
+            {
+              "Id": "_1iqq1fsdw",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "SMSDeliveryStatus",
+                  "Namespace": "ResourceLibrary",
+                  "Type": "RuleReference"
+                }
+              },
+              "Source": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "CaptureSMSResponse",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "SMSDeliveryStatus",
+                  "Namespace": "ResourceLibrary",
+                  "Type": "RuleReference"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Description": "Get Send SMS Update",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-0",
+      "IsSystemAutomation": false,
+      "AppliesTo": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "CallType": "ResourceObject",
+      "Namespace": "ResourceLibrary",
+      "Name": "Get Send SMS Update",
+      "Type": "Automation",
+      "Locals": [
+        {
+          "Mode": "SingleRecord",
+          "Name": "Sid",
+          "Description": "Sid",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          }
+        },
+        {
+          "Mode": "SingleRecord",
+          "Name": "DCPage",
+          "Description": "DCPage",
+          "ObjectType": {
+            "TypeReferenceID": "SendSMS",
+            "Namespace": "ResourceLibrary",
+            "Type": "TypeReference"
+          }
+        }
+      ],
+      "Output": {
+        "Description": "",
+        "Mode": ""
+      },
+      "RuleResolutionID": "GetSendSMSUpdate",
+      "RuleSteps": [
+        {
+          "Id": "_qa5iazm1a",
+          "Type": "ActionSet",
+          "Sets": [
+            {
+              "Id": "_sxek1qp89",
+              "Target": {
+                "Type": "Variable",
+                "Name": "Sid"
+              },
+              "Source": {
+                "Type": "ExpressionGroup",
+                "ExpressionType": "+",
+                "Expressions": [
+                  {
+                    "Type": "FieldReference",
+                    "Root": {
+                      "Type": "Variable",
+                      "Name": "Primary"
+                    },
+                    "Field": {
+                      "Type": "RuleReference",
+                      "ReferenceID": "SID",
+                      "Namespace": "ResourceLibrary"
+                    }
+                  },
+                  {
+                    "Type": "ConstantText",
+                    "Value": "."
+                  },
+                  {
+                    "Type": "ConstantText",
+                    "Value": "json"
+                  }
+                ]
+              }
+            },
+            {
+              "Id": "_t4kbxmh9e",
+              "Target": {
+                "Type": "Variable",
+                "Name": "DCPage"
+              },
+              "Source": {
+                "Type": "CallExpression",
+                "CallReference": {
+                  "ReferenceID": "GetSendSMSUpdate",
+                  "Namespace": "ResourceLibrary",
+                  "ReferenceScope": {
+                    "ReferenceID": "SendSMS",
+                    "Namespace": "ResourceLibrary"
+                  }
+                },
+                "CallType": "DataConnection",
+                "CallInputs": [
+                  {
+                    "ParameterName": "SID",
+                    "Source": {
+                      "Type": "Variable",
+                      "Name": "Sid"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "Id": "_bynycfvod",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "pzErrorMessage",
+                  "Namespace": "PegaPlatform",
+                  "Type": "RuleReference"
+                }
+              },
+              "Source": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "DCPage",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "SMSDeliveryStatus",
+                  "Namespace": "ResourceLibrary",
+                  "Type": "RuleReference"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Id": "_5a8frvseu",
+          "Type": "ActionWhen",
+          "WhenType": "Call",
+          "Call": {
+            "Type": "ExpressionGroup",
+            "ExpressionType": "!=",
+            "Expressions": [
+              {
+                "Type": "FieldReference",
+                "Root": {
+                  "Type": "Variable",
+                  "Name": "DCPage"
+                },
+                "Field": {
+                  "Type": "RuleReference",
+                  "ReferenceID": "SMSDeliveryStatus",
+                  "Namespace": "ResourceLibrary"
+                }
+              },
+              {
+                "Type": "ConstantText",
+                "Value": ""
+              }
+            ]
+          },
+          "RuleSteps": [
+            {
+              "Id": "_vb3uuuvry",
+              "Type": "ActionSet",
+              "Sets": [
+                {
+                  "Id": "_y965m2jte",
+                  "Target": {
+                    "Type": "FieldReference",
+                    "Root": {
+                      "Name": "Primary",
+                      "Type": "Variable"
+                    },
+                    "Field": {
+                      "ReferenceID": "SMSDeliveryStatus",
+                      "Namespace": "ResourceLibrary",
+                      "Type": "RuleReference"
+                    }
+                  },
+                  "Source": {
+                    "Type": "FieldReference",
+                    "Root": {
+                      "Name": "DCPage",
+                      "Type": "Variable"
+                    },
+                    "Field": {
+                      "ReferenceID": "SMSDeliveryStatus",
+                      "Namespace": "ResourceLibrary",
+                      "Type": "RuleReference"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "CaseType": [
+    {
+      "Description": "Send SMS",
+      "Reusability": "Private",
+      "Category": "Case",
+      "SchemaVersion": "2-12-0",
+      "AppliesTo": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "InitializationStage": {
+        "Stage": {
+          "ReferenceID": "SendSMSCreation",
+          "Namespace": "ResourceLibrary"
+        },
+        "EntryStatus": {
+          "ReferenceID": "New-SendSMSCreation",
+          "Namespace": "ResourceLibrary"
+        }
+      },
+      "OptionalActions": [
+        {
+          "Action": {
+            "ReferenceID": "Edit",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsCaseOpen",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "pyChangeStage",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsCaseOpen",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "ReassignTask",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsCaseOpen",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "Reopen",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsCaseResolved",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "RestartCurrentStage",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsCaseOpen",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "ResolveCase",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsCaseOpen",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "ChangeCaseGoalAndDeadline",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "HasCaseSLA",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "ChangeAssignmentGoalAndDeadline",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "HasAssignmentSLA",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "GetSendSMSUpdate",
+            "Namespace": "ResourceLibrary"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Always"
+          }
+        }
+      ],
+      "PrimaryFields": [
+        {
+          "ReferenceID": "From",
+          "Namespace": "ResourceLibrary"
+        },
+        {
+          "ReferenceID": "To",
+          "Namespace": "ResourceLibrary"
+        },
+        {
+          "ReferenceID": "MessageBody",
+          "Namespace": "ResourceLibrary"
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "InitialUrgency": 10,
+      "PrimaryStages": [
+        {
+          "Stage": {
+            "ReferenceID": "InProgress",
+            "Namespace": "ResourceLibrary"
+          },
+          "EntryStatus": {
+            "ReferenceID": "Open-InProgress",
+            "Namespace": "ResourceLibrary"
+          },
+          "Transition": "Manual",
+          "SkipStage": {
+            "SkipType": "Never"
+          }
+        },
+        {
+          "Stage": {
+            "ReferenceID": "Completed",
+            "Namespace": "ResourceLibrary"
+          },
+          "EntryStatus": {
+            "ReferenceID": "Pending-Completed",
+            "Namespace": "ResourceLibrary"
+          },
+          "Transition": "Resolution",
+          "SkipStage": {
+            "SkipType": "Never"
+          },
+          "ResolutionConfiguration": {
+            "Status": {
+              "ReferenceID": "Resolved-Completed2",
+              "Namespace": "ResourceLibrary"
+            }
+          }
+        }
+      ],
+      "AlternateStages": [
+        {
+          "Stage": {
+            "ReferenceID": "Withdrawn",
+            "Namespace": "ResourceLibrary"
+          },
+          "EntryStatus": {
+            "ReferenceID": "Pending-Withdrawn",
+            "Namespace": "ResourceLibrary"
+          },
+          "Transition": "Resolution",
+          "ResolutionConfiguration": {
+            "Status": {
+              "ReferenceID": "Resolved-Withdrawn2",
+              "Namespace": "ResourceLibrary"
+            }
+          }
+        }
+      ],
+      "Name": "Send SMS",
+      "PluralName": "Send SMSs",
+      "LookupDataPage": {
+        "ReferenceID": "SendSMSLookup",
+        "Namespace": "ResourceLibrary"
+      },
+      "ListDataPage": {
+        "ReferenceID": "SendSMSList",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "CaseType",
+      "IdPrefix": "S-",
+      "RuleResolutionID": "SendSMS",
+      "EnableGetNextWork": true,
+      "Display": {
+        "ReferenceID": "SendSMSDisplay",
+        "Namespace": "ResourceLibrary"
+      },
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "FullObjectDisplay": [
+    {
+      "Heading": {
+        "Type": "FieldReference",
+        "Root": {
+          "Name": "Primary",
+          "Type": "Variable"
+        },
+        "Field": {
+          "ReferenceID": "Name",
+          "Type": "RuleReference",
+          "Namespace": "PegaPlatform"
+        }
+      },
+      "Description": "Send SMS Display",
+      "Reusability": "PublicMayOverride",
+      "UsePrimaryFields": true,
+      "SchemaVersion": "0-1-0",
+      "AppliesTo": {
+        "ReferenceID": "SendSMS",
+        "Namespace": "ResourceLibrary"
+      },
+      "ShowLifecycle": true,
+      "Namespace": "ResourceLibrary",
+      "Name": "Send SMS Display",
+      "Type": "FullObjectDisplay",
+      "Utilities": [
+        {
+          "EmbedListUUID__": "_0km4hip60",
+          "Widget": {
+            "Namespace": "PegaPlatform",
+            "ReferenceID": "Attachments",
+            "Type": "RuleReference"
+          },
+          "Type": "WidgetItem",
+          "Config": "{\"label\":\"@L Attachments\",\"iconName\":\"paper-clip\"}"
+        },
+        {
+          "EmbedListUUID__": "_23jx8dhrn",
+          "Widget": {
+            "Namespace": "PegaPlatform",
+            "ReferenceID": "Followers",
+            "Type": "RuleReference"
+          },
+          "Type": "WidgetItem",
+          "Config": "{\"label\":\"@L Followers\",\"iconName\":\"user-star\"}"
+        }
+      ],
+      "Subheading": {
+        "Type": "FieldReference",
+        "Root": {
+          "Name": "Primary",
+          "Type": "Variable"
+        },
+        "Field": {
+          "ReferenceID": "BusinessID",
+          "Type": "RuleReference",
+          "Namespace": "PegaPlatform"
+        }
+      },
+      "RuleResolutionID": "SendSMSDisplay",
+      "Tabs": [
+        {
+          "EmbedListUUID__": "_a3jmn3d9h",
+          "Heading": "Details",
+          "View": {
+            "ReferenceID": "pyDetailsTabContent",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        },
+        {
+          "EmbedListUUID__": "_mnfgj55u2",
+          "Heading": "Pulse",
+          "View": {
+            "ReferenceID": "pyCasePulse",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        },
+        {
+          "EmbedListUUID__": "_5a99jhs0u",
+          "Heading": "History",
+          "View": {
+            "ReferenceID": "History",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        }
+      ],
+      "Icon": "case-solid",
+      "FieldsToHighlight": 0,
+      "SummaryFields": [],
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Application": [
+    {
+      "Type": "Application",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-4-1",
+      "Version": "0.1.0-1",
+      "IconConfiguration": {
+        "IconClass": "rocket-solid"
+      },
+      "RuleResolutionID": "ResourceLibrary",
+      "Dependencies": [
+        {
+          "Type": "ReleasedAppDependency",
+          "ReleaseID": "179cc36a-f8c6-4758-adc9-7477237d2224"
+        }
+      ],
+      "PreviewAs": "",
+      "DefaultAccessGroup": {
+        "ReferenceID": "DevelopersPreviewOnly",
+        "Namespace": "ResourceLibrary"
+      },
+      "Namespace": "ResourceLibrary",
+      "Name": "Resource Library",
+      "ActionToBePerformed": "MODIFIED"
+    }
+  ],
+  "ConfigurationSet": [
+    {
+      "Type": "ConfigurationSet",
+      "Description": "Twilio",
+      "Reusability": "PublicMayReuse",
+      "SetViewReference": {
+        "ReferenceID": "Twilio",
+        "Namespace": "ResourceLibrary",
+        "ReferenceScope": {
+          "ReferenceID": "ConfigurationSetViews",
+          "Namespace": "PegaPlatform"
+        }
+      },
+      "SchemaVersion": "0-0-1",
+      "RuleResolutionID": "Twilio",
+      "RuleBasedConfigurations": [
+        {
+          "RuleType": "AuthenticationProfile",
+          "ReferencedRule": {
+            "ReferenceID": "Twilio",
+            "Namespace": "ResourceLibrary"
+          },
+          "Description": "Update Twilio details based on subscriber"
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "Twilio",
+      "ActionToBePerformed": "ADDED"
+    }
+  ]
+}
