@@ -1,8 +1,11 @@
 # Email examples
 
 <!-- TOC -->
-* [Geocoding examples](#Geocoding-examples)
-    * [Get Address Components](#Get-Address-Components)
+* [Email examples](#email-examples)
+  * [Retrieve Emails](#retrieve-emails)
+    * [Java code info](#java-code-info)
+    * [Function rule configuration](#function-rule-configuration)
+    * [JSON Transform rule configuration](#json-transform-rule-configuration)
 <!-- TOC -->
 
 ## Retrieve Emails
