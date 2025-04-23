@@ -10,10 +10,14 @@ repositories {
     mavenCentral()
 }
 
+val junitVersion = extra["PegaLaunchpadFunctionsJunitVersion"].toString();
+
 dependencies {
-    implementation("jakarta.activation:jakarta.activation-api:2.1.3")
-    implementation("jakarta.mail:jakarta.mail-api:2.1.3")
-    implementation("com.sun.mail:jakarta.mail:2.0.1")
+    implementation("com.google.code.gson:gson:2.12.1")
+    implementation("com.sun.mail:javax.mail:1.6.2")
+    testImplementation(platform("org.junit:junit-bom:${junitVersion}"))
+    testImplementation("org.junit.jupiter:junit-jupiter")
+    compileOnly("org.jetbrains:annotations:24.1.0")
 }
 
 tasks.test {
