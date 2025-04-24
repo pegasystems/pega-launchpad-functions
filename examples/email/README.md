@@ -24,8 +24,9 @@ Simple example of retrieving email from pop or imap servers. Customize as desire
     - String port
     - String user
     - String password
-    - String protocol (imap, pop3, pop3s, etc)
+    - String protocol (imap, pop3, java, etc)
     - int maxCount: maximum number of emails to retrieve
+    - boolean unseenOnly: If true, will request the mail server to only retrieve unseen messages
     - boolean mock: If true, will not attempt to connect to the email server, and will return a mocked response for testing
 - Output parameters:
     - **Type**: *[choose one of your application's case types where you want to store the results]*
@@ -49,6 +50,7 @@ Simple example of retrieving email from pop or imap servers. Customize as desire
   "errorMessage": "",
   "messages": [
     {
+      "receivedDate": "Apr 24, 2025, 12:10:01 PM",
       "from": "[noreply@pega.com]",
       "subject": "mock",
       "body": "mock data",
