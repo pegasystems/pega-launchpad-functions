@@ -3,6 +3,7 @@ package com.pega.launchpad.email;
 
 import javax.mail.*;
 import javax.mail.internet.MimeMultipart;
+import javax.mail.search.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -14,7 +15,7 @@ public class EmailRetriever {
      * Example of retrieve mail from a pop or imap server
      * @return An EmailResponse object which contains success/fail information and a list of messages
      */
-    public static EmailResponse retrieve(String host, String port, String user, String password, String protocol, int maxCount, boolean mock) {
+    public static EmailResponse retrieve(String host, String port, String user, String password, String protocol, int maxCount, boolean unseenOnly, boolean mock) {
         EmailResponse response = new EmailResponse();
         response.success = true;
         response.errorMessage = "";
@@ -33,6 +34,7 @@ public class EmailRetriever {
 
             if (mock) {
                 EmailMetadata metadata = new EmailMetadata();
+                metadata.receivedDate = new Date();
                 metadata.from = Arrays.toString(new String[]{"noreply@pega.com"});
                 metadata.subject = "mock";
                 metadata.body = "mock data";
@@ -52,11 +54,21 @@ public class EmailRetriever {
 
                     emailFolder.open(Folder.READ_ONLY);
 
-                    Message[] messages = emailFolder.getMessages();
+                    Message[] messages;
+
+                    if (unseenOnly) {
+                        Flags seen = new Flags(Flags.Flag.SEEN);
+                        FlagTerm unseenFlagTerm = new FlagTerm(seen, false);
+
+                        messages = emailFolder.search(unseenFlagTerm);
+                    } else {
+                        messages = emailFolder.getMessages();
+                    }
 
                     int count = 0;
                     for (Message message : messages) {
                         EmailMetadata metadata = new EmailMetadata();
+                        metadata.receivedDate = message.getReceivedDate();
                         metadata.from = Arrays.toString(message.getFrom());
                         metadata.subject = message.getSubject();
                         metadata.body = getTextFromMessage(message);
