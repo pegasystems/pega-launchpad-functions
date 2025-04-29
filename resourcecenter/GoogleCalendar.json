@@ -371,7 +371,7 @@
     {
       "DataPageMode": "ListOfRecords",
       "Description": "Event list",
-      "Reusability": "Private",
+      "Reusability": "PublicMayOverride",
       "DataConnection": {
         "CallReference": {
           "ReferenceID": "EventList",
@@ -446,11 +446,11 @@
             },
             "Namespace": "PegaPlatform"
           },
+          "Type": "",
           "Description": "calendarID",
           "Required": "true",
           "Mode": "SingleRecord",
-          "Name": "calendarID",
-          "Type": ""
+          "Name": "calendarID"
         },
         {
           "ObjectType": {
@@ -463,11 +463,11 @@
             },
             "Namespace": "PegaPlatform"
           },
+          "Type": "",
           "Description": "timeMin",
           "Required": "true",
           "Mode": "SingleRecord",
-          "Name": "timeMin",
-          "Type": ""
+          "Name": "timeMin"
         },
         {
           "ObjectType": {
@@ -480,11 +480,11 @@
             },
             "Namespace": "PegaPlatform"
           },
+          "Type": "",
           "Description": "timeMax",
           "Required": "true",
           "Mode": "SingleRecord",
-          "Name": "timeMax",
-          "Type": ""
+          "Name": "timeMax"
         }
       ],
       "ActionToBePerformed": "ADDED"
@@ -657,14 +657,14 @@
             "ParameterName": "calendarID",
             "Source": {
               "Type": "Variable",
-              "Name": "calendarID"
+              "Name": "CalendarID"
             }
           },
           {
             "ParameterName": "eventID",
             "Source": {
               "Type": "Variable",
-              "Name": "eventID"
+              "Name": "EventID"
             }
           }
         ]
@@ -702,27 +702,28 @@
             },
             "Namespace": "PegaPlatform"
           },
+          "Type": "",
           "Description": "calendarID",
           "Required": "true",
           "Mode": "SingleRecord",
-          "Name": "calendarID",
-          "Type": ""
+          "Name": "CalendarID"
         },
         {
-          "Mode": "SingleRecord",
-          "Required": "true",
-          "Name": "eventID",
-          "Description": "eventID",
           "ObjectType": {
             "TypeReferenceID": "Text",
-            "Namespace": "PegaPlatform",
             "Type": "TypeReference",
             "Format": {
+              "Type": "RuleReference",
               "ReferenceID": "Text",
-              "Namespace": "PegaPlatform",
-              "Type": "RuleReference"
-            }
-          }
+              "Namespace": "PegaPlatform"
+            },
+            "Namespace": "PegaPlatform"
+          },
+          "Description": "eventID",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "EventID",
+          "Type": ""
         }
       ],
       "ActionToBePerformed": "ADDED"
@@ -1736,7 +1737,7 @@
       "Namespace": "ResourceLibrary",
       "Name": "Events",
       "Template": "ListPage",
-      "ViewMetadata": "{\"name\":\"Events\",\"type\":\"View\",\"config\":{\"type\":\"listpage\",\"template\":\"ListPage\",\"icon\":\"pi pi-headline\",\"title\":\"@L Events\",\"showUploadRecords\":true,\"ruleClass\":\"Data-Portal\",\"ruleClassNamespace\":\"ResourceLibrary\",\"rowHeader\":{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .Name\",\"label\":\"@L Name\"}},\"presets\":[{\"name\":\"presets\",\"template\":\"Table\",\"config\":{},\"children\":[{\"name\":\"Columns\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .EventID\",\"label\":\"@L EventID\"}},{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .Summary\",\"label\":\"@L Summary\"}},{\"type\":\"TextArea\",\"config\":{\"value\":\"@P .Description\",\"label\":\"@L Description\"}},{\"type\":\"DateTime\",\"config\":{\"value\":\"@P .StartDateTime\",\"label\":\"@L StartDateTime\"}},{\"type\":\"DateTime\",\"config\":{\"value\":\"@P .EndDateTime\",\"label\":\"@L EndDateTime\"}},{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .CalendarID\",\"label\":\"@L CalendarID\"}}]}],\"label\":\"@L Event list\",\"id\":\"P_1744269344131\"}],\"referenceList\":\"EventList\",\"actions\":[{\"action\":\"ADD_CASE\",\"config\":{\"label\":\"@L Add\",\"caseType\":\"Event\",\"inputFields\":{}}}],\"allowAddingNewRecords\":true,\"editing\":true,\"parameters\":{\"calendarID\":\"HeliosVenturesDemo@gmail.com\",\"timeMin\":\"2025-04-01T22:00:00.000Z\",\"timeMax\":\"2025-12-24T22:00:00.000Z\"}},\"ID\":\"ce4dd4a1-742c-4568-8f46-26d16238ce41\"}",
+      "ViewMetadata": "{\"name\":\"Events\",\"type\":\"View\",\"config\":{\"type\":\"listpage\",\"template\":\"ListPage\",\"icon\":\"pi pi-headline\",\"title\":\"@L Events\",\"showUploadRecords\":true,\"ruleClass\":\"Data-Portal\",\"ruleClassNamespace\":\"ResourceLibrary\",\"rowHeader\":{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .Name\",\"label\":\"@L Name\"}},\"presets\":[{\"name\":\"presets\",\"template\":\"Table\",\"config\":{},\"children\":[{\"name\":\"Columns\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .EventID\",\"label\":\"@L EventID\",\"additionalDetails\":{\"type\":\"DISPLAY_LINK\",\"params\":{}}}},{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .Summary\",\"label\":\"@L Summary\"}},{\"type\":\"TextArea\",\"config\":{\"value\":\"@P .Description\",\"label\":\"@L Description\"}},{\"type\":\"DateTime\",\"config\":{\"value\":\"@P .StartDateTime\",\"label\":\"@L StartDateTime\"}},{\"type\":\"DateTime\",\"config\":{\"value\":\"@P .EndDateTime\",\"label\":\"@L EndDateTime\"}},{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .CalendarID\",\"label\":\"@L CalendarID\"}}]}],\"label\":\"@L Event list\",\"id\":\"P_1744269344131\"}],\"referenceList\":\"EventList\",\"actions\":[{\"action\":\"ADD_CASE\",\"config\":{\"label\":\"@L Add\",\"caseType\":\"Event\",\"inputFields\":{}}}],\"allowAddingNewRecords\":true,\"editing\":true,\"parameters\":{\"calendarID\":\"HeliosVenturesDemo@gmail.com\",\"timeMin\":\"2025-04-01T22:00:00.000Z\",\"timeMax\":\"2025-12-24T22:00:00.000Z\"}},\"ID\":\"ce4dd4a1-742c-4568-8f46-26d16238ce41\"}",
       "ActionToBePerformed": "ADDED"
     },
     {
@@ -2319,8 +2320,8 @@
         "Description": "",
         "Mode": "SingleRecord",
         "ObjectType": {
-          "TypeReferenceID": "BusinessObject",
-          "Namespace": "PegaPlatform",
+          "TypeReferenceID": "Event",
+          "Namespace": "ResourceLibrary",
           "Type": "TypeReference"
         }
       },
@@ -2336,15 +2337,59 @@
           "Type": "ActionReturn",
           "Source": {
             "Type": "CallExpression",
+            "CallType": "DataConnection",
             "CallReference": {
-              "ReferenceID": "UpdateObjectInLocalSOR",
-              "Namespace": "PegaPlatform"
+              "Type": "RuleReference",
+              "ReferenceID": "UpdateEvent",
+              "Namespace": "ResourceLibrary",
+              "ReferenceScope": {
+                "Type": "RuleReference",
+                "ReferenceID": "Event",
+                "Namespace": "ResourceLibrary"
+              }
             },
-            "CallType": "Automation",
-            "CallResource": {
-              "Type": "Variable",
-              "Name": "Primary"
-            }
+            "CallInputs": [
+              {
+                "Type": "CallInput",
+                "ParameterName": "CalendarID",
+                "Source": {
+                  "Type": "FieldReference",
+                  "Root": {
+                    "Type": "Variable",
+                    "Name": "Primary"
+                  },
+                  "Field": {
+                    "Type": "RuleReference",
+                    "ReferenceID": "CalendarID",
+                    "Namespace": "ResourceLibrary"
+                  }
+                }
+              },
+              {
+                "Type": "CallInput",
+                "ParameterName": "EventObject",
+                "Source": {
+                  "Type": "Variable",
+                  "Name": "Primary"
+                }
+              },
+              {
+                "Type": "CallInput",
+                "ParameterName": "EventID",
+                "Source": {
+                  "Type": "FieldReference",
+                  "Root": {
+                    "Type": "Variable",
+                    "Name": "Primary"
+                  },
+                  "Field": {
+                    "Type": "RuleReference",
+                    "ReferenceID": "EventID",
+                    "Namespace": "ResourceLibrary"
+                  }
+                }
+              }
+            ]
           }
         }
       ],
@@ -2557,37 +2602,40 @@
       "CallType": "ResourceObject",
       "RuleSteps": [
         {
-          "Id": "_kznby7olp",
-          "Type": "ActionCall",
-          "AsyncMode": false,
-          "Call": {
+          "Id": "_ccibt4jz9",
+          "Type": "ActionReturn",
+          "Source": {
             "Type": "CallExpression",
+            "CallType": "DataConnection",
             "CallReference": {
+              "Type": "RuleReference",
               "ReferenceID": "CreateEvent",
               "Namespace": "ResourceLibrary",
               "ReferenceScope": {
+                "Type": "RuleReference",
                 "ReferenceID": "Event",
                 "Namespace": "ResourceLibrary"
               }
             },
-            "CallType": "DataConnection",
             "CallInputs": [
               {
-                "ParameterName": "calendarID",
+                "Type": "CallInput",
+                "ParameterName": "CalendarID",
                 "Source": {
                   "Type": "FieldReference",
                   "Root": {
-                    "Name": "Primary",
-                    "Type": "Variable"
+                    "Type": "Variable",
+                    "Name": "Primary"
                   },
                   "Field": {
+                    "Type": "RuleReference",
                     "ReferenceID": "CalendarID",
-                    "Namespace": "ResourceLibrary",
-                    "Type": "RuleReference"
+                    "Namespace": "ResourceLibrary"
                   }
                 }
               },
               {
+                "Type": "CallInput",
                 "ParameterName": "EventObject",
                 "Source": {
                   "Type": "Variable",
@@ -2595,14 +2643,6 @@
                 }
               }
             ]
-          }
-        },
-        {
-          "Id": "_ccibt4jz9",
-          "Type": "ActionReturn",
-          "Source": {
-            "Type": "Variable",
-            "Name": "Primary"
           }
         }
       ],
@@ -4543,7 +4583,7 @@
             "ParameterName": "calendarID",
             "Source": {
               "Type": "Variable",
-              "Name": "calendarID"
+              "Name": "CalendarID"
             }
           },
           {
@@ -4615,7 +4655,7 @@
           "Description": "calendarID",
           "Required": "true",
           "Mode": "SingleRecord",
-          "Name": "calendarID"
+          "Name": "CalendarID"
         },
         {
           "ObjectType": {
@@ -4840,6 +4880,135 @@
       "ActionToBePerformed": "ADDED"
     },
     {
+      "Connector": {
+        "CallReference": {
+          "ReferenceID": "UpdateEvent",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "Calendar",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "RESTConnector",
+        "CallInputs": [
+          {
+            "ParameterName": "CalendarId",
+            "Source": {
+              "Type": "Variable",
+              "Name": "CalendarID"
+            }
+          },
+          {
+            "ParameterName": "EventId",
+            "Source": {
+              "Type": "Variable",
+              "Name": "EventID"
+            }
+          },
+          {
+            "ParameterName": "RequestBody",
+            "Source": {
+              "Type": "CallExpression",
+              "CallReference": {
+                "ReferenceID": "UpdateEventRequest",
+                "Namespace": "ResourceLibrary",
+                "ReferenceScope": {
+                  "ReferenceID": "Event",
+                  "Namespace": "ResourceLibrary"
+                }
+              },
+              "CallType": "JSONTransform",
+              "CallInputs": [
+                {
+                  "ParameterName": "EventObject",
+                  "Source": {
+                    "Type": "Variable",
+                    "Name": "EventObject"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "Description": "",
+      "Reusability": "Private",
+      "ConnectionType": "REST_CONNECTOR",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "Event",
+        "Namespace": "ResourceLibrary"
+      },
+      "CallType": "Library",
+      "Operation": "UPDATE",
+      "Namespace": "ResourceLibrary",
+      "Name": "Update Event",
+      "Type": "DataConnection",
+      "ResponseJSONTransform": {
+        "ReferenceID": "UpdateEventResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "UpdateEvent",
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "Event",
+          "Namespace": "ResourceLibrary"
+        },
+        "Description": "",
+        "Mode": "SingleRecord"
+      },
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            },
+            "Namespace": "PegaPlatform"
+          },
+          "Type": "",
+          "Description": "CalendarID",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "CalendarID"
+        },
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Event",
+            "Namespace": "ResourceLibrary"
+          },
+          "Type": "",
+          "Description": "EventObject",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "EventObject"
+        },
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            },
+            "Namespace": "PegaPlatform"
+          },
+          "Type": "",
+          "Description": "EventID",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "EventID"
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
       "Description": "Returns a single record of Event",
       "Reusability": "Private",
       "Query": {
@@ -4973,6 +5142,25 @@
       "AllowOn": "INDIVIDUAL_AND_BULK",
       "Namespace": "ResourceLibrary",
       "Name": "DeleteEvent",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Action",
+      "Description": "Edit",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-1",
+      "AppliesTo": {
+        "ReferenceID": "Event",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Edit",
+      "View": {
+        "ReferenceID": "Edit",
+        "Namespace": "PegaPlatform"
+      },
+      "Namespace": "PegaPlatform",
+      "AllowOn": "INDIVIDUAL_AND_BULK",
+      "Name": "Edit",
       "ActionToBePerformed": "ADDED"
     },
     {
@@ -5132,6 +5320,55 @@
       },
       "Auto-mapAll": false,
       "Direction": "DESERIALIZE",
+      "SampleJSONData": "{\"description\":\"input\",\"id\":\"input\",\"name\":\"Google Calendar\",\"inspectionResult\":\"{\\\"JsonInspectionResponse\\\":{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonInspectionResponse\\\",\\\"jsonDocument\\\":{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonDocument\\\",\\\"fields\\\":{\\\"field\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"calendar#event\\\",\\\"path\\\":\\\"/kind\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"kind\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"\\\\\\\"3490639201805918\\\\\\\"\\\",\\\"path\\\":\\\"/etag\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"etag\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"9pfku3p3pcltmfl969bj2aj2nc\\\",\\\"path\\\":\\\"/id\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"id\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"confirmed\\\",\\\"path\\\":\\\"/status\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"status\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"https://www.google.com/calendar/event?eid=OXBma3UzcDNwY2x0bWZsOTY5YmoyYWoybmMgaGVsaW9zdmVudHVyZXNkZW1vQG0\\\",\\\"path\\\":\\\"/htmlLink\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"htmlLink\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"2025-04-15T12:01:37.000Z\\\",\\\"path\\\":\\\"/created\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"created\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"2025-04-22T11:00:00.902Z\\\",\\\"path\\\":\\\"/updated\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"updated\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"TEST Meeting with Team\\\",\\\"path\\\":\\\"/summary\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"summary\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"Discuss project updates and next steps.\\\",\\\"path\\\":\\\"/description\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"description\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"123 Main St, Anytown, USA\\\",\\\"path\\\":\\\"/location\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"location\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/creator\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"creator\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"pegalp@dazzling-ocean-455507-h8.iam.gserviceaccount.com\\\",\\\"path\\\":\\\"/creator/email\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"email\\\"}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/organizer\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"organizer\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"\\\",\\\"path\\\":\\\"/organizer/email\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"email\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":true,\\\"path\\\":\\\"/organizer/self\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"BOOLEAN\\\",\\\"name\\\":\\\"self\\\"}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/start\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"start\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"2025-05-05T19:00:00+02:00\\\",\\\"path\\\":\\\"/start/dateTime\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"dateTime\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"America/Los_Angeles\\\",\\\"path\\\":\\\"/start/timeZone\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"timeZone\\\"}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/end\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"end\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"2025-05-05T20:00:00+02:00\\\",\\\"path\\\":\\\"/end/dateTime\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"dateTime\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"America/Los_Angeles\\\",\\\"path\\\":\\\"/end/timeZone\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"timeZone\\\"}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"\\\",\\\"path\\\":\\\"/iCalUID\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"iCalUID\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":1,\\\"path\\\":\\\"/sequence\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"INTEGER\\\",\\\"name\\\":\\\"sequence\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/reminders\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"reminders\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":true,\\\"path\\\":\\\"/reminders/useDefault\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"BOOLEAN\\\",\\\"name\\\":\\\"useDefault\\\"}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"default\\\",\\\"path\\\":\\\"/eventType\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"eventType\\\"}]}},\\\"executionTime\\\":0}}\",\"showFields\":true,\"documentType\":\"JSON\",\"inspectionType\":\"INSTANCE\",\"inspectionSource\":\"{\\\"kind\\\":\\\"calendar#event\\\",\\\"etag\\\":\\\"\\\\\\\"3490639201805918\\\\\\\"\\\",\\\"id\\\":\\\"9pfku3p3pcltmfl969bj2aj2nc\\\",\\\"status\\\":\\\"confirmed\\\",\\\"htmlLink\\\":\\\"https://www.google.com/calendar/event?eid=OXBma3UzcDNwY2x0bWZsOTY5YmoyYWoybmMgaGVsaW9zdmVudHVyZXNkZW1vQG0\\\",\\\"created\\\":\\\"2025-04-15T12:01:37.000Z\\\",\\\"updated\\\":\\\"2025-04-22T11:00:00.902Z\\\",\\\"summary\\\":\\\"TEST Meeting with Team\\\",\\\"description\\\":\\\"Discuss project updates and next steps.\\\",\\\"location\\\":\\\"123 Main St, Anytown, USA\\\",\\\"creator\\\":{\\\"email\\\":\\\"pegalp@dazzling-ocean-455507-h8.iam.gserviceaccount.com\\\"},\\\"organizer\\\":{\\\"email\\\":\\\"\\\",\\\"self\\\":true},\\\"start\\\":{\\\"dateTime\\\":\\\"2025-05-05T19:00:00+02:00\\\",\\\"timeZone\\\":\\\"America/Los_Angeles\\\"},\\\"end\\\":{\\\"dateTime\\\":\\\"2025-05-05T20:00:00+02:00\\\",\\\"timeZone\\\":\\\"America/Los_Angeles\\\"},\\\"iCalUID\\\":\\\"\\\",\\\"sequence\\\":1,\\\"reminders\\\":{\\\"useDefault\\\":true},\\\"eventType\\\":\\\"default\\\"}\",\"inspectionParameters\":{\"key\":\"value\"},\"lazyLoad\":false}",
+      "Namespace": "ResourceLibrary",
+      "Name": "UpdateEventResponse",
+      "TopLevelStructure": "OBJECT",
+      "Type": "JSONTransform",
+      "Output": {
+        "Description": "",
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "Event",
+          "Namespace": "ResourceLibrary"
+        },
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "UpdateEventResponse",
+      "TopElementStructure": "",
+      "MappingsDefinition": "{\"AtlasMapping\":{\"jsonType\":\"io.atlasmap.v2.AtlasMapping\",\"dataSource\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"input\",\"name\":\"Google Calendar\",\"description\":\"input\",\"uri\":\"atlas:json:input\",\"dataSourceType\":\"SOURCE\"},{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"output\",\"name\":\"Event\",\"description\":\"output\",\"uri\":\"atlas:json:output\",\"dataSourceType\":\"TARGET\"}],\"mappings\":{\"mapping\":[{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.342772\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"status\",\"path\":\"/status\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"Name\",\"path\":\"/PegaPlatform;;Name\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.459832\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"id\",\"path\":\"/id\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"EventID\",\"path\":\"/ResourceLibrary;;EventID\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.903756\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"email\",\"path\":\"/organizer/email\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"CalendarID\",\"path\":\"/ResourceLibrary;;CalendarID\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]}]},\"name\":\"UI.0\",\"version\":\"1.0.0\",\"lookupTables\":{\"lookupTable\":[]},\"constants\":{\"constant\":[]},\"properties\":{\"property\":[]}}}",
+      "Inputs": [
+        {
+          "Name": "JSON string",
+          "Description": "This is a JSON string that will be transformed to a Pega object",
+          "Type": "",
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            },
+            "Namespace": "PegaPlatform"
+          },
+          "Required": "true",
+          "Mode": "SingleRecord"
+        }
+      ],
+      "MappingModel": "",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Description": "",
+      "Reusability": "PublicMayOverride",
+      "SchemaVersion": "3-1-1",
+      "AppliesTo": {
+        "ReferenceID": "Event",
+        "Namespace": "ResourceLibrary"
+      },
+      "Auto-mapAll": false,
+      "Direction": "DESERIALIZE",
       "SampleJSONData": "{\"description\":\"input\",\"id\":\"input\",\"name\":\"Google Calendar\",\"inspectionResult\":\"{\\\"JsonInspectionResponse\\\":{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonInspectionResponse\\\",\\\"jsonDocument\\\":{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonDocument\\\",\\\"fields\\\":{\\\"field\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"calendar#events\\\",\\\"path\\\":\\\"/kind\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"kind\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"\\\\\\\"p33ntfgs9ib5oo0o\\\\\\\"\\\",\\\"path\\\":\\\"/etag\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"etag\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"testemai@test.com\\\",\\\"path\\\":\\\"/summary\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"summary\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"\\\",\\\"path\\\":\\\"/description\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"description\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"2025-04-09T14:17:30.596Z\\\",\\\"path\\\":\\\"/updated\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"updated\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"Europe/Warsaw\\\",\\\"path\\\":\\\"/timeZone\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"timeZone\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"owner\\\",\\\"path\\\":\\\"/accessRole\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"accessRole\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"collectionType\\\":\\\"LIST\\\",\\\"path\\\":\\\"/defaultReminders<>\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"defaultReminders\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"popup\\\",\\\"path\\\":\\\"/defaultReminders<>/method\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"method\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":10,\\\"path\\\":\\\"/defaultReminders<>/minutes\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"INTEGER\\\",\\\"name\\\":\\\"minutes\\\"}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"CkAKMAouCgwIz8f48gUQgMjZgQESHgocCho0OG52YmxhbXVjb3Q4b2ppMm8waThwdmwzNBoMCLWE2r8GEMDM2bkDwD4B\\\",\\\"path\\\":\\\"/nextPageToken\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"nextPageToken\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"collectionType\\\":\\\"LIST\\\",\\\"path\\\":\\\"/items<>\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"items\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"calendar#event\\\",\\\"path\\\":\\\"/items<>/kind\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"kind\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"\\\\\\\"2637152186000000\\\\\\\"\\\",\\\"path\\\":\\\"/items<>/etag\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"etag\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"_60q30c1g60o30e1i60o4ac1g60rj8gpl88rj2c1h84s34h9g60s30c1g60o30c1g60o36d9p711j6dhk6osk6gpg64o30c1g60o30c1g60o30c1g60o32c1g60o30c1g6ss3adhl85238dhi68qj8h1k8ksjchi1851jic1g710j0h1p68sg\\\",\\\"path\\\":\\\"/items<>/id\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"id\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"confirmed\\\",\\\"path\\\":\\\"/items<>/status\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"status\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"test\\\",\\\"path\\\":\\\"/items<>/htmlLink\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"htmlLink\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"2011-10-14T07:08:13.000Z\\\",\\\"path\\\":\\\"/items<>/created\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"created\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"2011-10-14T07:08:13.000Z\\\",\\\"path\\\":\\\"/items<>/updated\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"updated\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"title\\\",\\\"path\\\":\\\"/items<>/summary\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"summary\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"test\\\",\\\"path\\\":\\\"/items<>/description\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"description\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/items<>/creator\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"creator\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"testemai@test.com\\\",\\\"path\\\":\\\"/items<>/creator/email\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"email\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":true,\\\"path\\\":\\\"/items<>/creator/self\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"BOOLEAN\\\",\\\"name\\\":\\\"self\\\"}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/items<>/organizer\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"organizer\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"testemai@test.com\\\",\\\"path\\\":\\\"/items<>/organizer/email\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"email\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":true,\\\"path\\\":\\\"/items<>/organizer/self\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"BOOLEAN\\\",\\\"name\\\":\\\"self\\\"}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/items<>/start\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"start\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"2011-09-02T14:30:00+02:00\\\",\\\"path\\\":\\\"/items<>/start/dateTime\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"dateTime\\\"}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/items<>/end\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"end\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"2011-09-02T15:00:00+02:00\\\",\\\"path\\\":\\\"/items<>/end/dateTime\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"dateTime\\\"}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"040000008200E00074C5B7101A82E00800000000003598C36469CC0100000000000000001000000078565AD462254D4E96FAAC9008A0D929\\\",\\\"path\\\":\\\"/items<>/iCalUID\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"iCalUID\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":0,\\\"path\\\":\\\"/items<>/sequence\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"INTEGER\\\",\\\"name\\\":\\\"sequence\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/items<>/reminders\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"reminders\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":true,\\\"path\\\":\\\"/items<>/reminders/useDefault\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"BOOLEAN\\\",\\\"name\\\":\\\"useDefault\\\"}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"default\\\",\\\"path\\\":\\\"/items<>/eventType\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"eventType\\\"}]}}]}},\\\"executionTime\\\":0}}\",\"showFields\":true,\"documentType\":\"JSON\",\"inspectionType\":\"INSTANCE\",\"inspectionSource\":\"{\\\"kind\\\":\\\"calendar#events\\\",\\\"etag\\\":\\\"\\\\\\\"p33ntfgs9ib5oo0o\\\\\\\"\\\",\\\"summary\\\":\\\"testemai@test.com\\\",\\\"description\\\":\\\"\\\",\\\"updated\\\":\\\"2025-04-09T14:17:30.596Z\\\",\\\"timeZone\\\":\\\"Europe/Warsaw\\\",\\\"accessRole\\\":\\\"owner\\\",\\\"defaultReminders\\\":[{\\\"method\\\":\\\"popup\\\",\\\"minutes\\\":10},{\\\"method\\\":\\\"email\\\",\\\"minutes\\\":10}],\\\"nextPageToken\\\":\\\"CkAKMAouCgwIz8f48gUQgMjZgQESHgocCho0OG52YmxhbXVjb3Q4b2ppMm8waThwdmwzNBoMCLWE2r8GEMDM2bkDwD4B\\\",\\\"items\\\":[{\\\"kind\\\":\\\"calendar#event\\\",\\\"etag\\\":\\\"\\\\\\\"2637152186000000\\\\\\\"\\\",\\\"id\\\":\\\"_60q30c1g60o30e1i60o4ac1g60rj8gpl88rj2c1h84s34h9g60s30c1g60o30c1g60o36d9p711j6dhk6osk6gpg64o30c1g60o30c1g60o30c1g60o32c1g60o30c1g6ss3adhl85238dhi68qj8h1k8ksjchi1851jic1g710j0h1p68sg\\\",\\\"status\\\":\\\"confirmed\\\",\\\"htmlLink\\\":\\\"test\\\",\\\"created\\\":\\\"2011-10-14T07:08:13.000Z\\\",\\\"updated\\\":\\\"2011-10-14T07:08:13.000Z\\\",\\\"summary\\\":\\\"title\\\",\\\"description\\\":\\\"test\\\",\\\"creator\\\":{\\\"email\\\":\\\"testemai@test.com\\\",\\\"self\\\":true},\\\"organizer\\\":{\\\"email\\\":\\\"testemai@test.com\\\",\\\"self\\\":true},\\\"start\\\":{\\\"dateTime\\\":\\\"2011-09-02T14:30:00+02:00\\\"},\\\"end\\\":{\\\"dateTime\\\":\\\"2011-09-02T15:00:00+02:00\\\"},\\\"iCalUID\\\":\\\"040000008200E00074C5B7101A82E00800000000003598C36469CC0100000000000000001000000078565AD462254D4E96FAAC9008A0D929\\\",\\\"sequence\\\":0,\\\"reminders\\\":{\\\"useDefault\\\":true},\\\"eventType\\\":\\\"default\\\"},{\\\"kind\\\":\\\"calendar#event\\\",\\\"etag\\\":\\\"\\\\\\\"2637152188000000\\\\\\\"\\\",\\\"id\\\":\\\"_60q30c1g60o30e1i60o4ac1g60rj8gpl88rj2c1h84s34h9g60s30c1g60o30c1g64o3ighk60pk8gpp6sr46gpg64o30c1g60o30c1g60o30c1g60o32c1g60o30c1g88s38h9o851k2cpg8grjadpk8l0jega16gr4cg9i89142cq18ks0\\\",\\\"status\\\":\\\"confirmed\\\",\\\"htmlLink\\\":\\\"test\\\",\\\"created\\\":\\\"2011-10-14T07:08:14.000Z\\\",\\\"updated\\\":\\\"2011-10-14T07:08:14.000Z\\\",\\\"summary\\\":\\\"summary1\\\",\\\"creator\\\":{\\\"email\\\":\\\"testemai@test.com\\\",\\\"self\\\":true},\\\"organizer\\\":{\\\"email\\\":\\\"testemai@test.com\\\",\\\"self\\\":true},\\\"start\\\":{\\\"dateTime\\\":\\\"2011-09-19T14:30:00+02:00\\\"},\\\"end\\\":{\\\"dateTime\\\":\\\"2011-09-19T15:00:00+02:00\\\"},\\\"iCalUID\\\":\\\"040000008200E00074C5B7101A82E00800000000109B403DC976CC01000000000000000010000000B84E8ACA30D7574EA7AA46FA2BBA3AE8\\\",\\\"sequence\\\":0,\\\"reminders\\\":{\\\"useDefault\\\":true},\\\"eventType\\\":\\\"default\\\"}]}\",\"inspectionParameters\":{\"key\":\"value\"},\"lazyLoad\":false}",
       "Namespace": "ResourceLibrary",
       "Name": "Get Event List",
@@ -5188,7 +5425,7 @@
       },
       "Auto-mapAll": false,
       "Direction": "DESERIALIZE",
-      "SampleJSONData": "{\"description\":\"input\",\"id\":\"input\",\"name\":\"Google Calendar\",\"inspectionResult\":\"{\\\"JsonInspectionResponse\\\":{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonInspectionResponse\\\",\\\"jsonDocument\\\":{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonDocument\\\",\\\"fields\\\":{\\\"field\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"calendar#event\\\",\\\"path\\\":\\\"/kind\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"kind\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"\\\\\\\"3488590152447038\\\\\\\"\\\",\\\"path\\\":\\\"/etag\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"etag\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"6ad9fe19cjui2vh1ela57gqlbs\\\",\\\"path\\\":\\\"/id\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"id\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"confirmed\\\",\\\"path\\\":\\\"/status\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"status\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"https://www.google.com/calendar/event?eid=NmFkOWZlMTljanVpMnZoMWVsYTU3Z3FsYnMgZ3J6ZWdvcnouaGVyb2tAbQ\\\",\\\"path\\\":\\\"/htmlLink\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"htmlLink\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"2025-04-10T14:24:36.000Z\\\",\\\"path\\\":\\\"/created\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"created\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"2025-04-10T14:24:36.223Z\\\",\\\"path\\\":\\\"/updated\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"updated\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"TEST Meeting with Team\\\",\\\"path\\\":\\\"/summary\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"summary\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"Discuss project updates and next steps.\\\",\\\"path\\\":\\\"/description\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"description\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"123 Main St, Anytown, USA\\\",\\\"path\\\":\\\"/location\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"location\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/creator\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"creator\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"grzegorz.herok@gmail.com\\\",\\\"path\\\":\\\"/creator/email\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"email\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":true,\\\"path\\\":\\\"/creator/self\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"BOOLEAN\\\",\\\"name\\\":\\\"self\\\"}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/organizer\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"organizer\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"grzegorz.herok@gmail.com\\\",\\\"path\\\":\\\"/organizer/email\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"email\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":true,\\\"path\\\":\\\"/organizer/self\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"BOOLEAN\\\",\\\"name\\\":\\\"self\\\"}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/start\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"start\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"2025-05-05T19:00:00+02:00\\\",\\\"path\\\":\\\"/start/dateTime\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"dateTime\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"America/Los_Angeles\\\",\\\"path\\\":\\\"/start/timeZone\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"timeZone\\\"}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/end\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"end\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"2025-05-05T20:00:00+02:00\\\",\\\"path\\\":\\\"/end/dateTime\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"dateTime\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"America/Los_Angeles\\\",\\\"path\\\":\\\"/end/timeZone\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"timeZone\\\"}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"6ad9fe19cjui2vh1ela57gqlbs@google.com\\\",\\\"path\\\":\\\"/iCalUID\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"iCalUID\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":0,\\\"path\\\":\\\"/sequence\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"INTEGER\\\",\\\"name\\\":\\\"sequence\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/reminders\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"reminders\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":true,\\\"path\\\":\\\"/reminders/useDefault\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"BOOLEAN\\\",\\\"name\\\":\\\"useDefault\\\"}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"default\\\",\\\"path\\\":\\\"/eventType\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"eventType\\\"}]}},\\\"executionTime\\\":0}}\",\"showFields\":true,\"documentType\":\"JSON\",\"inspectionType\":\"INSTANCE\",\"inspectionSource\":\"{\\\"kind\\\":\\\"calendar#event\\\",\\\"etag\\\":\\\"\\\\\\\"3488590152447038\\\\\\\"\\\",\\\"id\\\":\\\"6ad9fe19cjui2vh1ela57gqlbs\\\",\\\"status\\\":\\\"confirmed\\\",\\\"htmlLink\\\":\\\"https://www.google.com/calendar/event?eid=NmFkOWZlMTljanVpMnZoMWVsYTU3Z3FsYnMgZ3J6ZWdvcnouaGVyb2tAbQ\\\",\\\"created\\\":\\\"2025-04-10T14:24:36.000Z\\\",\\\"updated\\\":\\\"2025-04-10T14:24:36.223Z\\\",\\\"summary\\\":\\\"TEST Meeting with Team\\\",\\\"description\\\":\\\"Discuss project updates and next steps.\\\",\\\"location\\\":\\\"123 Main St, Anytown, USA\\\",\\\"creator\\\":{\\\"email\\\":\\\"grzegorz.herok@gmail.com\\\",\\\"self\\\":true},\\\"organizer\\\":{\\\"email\\\":\\\"grzegorz.herok@gmail.com\\\",\\\"self\\\":true},\\\"start\\\":{\\\"dateTime\\\":\\\"2025-05-05T19:00:00+02:00\\\",\\\"timeZone\\\":\\\"America/Los_Angeles\\\"},\\\"end\\\":{\\\"dateTime\\\":\\\"2025-05-05T20:00:00+02:00\\\",\\\"timeZone\\\":\\\"America/Los_Angeles\\\"},\\\"iCalUID\\\":\\\"6ad9fe19cjui2vh1ela57gqlbs@google.com\\\",\\\"sequence\\\":0,\\\"reminders\\\":{\\\"useDefault\\\":true},\\\"eventType\\\":\\\"default\\\"}\",\"inspectionParameters\":{\"key\":\"value\"},\"lazyLoad\":false}",
+      "SampleJSONData": "{\"description\":\"input\",\"id\":\"input\",\"name\":\"Google Calendar\",\"inspectionResult\":\"{\\\"JsonInspectionResponse\\\":{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonInspectionResponse\\\",\\\"jsonDocument\\\":{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonDocument\\\",\\\"fields\\\":{\\\"field\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"calendar#event\\\",\\\"path\\\":\\\"/kind\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"kind\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"\\\\\\\"3488590152447038\\\\\\\"\\\",\\\"path\\\":\\\"/etag\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"etag\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"6ad9fe19cjui2vh1ela57gqlbs\\\",\\\"path\\\":\\\"/id\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"id\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"confirmed\\\",\\\"path\\\":\\\"/status\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"status\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"https://www.google.com/calendar/event?eid=NmFkOWZlMTljanVpMnZoMWVsYTU3Z3FsYnMgZ3J6ZWdvcnouaGVyb2tAbQ\\\",\\\"path\\\":\\\"/htmlLink\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"htmlLink\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"2025-04-10T14:24:36.000Z\\\",\\\"path\\\":\\\"/created\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"created\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"2025-04-10T14:24:36.223Z\\\",\\\"path\\\":\\\"/updated\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"updated\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"TEST Meeting with Team\\\",\\\"path\\\":\\\"/summary\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"summary\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"Discuss project updates and next steps.\\\",\\\"path\\\":\\\"/description\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"description\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"123 Main St, Anytown, USA\\\",\\\"path\\\":\\\"/location\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"location\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/creator\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"creator\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"\\\",\\\"path\\\":\\\"/creator/email\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"email\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":true,\\\"path\\\":\\\"/creator/self\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"BOOLEAN\\\",\\\"name\\\":\\\"self\\\"}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/organizer\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"organizer\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"\\\",\\\"path\\\":\\\"/organizer/email\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"email\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":true,\\\"path\\\":\\\"/organizer/self\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"BOOLEAN\\\",\\\"name\\\":\\\"self\\\"}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/start\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"start\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"2025-05-05T19:00:00+02:00\\\",\\\"path\\\":\\\"/start/dateTime\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"dateTime\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"America/Los_Angeles\\\",\\\"path\\\":\\\"/start/timeZone\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"timeZone\\\"}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/end\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"end\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"2025-05-05T20:00:00+02:00\\\",\\\"path\\\":\\\"/end/dateTime\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"dateTime\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"America/Los_Angeles\\\",\\\"path\\\":\\\"/end/timeZone\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"timeZone\\\"}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"6ad9fe19cjui2vh1ela57gqlbs@google.com\\\",\\\"path\\\":\\\"/iCalUID\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"iCalUID\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":0,\\\"path\\\":\\\"/sequence\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"INTEGER\\\",\\\"name\\\":\\\"sequence\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/reminders\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"reminders\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":true,\\\"path\\\":\\\"/reminders/useDefault\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"BOOLEAN\\\",\\\"name\\\":\\\"useDefault\\\"}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"default\\\",\\\"path\\\":\\\"/eventType\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"eventType\\\"}]}},\\\"executionTime\\\":0}}\",\"showFields\":true,\"documentType\":\"JSON\",\"inspectionType\":\"INSTANCE\",\"inspectionSource\":\"{\\\"kind\\\":\\\"calendar#event\\\",\\\"etag\\\":\\\"\\\\\\\"3488590152447038\\\\\\\"\\\",\\\"id\\\":\\\"6ad9fe19cjui2vh1ela57gqlbs\\\",\\\"status\\\":\\\"confirmed\\\",\\\"htmlLink\\\":\\\"https://www.google.com/calendar/event?eid=NmFkOWZlMTljanVpMnZoMWVsYTU3Z3FsYnMgZ3J6ZWdvcnouaGVyb2tAbQ\\\",\\\"created\\\":\\\"2025-04-10T14:24:36.000Z\\\",\\\"updated\\\":\\\"2025-04-10T14:24:36.223Z\\\",\\\"summary\\\":\\\"TEST Meeting with Team\\\",\\\"description\\\":\\\"Discuss project updates and next steps.\\\",\\\"location\\\":\\\"123 Main St, Anytown, USA\\\",\\\"creator\\\":{\\\"email\\\":\\\"\\\",\\\"self\\\":true},\\\"organizer\\\":{\\\"email\\\":\\\"\\\",\\\"self\\\":true},\\\"start\\\":{\\\"dateTime\\\":\\\"2025-05-05T19:00:00+02:00\\\",\\\"timeZone\\\":\\\"America/Los_Angeles\\\"},\\\"end\\\":{\\\"dateTime\\\":\\\"2025-05-05T20:00:00+02:00\\\",\\\"timeZone\\\":\\\"America/Los_Angeles\\\"},\\\"iCalUID\\\":\\\"6ad9fe19cjui2vh1ela57gqlbs@google.com\\\",\\\"sequence\\\":0,\\\"reminders\\\":{\\\"useDefault\\\":true},\\\"eventType\\\":\\\"default\\\"}\",\"inspectionParameters\":{\"key\":\"value\"},\"lazyLoad\":false}",
       "Namespace": "ResourceLibrary",
       "Name": "CreateEventResponse",
       "TopLevelStructure": "OBJECT",
@@ -5203,7 +5440,7 @@
         "Description": "",
         "Mode": "SingleRecord"
       },
-      "MappingsDefinition": "{\"AtlasMapping\":{\"jsonType\":\"io.atlasmap.v2.AtlasMapping\",\"dataSource\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"input\",\"name\":\"Google Calendar\",\"description\":\"input\",\"uri\":\"atlas:json:input\",\"dataSourceType\":\"SOURCE\"},{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"output\",\"name\":\"Event\",\"description\":\"output\",\"uri\":\"atlas:json:output\",\"dataSourceType\":\"TARGET\"}],\"mappings\":{\"mapping\":[{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.342772\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"status\",\"path\":\"/status\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"Name\",\"path\":\"/PegaPlatform;;Name\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]}]},\"name\":\"UI.0\",\"version\":\"1.0.0\",\"lookupTables\":{\"lookupTable\":[]},\"constants\":{\"constant\":[]},\"properties\":{\"property\":[]}}}",
+      "MappingsDefinition": "{\"AtlasMapping\":{\"jsonType\":\"io.atlasmap.v2.AtlasMapping\",\"dataSource\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"input\",\"name\":\"Google Calendar\",\"description\":\"input\",\"uri\":\"atlas:json:input\",\"dataSourceType\":\"SOURCE\"},{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"output\",\"name\":\"Event\",\"description\":\"output\",\"uri\":\"atlas:json:output\",\"dataSourceType\":\"TARGET\"}],\"mappings\":{\"mapping\":[{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.342772\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"status\",\"path\":\"/status\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"Name\",\"path\":\"/PegaPlatform;;Name\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.459832\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"id\",\"path\":\"/id\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"EventID\",\"path\":\"/ResourceLibrary;;EventID\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.903756\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"email\",\"path\":\"/organizer/email\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"CalendarID\",\"path\":\"/ResourceLibrary;;CalendarID\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]}]},\"name\":\"UI.0\",\"version\":\"1.0.0\",\"lookupTables\":{\"lookupTable\":[]},\"constants\":{\"constant\":[]},\"properties\":{\"property\":[]}}}",
       "TopElementStructure": "",
       "Inputs": [
         {
@@ -5324,6 +5561,55 @@
       ],
       "MappingModel": "",
       "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Description": "",
+      "Reusability": "PublicMayOverride",
+      "SchemaVersion": "3-1-1",
+      "AppliesTo": {
+        "ReferenceID": "Event",
+        "Namespace": "ResourceLibrary"
+      },
+      "Auto-mapAll": false,
+      "Direction": "SERIALIZE",
+      "SampleJSONData": "{\"description\":\"output\",\"id\":\"output\",\"name\":\"Google Calendar\",\"inspectionResult\":\"{\\\"JsonInspectionResponse\\\":{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonInspectionResponse\\\",\\\"jsonDocument\\\":{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonDocument\\\",\\\"fields\\\":{\\\"field\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"TEST Meeting with Team\\\",\\\"path\\\":\\\"/summary\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"summary\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"123 Main St, Anytown, USA\\\",\\\"path\\\":\\\"/location\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"location\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"Discuss project updates and next steps.\\\",\\\"path\\\":\\\"/description\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"description\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/start\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"start\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"2025-05-05T10:00:00-07:00\\\",\\\"path\\\":\\\"/start/dateTime\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"dateTime\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"America/Los_Angeles\\\",\\\"path\\\":\\\"/start/timeZone\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"timeZone\\\"}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/end\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"end\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"2025-05-05T11:00:00-07:00\\\",\\\"path\\\":\\\"/end/dateTime\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"dateTime\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"America/Los_Angeles\\\",\\\"path\\\":\\\"/end/timeZone\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"timeZone\\\"}]}}]}},\\\"executionTime\\\":0}}\",\"showFields\":true,\"documentType\":\"JSON\",\"inspectionType\":\"INSTANCE\",\"inspectionSource\":\"{\\\"summary\\\":\\\"TEST Meeting with Team\\\",\\\"location\\\":\\\"123 Main St, Anytown, USA\\\",\\\"description\\\":\\\"Discuss project updates and next steps.\\\",\\\"start\\\":{\\\"dateTime\\\":\\\"2025-05-05T10:00:00-07:00\\\",\\\"timeZone\\\":\\\"America/Los_Angeles\\\"},\\\"end\\\":{\\\"dateTime\\\":\\\"2025-05-05T11:00:00-07:00\\\",\\\"timeZone\\\":\\\"America/Los_Angeles\\\"}}\",\"inspectionParameters\":{\"key\":\"value\"},\"lazyLoad\":false}",
+      "Namespace": "ResourceLibrary",
+      "Name": "Update Event Request",
+      "TopLevelStructure": "OBJECT",
+      "Type": "JSONTransform",
+      "RuleResolutionID": "UpdateEventRequest",
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "Text",
+          "Format": {
+            "Type": "RuleReference",
+            "ReferenceID": "Text",
+            "Namespace": "PegaPlatform"
+          },
+          "Namespace": "PegaPlatform"
+        },
+        "Description": "",
+        "Mode": "SingleRecord"
+      },
+      "MappingsDefinition": "{\"AtlasMapping\":{\"jsonType\":\"io.atlasmap.v2.AtlasMapping\",\"dataSource\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"input\",\"name\":\"Event\",\"description\":\"input\",\"uri\":\"atlas:json:input\",\"dataSourceType\":\"SOURCE\"},{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"output\",\"name\":\"Google Calendar\",\"description\":\"output\",\"uri\":\"atlas:json:output\",\"dataSourceType\":\"TARGET\"}],\"mappings\":{\"mapping\":[{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.865052\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"Summary\",\"path\":\"/ResourceLibrary;;Summary\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"summary\",\"path\":\"/summary\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.887110\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"Description\",\"path\":\"/PegaPlatform;;Description\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"description\",\"path\":\"/description\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.645942\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"StartDateTime\",\"path\":\"/ResourceLibrary;;StartDateTime\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"dateTime\",\"path\":\"/start/dateTime\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.70189\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"EndDateTime\",\"path\":\"/ResourceLibrary;;EndDateTime\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"dateTime\",\"path\":\"/end/dateTime\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]}]},\"name\":\"UI.0\",\"version\":\"1.0.0\",\"lookupTables\":{\"lookupTable\":[]},\"constants\":{\"constant\":[]},\"properties\":{\"property\":[]}}}",
+      "TopElementStructure": "",
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Event",
+            "Namespace": "ResourceLibrary"
+          },
+          "Type": "",
+          "Description": "This is a Pega object that will be transformed to a JSON string",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "EventObject"
+        }
+      ],
+      "MappingModel": "",
+      "ActionToBePerformed": "ADDED"
     }
   ],
   "DynamicText": [
@@ -5393,9 +5679,9 @@
         "Scope": "https://www.googleapis.com/auth/calendar",
         "JWTBearer": {
           "Claims": {
-            "Issuer": "x.iam.gserviceaccount.com",
+            "Issuer": "x.gserviceaccount.com",
             "Audience": "https://oauth2.googleapis.com/token",
-            "Subject": "x.iam.gserviceaccount.com",
+            "Subject": "x.gserviceaccount.com",
             "Expiry": 900
           },
           "PrivateKey": "AAAAAnYxrO0ABXNyADVjb20ucGVnYS5mbnguZW5jcnlwdGlvbmVuZ2luZS5tb2RlbC5FbmNyeXB0ZWREYXRhVW5pdAAAAAAAAAABAgACTAAWZGF0YUVuY3J5cHRpb25NZXRhZGF0YXQAPExjb20vcGVnYS9mbngvZW5jcnlwdGlvbmVuZ2luZS9tb2RlbC9EYXRhRW5jcnlwdGlvbk1ldGFkYXRhO1sADWVuY3J5cHRlZERhdGF0AAJbQnhwc3IAOmNvbS5wZWdhLmZueC5lbmNyeXB0aW9uZW5naW5lLm1vZGVsLkRhdGFFbmNyeXB0aW9uTWV0YWRhdGEAAAAAAAAAAQIABUwAGWRhdGFFbmNyeXB0aW9uQWxnb3JpdGhtSWR0ABJMamF2YS9sYW5nL1N0cmluZztbAAZkYXRhSVZxAH4AAlsAEWVuY3J5cHRpb25Db250ZXh0cQB+AAJMABNrZXlXcmFwcGluZ01ldGFkYXRhdAA5TGNvbS9wZWdhL2ZueC9lbmNyeXB0aW9uZW5naW5lL21vZGVsL0tleVdyYXBwaW5nTWV0YWRhdGE7WwAKd3JhcHBlZERFS3EAfgACeHB0ABVBRVMyNTZfR0NNX0JDX05PQkxPQ0t1cgACW0Ks8xf4BghU4AIAAHhwAAAAENPjU4wg9SLkTXEoSdF+yht1cQB+AAkAAAAkYTIxYTE5MDktYzY2NC00MWJlLWJmYzUtOWEzY2UwZGFlNTJjc3IAN2NvbS5wZWdhLmZueC5lbmNyeXB0aW9uZW5naW5lLm1vZGVsLktleVdyYXBwaW5nTWV0YWRhdGEAAAAAAAAAAQIABUwAFmtleVdyYXBwaW5nQWxnb3JpdGhtSWRxAH4ABVsABWt3a0lWcQB+AAJMAAdrd2tOYW1lcQB+AAVMAAdrd2tUeXBldAA3TGNvbS9wZWdhL2ZueC9lbmNyeXB0aW9uZW5naW5lL21vZGVsL0VuY3J5cHRpb25LZXlUeXBlO0wACmt3a1ZlcnNpb25xAH4ABXhwcQB+AAh1cQB+AAkAAAAQRBFQsjrl2I2wgJe4a98AZ3QAbjYzZjczNjQ5LWY3MGYtNGMwMi05NzM5LWU5YzQ4NDEyYzFkNF9hMjFhMTkwOS1jNjY0LTQxYmUtYmZjNS05YTNjZTBkYWU1MmMvYTIxYTE5MDktYzY2NC00MWJlLWJmYzUtOWEzY2UwZGFlNTJjfnIANWNvbS5wZWdhLmZueC5lbmNyeXB0aW9uZW5naW5lLm1vZGVsLkVuY3J5cHRpb25LZXlUeXBlAAAAAAAAAAASAAB4cgAOamF2YS5sYW5nLkVudW0AAAAAAAAAABIAAHhwdAAMSVNPTEFUSU9OX0lEdAAkN2ZhM2NjNzMtNGRlNy00YzE1LWE2ZDAtNmYyYjEzMjQ5MWU4dXEAfgAJAAAAMF5jY1mtzbK5xk1gFvRdBdrvHqHHgavioDD0CB4Xs/Sar9P2bhMZ3rLSJbKyTGfoHXVxAH4ACQAABrcMOFNqBvTRxx+JXCFETzJdbPeZacpJ55UwkR5Fxsl+18yIw7autbLfktQNBz4sloSPQCsOCDHLXMlPVau7Va9u5ifFISGO2UOAiBXG3KuppMBBESYxzaqWhmx7jYd6MqvmJtoJJoVi/gsMIgeYA2Oia4ArvYBD1JHcBOhZdAiWBSnI+sPBygI7Zam+RGkjNBiRevtXpDjZ6fASnN4Sc1INarA3mdgN/4Bkb95CQ183zkSTZL1cx9Ui+lbQLI1EI/gJxjPH/EGlJlWEF0mmIQNJJMFZ8Gr9kHeTqSXhPBBWVPC2/HauRILNM7b+LCDpQ1i7NEGGXmzWlAjPRUBM81y113Kihrpdvzkb9bWnFDV/GmsaTzZCPiRRxqD9p4vHEHX8/gzg0zcPPAkA88kicxcfE2hXsPm/Azzspw+9Mo6s+qgAohju9IdyKVVQI3dn5eFz4CuuSaGMUNxZRAhoA/aVntpXqAFhU1720j7JVSmLifbeKIYJ9PQK9URG5L7n7ZMTFQ7LT0RutALz4V1icVAdwTvpxnhMtj72fDpR/NddOr43OCot1lhCnKbnyfkH8E4jv5ptWmsTjiWcgnTb4AXSlZfpyQCAz/NayyZI8PqYSE1tyf4u0iD39T88jRs/OwR5SHyums1s5IXRZPFM5rfYF0fKysk4kI28Wzu9Qj6ZFNZSHwKeTsjeH/qEH0QyydaX50cojCJCMxqZNjQLXPvYJaykZOYGqF+6HU0b0YfnL9Dx5jzgOGtxktzXLh0n0OjvsgoAdQ0sYZ/YdK0ydzUT/XPwOMW2wlxYqUujOjA0aJyyhuuiDP970e9kQ4eXBQSDRvEe5qyTBUfxp6rsp019yUL//EAqJ5P44e0QTZsrXNua1cuT9QWFW7Lzm2Ur1Vf0QsNo3Bq7MCvX85Ay3B+itVjmBeOJHnBvop1I5XjOhE6P2sqpu44yE87yZ5nc8zGun9uDXxtnTAEKNOgQkprQfpNwOQyb3xBKhBmtg2ykB4QK6sOAAKviRDOFncBGT2PTklNcOWjAXTxANKAi/Q1n0acxwVxwHwOokdSHROvXmJS1TZjdVqDCV2DgMAqvacx21Vfch3skEIoj6zdWNXinnznmSOj/CG5PW5ylelO4SMdtc5xfEXlvBBcFL70vqd1eI2GunYGgQy+wW/vaGr9+hbE2H+8R++ZVh0u1XizWmMO9X0RLPcdOwjqKzY5ZxXnDAJ8+KSkCfh80OVXir4UfPJnlFLV4gcrZjw0/ncCyNqvryU/QHnykZtATCDiBn8z5yu5ZEMYWABe6zPrWS1i8ec9rDIGOmxLdhMb5+RMc0d4eYPnTC6shIk13ZPCce65ZxlCP7KLanM6wPQng7xts5vuY+nO80wU75NO0o4rfi4+CUky3fHKE5p0O01YIBYYx8gx+QYG28ukwkfrdMfIKjwsInpgXyDUs/hA3KZH//La/rvhYcaqupx3/XCec/WD6wOl7KDCeGD/BiTfFIAUgeqVXQCy6U/s9CceQvNpUf3dQQId3wABZOirJZpQwEOJOjzWZnFpwWy7sP1NrUn3MEqKROrynCqZzIVlEpjI9HVHVWuysMU0licofAOVDNcYf9d6fwT13InNVZXEVVJ7Af8DWjINigD26ROjg65/WFVLig4kRzy3IbsbhV3WnUdreJ5yBvu+t77HrBa0srOBZ2Si7wZWvRUWsAKESWQ3zBSXu/0lrG/p8ODKuyOvWEimVgTuGn41IRSYBvQ3PBmy/FVj/jBEGxxMGvM+GQCrNGuZG/cfFKbJSHk/msDpaUBYdAz5Qsy3oQvOdpnvKHqyJ4krSRtscQIISaGhW2HfqPYTtmZr90gEymU9lgiJso62Zu3cQoQhL8yr7Igw4FmSvEJOWb6IU2cH6qgcRMBGPmbMvuFOxz4hVmaTOGJxoVji+HVD0bHeDsHnzOL96eck5rw3eQiKX8Yx5sgjkq7eCiBQqqJBuVnDwTLBidgwY8gw43/RFgcV0tuq4i+kG807/TpSrNjgndVMOHG92CS4jZQAx7DGMFXUGxdLF2/oLLytfjyR9JjNlp2IqCYpoY6vt9o/MxrqWT4lw8iEjsav/o3FjFiZiggr4qyWQF2x34ElNKEXyCQJntFILi1EKzU3eKxCUcNHn6mF6ru57X4PG+t78re9VFgWfP6rB0IGOkd8Mxb32NphIvfNnX85OIl2x3HEYdtbrGKGvVMy8WtK+ayvk42I/Dp2zOXnVcKp6US7kHNwHQUBoiaJwb/LZu5jGobCQxjoTpSaPFclvQ4IBdtFaIOGNgwM="
