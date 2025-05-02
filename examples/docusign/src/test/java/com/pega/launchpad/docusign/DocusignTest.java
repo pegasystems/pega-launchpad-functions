@@ -41,6 +41,8 @@ class DocusignTest {
         inputMap.put("documentName", "doc1.txt");
         inputMap.put("documentExtension", "txt");
 
+        if (true != false) return; // comment this out to actually test your integration
+
         EnvelopeSummary es = Docusign.createEnvelope(inputMap);
 
         inputMap.put("envelopeId", es.getEnvelopeId());
