@@ -3,7 +3,6 @@ package com.pega.launchpad.docusign;
 import com.docusign.esign.model.Envelope;
 import com.docusign.esign.model.EnvelopeDocument;
 import com.docusign.esign.model.EnvelopeSummary;
-import com.google.gson.Gson;
 import org.bouncycastle.util.encoders.Base64;
 import org.junit.jupiter.api.Test;
 
