@@ -19,15 +19,15 @@ public class Docusign {
     }
 
     private static AuthResult createApiClient(Map<String, String> inputMap) throws Exception {
-        ApiClient apiClient = new ApiClient("https://demo.docusign.net/restapi");
-        apiClient.setOAuthBasePath("account-d.docusign.com");
+        ApiClient apiClient = new ApiClient(inputMap.getOrDefault("basePath","https://demo.docusign.net/restapi"));
+        apiClient.setOAuthBasePath(inputMap.getOrDefault("oAuthBasePath", "account-d.docusign.com"));
         ArrayList<String> scopes = new ArrayList<String>();
         scopes.add("signature");
         scopes.add("impersonation");
-        byte[] privateKeyBytes = null;
+        byte[] privateKeyBytes = Base64.getDecoder().decode(inputMap.get("privateKeyBase64"));
         OAuthToken oAuthToken = apiClient.requestJWTUserToken(
-                "091fcd65-70d6-40a3-a581-6e20034eb0d5",
-                "567e1f10-18c6-4950-8598-1fd5e7a69388",
+                inputMap.get("clientId"),
+                inputMap.get("userId"),
                 scopes,
                 privateKeyBytes,
                 3600);
@@ -82,8 +82,8 @@ public class Docusign {
 
         // Create envelopeDefinition object
         EnvelopeDefinition envelope = new EnvelopeDefinition();
-        envelope.setEmailSubject("Please sign this document set");
-        envelope.setStatus("sent");
+        envelope.setEmailSubject(inputMap.getOrDefault("subject", "test subject"));
+        envelope.setStatus(inputMap.getOrDefault("status", "sent"));
 
         // Create tabs object
         SignHere signHere = new SignHere();
@@ -95,8 +95,8 @@ public class Docusign {
         tabs.setSignHereTabs(Arrays.asList(signHere));
         // Set recipients
         Signer signer = new Signer();
-        signer.setEmail("tim.miranda@gmail.com");
-        signer.setName("tim miranda");
+        signer.setEmail(inputMap.get("signerEmail"));
+        signer.setName(inputMap.get("signerName"));
         signer.recipientId("1");
         signer.setTabs(tabs);
         Recipients recipients = new Recipients();
@@ -105,15 +105,13 @@ public class Docusign {
 
         // Add document
         Document document = new Document();
-        document.setDocumentBase64("VGhhbmtzIGZvciByZXZpZXdpbmcgdGhpcyEKCldlJ2xsIG1vdmUgZm9yd2FyZCBhcyBzb29uIGFzIHdlIGhlYXIgYmFjay4=");
-        document.setName("doc1.txt");
-        document.setFileExtension("txt");
+        document.setDocumentBase64(inputMap.get("documentContent"));
+        document.setName(inputMap.get("documentName"));
+        document.setFileExtension(inputMap.get("documentExtension"));
         document.setDocumentId("1");
         envelope.setDocuments(List.of(document));
 
         // Send envelope
-
-
         ar.apiClient.addDefaultHeader("Authorization", "Bearer " + ar.accessToken);
         EnvelopesApi envelopesApi = new EnvelopesApi(ar.apiClient);
         return envelopesApi.createEnvelope(ar.accountId, envelope);
