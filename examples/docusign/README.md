@@ -27,6 +27,7 @@ All functions require these inputs to authenticate:
 - oAuthBasePath (String): For development, this can be https://account-d.docusign.com ; otherwise use your production auth endpoint
 - clientId (String): This is your application integration key, see documentation above for more information
 - userId (String): This is the hash ID of the user you will authenticate against
+- privateKeyBase64 (String): The base64 encoded RSA private key file for your app key
 
 ### createEnvelope()
 
@@ -55,6 +56,8 @@ Sample json output (use json transform to map back to your object data model):
 ```
 
 ### getEnvelope()
+
+This example function, given an envelope id, will return the Envelope json object containing the current status and details for the given envelope.
 
 Inputs:
 
@@ -119,6 +122,8 @@ Sample json output (use json transform to map back to your object data model):
 
 ### getEnvelopeDocuments()
 
+This method, given an envelope ID, will return an array of EnvelopeDocument json objects that contain details about each document in the envelope.
+
 Inputs:
 
 - envelopeId: The ID of the envelope returned by createEnvelope() API
@@ -178,6 +183,8 @@ Sample json output (use json transform to map to your object data model):
 ```
 
 ### getDocument()
+
+This method, given an envelope id and document id, will return the content of the document as base64 encoded bytes.
 
 Inputs:
 
