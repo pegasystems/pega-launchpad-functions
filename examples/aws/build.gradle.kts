@@ -17,6 +17,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
     implementation(platform("software.amazon.awssdk:bom:2.27.21"))
     implementation("software.amazon.awssdk:s3")
+    implementation("software.amazon.awssdk:comprehend")
     implementation("com.google.code.gson:gson:2.12.1")
     compileOnly("org.jetbrains:annotations:24.1.0")
 }

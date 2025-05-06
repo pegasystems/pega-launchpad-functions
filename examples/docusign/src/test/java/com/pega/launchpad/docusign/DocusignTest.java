@@ -2,8 +2,8 @@ package com.pega.launchpad.docusign;
 
 import com.docusign.esign.model.Envelope;
 import com.docusign.esign.model.EnvelopeDocument;
+import com.docusign.esign.model.EnvelopeDocumentsResult;
 import com.docusign.esign.model.EnvelopeSummary;
-import com.google.gson.Gson;
 import org.bouncycastle.util.encoders.Base64;
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +11,6 @@ import java.io.FileInputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
@@ -25,13 +24,21 @@ class DocusignTest {
         FileInputStream fis = new FileInputStream(fileName);
         prop.load(fis);
 
+        String clientId = prop.getProperty("clientId");
+        if ("replace".equalsIgnoreCase(clientId)) {
+            System.out.println("authentication options not provided, forcing successful test");
+            return;
+        }
+
         byte[] privateKeyBytes = Files.readAllBytes(Paths.get(prop.getProperty("rsaKeyFile")));
+        String base64 = new String(Base64.encode(privateKeyBytes));
+
 
         Map<String,String> inputMap = new HashMap<>();
 
         inputMap.put("clientId",  prop.getProperty("clientId"));
         inputMap.put("userId", prop.getProperty("userId"));
-        inputMap.put("privateKeyBase64", new String(Base64.encode(privateKeyBytes)));
+        inputMap.put("privateKeyBase64", base64);
 
         inputMap.put("subject", "test subject");
         inputMap.put("status", "sent");
@@ -41,20 +48,13 @@ class DocusignTest {
         inputMap.put("documentName", "doc1.txt");
         inputMap.put("documentExtension", "txt");
 
-        if (true != false) return; // comment this out to actually test your integration
-
         EnvelopeSummary m = (EnvelopeSummary)Docusign.createEnvelope(inputMap);
-        System.out.println(m);
 
-        inputMap.put("envelopeId", (String) m.getEnvelopeId());
+        inputMap.put("envelopeId", m.getEnvelopeId());
+        Envelope e = (Envelope)Docusign.getEnvelope(inputMap);
+        EnvelopeDocumentsResult edr = (EnvelopeDocumentsResult)Docusign.getEnvelopeDocuments(inputMap);
 
-        Envelope e = Docusign.getEnvelope(inputMap);
-        System.out.println(e);
-        List<EnvelopeDocument> l = Docusign.getEnvelopeDocuments(inputMap);
-
-        System.out.println(l);
-
-        for (EnvelopeDocument ed : l) {
+        for (EnvelopeDocument ed : edr.getEnvelopeDocuments()) {
             inputMap.put("documentId", ed.getDocumentId());
             String result = Docusign.getDocument(inputMap);
 
