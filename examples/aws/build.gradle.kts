@@ -3,7 +3,7 @@ plugins {
     id("java")
 }
 
-group = "com.pega.launchpad.docusign"
+group = "com.pega.launchpad.aws"
 version = extra["PegaLaunchpadFunctionsGroupVersion"].toString() + "-SNAPSHOT";
 
 repositories {
@@ -15,14 +15,8 @@ val junitVersion = extra["PegaLaunchpadFunctionsJunitVersion"].toString();
 dependencies {
     testImplementation(platform("org.junit:junit-bom:${junitVersion}"))
     testImplementation("org.junit.jupiter:junit-jupiter")
-    implementation("com.docusign:docusign-esign-java:6.1.0-RC1")
-    implementation("com.fasterxml.jackson.core:jackson-databind:2.19.0")
-    implementation("jakarta.ws.rs:jakarta.ws.rs-api:3.1.0")
-    implementation("org.glassfish.jersey.media:jersey-media-multipart:3.1.10")
-    implementation("org.glassfish.jersey.core:jersey-client:3.1.10")
-    implementation("org.glassfish.jersey.media:jersey-media-json-jackson:3.1.10")
-    implementation("com.auth0:java-jwt:3.19.4")
-    implementation("org.bouncycastle:bcprov-jdk15on:1.70")
+    implementation(platform("software.amazon.awssdk:bom:2.27.21"))
+    implementation("software.amazon.awssdk:s3")
     implementation("com.google.code.gson:gson:2.12.1")
     compileOnly("org.jetbrains:annotations:24.1.0")
 }

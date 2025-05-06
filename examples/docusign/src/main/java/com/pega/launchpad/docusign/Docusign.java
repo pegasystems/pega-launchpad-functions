@@ -5,6 +5,7 @@ import com.docusign.esign.client.ApiClient;
 import com.docusign.esign.client.auth.OAuth.OAuthToken;
 import com.docusign.esign.client.auth.OAuth.UserInfo;
 import com.docusign.esign.model.*;
+import com.google.gson.Gson;
 
 import java.util.*;
 import java.util.List;
@@ -76,7 +77,7 @@ public class Docusign {
         return Base64.getEncoder().encodeToString(envelopesApi.getDocument(ar.accountId, envelopeId, documentId));
     }
 
-    public static EnvelopeSummary createEnvelope(Map<String, String> inputMap) throws Exception {
+    public static Object createEnvelope(Map<String, String> inputMap) throws Exception {
         // Get access token and accountId
         AuthResult ar = createApiClient(inputMap);
 
@@ -114,6 +115,8 @@ public class Docusign {
         // Send envelope
         ar.apiClient.addDefaultHeader("Authorization", "Bearer " + ar.accessToken);
         EnvelopesApi envelopesApi = new EnvelopesApi(ar.apiClient);
-        return envelopesApi.createEnvelope(ar.accountId, envelope);
+        EnvelopeSummary es = envelopesApi.createEnvelope(ar.accountId, envelope);
+        String json = new Gson().toJson(es);
+        return new Gson().fromJson(json, EnvelopeSummary.class);
     }
 }

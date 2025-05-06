@@ -3,6 +3,7 @@ package com.pega.launchpad.docusign;
 import com.docusign.esign.model.Envelope;
 import com.docusign.esign.model.EnvelopeDocument;
 import com.docusign.esign.model.EnvelopeSummary;
+import com.google.gson.Gson;
 import org.bouncycastle.util.encoders.Base64;
 import org.junit.jupiter.api.Test;
 
@@ -42,19 +43,24 @@ class DocusignTest {
 
         if (true != false) return; // comment this out to actually test your integration
 
-        EnvelopeSummary es = Docusign.createEnvelope(inputMap);
+        EnvelopeSummary m = (EnvelopeSummary)Docusign.createEnvelope(inputMap);
+        System.out.println(m);
 
-        inputMap.put("envelopeId", es.getEnvelopeId());
+        inputMap.put("envelopeId", (String) m.getEnvelopeId());
 
         Envelope e = Docusign.getEnvelope(inputMap);
-
+        System.out.println(e);
         List<EnvelopeDocument> l = Docusign.getEnvelopeDocuments(inputMap);
 
+        System.out.println(l);
 
         for (EnvelopeDocument ed : l) {
             inputMap.put("documentId", ed.getDocumentId());
             String result = Docusign.getDocument(inputMap);
 
         }
+
+
     }
+
 }
