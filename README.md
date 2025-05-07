@@ -29,7 +29,7 @@ This repository also includes a java software development kit (SDK) to assist in
 
 # Example modules
 
-| Name                             | Description                      | Latest JAR file                                                                                                      |
+| Name                             | Description                      | Latest jar/zip file                                                                                                      |
 |----------------------------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------|
 | [aws](examples/aws/)             | AWS helpers (s3, comprehend)     | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/aws-0.2.3-SNAPSHOT.jar)    |
 | [base64](examples/base64/)       | Encoding/decoding base64 strings | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/base64-0.2.3-SNAPSHOT.jar)    |
@@ -38,9 +38,9 @@ This repository also includes a java software development kit (SDK) to assist in
 | [geocoding](examples/geocoding/) | Geocoding utilities              | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/geocoding-0.2.3-SNAPSHOT.jar) |
 | [net](examples/net/)             | REST and HTTP utilities          | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/net-0.2.3-SNAPSHOT.jar)       | 
 | [nodejs](examples/nodejs/)       | Nodejs function example          | [zip](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/nodejs-0.2.3-SNAPSHOT.jar) |
-| [parser](examples/parser/)       | CSV and JSON parsing             | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/parser-0.2.3-SNAPSHOT.jar)    | 
+| [parser](examples/parser/)       | CSV and JSON parsing             | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/parser-0.2.3-SNAPSHOT.zip)    | 
 | [pdf](examples/pdf/)             | PDF form filler                  | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/pdf-0.2.3-SNAPSHOT.jar)       |
-| [python](examples/python/)       | Python function example          | [zip](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/python-0.2.3-SNAPSHOT.jar)  |
+| [python](examples/python/)       | Python function example          | [zip](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/python-0.2.3-SNAPSHOT.zip)  |
 | [text](examples/text/)           | String utilities                 | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/text-0.2.3-SNAPSHOT.jar)               | 
 
 ## Example modules: Obtaining a JAR or ZIP to import into a Function rule
