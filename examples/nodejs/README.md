@@ -15,7 +15,7 @@ This function performs basic mathematical operations \(addition, subtraction, mu
 ### NodeJS code info
 
 - **File**: `Calculator.mjs`
-- **Function**: calculator.handler
+- **Function**: Calculator.handler
 
 ### Function rule configuration
 
