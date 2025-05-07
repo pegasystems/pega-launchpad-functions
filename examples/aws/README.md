@@ -2,7 +2,19 @@
 
 This java code can be imported into a Function rule in your application for simple AWS service integration.
 
-# Pre-requisities
+<!-- TOC -->
+* [Amazon Web Services Java SDK integration example](#amazon-web-services-java-sdk-integration-example)
+  * [Pre-requisities](#pre-requisities)
+  * [Authentication information](#authentication-information)
+  * [Class: S3Helper](#class-s3helper)
+    * [Method: createBucket()](#method-createbucket)
+    * [Method: listBuckets()](#method-listbuckets)
+    * [Method: putObject()](#method-putobject)
+    * [Method: getObject()](#method-getobject)
+  * [Class: ComprehendHelper](#class-comprehendhelper)
+    * [Method: detectKeyPhrases()](#method-detectkeyphrases)
+<!-- TOC -->
+## Pre-requisities
 
 You will need to set up an [access key](https://docs.aws.amazon.com/console/iam/self-accesskeys) in your AWS account.
 
@@ -53,6 +65,38 @@ Sample json output (use json transform to map back to your object data model):
   }
 }
 ```
+
+### Method: putObject()
+
+This method will put an object into a specific bucket.
+
+Inputs:
+
+1. bucketName (String): Name of the bucket
+2. objectKey (String): Key for the object in s3
+3. objectBase64 (String): base64 encoded content of the object
+
+Sample json output (use json transform to map back to your object data model):
+
+```
+{
+  "ETag": "50b0c58c7ce9f2a8b551351102ee0930",
+  "ServerSideEncryption": "AES256"
+}
+```
+
+### Method: getObject()
+
+This method will get the base64 encoded content of an object from a specific bucket.
+
+Inputs:
+
+1. bucketName (String): Name of the bucket
+2. objectKey (String): Key for the object in s3
+
+Output:
+
+- String: The base64 encoded object content
 
 ## Class: ComprehendHelper
 

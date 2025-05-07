@@ -2,7 +2,19 @@
 
 This java code can be imported into a Function rule in your application for simple Docusign e-signature integration.
 
-# Pre-requisities
+<!-- TOC -->
+* [Docusign Java SDK integration example](#docusign-java-sdk-integration-example)
+  * [Pre-requisities](#pre-requisities)
+  * [eSignature API general documentation](#esignature-api-general-documentation)
+  * [Authentication Information](#authentication-information)
+    * [createEnvelope()](#createenvelope)
+    * [getEnvelope()](#getenvelope)
+    * [getEnvelopeDocuments()](#getenvelopedocuments)
+    * [getDocument()](#getdocument)
+  * [Running unit tests](#running-unit-tests)
+<!-- TOC -->
+
+## Pre-requisities
 
 You will need to set up authentication and authorization to use the docusign APIs. More information can be found here: https://apps-d.docusign.com/admin/apps-and-keys
 
@@ -19,7 +31,7 @@ An example URL you can use to self-consent for your user:
 
 For a list of code examples that use the eSignature API, see the [How-to guides overview](https://developers.docusign.com/docs/esign-rest-api/how-to/) on the Docusign Developer Center.
 
-## Function information
+## Authentication Information
 
 All functions require these inputs to authenticate:
 

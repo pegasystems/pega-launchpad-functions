@@ -8,7 +8,7 @@ import java.util.Map;
 class S3HelperTest {
 
     @Test
-    void function() {
+    void function() throws Exception {
         String accessKeyId = System.getenv("accessKeyId");
         String secretAccessKey = System.getenv("secretAccessKey");
 
@@ -20,8 +20,17 @@ class S3HelperTest {
 
         System.out.println(S3Helper.listBuckets(inputMap));
 
-        inputMap.put("bucketName", "newbucket" + System.currentTimeMillis());
+        String bucketName = "newbucket" + System.currentTimeMillis();
+        inputMap.put("bucketName", bucketName);
         System.out.println(S3Helper.createBucket(inputMap));
 
+        String fileName = "someobject" + System.currentTimeMillis();
+        inputMap.put("objectKey", fileName);
+        inputMap.put("objectBase64", "dGhpcyBpcyBhIHRlc3Q=");
+        System.out.println(S3Helper.putObject(inputMap));
+
+        inputMap.remove("objectBase64");
+
+        System.out.println(S3Helper.getObject(inputMap));
     }
 }
