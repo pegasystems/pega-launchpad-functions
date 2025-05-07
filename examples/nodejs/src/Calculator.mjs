@@ -10,12 +10,10 @@ export const handler = async (event) => {
   // Return the results
   const response = {
       statusCode: 200,
-      body: JSON.stringify({
-          addition: addition,
-          subtraction: subtraction,
-          multiplication: multiplication,
-          division: division
-      }),
+      addition: addition,
+      subtraction: subtraction,
+      multiplication: multiplication,
+      division: division
   };
   return response;
 };

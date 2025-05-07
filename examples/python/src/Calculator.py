@@ -12,8 +12,8 @@ def handler(event, context):
     # Return the results
     return {
         'statusCode': 200,
-            'addition': addition,
-            'subtraction': subtraction,
-            'multiplication': multiplication,
-            'division': division
+        'addition': addition,
+        'subtraction': subtraction,
+        'multiplication': multiplication,
+        'division': division
     }
