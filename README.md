@@ -37,8 +37,8 @@ This repository also includes a java software development kit (SDK) to assist in
 | [email](examples/email/)         | Email utilities                  | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/email-0.2.3-SNAPSHOT.jar)     | 
 | [geocoding](examples/geocoding/) | Geocoding utilities              | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/geocoding-0.2.3-SNAPSHOT.jar) |
 | [net](examples/net/)             | REST and HTTP utilities          | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/net-0.2.3-SNAPSHOT.jar)       | 
-| [nodejs](examples/nodejs/)       | Nodejs function example          | [zip](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/nodejs-0.2.3-SNAPSHOT.jar) |
-| [parser](examples/parser/)       | CSV and JSON parsing             | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/parser-0.2.3-SNAPSHOT.zip)    | 
+| [nodejs](examples/nodejs/)       | Nodejs function example          | [zip](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/nodejs-0.2.3-SNAPSHOT.zip) |
+| [parser](examples/parser/)       | CSV and JSON parsing             | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/parser-0.2.3-SNAPSHOT.jar)    | 
 | [pdf](examples/pdf/)             | PDF form filler                  | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/pdf-0.2.3-SNAPSHOT.jar)       |
 | [python](examples/python/)       | Python function example          | [zip](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/python-0.2.3-SNAPSHOT.zip)  |
 | [text](examples/text/)           | String utilities                 | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/text-0.2.3-SNAPSHOT.jar)               | 
