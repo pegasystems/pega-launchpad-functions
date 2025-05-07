@@ -2,7 +2,19 @@
 
 This java code can be imported into a Function rule in your application for simple Docusign e-signature integration.
 
-# Pre-requisities
+<!-- TOC -->
+* [Docusign Java SDK integration example](#docusign-java-sdk-integration-example)
+  * [Pre-requisities](#pre-requisities)
+  * [eSignature API general documentation](#esignature-api-general-documentation)
+  * [Authentication Information](#authentication-information)
+    * [createEnvelope()](#createenvelope)
+    * [getEnvelope()](#getenvelope)
+    * [getEnvelopeDocuments()](#getenvelopedocuments)
+    * [getDocument()](#getdocument)
+  * [Running unit tests](#running-unit-tests)
+<!-- TOC -->
+
+## Pre-requisities
 
 You will need to set up authentication and authorization to use the docusign APIs. More information can be found here: https://apps-d.docusign.com/admin/apps-and-keys
 
@@ -19,7 +31,7 @@ An example URL you can use to self-consent for your user:
 
 For a list of code examples that use the eSignature API, see the [How-to guides overview](https://developers.docusign.com/docs/esign-rest-api/how-to/) on the Docusign Developer Center.
 
-## Function information
+## Authentication Information
 
 All functions require these inputs to authenticate:
 
@@ -122,7 +134,7 @@ Sample json output (use json transform to map back to your object data model):
 
 ### getEnvelopeDocuments()
 
-This method, given an envelope ID, will return an array of EnvelopeDocument json objects that contain details about each document in the envelope.
+This method, given an envelope ID, will return the EnvelopeDocumentResult json object that contains details about each document in the envelope.
 
 Inputs:
 
@@ -131,55 +143,58 @@ Inputs:
 Sample json output (use json transform to map to your object data model):
 
 ```
-[
 {
-"authoritativeCopy": "false",
-"availableDocumentTypes": [
-{
-"isDefault": "true",
-"type": "electronic"
+  "envelopeDocuments": [
+    {
+      "authoritativeCopy": "false",
+      "availableDocumentTypes": [
+        {
+          "isDefault": "true",
+          "type": "electronic"
+        }
+      ],
+      "display": "inline",
+      "documentId": "1",
+      "documentIdGuid": "a1896dbf-0eb1-4778-9294-c040fafab221",
+      "includeInDownload": "true",
+      "name": "doc1.txt",
+      "order": "1",
+      "pages": [
+        {
+          "dpi": "72",
+          "height": "792",
+          "pageId": "637be6b1-bef6-4589-955f-475e7f68671f",
+          "sequence": "1",
+          "width": "612"
+        }
+      ],
+      "signerMustAcknowledge": "no_interaction",
+      "templateRequired": "false",
+      "type": "content",
+      "uri": "/envelopes/2dbb5b7b-2980-431e-a757-80899bdd7b2f/documents/1"
+    },
+    {
+      "authoritativeCopy": "false",
+      "availableDocumentTypes": [
+        {
+          "isDefault": "true",
+          "type": "electronic"
+        }
+      ],
+      "display": "inline",
+      "documentId": "certificate",
+      "documentIdGuid": "4a599879-1ea2-4527-905b-f9550d7d5ab9",
+      "includeInDownload": "true",
+      "name": "Summary",
+      "order": "999",
+      "signerMustAcknowledge": "no_interaction",
+      "templateRequired": "false",
+      "type": "summary",
+      "uri": "/envelopes/2dbb5b7b-2980-431e-a757-80899bdd7b2f/documents/certificate"
+    }
+  ],
+  "envelopeId": "2dbb5b7b-2980-431e-a757-80899bdd7b2f"
 }
-],
-"display": "inline",
-"documentId": "1",
-"documentIdGuid": "fab3596d-c6b9-40b6-b5be-24a092acedab",
-"includeInDownload": "true",
-"name": "doc1.txt",
-"order": "1",
-"pages": [
-{
-"dpi": "72",
-"height": "792",
-"pageId": "24d5eb34-1f32-4b54-8869-d97e10a2cf17",
-"sequence": "1",
-"width": "612"
-}
-],
-"signerMustAcknowledge": "no_interaction",
-"templateRequired": "false",
-"type": "content",
-"uri": "/envelopes/0d077e5c-ecaa-42c4-a60b-7b437d26c0ad/documents/1"
-},
-{
-"authoritativeCopy": "false",
-"availableDocumentTypes": [
-{
-"isDefault": "true",
-"type": "electronic"
-}
-],
-"display": "inline",
-"documentId": "certificate",
-"documentIdGuid": "86614af8-84c9-4d65-bc1b-d1d05096698f",
-"includeInDownload": "true",
-"name": "Summary",
-"order": "999",
-"signerMustAcknowledge": "no_interaction",
-"templateRequired": "false",
-"type": "summary",
-"uri": "/envelopes/0d077e5c-ecaa-42c4-a60b-7b437d26c0ad/documents/certificate"
-}
-]
 ```
 
 ### getDocument()

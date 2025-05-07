@@ -2,81 +2,79 @@ package com.pega.launchpad.docusign;
 
 import com.docusign.esign.api.EnvelopesApi;
 import com.docusign.esign.client.ApiClient;
+import com.docusign.esign.client.ApiException;
 import com.docusign.esign.client.auth.OAuth.OAuthToken;
 import com.docusign.esign.client.auth.OAuth.UserInfo;
 import com.docusign.esign.model.*;
 
-import java.util.*;
+import java.io.IOException;
 import java.util.List;
+import java.util.*;
 
 public class Docusign {
 
-    private static class AuthResult {
-        ApiClient apiClient;
-        OAuthToken oAuthToken;
-        String accessToken;
-        String accountId;
-    }
-
-    private static AuthResult createApiClient(Map<String, String> inputMap) throws Exception {
-        ApiClient apiClient = new ApiClient(inputMap.getOrDefault("basePath","https://demo.docusign.net/restapi"));
-        apiClient.setOAuthBasePath(inputMap.getOrDefault("oAuthBasePath", "account-d.docusign.com"));
-        ArrayList<String> scopes = new ArrayList<String>();
-        scopes.add("signature");
-        scopes.add("impersonation");
-        byte[] privateKeyBytes = Base64.getDecoder().decode(inputMap.get("privateKeyBase64"));
-        OAuthToken oAuthToken = apiClient.requestJWTUserToken(
-                inputMap.get("clientId"),
-                inputMap.get("userId"),
-                scopes,
-                privateKeyBytes,
-                3600);
-
-        AuthResult result = new AuthResult();
-        result.accessToken = oAuthToken.getAccessToken();
-        UserInfo userInfo = apiClient.getUserInfo(result.accessToken);
-        result.accountId = userInfo.getAccounts().get(0).getAccountId();
-        result.apiClient = apiClient;
-
-        return result;
-    }
-
-    public static Envelope getEnvelope(Map<String, String> inputMap) throws Exception {
+    /**
+     * Given an envelope ID, return the Envelope json object
+     * @param inputMap Must contain authentication info, and envelopeId
+     * @return Object an com.docusign.esign.model.Envelope object
+     * @throws Exception
+     */
+    public static Object getEnvelope(Map<String, String> inputMap) throws IOException, ApiException {
         // Get access token and accountId
         AuthResult ar = createApiClient(inputMap);
 
         String envelopeId = inputMap.get("envelopeId");
 
-        ar.apiClient.addDefaultHeader("Authorization", "Bearer " + ar.accessToken);
+
         EnvelopesApi envelopesApi = new EnvelopesApi(ar.apiClient);
         return envelopesApi.getEnvelope(ar.accountId, envelopeId);
     }
 
-    public static List<EnvelopeDocument> getEnvelopeDocuments(Map<String, String> inputMap) throws Exception {
+    /**
+     *
+     * @param inputMap Must contain authentication info, and envelopeId
+     * @return Object com.docusign.esign.model.EnvelopeDocumentsResult object
+     * @throws IOException
+     * @throws ApiException
+     */
+    public static Object getEnvelopeDocuments(Map<String, String> inputMap) throws IOException, ApiException {
         // Get access token and accountId
         AuthResult ar = createApiClient(inputMap);
 
         String envelopeId = inputMap.get("envelopeId");
 
-        ar.apiClient.addDefaultHeader("Authorization", "Bearer " + ar.accessToken);
+
         EnvelopesApi envelopesApi = new EnvelopesApi(ar.apiClient);
-        EnvelopeDocumentsResult edr = envelopesApi.listDocuments(ar.accountId, envelopeId);
-        return edr.getEnvelopeDocuments();
+        return envelopesApi.listDocuments(ar.accountId, envelopeId);
     }
 
-    public static String getDocument(Map<String, String> inputMap) throws Exception {
+    /**
+     *
+     * @param inputMap Must contain authentication info, envelopeId, and documentId
+     * @return String base64 encoded document content
+     * @throws IOException
+     * @throws ApiException
+     */
+    public static String getDocument(Map<String, String> inputMap) throws IOException, ApiException {
         // Get access token and accountId
         AuthResult ar = createApiClient(inputMap);
 
         String envelopeId = inputMap.get("envelopeId");
         String documentId = inputMap.get("documentId");
 
-        ar.apiClient.addDefaultHeader("Authorization", "Bearer " + ar.accessToken);
+
         EnvelopesApi envelopesApi = new EnvelopesApi(ar.apiClient);
         return Base64.getEncoder().encodeToString(envelopesApi.getDocument(ar.accountId, envelopeId, documentId));
     }
 
-    public static EnvelopeSummary createEnvelope(Map<String, String> inputMap) throws Exception {
+    /**
+     *
+     * @param inputMap Must contain authentication info, subject, status, signerEmail, signerNAme, documentContent, documentName, documentExtension
+     * @return Object a com.docusign.esign.model.EnvelopeSummary object
+     * @throws IOException
+     * @throws ApiException
+     */
+    public static Object createEnvelope(Map<String, String> inputMap) throws IOException, ApiException {
         // Get access token and accountId
         AuthResult ar = createApiClient(inputMap);
 
@@ -112,8 +110,44 @@ public class Docusign {
         envelope.setDocuments(List.of(document));
 
         // Send envelope
-        ar.apiClient.addDefaultHeader("Authorization", "Bearer " + ar.accessToken);
+
         EnvelopesApi envelopesApi = new EnvelopesApi(ar.apiClient);
         return envelopesApi.createEnvelope(ar.accountId, envelope);
+
     }
+
+    private static class AuthResult {
+        ApiClient apiClient;
+        OAuthToken oAuthToken;
+        String accessToken;
+        String accountId;
+    }
+
+    private static AuthResult createApiClient(Map<String, String> inputMap) throws IOException, ApiException {
+        ApiClient apiClient = new ApiClient(inputMap.getOrDefault("basePath","https://demo.docusign.net/restapi"));
+        apiClient.setOAuthBasePath(inputMap.getOrDefault("oAuthBasePath", "account-d.docusign.com"));
+        ArrayList<String> scopes = new ArrayList<String>();
+        scopes.add("signature");
+        scopes.add("impersonation");
+        byte[] privateKeyBytes = Base64.getDecoder().decode(inputMap.get("privateKeyBase64"));
+        OAuthToken oAuthToken = apiClient.requestJWTUserToken(
+                inputMap.get("clientId"),
+                inputMap.get("userId"),
+                scopes,
+                privateKeyBytes,
+                3600);
+
+        AuthResult result = new AuthResult();
+        result.accessToken = oAuthToken.getAccessToken();
+        UserInfo userInfo = apiClient.getUserInfo(result.accessToken);
+        result.accountId = userInfo.getAccounts().get(0).getAccountId();
+        result.apiClient = apiClient;
+
+
+        apiClient.addDefaultHeader("Authorization", "Bearer " + result.accessToken);
+
+        return result;
+    }
+
+
 }
