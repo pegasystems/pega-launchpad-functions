@@ -15,6 +15,7 @@ This java code can be imported into a Function rule in your application for simp
     * [Method: detectKeyPhrases()](#method-detectkeyphrases)
   * [Class: TranslateHelper](#class-translatehelper)
     * [Method: translateText()](#method-translatetext)
+  * [Running unit tests](#running-unit-tests)
 <!-- TOC -->
 
 ## Pre-requisities
@@ -160,3 +161,10 @@ Inputs:
 Output:
 
 - String: The translated text
+
+## Running unit tests
+
+To successfully run the unit tests locally, you'll need to set two environmental variables:
+
+1. accessKeyId: your aws access key
+2. secretAccessKey: your aws access key secret
