@@ -13,7 +13,10 @@ This java code can be imported into a Function rule in your application for simp
     * [Method: getObject()](#method-getobject)
   * [Class: ComprehendHelper](#class-comprehendhelper)
     * [Method: detectKeyPhrases()](#method-detectkeyphrases)
+  * [Class: TranslateHelper](#class-translatehelper)
+    * [Method: translateText()](#method-translatetext)
 <!-- TOC -->
+
 ## Pre-requisities
 
 You will need to set up an [access key](https://docs.aws.amazon.com/console/iam/self-accesskeys) in your AWS account.
@@ -139,3 +142,21 @@ Sample json output (use json transform to map back to your object data model):
   }
 ]
 ```
+
+## Class: TranslateHelper
+
+This class shows how to integrate with AWS Translate service.
+
+### Method: translateText()
+
+This method will translate a line of text from a source language to a target language.
+
+Inputs:
+
+1. text (String): The text to translate
+2. sourceLanguageCode (String): Source language (like "en")
+3. targetLanguageCode (String): Target language (like "es")
+
+Output:
+
+- String: The translated text
