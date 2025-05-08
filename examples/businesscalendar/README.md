@@ -23,8 +23,8 @@ This function calculates the number of days (working days, weekends, holidays, e
   - **startDate \(\Date\)**: start date 
   - **endDate \(\Date\)**: end date
   - **state \(\Text\)**: state (optional,US: two-letter state abbreviation)
-  - **excludeHolidays \(\Text\)**:excludeHolidays (optional, names of holidays separated by commas that you want to exclude, for example: Juneteenth, Independence Day)
-  - **customHolidays \(\Text\)**:customHolidays (optional, names of custom holidays provided in the following way: MM-DD,NameOfHoliday for example: 06-01,Holiday1;07-01,Holiday2)
+  - **excludeHolidays \(\Text\)**: excludeHolidays (optional, names of holidays separated by commas that you want to exclude, for example: Juneteenth, Independence Day)
+  - **customHolidays \(\Text\)**: customHolidays (optional, names of custom holidays provided in the following way: MM-DD,NameOfHoliday for example: 06-01,Holiday1;07-01,Holiday2)
   - 
 - **Output parameters**:
   - **Type**: Text
