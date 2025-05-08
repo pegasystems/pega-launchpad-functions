@@ -3,6 +3,9 @@
 <!-- TOC -->
 * [Python Functions](#python-functions)
   * [Calculator function](#calculator-function)
+    * [Python code info](#python-code-info)
+    * [Function rule configuration](#function-rule-configuration)
+    * [Deployment](#deployment)
 <!-- TOC -->
 
 ## Calculator function
@@ -22,8 +25,19 @@ This function performs basic mathematical operations \(addition, subtraction, mu
   - **num1 \(\Integer\)**: number 1
   - **num2 \(\Integer\)**: number 2
 - **Output parameters**:
-  - **Type**: Text
+  - **Type**: (the object type you want to map data into)
+  - **Cardinality**: Single object
+  
+Create a JSON transform for the response, using this sample json, and reference it in the function rule configuration:
 
+```
+{
+  "addition": 8,
+  "subtraction": -2,
+  "multiplication": 15,
+  "division": 0.6
+}
+```
 ### Deployment
 
 After a successful build, the `python.examples.zip` file is produced under `build/distributions`.  

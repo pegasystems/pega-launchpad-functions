@@ -29,17 +29,19 @@ This repository also includes a java software development kit (SDK) to assist in
 
 # Example modules
 
-| Name                             | Description                      | Latest JAR file                                                                                                      |
+| Name                             | Description                      | Latest jar/zip file                                                                                                      |
 |----------------------------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| [base64](examples/base64/)       | Encoding/decoding base64 strings | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.9/base64-0.1.9-SNAPSHOT.jar)    |
-| [email](examples/email/)         | email utilities                  | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.9/email-0.1.9-SNAPSHOT.jar)     | 
-| [geocoding](examples/geocoding/) | Geocoding utilities              | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.9/geocoding-0.1.9-SNAPSHOT.jar) |
-| [net](examples/net/)             | REST and HTTP utilities          | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.9/net-0.1.9-SNAPSHOT.jar)       | 
-| [parser](examples/parser/)       | CSV and JSON parsing             | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.9/parser-0.1.9-SNAPSHOT.jar)    | 
-| [pdf](examples/pdf/)             | PDF form filler                  | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.1.9/pdf-0.1.9-SNAPSHOT.jar)       |
-| [text](examples/text/)           | string utilities                 | [jar](https://github.com/pegasystems/pega-launchpad-functions/download/v0.1.9/text-0.1.9-SNAPSHOT.jar)               | 
-| [python](examples/python/)       | Python function example          | |
-| [nodejs](examples/nodejs/)       | Nodejs function example          | |
+| [aws](examples/aws/)             | AWS helpers (s3, comprehend)     | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/aws-0.2.3-SNAPSHOT.jar)    |
+| [base64](examples/base64/)       | Encoding/decoding base64 strings | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/base64-0.2.3-SNAPSHOT.jar)    |
+| [docusign](examples/docusign/)   | Docusign e-signature example     | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/docusign-0.2.3-SNAPSHOT.jar)     | 
+| [email](examples/email/)         | Email utilities                  | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/email-0.2.3-SNAPSHOT.jar)     | 
+| [geocoding](examples/geocoding/) | Geocoding utilities              | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/geocoding-0.2.3-SNAPSHOT.jar) |
+| [net](examples/net/)             | REST and HTTP utilities          | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/net-0.2.3-SNAPSHOT.jar)       | 
+| [nodejs](examples/nodejs/)       | Nodejs function example          | [zip](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/nodejs-0.2.3-SNAPSHOT.zip) |
+| [parser](examples/parser/)       | CSV and JSON parsing             | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/parser-0.2.3-SNAPSHOT.jar)    | 
+| [pdf](examples/pdf/)             | PDF form filler                  | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/pdf-0.2.3-SNAPSHOT.jar)       |
+| [python](examples/python/)       | Python function example          | [zip](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/python-0.2.3-SNAPSHOT.zip)  |
+| [text](examples/text/)           | String utilities                 | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/text-0.2.3-SNAPSHOT.jar)               | 
 
 ## Example modules: Obtaining a JAR or ZIP to import into a Function rule
 
@@ -48,8 +50,8 @@ You can download the latest JAR releases for each module from the [project relea
 ```gradlew build```
 
 - For java examples, this will create/update the ```module-vX.Y.Z-SNAPSHOT.jar``` files in the various example modules, under their ```build/libs``` directory.
-- For python examples, this will create/update the ```nodejs.examples.zip``` file in the ```examples/nodejs/build/distributions```
-- For nodejs examples, this will create/update the ```python.examples.zip``` file in the ```example/python/build/distributions``` directory
+- For python examples, this will create/update the ```nodejs-vX.Y.Z-SNAPSHOT.zip``` file in the ```examples/nodejs/build/distributions```
+- For nodejs examples, this will create/update the ```python-vX.Y.Z-SNAPSHOT.zip``` file in the ```example/python/build/distributions``` directory
 
 # Setting up IntellJ workspace for this project
 

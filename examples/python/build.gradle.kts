@@ -2,9 +2,11 @@ plugins {
     id("base")
 }
 
+version = extra["PegaLaunchpadFunctionsGroupVersion"].toString() + "-SNAPSHOT";
+
 tasks.register<Zip>("zipPythonExamples") {
     from("./src")
-    archiveFileName.set("python.examples.zip")
+    archiveFileName.set(project.name + "-" + project.version + ".zip")
     destinationDirectory.set(layout.buildDirectory.dir("distributions"))
 }
 

@@ -12,10 +12,8 @@ def handler(event, context):
     # Return the results
     return {
         'statusCode': 200,
-        'body': json.dumps({
-            'addition': addition,
-            'subtraction': subtraction,
-            'multiplication': multiplication,
-            'division': division
-        })
+        'addition': addition,
+        'subtraction': subtraction,
+        'multiplication': multiplication,
+        'division': division
     }
