@@ -1,15 +1,16 @@
 # Business Calendar Function
 
 <!-- TOC -->
-* [Business Calendar Function](#nodejs-functions)
-  * [Business Calendar function](#businesscalendarfunction-function)
+* [Business Calendar Function](#business-calendar-function)
+  * [Business Calendar code info](#function-rule-configuration)
+  * [Function rule configuration](#function-rule-configuratio)
 <!-- TOC -->
 
 ## Business Calendar Function
 
 This function calculates the number of days (working days, weekends, holidays, etc.) between two dates. It is based on the business-days-js library. It is mainly used for the US, but with modifications to the library, it can also support other countries
 
-### Business Calendar code info code info
+### Business Calendar code info
 
 - **File**: `calculateBusinessDays.mjs`
 - **Function**: handler
