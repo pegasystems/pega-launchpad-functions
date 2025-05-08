@@ -1,0 +1,15 @@
+{
+  "name": "calculationbusinessdays",
+  "version": "1.0.0",
+  "main": "calculateBusinessDays.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "type": "module",
+  "dependencies": {
+    "business-days-js": "^2.3.0"
+  }
+}
