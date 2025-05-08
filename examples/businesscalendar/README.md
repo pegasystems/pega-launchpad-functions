@@ -1,8 +1,8 @@
 # Business Calendar Function
 
 <!-- TOC -->
-* [NodeJS Functions](#nodejs-functions)
-  * [Calculator function](#calculator-function)
+* [Business Calendar Function](#nodejs-functions)
+  * [Business Calendar function](#businesscalendarfunction-function)
 <!-- TOC -->
 
 ## Business Calendar Function
