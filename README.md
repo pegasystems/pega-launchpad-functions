@@ -29,19 +29,20 @@ This repository also includes a java software development kit (SDK) to assist in
 
 # Example modules
 
-| Name                             | Description                      | Latest jar/zip file                                                                                                      |
-|----------------------------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| [aws](examples/aws/)             | AWS helpers (s3, comprehend)     | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/aws-0.2.3-SNAPSHOT.jar)    |
-| [base64](examples/base64/)       | Encoding/decoding base64 strings | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/base64-0.2.3-SNAPSHOT.jar)    |
-| [docusign](examples/docusign/)   | Docusign e-signature example     | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/docusign-0.2.3-SNAPSHOT.jar)     | 
-| [email](examples/email/)         | Email utilities                  | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/email-0.2.3-SNAPSHOT.jar)     | 
-| [geocoding](examples/geocoding/) | Geocoding utilities              | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/geocoding-0.2.3-SNAPSHOT.jar) |
-| [net](examples/net/)             | REST and HTTP utilities          | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/net-0.2.3-SNAPSHOT.jar)       | 
-| [nodejs](examples/nodejs/)       | Nodejs function example          | [zip](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/nodejs-0.2.3-SNAPSHOT.zip) |
-| [parser](examples/parser/)       | CSV and JSON parsing             | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/parser-0.2.3-SNAPSHOT.jar)    | 
-| [pdf](examples/pdf/)             | PDF form filler                  | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/pdf-0.2.3-SNAPSHOT.jar)       |
-| [python](examples/python/)       | Python function example          | [zip](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/python-0.2.3-SNAPSHOT.zip)  |
-| [text](examples/text/)           | String utilities                 | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/text-0.2.3-SNAPSHOT.jar)               | 
+| Service | Name                             | Description                      | Latest jar/zip file                                                                                                      |
+|-------|---------------------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/512px-Amazon_Web_Services_Logo.svg.png" width=51 height=31/>      | [aws](examples/aws/)             | AWS helpers (s3, comprehend)     | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/aws-0.2.3-SNAPSHOT.jar)    |
+|       | [base64](examples/base64/)       | Encoding/decoding base64 strings | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/base64-0.2.3-SNAPSHOT.jar)    |
+|  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Docusign_Full_Color.svg/768px-Docusign_Full_Color.svg.png?20240411204040" width=51 height=10/>     | [docusign](examples/docusign/)   | Docusign e-signature example     | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/docusign-0.2.3-SNAPSHOT.jar)     | 
+|        | [email](examples/email/)         | Email utilities                  | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/email-0.2.3-SNAPSHOT.jar)     | 
+| <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Google_Cloud_logo.svg/768px-Google_Cloud_logo.svg.png" height=8 width=51 />      | [gcp](examples/gcp/) | Google Cloud Platform helpers (storage sdk)  | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/gcp-0.2.3-SNAPSHOT.jar) |
+|       | [geocoding](examples/geocoding/) | Geocoding utilities              | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/geocoding-0.2.3-SNAPSHOT.jar) |
+|       | [net](examples/net/)             | REST and HTTP utilities          | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/net-0.2.3-SNAPSHOT.jar)       | 
+|       | [nodejs](examples/nodejs/)       | Nodejs function example          | [zip](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/nodejs-0.2.3-SNAPSHOT.zip) |
+|        | [parser](examples/parser/)       | CSV and JSON parsing             | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/parser-0.2.3-SNAPSHOT.jar)    | 
+|       | [pdf](examples/pdf/)             | PDF form filler                  | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/pdf-0.2.3-SNAPSHOT.jar)       |
+|       | [python](examples/python/)       | Python function example          | [zip](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/python-0.2.3-SNAPSHOT.zip)  |
+|       | [text](examples/text/)           | String utilities                 | [jar](https://github.com/pegasystems/pega-launchpad-functions/releases/download/v0.2.3/text-0.2.3-SNAPSHOT.jar)               | 
 
 ## Example modules: Obtaining a JAR or ZIP to import into a Function rule
 
