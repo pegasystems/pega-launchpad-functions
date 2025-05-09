@@ -22,7 +22,7 @@ dependencies {
     implementation("org.glassfish.jersey.core:jersey-client:3.1.10")
     implementation("org.glassfish.jersey.media:jersey-media-json-jackson:3.1.10")
     implementation("com.auth0:java-jwt:3.19.4")
-    implementation("org.bouncycastle:bcprov-jdk15on:1.70")
+    implementation("org.bouncycastle:bcprov-jdk15to18:1.80")
     compileOnly("org.jetbrains:annotations:24.1.0")
 }
 
