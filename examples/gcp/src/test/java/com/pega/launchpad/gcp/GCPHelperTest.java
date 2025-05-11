@@ -15,7 +15,7 @@ class GCPHelperTest {
 
         if (creds == null) return; // comment this out to unit test with your own credentials
 
-        Map<String,String> inputMap = new HashMap<>();
+        Map<String, String> inputMap = new HashMap<>();
         inputMap.put("base64EncodedJsonCredentials", creds);
 
         String bucketName = "com-pega-launchpad-gcp-bucket" + System.currentTimeMillis();

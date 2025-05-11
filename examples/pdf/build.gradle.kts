@@ -4,13 +4,13 @@ plugins {
 }
 
 group = "com.pega.launchpad.pdf"
-version = extra["PegaLaunchpadFunctionsGroupVersion"].toString() + "-SNAPSHOT";
+version = extra["PegaLaunchpadFunctionsGroupVersion"].toString() + "-SNAPSHOT"
 
 repositories {
     mavenCentral()
 }
 
-val junitVersion = extra["PegaLaunchpadFunctionsJunitVersion"].toString();
+val junitVersion = extra["PegaLaunchpadFunctionsJunitVersion"].toString()
 
 dependencies {
     testImplementation(platform("org.junit:junit-bom:${junitVersion}"))

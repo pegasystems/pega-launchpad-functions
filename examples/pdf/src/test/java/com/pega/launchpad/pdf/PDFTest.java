@@ -3,43 +3,23 @@ package com.pega.launchpad.pdf;
 import com.google.gson.Gson;
 import org.junit.jupiter.api.Test;
 
-import java.io.*;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class PDFTest {
-
-    @Test
-    void setFieldsWithBase64() {
-
-        String inputPDF;
-
-        inputPDF = openPDF("src/test/resources/com/pega/launchpad/FillFormField.pdf");
-
-        Map<String, String> inputMap = new HashMap<>();
-        inputMap.put("inputForm", inputPDF);
-
-        Map<String,String> fieldMapping = new HashMap<>();
-        fieldMapping.put("sampleField", "Value for sampleField");
-        fieldMapping.put("fieldsContainer.nestedSampleField", "Value for nestedSampleField");
-        String json = new Gson().toJson(fieldMapping);
-        inputMap.put("fieldJson", json);
-
-        String result = PDF.setFieldsWithBase64(inputMap);
-
-        String expectedPDF = openPDF("src/test/resources/com/pega/launchpad/FillFormFieldExpectedOutput.pdf");
-
-        //assertEquals(expectedPDF, result);
-    }
 
     private static String openPDF(String fileName) {
         String inputPDF;
         File inFile = new File(fileName);
         try (FileInputStream fis = new FileInputStream(inFile)) {
-            byte [] bytes;
+            byte[] bytes;
             try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
                 int length;
                 byte[] buffer = new byte[1024];// buffer for portion of data from connection
@@ -56,22 +36,24 @@ class PDFTest {
         return inputPDF;
     }
 
-    /*
     @Test
-    void setFieldsWithURL() {
-        Map<String, String> inputMap = new HashMap<>();
-        inputMap.put("inputURL", "https://svn.apache.org/viewvc/pdfbox/trunk/examples/src/main/resources/org/apache/pdfbox/examples/interactive/form/FillFormField.pdf?view=co");
+    void setFieldsWithBase64() {
 
-        Map<String,String> fieldMapping = new HashMap<>();
+        String inputPDF;
+
+        inputPDF = openPDF("src/test/resources/com/pega/launchpad/FillFormField.pdf");
+
+        Map<String, String> inputMap = new HashMap<>();
+        inputMap.put("inputForm", inputPDF);
+
+        Map<String, String> fieldMapping = new HashMap<>();
         fieldMapping.put("sampleField", "Value for sampleField");
         fieldMapping.put("fieldsContainer.nestedSampleField", "Value for nestedSampleField");
         String json = new Gson().toJson(fieldMapping);
         inputMap.put("fieldJson", json);
 
-        String result = PDF.setFieldsWithURL(inputMap);
+        String result = PDF.setFieldsWithBase64(inputMap);
 
-        String expectedPDF = openPDF("src/test/resources/com/pega/launchpad/FillFormFieldExpectedOutputFromURL.pdf");
-        assertEquals(expectedPDF, result);
+        String expectedPDF = openPDF("src/test/resources/com/pega/launchpad/FillFormFieldExpectedOutput.pdf");
     }
-    */
 }

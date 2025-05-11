@@ -1,6 +1,7 @@
 package com.pega.launchpad.aws;
 
 import org.junit.jupiter.api.Test;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,7 +15,7 @@ class S3HelperTest {
 
         if (accessKeyId == null || secretAccessKey == null) return;
 
-        Map<String,String> inputMap = new HashMap<>();
+        Map<String, String> inputMap = new HashMap<>();
         inputMap.put("accessKeyId", accessKeyId);
         inputMap.put("secretAccessKey", secretAccessKey);
 

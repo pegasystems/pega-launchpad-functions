@@ -1,6 +1,5 @@
 package com.pega.launchpad.docusign;
 
-import com.docusign.esign.model.Envelope;
 import com.docusign.esign.model.EnvelopeDocument;
 import com.docusign.esign.model.EnvelopeDocumentsResult;
 import com.docusign.esign.model.EnvelopeSummary;
@@ -34,9 +33,9 @@ class DocusignTest {
         String base64 = new String(Base64.encode(privateKeyBytes));
 
 
-        Map<String,String> inputMap = new HashMap<>();
+        Map<String, String> inputMap = new HashMap<>();
 
-        inputMap.put("clientId",  prop.getProperty("clientId"));
+        inputMap.put("clientId", prop.getProperty("clientId"));
         inputMap.put("userId", prop.getProperty("userId"));
         inputMap.put("privateKeyBase64", base64);
 
@@ -48,15 +47,14 @@ class DocusignTest {
         inputMap.put("documentName", "doc1.txt");
         inputMap.put("documentExtension", "txt");
 
-        EnvelopeSummary m = (EnvelopeSummary)Docusign.createEnvelope(inputMap);
+        EnvelopeSummary m = (EnvelopeSummary) Docusign.createEnvelope(inputMap);
 
         inputMap.put("envelopeId", m.getEnvelopeId());
-        Envelope e = (Envelope)Docusign.getEnvelope(inputMap);
-        EnvelopeDocumentsResult edr = (EnvelopeDocumentsResult)Docusign.getEnvelopeDocuments(inputMap);
+        EnvelopeDocumentsResult edr = (EnvelopeDocumentsResult) Docusign.getEnvelopeDocuments(inputMap);
 
         for (EnvelopeDocument ed : edr.getEnvelopeDocuments()) {
             inputMap.put("documentId", ed.getDocumentId());
-            String result = Docusign.getDocument(inputMap);
+            Docusign.getDocument(inputMap);
 
         }
 

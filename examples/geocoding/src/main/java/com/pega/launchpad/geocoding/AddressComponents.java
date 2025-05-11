@@ -25,24 +25,24 @@ public class AddressComponents {
 
     public String toString() {
         String s = "{";
-        s += "\"FormattedAddress\":\"" + FormattedAddress+ "\",";
-        s += "\"PlaceID\":\"" + PlaceID+ "\",";
-        s += "\"Country\":\"" + Country+ "\",";
-        s += "\"CountryShort\":\"" + CountryShort+ "\",";
-        s += "\"PostalCode\":\"" + PostalCode+ "\",";
-        s += "\"PostalCodeSuffix\":\"" + PostalCodeSuffix+ "\",";
-        s += "\"StreetNumber\":\"" + StreetNumber+ "\",";
-        s += "\"Route\":\"" + Route+ "\",";
-        s += "\"Locality\":\"" + Locality+ "\",";
-        s += "\"Sublocality\":\"" + Sublocality+ "\",";
-        s += "\"AdminAreaLevel1\":\"" + AdminAreaLevel1+ "\",";
-        s += "\"AdminAreaLevel2\":\"" + AdminAreaLevel2+ "\",";
-        s += "\"AdminAreaLevel3\":\"" + AdminAreaLevel3+ "\",";
-        s += "\"AdminAreaLevel4\":\"" + AdminAreaLevel4+ "\",";
-        s += "\"AdminAreaLevel5\":\"" + AdminAreaLevel5+ "\",";
-        s += "\"Premise\":\"" + Premise+ "\",";
-        s += "\"Latitude\":\"" + Latitude+ "\",";
-        s += "\"Longitude\":\"" + Longitude+ "\"";
+        s += "\"FormattedAddress\":\"" + FormattedAddress + "\",";
+        s += "\"PlaceID\":\"" + PlaceID + "\",";
+        s += "\"Country\":\"" + Country + "\",";
+        s += "\"CountryShort\":\"" + CountryShort + "\",";
+        s += "\"PostalCode\":\"" + PostalCode + "\",";
+        s += "\"PostalCodeSuffix\":\"" + PostalCodeSuffix + "\",";
+        s += "\"StreetNumber\":\"" + StreetNumber + "\",";
+        s += "\"Route\":\"" + Route + "\",";
+        s += "\"Locality\":\"" + Locality + "\",";
+        s += "\"Sublocality\":\"" + Sublocality + "\",";
+        s += "\"AdminAreaLevel1\":\"" + AdminAreaLevel1 + "\",";
+        s += "\"AdminAreaLevel2\":\"" + AdminAreaLevel2 + "\",";
+        s += "\"AdminAreaLevel3\":\"" + AdminAreaLevel3 + "\",";
+        s += "\"AdminAreaLevel4\":\"" + AdminAreaLevel4 + "\",";
+        s += "\"AdminAreaLevel5\":\"" + AdminAreaLevel5 + "\",";
+        s += "\"Premise\":\"" + Premise + "\",";
+        s += "\"Latitude\":\"" + Latitude + "\",";
+        s += "\"Longitude\":\"" + Longitude + "\"";
         s += "}";
         return s;
     }

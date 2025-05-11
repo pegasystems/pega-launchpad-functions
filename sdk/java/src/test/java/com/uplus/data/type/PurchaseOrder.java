@@ -1,6 +1,7 @@
 package com.uplus.data.type;
 
 import com.pega.sdk.data.type.annotation.Field;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -11,17 +12,19 @@ import java.util.Objects;
  */
 public class PurchaseOrder {
 
-    public PurchaseOrder(){}
-    public PurchaseOrder(String id, List<PurchaseOrderItem> orders){
+    @Field(ID = "ID", namespace = "PegaPlatform")
+    String id;
+    @Field(ID = "Orders", namespace = "UPlus")
+    List<PurchaseOrderItem> orders;
+
+    @SuppressWarnings("unused") public PurchaseOrder() {
+
+    }
+
+    public PurchaseOrder(String id, List<PurchaseOrderItem> orders) {
         this.id = id;
         this.orders = orders;
     }
-
-    @Field(ID = "ID", namespace = "PegaPlatform")
-    String id;
-
-    @Field(ID = "Orders", namespace = "UPlus")
-    List<PurchaseOrderItem> orders;
 
     @Override
     public boolean equals(Object o) {

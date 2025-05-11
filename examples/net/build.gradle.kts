@@ -4,19 +4,19 @@ plugins {
 }
 
 group = "com.pega.launchpad.net"
-version = extra["PegaLaunchpadFunctionsGroupVersion"].toString() + "-SNAPSHOT";
+version = extra["PegaLaunchpadFunctionsGroupVersion"].toString() + "-SNAPSHOT"
 
 
 repositories {
     mavenCentral()
 }
 
-val junitVersion = extra["PegaLaunchpadFunctionsJunitVersion"].toString();
+val junitVersion = extra["PegaLaunchpadFunctionsJunitVersion"].toString()
 
 dependencies {
     testImplementation(platform("org.junit:junit-bom:${junitVersion}"))
     testImplementation("org.junit.jupiter:junit-jupiter")
-    implementation("org.apache.httpcomponents.client5:httpclient5:5.4.2")
+    implementation("org.apache.httpcomponents.client5:httpclient5:5.4.3")
     implementation("com.google.code.gson:gson:2.12.1")
     compileOnly("org.jetbrains:annotations:24.1.0")
 }

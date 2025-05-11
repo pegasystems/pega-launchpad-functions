@@ -22,10 +22,11 @@ public class ObjectStorageSyncExample {
 
     /**
      * Get list of buckets
+     *
      * @param inputMap requires authentication keys
      * @return List<Object> a list of BucketSummary objects
      */
-    public static List<Object> listBuckets(Map<String,String> inputMap) {
+    public static List<Object> listBuckets(Map<String, String> inputMap) {
         try {
 
             SimpleAuthenticationDetailsProvider provider = createProvider(inputMap);
@@ -61,10 +62,11 @@ public class ObjectStorageSyncExample {
 
     /**
      * Get object content
+     *
      * @param inputMap Requires authentication keys, bucketName, and objectName
      * @return String base64 encoded content of the specified object
      */
-    public static String getObject(Map<String,String> inputMap) {
+    public static String getObject(Map<String, String> inputMap) {
         try {
 
             SimpleAuthenticationDetailsProvider provider = createProvider(inputMap);
@@ -101,10 +103,11 @@ public class ObjectStorageSyncExample {
 
     /**
      * Create an object
+     *
      * @param inputMap Requires authentication keys, bucketName, objectName, and objectBase64
      * @return Object the PutObjectResponse object
      */
-    public static Object putObject(Map<String,String> inputMap)  {
+    public static Object putObject(Map<String, String> inputMap) {
         try {
 
             SimpleAuthenticationDetailsProvider provider = createProvider(inputMap);
@@ -115,15 +118,15 @@ public class ObjectStorageSyncExample {
                 String namespaceName = getNamespace(client);
 
                 String objectBase64 = inputMap.get("objectBase64");
-                byte [] b = Base64.getDecoder().decode(objectBase64);
+                byte[] b = Base64.getDecoder().decode(objectBase64);
                 ByteArrayInputStream is = new ByteArrayInputStream(b);
 
                 return client.putObject(PutObjectRequest.builder()
-                                .namespaceName(namespaceName)
-                                .bucketName(inputMap.get("bucketName"))
-                                .objectName(inputMap.get("objectName"))
-                                .putObjectBody(is)
-                                .build());
+                        .namespaceName(namespaceName)
+                        .bucketName(inputMap.get("bucketName"))
+                        .objectName(inputMap.get("objectName"))
+                        .putObjectBody(is)
+                        .build());
             }
 
         } catch (Throwable t) {
@@ -135,10 +138,11 @@ public class ObjectStorageSyncExample {
 
     /**
      * Create a bucket
+     *
      * @param inputMap Requires authentication keys, compartmentId (usually your tenancy/tenantId), bucketName
      * @return Object the CreateBucketResponse object
      */
-    public static Object createBucket(Map<String,String> inputMap)  {
+    public static Object createBucket(Map<String, String> inputMap) {
         try {
 
             SimpleAuthenticationDetailsProvider provider = createProvider(inputMap);
@@ -165,7 +169,7 @@ public class ObjectStorageSyncExample {
 
     }
 
-    private static SimpleAuthenticationDetailsProvider createProvider(Map<String,String> inputMap) {
+    private static SimpleAuthenticationDetailsProvider createProvider(Map<String, String> inputMap) {
         String region = inputMap.getOrDefault("region", "us-ashburn-1");
         String privateKeyBase64 = inputMap.get("privateKeyBase64");
         String privateKey = new String(Base64.getDecoder().decode(privateKeyBase64));

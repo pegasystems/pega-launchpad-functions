@@ -8,10 +8,13 @@ import org.apache.pdfbox.pdmodel.interactive.form.PDCheckBox;
 import org.apache.pdfbox.pdmodel.interactive.form.PDField;
 import org.jetbrains.annotations.NotNull;
 
-import java.io.*;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.net.URL;
-import java.util.*;
 import java.util.Base64;
+import java.util.Map;
 
 /**
  * Example of filling in PDF forms
@@ -20,6 +23,7 @@ public class PDF {
 
     /**
      * Given a PDF form via URL, and a map of fields and values, set those fields in the form to those values, and return the resulting PDF document
+     *
      * @param inputMap Expects key of 'inputURL' with a URL pointing at a PDF file, and a key of 'fieldJson' with a value that is a json string containing the fully-qualified field names and the values to set them to. Example: {"sampleField": "Value for sampleField", "fieldsContainer.nestedSampleField": "Value for nestedSampleField"}
      * @return String Base64 encoded PDF document, with fields filled in
      */
@@ -56,6 +60,7 @@ public class PDF {
 
     /**
      * Given a PDF form, and a map of fields and values, set those fields in the form to those values, and return the resulting PDF document
+     *
      * @param inputMap Expects key of 'inputForm' with value of a PDF document encoded in base64, and a key of 'fieldJson' with a value that is a json string containing the fully-qualified field names and the values to set them to. Example: {"sampleField": "Value for sampleField", "fieldsContainer.nestedSampleField": "Value for nestedSampleField"}
      * @return String Base64 encoded PDF document, with fields filled in
      */

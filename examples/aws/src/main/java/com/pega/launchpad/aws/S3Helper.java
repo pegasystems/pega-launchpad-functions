@@ -1,14 +1,14 @@
 package com.pega.launchpad.aws;
 
 import software.amazon.awssdk.core.ResponseBytes;
+import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
-import software.amazon.awssdk.services.s3.model.*;
-import software.amazon.awssdk.core.sync.RequestBody;
+import software.amazon.awssdk.services.s3.model.CreateBucketRequest;
+import software.amazon.awssdk.services.s3.model.GetObjectRequest;
+import software.amazon.awssdk.services.s3.model.GetObjectResponse;
+import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Base64;
 import java.util.Map;
 
@@ -16,10 +16,11 @@ public class S3Helper {
 
     /**
      * List buckets in account
+     *
      * @param input Must contain accessKeyId, secretAccessKey
      * @return Object of class software.amazon.awssdk.services.s3.model.ListBucketsResponse
      */
-    public static Object listBuckets(Map<String,String> input) {
+    public static Object listBuckets(Map<String, String> input) {
 
         System.setProperty("aws.accessKeyId", input.get("accessKeyId"));
         System.setProperty("aws.secretAccessKey", input.get("secretAccessKey"));
@@ -34,10 +35,11 @@ public class S3Helper {
 
     /**
      * Create a bucket
+     *
      * @param input Must contain accessKeyId, secretAccessKey, and bucketName
      * @return Object of class software.amazon.awssdk.services.s3.model.CreateBucketResponse
      */
-    public static Object createBucket(Map<String,String> input) {
+    public static Object createBucket(Map<String, String> input) {
 
         System.setProperty("aws.accessKeyId", input.get("accessKeyId"));
         System.setProperty("aws.secretAccessKey", input.get("secretAccessKey"));
@@ -53,10 +55,11 @@ public class S3Helper {
 
     /**
      * Put an object into a bucket
+     *
      * @param input Must contain accessKeyId, secretAccessKey, bucketName, objectKey, objectBase64
      * @return Object of class software.amazon.awssdk.services.s3.model.PutObjectResponse
      */
-    public static Object putObject(Map<String,String> input) {
+    public static Object putObject(Map<String, String> input) {
 
 
         System.setProperty("aws.accessKeyId", input.get("accessKeyId"));
@@ -77,10 +80,11 @@ public class S3Helper {
 
     /**
      * Get an object from a bucket
+     *
      * @param input Must contain accessKeyId, secretAccessKey, bucketName, objectKey
      * @return String base64 encoded object content
      */
-    public static String getObject(Map<String,String> input) throws IOException {
+    public static String getObject(Map<String, String> input)  {
 
 
         System.setProperty("aws.accessKeyId", input.get("accessKeyId"));

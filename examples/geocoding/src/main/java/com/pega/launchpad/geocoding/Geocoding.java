@@ -15,6 +15,7 @@ public class Geocoding {
 
     /**
      * Given a full address, and a Google Maps API key, attempt to return the various parts of the address components.
+     *
      * @param inputMap requires 'key' (google maps api key) and 'address' (full address)
      * @return AddressComponents The flattened components of the specified address
      */
@@ -22,9 +23,11 @@ public class Geocoding {
         AddressComponents ac = new AddressComponents();
         try {
             String key = inputMap.get("key");
-            if (key == null || key.isEmpty()) throw new IllegalArgumentException("'key' must be provided in inputMap for google maps API key");
+            if (key == null || key.isEmpty())
+                throw new IllegalArgumentException("'key' must be provided in inputMap for google maps API key");
             String address = inputMap.get("address");
-            if (address == null || address.isEmpty()) throw new IllegalArgumentException("'address' must be provided in inputMap for address to try and geocode");
+            if (address == null || address.isEmpty())
+                throw new IllegalArgumentException("'address' must be provided in inputMap for address to try and geocode");
 
             GeoApiContext context = new GeoApiContext.Builder()
                     .apiKey(key)

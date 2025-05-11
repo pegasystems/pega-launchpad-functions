@@ -3,7 +3,7 @@ package com.pega.launchpad.email;
 
 import javax.mail.*;
 import javax.mail.internet.MimeMultipart;
-import javax.mail.search.*;
+import javax.mail.search.FlagTerm;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -13,13 +13,14 @@ public class EmailRetriever {
 
     /**
      * Example of retrieve mail from a pop or imap server
+     *
      * @return An EmailResponse object which contains success/fail information and a list of messages
      */
     public static EmailResponse retrieve(String host, String port, String user, String password, String protocol, int maxCount, boolean unseenOnly, boolean mock) {
         EmailResponse response = new EmailResponse();
         response.success = true;
         response.errorMessage = "";
-        response.messages = new ArrayList<EmailMetadata>();
+        response.messages = new ArrayList<>();
 
         try {
 
@@ -47,7 +48,7 @@ public class EmailRetriever {
                 return response;
             }
 
-            try ( Store store = session.getStore(protocol)) {
+            try (Store store = session.getStore(protocol)) {
                 store.connect(host, user, password);
 
                 try (Folder emailFolder = store.getFolder("INBOX")) {
@@ -84,7 +85,7 @@ public class EmailRetriever {
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
             ex.printStackTrace(pw);
-            response.errorMessage = ex.getMessage() + ": " + sw.toString();
+            response.errorMessage = ex.getMessage() + ": " + sw;
             return response;
         }
     }

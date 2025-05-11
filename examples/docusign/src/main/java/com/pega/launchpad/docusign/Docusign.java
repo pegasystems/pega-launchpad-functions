@@ -8,16 +8,19 @@ import com.docusign.esign.client.auth.OAuth.UserInfo;
 import com.docusign.esign.model.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
-import java.util.*;
+import java.util.Map;
 
 public class Docusign {
 
     /**
      * Given an envelope ID, return the Envelope json object
+     *
      * @param inputMap Must contain authentication info, and envelopeId
      * @return Object an com.docusign.esign.model.Envelope object
-     * @throws Exception
+     * @throws IOException,ApiException if error
      */
     public static Object getEnvelope(Map<String, String> inputMap) throws IOException, ApiException {
         // Get access token and accountId
@@ -31,11 +34,10 @@ public class Docusign {
     }
 
     /**
-     *
      * @param inputMap Must contain authentication info, and envelopeId
      * @return Object com.docusign.esign.model.EnvelopeDocumentsResult object
-     * @throws IOException
-     * @throws ApiException
+     * @throws IOException  if error
+     * @throws ApiException if error
      */
     public static Object getEnvelopeDocuments(Map<String, String> inputMap) throws IOException, ApiException {
         // Get access token and accountId
@@ -49,11 +51,10 @@ public class Docusign {
     }
 
     /**
-     *
      * @param inputMap Must contain authentication info, envelopeId, and documentId
      * @return String base64 encoded document content
-     * @throws IOException
-     * @throws ApiException
+     * @throws IOException  if error
+     * @throws ApiException if error
      */
     public static String getDocument(Map<String, String> inputMap) throws IOException, ApiException {
         // Get access token and accountId
@@ -68,11 +69,10 @@ public class Docusign {
     }
 
     /**
-     *
      * @param inputMap Must contain authentication info, subject, status, signerEmail, signerNAme, documentContent, documentName, documentExtension
      * @return Object a com.docusign.esign.model.EnvelopeSummary object
-     * @throws IOException
-     * @throws ApiException
+     * @throws IOException  if error
+     * @throws ApiException if error
      */
     public static Object createEnvelope(Map<String, String> inputMap) throws IOException, ApiException {
         // Get access token and accountId
@@ -90,7 +90,7 @@ public class Docusign {
         signHere.setXPosition("191");
         signHere.setYPosition("148");
         Tabs tabs = new Tabs();
-        tabs.setSignHereTabs(Arrays.asList(signHere));
+        tabs.setSignHereTabs(List.of(signHere));
         // Set recipients
         Signer signer = new Signer();
         signer.setEmail(inputMap.get("signerEmail"));
@@ -116,17 +116,10 @@ public class Docusign {
 
     }
 
-    private static class AuthResult {
-        ApiClient apiClient;
-        OAuthToken oAuthToken;
-        String accessToken;
-        String accountId;
-    }
-
     private static AuthResult createApiClient(Map<String, String> inputMap) throws IOException, ApiException {
-        ApiClient apiClient = new ApiClient(inputMap.getOrDefault("basePath","https://demo.docusign.net/restapi"));
+        ApiClient apiClient = new ApiClient(inputMap.getOrDefault("basePath", "https://demo.docusign.net/restapi"));
         apiClient.setOAuthBasePath(inputMap.getOrDefault("oAuthBasePath", "account-d.docusign.com"));
-        ArrayList<String> scopes = new ArrayList<String>();
+        ArrayList<String> scopes = new ArrayList<>();
         scopes.add("signature");
         scopes.add("impersonation");
         byte[] privateKeyBytes = Base64.getDecoder().decode(inputMap.get("privateKeyBase64"));
@@ -147,6 +140,12 @@ public class Docusign {
         apiClient.addDefaultHeader("Authorization", "Bearer " + result.accessToken);
 
         return result;
+    }
+
+    private static class AuthResult {
+        ApiClient apiClient;
+        String accessToken;
+        String accountId;
     }
 
 

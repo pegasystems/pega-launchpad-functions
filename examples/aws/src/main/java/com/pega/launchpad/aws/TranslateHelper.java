@@ -11,10 +11,11 @@ public class TranslateHelper {
 
     /**
      * Translate text
+     *
      * @param input Must contain accessKeyId, secretAccessKey, sourceLanguageCode, targetLanguageCode, text
      * @return String the translated text
      */
-    public static String translateText(Map<String,String> input) {
+    public static String translateText(Map<String, String> input) {
 
         System.setProperty("aws.accessKeyId", input.get("accessKeyId"));
         System.setProperty("aws.secretAccessKey", input.get("secretAccessKey"));
