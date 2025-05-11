@@ -9,7 +9,7 @@ import java.util.Map;
 class S3HelperTest {
 
     @Test
-    void function() throws Exception {
+    void function() {
         String accessKeyId = System.getenv("accessKeyId");
         String secretAccessKey = System.getenv("secretAccessKey");
 

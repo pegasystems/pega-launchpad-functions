@@ -33,7 +33,7 @@ public class Text {
     /**
      * Wrapper for the java String.format() method, to substitute values into a string and return the formatted string
      *
-     * @param inputMap Must contain key 'format' with a valid java String [format](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Formatter.html#syntax), a key 'values' with a comma-delimited string of values to use, and optionally a key 'locale' for the specific java [locale string](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Locale.html) to use for formatting.
+     * @param inputMap Must contain key 'format' with a valid java String <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Formatter.html#syntax">format</a>, a key 'values' with a comma-delimited string of values to use, and optionally a key 'locale' for the specific java (<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Locale.html">locale string</a>) to use for formatting.
      * @return String the formatted string result
      */
     public static String format(@NotNull Map<String, String> inputMap) {
