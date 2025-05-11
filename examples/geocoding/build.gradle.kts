@@ -3,18 +3,18 @@ plugins {
 }
 
 group = "com.pega.launchpad.geocoding"
-version = extra["PegaLaunchpadFunctionsGroupVersion"].toString() + "-SNAPSHOT";
+version = extra["PegaLaunchpadFunctionsGroupVersion"].toString() + "-SNAPSHOT"
 
 repositories {
     mavenCentral()
 }
 
-val junitVersion = extra["PegaLaunchpadFunctionsJunitVersion"].toString();
+val junitVersion = extra["PegaLaunchpadFunctionsJunitVersion"].toString()
 
 dependencies {
     testImplementation(platform("org.junit:junit-bom:${junitVersion}"))
     testImplementation("org.junit.jupiter:junit-jupiter")
-    implementation("org.apache.httpcomponents.client5:httpclient5:5.4.2")
+    implementation("org.apache.httpcomponents.client5:httpclient5:5.4.3")
     implementation("com.google.code.gson:gson:2.12.1")
     implementation("com.google.maps:google-maps-services:2.2.0")
     implementation("org.slf4j:slf4j-simple:1.7.25")

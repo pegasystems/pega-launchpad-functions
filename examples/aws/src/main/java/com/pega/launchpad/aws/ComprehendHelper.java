@@ -15,10 +15,11 @@ public class ComprehendHelper {
 
     /**
      * Detect key phrases in specific text
+     *
      * @param input Requires accessKeyId,secretAccessKey,text
-     * @return
+     * @return List of maps, each containing keyPhrase and score values
      */
-    public static Object detectKeyPhrases(Map<String,String> input) {
+    public static List<Map<String, String>> detectKeyPhrases(Map<String, String> input) {
 
         System.setProperty("aws.accessKeyId", input.get("accessKeyId"));
         System.setProperty("aws.secretAccessKey", input.get("secretAccessKey"));
@@ -37,7 +38,7 @@ public class ComprehendHelper {
 
             float minimumScore = Float.parseFloat(input.getOrDefault("minimumScore", "0"));
 
-            List<Map<String,String>> responseList = new ArrayList<>();
+            List<Map<String, String>> responseList = new ArrayList<>();
             for (KeyPhrase phrase : detectKeyPhrasesResult.keyPhrases()) {
                 if (phrase.score() >= minimumScore) {
                     Map<String, String> keyPhraseMap = new HashMap<>();

@@ -81,9 +81,9 @@ Once it's filed:
 ### Your First Code Contribution
 
 1. Create a new branch
-1. Add a new module to the /examples folder
-2. Make sure your module has a README.MD similar to the other modules. This is for people to learn how to install and use your example.
-3. Create a build.gradle.kts in your module, similar to the other modules. This will pull dependent libraries into your binary, and will let gradlew build generate the JAR or ZIP for your module, and run unit tests
-4. Try to include at least one test, even if it is just a single scenario smoke test to ensure the build works correctly.
-5. Build the whole project from /pega-launchpad-functions with gradlew build. Use the JAR or ZIP generated in the /build directory of your module to import into a Function rule and test your example in Launchpad.
-6. Commit your changes to your branch, push them to github, create a pull request.
+2. Add a new module to the /examples folder
+3. Make sure your module has a README.MD similar to the other modules. This is for people to learn how to install and use your example.
+4. Create a build.gradle.kts in your module, similar to the other modules. This will pull dependent libraries into your binary, and will let gradlew build generate the JAR or ZIP for your module, and run unit tests
+5. Try to include at least one test, even if it is just a single scenario smoke test to ensure the build works correctly.
+6. Build the whole project from /pega-launchpad-functions with gradlew build. Use the JAR or ZIP generated in the /build directory of your module to import into a Function rule and test your example in Launchpad.
+7. Commit your changes to your branch, push them to github, create a pull request.

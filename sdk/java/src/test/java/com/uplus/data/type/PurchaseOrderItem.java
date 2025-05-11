@@ -1,24 +1,26 @@
 package com.uplus.data.type;
 
 import com.pega.sdk.data.type.annotation.Field;
+
 import java.util.Objects;
 
 public class PurchaseOrderItem {
-    public PurchaseOrderItem(){}
-    public PurchaseOrderItem(String itemID, double price, int quantity){
+    @Field(ID = "Quantity", namespace = "UPlus")
+    int quantity;
+    @Field(ID = "Price", namespace = "UPlus")
+    double price;
+    @Field(ID = "ItemID", namespace = "UPlus")
+    String itemID;
+
+    @SuppressWarnings("unused") public PurchaseOrderItem() {
+
+    }
+
+    public PurchaseOrderItem(String itemID, double price, int quantity) {
         this.itemID = itemID;
         this.price = price;
         this.quantity = quantity;
     }
-    @Field(ID = "Quantity", namespace = "UPlus")
-    int quantity;
-
-    @Field(ID = "Price", namespace = "UPlus")
-    double price;
-
-    @Field(ID = "ItemID", namespace = "UPlus")
-    String itemID;
-
 
     @Override
     public boolean equals(Object o) {

@@ -9,14 +9,14 @@ import java.util.Map;
 class ObjectStorageSyncExampleTest {
 
     @Test
-    void test()  {
+    void test() {
         String privateKeyBase64 = System.getenv("privateKeyBase64");
         if (privateKeyBase64 == null) {
             System.out.println("*** env variables not configured, skipping tests");
             return;
         }
 
-        Map<String,String> inputMap = new HashMap<>();
+        Map<String, String> inputMap = new HashMap<>();
         inputMap.put("privateKeyBase64", privateKeyBase64);
         inputMap.put("userId", System.getenv("userId"));
         inputMap.put("tenantId", System.getenv("tenantId"));

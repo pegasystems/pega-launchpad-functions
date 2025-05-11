@@ -12,8 +12,8 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestPurchaseOrder {
-    ObjectMapper mapper = new ObjectMapper();
-    PurchaseOrder purchaseOrder = new PurchaseOrder("P#345",
+    final ObjectMapper mapper = new ObjectMapper();
+    final PurchaseOrder purchaseOrder = new PurchaseOrder("P#345",
             List.of(new PurchaseOrderItem("I#1A2B", 10.0, 5),
                     new PurchaseOrderItem("I#9Z8B", 4.0, 2)));
 

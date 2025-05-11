@@ -13,10 +13,11 @@ public class Text {
 
     /**
      * Evaluate a regular expression against a string, to find any matches
+     *
      * @param inputMap Must contain key 'regex' with regular expression to compile, key 'text' with the string to evaluate against the pattern, and optionally key 'caseInsensitive' as true or false for the Pattern behavior
      * @return Boolean true if pattern found in text, false otherwise
      */
-    public static Boolean regex(@NotNull Map<String,String> inputMap) {
+    public static Boolean regex(@NotNull Map<String, String> inputMap) {
         String regex = inputMap.get("regex");
         if (regex == null) throw new IllegalArgumentException("regex cannot be null");
         String text = inputMap.get("text");
@@ -31,10 +32,11 @@ public class Text {
 
     /**
      * Wrapper for the java String.format() method, to substitute values into a string and return the formatted string
-     * @param inputMap Must contain key 'format' with a valid java String [format](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Formatter.html#syntax), a key 'values' with a comma-delimited string of values to use, and optionally a key 'locale' for the specific java [locale string](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Locale.html) to use for formatting.
+     *
+     * @param inputMap Must contain key 'format' with a valid java String <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Formatter.html#syntax">format</a>, a key 'values' with a comma-delimited string of values to use, and optionally a key 'locale' for the specific java (<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Locale.html">locale string</a>) to use for formatting.
      * @return String the formatted string result
      */
-    public static String format(@NotNull Map<String,String> inputMap) {
+    public static String format(@NotNull Map<String, String> inputMap) {
         String text = inputMap.get("format");
         if (text == null) throw new IllegalArgumentException("text cannot be null");
         String values = inputMap.get("values");

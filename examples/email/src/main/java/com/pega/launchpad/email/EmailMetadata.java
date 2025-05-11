@@ -1,8 +1,8 @@
 package com.pega.launchpad.email;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Date;
+import java.util.List;
 
 public class EmailMetadata {
     public Date receivedDate;

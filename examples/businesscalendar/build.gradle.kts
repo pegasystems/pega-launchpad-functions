@@ -2,7 +2,7 @@ plugins {
     id("base")
 }
 
-version = extra["PegaLaunchpadFunctionsGroupVersion"].toString() + "-SNAPSHOT";
+version = extra["PegaLaunchpadFunctionsGroupVersion"].toString() + "-SNAPSHOT"
 
 tasks.register<Zip>("businesscalendar") {
     from("./src")

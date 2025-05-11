@@ -4,13 +4,13 @@ plugins {
 }
 
 group = "com.pega.launchpad.email"
-version = extra["PegaLaunchpadFunctionsGroupVersion"].toString() + "-SNAPSHOT";
+version = extra["PegaLaunchpadFunctionsGroupVersion"].toString() + "-SNAPSHOT"
 
 repositories {
     mavenCentral()
 }
 
-val junitVersion = extra["PegaLaunchpadFunctionsJunitVersion"].toString();
+val junitVersion = extra["PegaLaunchpadFunctionsJunitVersion"].toString()
 
 dependencies {
     implementation("com.google.code.gson:gson:2.12.1")

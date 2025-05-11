@@ -5,8 +5,6 @@ import org.junit.jupiter.api.Test;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class TranslateHelperTest {
 
     @Test
@@ -16,7 +14,7 @@ class TranslateHelperTest {
 
         if (accessKeyId == null || secretAccessKey == null) return;
 
-        Map<String,String> inputMap = new HashMap<>();
+        Map<String, String> inputMap = new HashMap<>();
         inputMap.put("accessKeyId", accessKeyId);
         inputMap.put("secretAccessKey", secretAccessKey);
         inputMap.put("text", "it's a sunny day today.");

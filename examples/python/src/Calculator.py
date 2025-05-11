@@ -1,5 +1,3 @@
-import json
-
 def handler(event, context):
     num1 = float(event.get('num1', 0))
     num2 = float(event.get('num2', 1))
