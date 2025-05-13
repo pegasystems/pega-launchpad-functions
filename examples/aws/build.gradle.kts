@@ -19,6 +19,7 @@ dependencies {
     implementation("software.amazon.awssdk:s3")
     implementation("software.amazon.awssdk:comprehend")
     implementation("software.amazon.awssdk:translate")
+    implementation("software.amazon.awssdk:kms")
     implementation("com.google.code.gson:gson:2.12.1")
     compileOnly("org.jetbrains:annotations:24.1.0")
 }
