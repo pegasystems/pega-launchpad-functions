@@ -15,6 +15,9 @@ This java code can be imported into a Function rule in your application for simp
     * [Method: detectKeyPhrases()](#method-detectkeyphrases)
   * [Class: TranslateHelper](#class-translatehelper)
     * [Method: translateText()](#method-translatetext)
+  * [Class: KMSHelper](#class-kmshelper)
+    * [Method: encrypt()](#method-encrypt)
+    * [Method: decrypt()](#method-decrypt)
   * [Running unit tests](#running-unit-tests)
 <!-- TOC -->
 
@@ -28,6 +31,7 @@ All functions require these inputs to authenticate:
 
 - accessKeyId (String): Your Access Key ID
 - secretAccessKey (String): The secret access key corresponding to your access key
+- region (String): What region your service is running in (default: us-east-1)
 
 ## Class: S3Helper
 
@@ -161,6 +165,36 @@ Inputs:
 Output:
 
 - String: The translated text
+
+## Class: KMSHelper
+
+This class shows how to integrate with AWS Key Management Service (KMS). AWS Key Management Service (AWS KMS) is an encryption and key management web service.
+
+### Method: encrypt()
+
+This method will encrypt text using the specified KMS key and return base64 encoded encrypted value. 
+
+Inputs:
+
+1. keyId (String): the arn of the key to use from your KMS instance
+2. text (String): The text to encrypt
+
+Output:
+
+- String: The encrypted bytes, encoded in base64
+
+### Method: decrypt()
+
+This method will decrypt base64-encoded bytes using the specified KMS key and return the plaintext value.
+
+Inputs:
+
+1. keyId (String): the arn of the key to use from your KMS instance
+2. text (String): The base64-encoded value to decrypt
+
+Output:
+
+- String: The decrypted plain text string
 
 ## Running unit tests
 

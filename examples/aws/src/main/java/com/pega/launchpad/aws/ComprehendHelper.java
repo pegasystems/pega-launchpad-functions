@@ -26,7 +26,7 @@ public class ComprehendHelper {
 
 
         try (ComprehendClient comClient = ComprehendClient.builder()
-                .region(Region.US_EAST_1)
+                .region(Region.of(input.getOrDefault("region", Region.US_EAST_1.id())))
                 .build()) {
 
             DetectKeyPhrasesRequest detectKeyPhrasesRequest = DetectKeyPhrasesRequest.builder()

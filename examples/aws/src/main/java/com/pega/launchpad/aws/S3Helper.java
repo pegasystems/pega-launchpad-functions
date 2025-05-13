@@ -26,7 +26,7 @@ public class S3Helper {
         System.setProperty("aws.secretAccessKey", input.get("secretAccessKey"));
 
         try (S3Client s3 = S3Client.builder()
-                .region(Region.US_EAST_1)
+                .region(Region.of(input.getOrDefault("region", Region.US_EAST_1.id())))
                 .build()) {
 
             return s3.listBuckets();
@@ -44,8 +44,9 @@ public class S3Helper {
         System.setProperty("aws.accessKeyId", input.get("accessKeyId"));
         System.setProperty("aws.secretAccessKey", input.get("secretAccessKey"));
 
-        try (S3Client s3 = S3Client.builder()
-                .region(Region.US_EAST_1)
+        software.amazon.awssdk.services.s3.S3ClientBuilder builder = S3Client.builder();
+        builder.region(Region.of(input.getOrDefault("region", Region.US_EAST_1.id())));
+        try (S3Client s3 = builder
                 .build()) {
 
             CreateBucketRequest cbr = CreateBucketRequest.builder().bucket(input.get("bucketName")).build();
@@ -66,7 +67,7 @@ public class S3Helper {
         System.setProperty("aws.secretAccessKey", input.get("secretAccessKey"));
 
         try (S3Client s3 = S3Client.builder()
-                .region(Region.US_EAST_1)
+                .region(Region.of(input.getOrDefault("region", Region.US_EAST_1.id())))
                 .build()) {
 
             PutObjectRequest objectRequest = PutObjectRequest.builder()
@@ -91,7 +92,7 @@ public class S3Helper {
         System.setProperty("aws.secretAccessKey", input.get("secretAccessKey"));
 
         try (S3Client s3 = S3Client.builder()
-                .region(Region.US_EAST_1)
+                .region(Region.of(input.getOrDefault("region", Region.US_EAST_1.id())))
                 .build()) {
 
             GetObjectRequest objectRequest = GetObjectRequest.builder()
