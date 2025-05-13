@@ -1,0 +1,2743 @@
+{
+  "ApplicationNamespace": "ResourceLibrary",
+  "DataConnection": [
+    {
+      "Type": "DataConnection",
+      "Description": "QIndexResponse list",
+      "Reusability": "Private",
+      "Query": {
+        "CallReference": {
+          "ReferenceID": "QIndexResponseList",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "QIndexResponse",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "Query",
+        "CallInputs": []
+      },
+      "ConnectionType": "QUERY",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "QIndexResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "List",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "QIndexResponse",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        },
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "QIndexResponseList",
+      "Operation": "READ",
+      "Namespace": "ResourceLibrary",
+      "Name": "QIndexResponse list",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Connector": {
+        "CallReference": {
+          "ReferenceScope": {
+            "ReferenceID": "QIndex",
+            "Namespace": "ResourceLibrary"
+          },
+          "ReferenceID": "GetToken",
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "RESTConnector"
+      },
+      "Description": "",
+      "Reusability": "Private",
+      "ConnectionType": "REST_CONNECTOR",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "QIndex",
+        "Namespace": "ResourceLibrary"
+      },
+      "Operation": "READ",
+      "Namespace": "ResourceLibrary",
+      "Name": "GetToken",
+      "Type": "DataConnection",
+      "ResponseJSONTransform": {
+        "ReferenceID": "TokenRequest",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "QIndex",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        }
+      },
+      "RuleResolutionID": "GetToken",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Connector": {
+        "CallReference": {
+          "ReferenceID": "GetQueryResponse",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "QIndex",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "RESTConnector",
+        "CallInputs": [
+          {
+            "ParameterName": "Token",
+            "Source": {
+              "Type": "Variable",
+              "Name": "token"
+            }
+          },
+          {
+            "ParameterName": "jsonString",
+            "Source": {
+              "Type": "CallExpression",
+              "CallReference": {
+                "ReferenceID": "QIndexRequest",
+                "Namespace": "ResourceLibrary",
+                "ReferenceScope": {
+                  "ReferenceID": "QIndex",
+                  "Namespace": "ResourceLibrary"
+                }
+              },
+              "CallType": "JSONTransform",
+              "CallInputs": [
+                {
+                  "ParameterName": "Pega object",
+                  "Source": {
+                    "Type": "Variable",
+                    "Name": "QIndexObject"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "Description": "",
+      "Reusability": "Private",
+      "ConnectionType": "REST_CONNECTOR",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "QIndex",
+        "Namespace": "ResourceLibrary"
+      },
+      "CallType": "Library",
+      "Operation": "READ",
+      "Namespace": "ResourceLibrary",
+      "Name": "connectToQIndex",
+      "Type": "DataConnection",
+      "ResponseJSONTransform": {
+        "ReferenceID": "QIndexResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "connectToQIndex",
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "QIndex",
+          "Namespace": "ResourceLibrary"
+        },
+        "Description": "",
+        "Mode": "SingleRecord"
+      },
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            },
+            "Namespace": "PegaPlatform"
+          },
+          "Description": "token",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "token",
+          "Type": ""
+        },
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "QIndex",
+            "Namespace": "ResourceLibrary"
+          },
+          "Description": "Q Index Object",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "QIndexObject",
+          "Type": ""
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "DataConnection",
+      "Description": "QIndex list",
+      "Reusability": "Private",
+      "Query": {
+        "CallReference": {
+          "ReferenceID": "QIndexList",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "QIndex",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "Query",
+        "CallInputs": []
+      },
+      "ConnectionType": "QUERY",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "QIndex",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "List",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "QIndex",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        },
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "QIndexList",
+      "Operation": "READ",
+      "Namespace": "ResourceLibrary",
+      "Name": "QIndex list",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Description": "QIndex lookup",
+      "Reusability": "Private",
+      "Query": {
+        "CallReference": {
+          "ReferenceScope": {
+            "ReferenceID": "QIndex",
+            "Namespace": "ResourceLibrary"
+          },
+          "ReferenceID": "QIndexLookup",
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "Query",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "Variable",
+              "Name": "ID"
+            }
+          }
+        ]
+      },
+      "ConnectionType": "QUERY",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "QIndex",
+        "Namespace": "ResourceLibrary"
+      },
+      "Operation": "READ",
+      "Namespace": "ResourceLibrary",
+      "Name": "QIndex lookup",
+      "Type": "DataConnection",
+      "Output": {
+        "ObjectType": {
+          "TypeReferenceID": "QIndex",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        },
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "QIndexLookup",
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            }
+          },
+          "Description": "object key",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "ID"
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Description": "QIndexResponse lookup",
+      "Reusability": "Private",
+      "Query": {
+        "CallReference": {
+          "ReferenceScope": {
+            "ReferenceID": "QIndexResponse",
+            "Namespace": "ResourceLibrary"
+          },
+          "ReferenceID": "QIndexResponseLookup",
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "Query",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "Variable",
+              "Name": "ID"
+            }
+          }
+        ]
+      },
+      "ConnectionType": "QUERY",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "QIndexResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "Operation": "READ",
+      "Namespace": "ResourceLibrary",
+      "Name": "QIndexResponse lookup",
+      "Type": "DataConnection",
+      "Output": {
+        "ObjectType": {
+          "TypeReferenceID": "QIndexResponse",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        },
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "QIndexResponseLookup",
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            }
+          },
+          "Description": "object key",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "ID"
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "RESTConnector": [
+    {
+      "MappingType": "default",
+      "mapping": "default",
+      "Description": "Get token AWS API Gate way to authenticate with Q Index",
+      "Reusability": "Private",
+      "IsSystemGenerated": false,
+      "SchemaVersion": "0-3-0",
+      "MSTimeout": 3000,
+      "Timeout": 3,
+      "AppliesTo": {
+        "ReferenceID": "QIndex",
+        "Namespace": "ResourceLibrary"
+      },
+      "Method": "POST",
+      "IntegrationSystem": {
+        "ReferenceID": "QIndexTokenEndpoint",
+        "Namespace": "ResourceLibrary"
+      },
+      "Namespace": "ResourceLibrary",
+      "Name": "GetToken",
+      "Type": "RESTConnector",
+      "RuleResolutionID": "GetToken",
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "Text",
+          "Format": {
+            "Type": "RuleReference",
+            "ReferenceID": "Text",
+            "Namespace": "PegaPlatform"
+          },
+          "Namespace": "PegaPlatform"
+        },
+        "Description": "",
+        "Mode": "SingleRecord"
+      },
+      "UseDirectURL": false,
+      "RequestHeaders": [
+        {
+          "Description": "application/json",
+          "Name": "Content-Type",
+          "ParamValue": {
+            "Type": "ConstantText",
+            "Value": "application/json"
+          }
+        }
+      ],
+      "RequestBody": {
+        "ValueType": "",
+        "Value": "",
+        "ParamValue": {
+          "Type": "ConstantText",
+          "Value": "{\"email\":\"you@example.com\"}"
+        },
+        "Name": ""
+      },
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "MappingType": "default",
+      "mapping": "default",
+      "Description": "",
+      "Reusability": "Private",
+      "IsSystemGenerated": false,
+      "SchemaVersion": "0-3-0",
+      "MSTimeout": 3000,
+      "Timeout": 3,
+      "AppliesTo": {
+        "ReferenceID": "QIndex",
+        "Namespace": "ResourceLibrary"
+      },
+      "Method": "POST",
+      "IntegrationSystem": {
+        "ReferenceID": "SearchRelevantContent",
+        "Namespace": "ResourceLibrary"
+      },
+      "Namespace": "ResourceLibrary",
+      "Name": "GetQueryResponse",
+      "Type": "RESTConnector",
+      "RuleResolutionID": "GetQueryResponse",
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "Text",
+          "Format": {
+            "Type": "RuleReference",
+            "ReferenceID": "Text",
+            "Namespace": "PegaPlatform"
+          },
+          "Namespace": "PegaPlatform"
+        },
+        "Description": "",
+        "Mode": "SingleRecord"
+      },
+      "UseDirectURL": false,
+      "RequestHeaders": [
+        {
+          "Description": "Content Type",
+          "ParamValue": {
+            "Type": "ConstantText",
+            "Value": "application/json"
+          },
+          "Name": "Content-Type"
+        },
+        {
+          "Description": "Authorization",
+          "ParamValue": {
+            "Type": "Variable",
+            "Name": "Token"
+          },
+          "Name": "Authorization"
+        }
+      ],
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            },
+            "Namespace": "PegaPlatform"
+          },
+          "Type": "",
+          "Description": "token",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "Token"
+        },
+        {
+          "Mode": "SingleRecord",
+          "Required": "true",
+          "Name": "jsonString",
+          "Description": "jsonString",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          }
+        }
+      ],
+      "RequestBody": {
+        "ValueType": "",
+        "Value": "",
+        "ParamValue": {
+          "Type": "Variable",
+          "Name": "jsonString"
+        },
+        "Name": ""
+      },
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "DynamicText": [
+    {
+      "Type": "DynamicText",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "Content": "<p>Q Business Application ID</p>",
+      "AppliesTo": {
+        "ReferenceID": "QIndex",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "ApplicationID_additionalInfo",
+      "Namespace": "ResourceLibrary",
+      "Name": "ApplicationID_additionalInfo",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "DynamicText",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "Content": "<p>Retriever ID of Q Business Application Index</p>",
+      "AppliesTo": {
+        "ReferenceID": "QIndex",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "RetrieverID_additionalInfo",
+      "Namespace": "ResourceLibrary",
+      "Name": "RetrieverID_additionalInfo",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "CaseType": [
+    {
+      "Description": "",
+      "Reusability": "Private",
+      "Category": "Data",
+      "SchemaVersion": "2-12-0",
+      "AppliesTo": {
+        "ReferenceID": "QIndexResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "OptionalActions": [
+        {
+          "Action": {
+            "ReferenceID": "Edit",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Always"
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "Create",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Always"
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "MarkAsActive",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsDataInactive",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "MarkAsInactive",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsDataActive",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        }
+      ],
+      "PrimaryFields": [
+        {
+          "ReferenceID": "Name",
+          "Namespace": "PegaPlatform"
+        },
+        {
+          "ReferenceID": "Description",
+          "Namespace": "PegaPlatform"
+        },
+        {
+          "ReferenceID": "Snippet",
+          "Namespace": "ResourceLibrary"
+        },
+        {
+          "ReferenceID": "title",
+          "Namespace": "ResourceLibrary"
+        },
+        {
+          "ReferenceID": "uri",
+          "Namespace": "ResourceLibrary"
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "PrimaryStages": [],
+      "AlternateStages": [],
+      "Name": "QIndexResponse",
+      "PluralName": "",
+      "LookupDataPage": {
+        "ReferenceID": "QIndexResponseLookup",
+        "Namespace": "ResourceLibrary"
+      },
+      "ListDataPage": {
+        "ReferenceID": "QIndexResponseList",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "CaseType",
+      "IdPrefix": "Q-",
+      "RuleResolutionID": "QIndexResponse",
+      "AllowedInitializationFields": [
+        {
+          "Name": {
+            "ReferenceID": "Snippet",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        {
+          "Name": {
+            "ReferenceID": "title",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        {
+          "Name": {
+            "ReferenceID": "uri",
+            "Namespace": "ResourceLibrary"
+          }
+        }
+      ],
+      "Display": {
+        "ReferenceID": "QIndexResponseDisplay",
+        "Namespace": "ResourceLibrary"
+      },
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Description": "Connect To Queue Index",
+      "Reusability": "Private",
+      "Category": "Data",
+      "SchemaVersion": "2-12-0",
+      "AppliesTo": {
+        "ReferenceID": "QIndex",
+        "Namespace": "ResourceLibrary"
+      },
+      "OptionalActions": [
+        {
+          "Action": {
+            "ReferenceID": "Edit",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Always"
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "Create",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Always"
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "MarkAsActive",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsDataInactive",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "MarkAsInactive",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsDataActive",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        }
+      ],
+      "PrimaryFields": [
+        {
+          "ReferenceID": "ApplicationID",
+          "Namespace": "ResourceLibrary"
+        },
+        {
+          "ReferenceID": "RetrieverID",
+          "Namespace": "ResourceLibrary"
+        },
+        {
+          "ReferenceID": "token",
+          "Namespace": "ResourceLibrary"
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "PrimaryStages": [],
+      "AlternateStages": [],
+      "Name": "QIndex",
+      "PluralName": "QIndex",
+      "LookupDataPage": {
+        "ReferenceID": "QIndexLookup",
+        "Namespace": "ResourceLibrary"
+      },
+      "ListDataPage": {
+        "ReferenceID": "QIndexList",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "CaseType",
+      "IdPrefix": "Q-",
+      "RuleResolutionID": "QIndex",
+      "AllowedInitializationFields": [
+        {
+          "Name": {
+            "ReferenceID": "EmailID",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        {
+          "Name": {
+            "ReferenceID": "Query",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        {
+          "Name": {
+            "ReferenceID": "ApplicationID",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        {
+          "Name": {
+            "ReferenceID": "RetrieverID",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        {
+          "Name": {
+            "ReferenceID": "token",
+            "Namespace": "ResourceLibrary"
+          }
+        }
+      ],
+      "Display": {
+        "ReferenceID": "QIndexDisplay",
+        "Namespace": "ResourceLibrary"
+      },
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "View": [
+    {
+      "Type": "View",
+      "Description": "Update details",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "QIndex",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Edit",
+      "AutoGenerated": true,
+      "ViewType": "",
+      "Namespace": "PegaPlatform",
+      "Template": "DefaultForm",
+      "Name": "Edit",
+      "ViewMetadata": "{\"name\":\"Edit\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"BusinessObject\",\"label\":\"Update case details\"},\"children\":[{\"name\":\"Fields\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .Name\",\"label\":\"@L Label\"}},{\"type\":\"TextArea\",\"config\":{\"value\":\"@P .Description\",\"label\":\"@L Description\"}}]}],\"ID\":\"4e78a729-1eb6-4e4e-94c2-6dc6e112fc86\"}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "QIndexResponse list",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "Data-Portal",
+        "Namespace": "PegaPlatform"
+      },
+      "RuleResolutionID": "QIndexResponseList",
+      "ViewType": "landingpage",
+      "Namespace": "ResourceLibrary",
+      "Template": "ListPage",
+      "Name": "QIndexResponse list",
+      "ViewMetadata": "{\"name\":\"QIndexResponse list\",\"type\":\"View\",\"config\":{\"type\":\"listpage\",\"template\":\"ListPage\",\"icon\":\"pi pi-headline\",\"title\":\"@L QIndexResponse list\",\"personalization\":true,\"grouping\":true,\"globalSearch\":true,\"reorderFields\":true,\"toggleFieldVisibility\":true,\"showUploadRecords\":true,\"referenceList\":\"QIndexResponseList\",\"ruleClass\":\"Data-Portal\",\"ruleClassNamespace\":\"ResourceLibrary\",\"presets\":[{\"name\":\"presets\",\"label\":\"QIndexResponse list\",\"template\":\"Table\",\"config\":{},\"children\":[{\"name\":\"Columns\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .BusinessID\",\"label\": \"@L ID\",\"displayAsLink\":true}},{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .Name\",\"label\": \"@L Name\",\"displayAsLink\":true}},{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .Status\",\"label\": \"@L Status\",\"displayAsLink\":false}},{\"type\":\"TextArea\",\"config\":{\"value\":\"@P .Description\",\"label\":\"@L Description\"}}]}]}],\"actions\":[{\"action\":\"UPLOAD_RECORDS\",\"config\":{\"label\":\"@L Upload\",\"objectType\":\"QIndexResponse\"}}]}}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "QIndex",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "Data-Portal",
+        "Namespace": "PegaPlatform"
+      },
+      "RuleResolutionID": "QIndex",
+      "ViewType": "landingpage",
+      "Namespace": "ResourceLibrary",
+      "Template": "ListPage",
+      "Name": "QIndex",
+      "ViewMetadata": "{\"name\":\"QIndex\",\"type\":\"View\",\"config\":{\"type\":\"listpage\",\"template\":\"ListPage\",\"icon\":\"pi pi-headline\",\"title\":\"@L QIndex\",\"personalization\":true,\"grouping\":true,\"globalSearch\":true,\"reorderFields\":true,\"toggleFieldVisibility\":true,\"showUploadRecords\":true,\"referenceList\":\"QIndexList\",\"ruleClass\":\"Data-Portal\",\"ruleClassNamespace\":\"ResourceLibrary\",\"presets\":[{\"name\":\"presets\",\"label\":\"QIndex\",\"template\":\"Table\",\"config\":{},\"children\":[{\"name\":\"Columns\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .BusinessID\",\"label\": \"@L ID\",\"displayAsLink\":true}},{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .Name\",\"label\": \"@L Name\",\"displayAsLink\":true}},{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .Status\",\"label\": \"@L Status\",\"displayAsLink\":false}},{\"type\":\"TextArea\",\"config\":{\"value\":\"@P .Description\",\"label\":\"@L Description\"}}]}]}],\"actions\":[{\"action\":\"UPLOAD_RECORDS\",\"config\":{\"label\":\"@L Upload\",\"objectType\":\"QIndex\"}}]}}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "View to collect details for Object creation.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "QIndex",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Create",
+      "AutoGenerated": true,
+      "ViewType": "embeddedform",
+      "Namespace": "PegaPlatform",
+      "Template": "DefaultForm",
+      "Name": "Create",
+      "ViewMetadata": "{\"name\":\"Create\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"BusinessObject\",\"ruleClassNamespace\":\"PegaPlatform\",\"label\":\"@L View to collect details for Object creation.\"},\"children\":[{\"type\":\"Region\",\"name\":\"Fields\",\"children\":[]}],\"ID\":\"86b7273f-c4d8-43e4-89b3-3931d4018a18\"}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "View to collect details for Object creation.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "QIndexResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Create",
+      "AutoGenerated": true,
+      "ViewType": "embeddedform",
+      "Namespace": "PegaPlatform",
+      "Template": "DefaultForm",
+      "Name": "Create",
+      "ViewMetadata": "{\"name\":\"Create\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"BusinessObject\",\"ruleClassNamespace\":\"PegaPlatform\",\"label\":\"@L View to collect details for Object creation.\"},\"children\":[{\"type\":\"Region\",\"name\":\"Fields\",\"children\":[]}],\"ID\":\"86b7273f-c4d8-43e4-89b3-3931d4018a18\"}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "Update details",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "QIndexResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Edit",
+      "AutoGenerated": true,
+      "ViewType": "",
+      "Namespace": "PegaPlatform",
+      "Template": "DefaultForm",
+      "Name": "Edit",
+      "ViewMetadata": "{\"name\":\"Edit\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"BusinessObject\",\"label\":\"Update case details\"},\"children\":[{\"name\":\"Fields\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .Name\",\"label\":\"@L Label\"}},{\"type\":\"TextArea\",\"config\":{\"value\":\"@P .Description\",\"label\":\"@L Description\"}}]}],\"ID\":\"4e78a729-1eb6-4e4e-94c2-6dc6e112fc86\"}",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "DataPage": [
+    {
+      "DataPageMode": "SingleRecord",
+      "Description": "QIndex lookup",
+      "Reusability": "Private",
+      "DataConnection": {
+        "CallReference": {
+          "ReferenceID": "QIndexLookup",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "QIndex",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "DataConnection",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "Variable",
+              "Name": "ID"
+            }
+          }
+        ]
+      },
+      "SchemaVersion": "0-2-0",
+      "CallType": "DataPage",
+      "Namespace": "ResourceLibrary",
+      "Name": "QIndex lookup",
+      "ObjectType": {
+        "ReferenceID": "QIndex",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "DataPage",
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "QIndex",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        }
+      },
+      "RuleResolutionID": "QIndexLookup",
+      "Inputs": [
+        {
+          "Description": "object key",
+          "Mode": "SingleRecord",
+          "Name": "ID",
+          "Required": "true",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          }
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DataPageMode": "ListOfRecords",
+      "Description": "QIndexResponse list",
+      "Reusability": "Private",
+      "DataConnection": {
+        "CallReference": {
+          "ReferenceID": "QIndexResponseList",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "QIndexResponse",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "DataConnection",
+        "CallInputs": []
+      },
+      "SchemaVersion": "0-2-0",
+      "CallType": "DataPage",
+      "Namespace": "ResourceLibrary",
+      "Name": "QIndexResponse list",
+      "ObjectType": {
+        "ReferenceID": "QIndexResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "DataPage",
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "List",
+          "Type": "TypeReference",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "QIndexResponse",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        }
+      },
+      "RuleResolutionID": "QIndexResponseList",
+      "Inputs": [],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DataPageMode": "ListOfRecords",
+      "CallableRule": {
+        "CallReference": {
+          "ReferenceID": "GetQueryResponseFromQIndex",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "QIndex",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "Automation",
+        "CallInputs": [
+          {
+            "ParameterName": "ApplicationID",
+            "Source": {
+              "Type": "Variable",
+              "Name": "ApplicationID"
+            }
+          },
+          {
+            "ParameterName": "RetrieverID",
+            "Source": {
+              "Type": "Variable",
+              "Name": "RetrieverID"
+            }
+          },
+          {
+            "ParameterName": "Query",
+            "Source": {
+              "Type": "Variable",
+              "Name": "Query"
+            }
+          },
+          {
+            "ParameterName": "EmailID",
+            "Source": {
+              "Type": "Variable",
+              "Name": "EmailID"
+            }
+          }
+        ]
+      },
+      "Description": "Q Index Response to query submitted",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-0",
+      "IsNative": false,
+      "CallType": "DataPage",
+      "Namespace": "ResourceLibrary",
+      "Name": "QIndexResponse",
+      "ObjectType": {
+        "ReferenceID": "QIndexResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "UseAutomationSource": true,
+      "Type": "DataPage",
+      "Output": {
+        "ObjectType": {
+          "TypeReferenceID": "List",
+          "Type": "TypeReference",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "QIndexResponse",
+              "Type": "TypeReference",
+              "Namespace": "ResourceLibrary"
+            }
+          ],
+          "Namespace": "PegaPlatform"
+        },
+        "Description": "",
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "QIndexResponse",
+      "Inputs": [
+        {
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Type": "TypeReference",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            },
+            "Namespace": "PegaPlatform"
+          },
+          "Type": "",
+          "Description": "Application ID of Amazon Q Business Application",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "ApplicationID"
+        },
+        {
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Type": "TypeReference",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            },
+            "Namespace": "PegaPlatform"
+          },
+          "Type": "",
+          "Description": "Retriever ID of Index created for Amazon Q Business Application",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "RetrieverID"
+        },
+        {
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Type": "TypeReference",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            },
+            "Namespace": "PegaPlatform"
+          },
+          "Type": "",
+          "Description": "User Query",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "Query"
+        },
+        {
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Type": "TypeReference",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            },
+            "Namespace": "PegaPlatform"
+          },
+          "Type": "",
+          "Description": "User Email ID",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "EmailID"
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DataPageMode": "SingleRecord",
+      "Description": "QIndexResponse lookup",
+      "Reusability": "Private",
+      "DataConnection": {
+        "CallReference": {
+          "ReferenceID": "QIndexResponseLookup",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "QIndexResponse",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "DataConnection",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "Variable",
+              "Name": "ID"
+            }
+          }
+        ]
+      },
+      "SchemaVersion": "0-2-0",
+      "CallType": "DataPage",
+      "Namespace": "ResourceLibrary",
+      "Name": "QIndexResponse lookup",
+      "ObjectType": {
+        "ReferenceID": "QIndexResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "DataPage",
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "QIndexResponse",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        }
+      },
+      "RuleResolutionID": "QIndexResponseLookup",
+      "Inputs": [
+        {
+          "Description": "object key",
+          "Mode": "SingleRecord",
+          "Name": "ID",
+          "Required": "true",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          }
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DataPageMode": "ListOfRecords",
+      "Description": "QIndex list",
+      "Reusability": "Private",
+      "DataConnection": {
+        "CallReference": {
+          "ReferenceID": "QIndexList",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "QIndex",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "DataConnection",
+        "CallInputs": []
+      },
+      "SchemaVersion": "0-2-0",
+      "CallType": "DataPage",
+      "Namespace": "ResourceLibrary",
+      "Name": "QIndex list",
+      "ObjectType": {
+        "ReferenceID": "QIndex",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "DataPage",
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "List",
+          "Type": "TypeReference",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "QIndex",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        }
+      },
+      "RuleResolutionID": "QIndexList",
+      "Inputs": [],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DataPageMode": "SingleRecord",
+      "Description": "",
+      "Reusability": "Private",
+      "DataConnection": {
+        "CallReference": {
+          "ReferenceID": "GetToken",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "QIndex",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "DataConnection"
+      },
+      "SchemaVersion": "0-2-0",
+      "IsNative": false,
+      "CallType": "DataPage",
+      "Namespace": "ResourceLibrary",
+      "Name": "GetQIndexToken",
+      "ObjectType": {
+        "ReferenceID": "QIndex",
+        "Namespace": "ResourceLibrary"
+      },
+      "UseAutomationSource": false,
+      "Type": "DataPage",
+      "Output": {
+        "ObjectType": {
+          "TypeReferenceID": "QIndex",
+          "Type": "TypeReference",
+          "Namespace": "ResourceLibrary"
+        },
+        "Description": "",
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "GetQIndexToken",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Query": [
+    {
+      "Type": "Query",
+      "Description": "Query to lookup QIndex instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Filter": {
+        "ExpressionType": "",
+        "Expressions": [
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Field": {
+                "ReferenceID": "ID",
+                "Namespace": "PegaPlatform"
+              },
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              }
+            },
+            "Comparator": "==",
+            "OperandTwo": {
+              "Name": "ID",
+              "Type": "Variable"
+            }
+          }
+        ]
+      },
+      "AppliesTo": {
+        "ReferenceID": "QIndex",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "QIndex",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        }
+      },
+      "RuleResolutionID": "QIndexLookup",
+      "Inputs": [
+        {
+          "Description": "object key",
+          "Mode": "SingleRecord",
+          "Name": "ID",
+          "Required": "true",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          },
+          "Type": ""
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "QIndex lookup",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Query",
+      "Description": "Query to lookup QIndexResponse instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Filter": {
+        "ExpressionType": "",
+        "Expressions": [
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Field": {
+                "ReferenceID": "ID",
+                "Namespace": "PegaPlatform"
+              },
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              }
+            },
+            "Comparator": "==",
+            "OperandTwo": {
+              "Name": "ID",
+              "Type": "Variable"
+            }
+          }
+        ]
+      },
+      "AppliesTo": {
+        "ReferenceID": "QIndexResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "QIndexResponse",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        }
+      },
+      "RuleResolutionID": "QIndexResponseLookup",
+      "Inputs": [
+        {
+          "Description": "object key",
+          "Mode": "SingleRecord",
+          "Name": "ID",
+          "Required": "true",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          },
+          "Type": ""
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "QIndexResponse lookup",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Query",
+      "Description": "Query to List all QIndex instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Filter": {
+        "ExpressionType": "AND",
+        "Expressions": [
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Field": {
+                "ReferenceID": "Status",
+                "Namespace": "PegaPlatform",
+                "Type": "RuleReference"
+              },
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              }
+            },
+            "Comparator": "!=",
+            "OperandTwo": {
+              "Value": "Resolved-Inactive",
+              "Type": "ConstantText"
+            }
+          },
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              },
+              "Field": {
+                "Type": "RuleReference",
+                "ReferenceID": "Status",
+                "Namespace": "PegaPlatform"
+              }
+            },
+            "Comparator": "!=",
+            "OperandTwo": {
+              "Type": "ConstantText",
+              "Value": "Resolved-Cancelled"
+            }
+          }
+        ],
+        "Type": "ExpressionGroup"
+      },
+      "SortBy": [
+        {
+          "Field": {
+            "ReferenceID": "CreateDateTime",
+            "Namespace": "PegaPlatform"
+          },
+          "Direction": "Descending"
+        }
+      ],
+      "AppliesTo": {
+        "ReferenceID": "QIndex",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "List",
+          "Type": "TypeReference",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "QIndex",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        }
+      },
+      "RuleResolutionID": "QIndexList",
+      "Namespace": "ResourceLibrary",
+      "Name": "QIndex list",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Query",
+      "Description": "Query to List all QIndexResponse instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Filter": {
+        "ExpressionType": "AND",
+        "Expressions": [
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Field": {
+                "ReferenceID": "Status",
+                "Namespace": "PegaPlatform",
+                "Type": "RuleReference"
+              },
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              }
+            },
+            "Comparator": "!=",
+            "OperandTwo": {
+              "Value": "Resolved-Inactive",
+              "Type": "ConstantText"
+            }
+          },
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              },
+              "Field": {
+                "Type": "RuleReference",
+                "ReferenceID": "Status",
+                "Namespace": "PegaPlatform"
+              }
+            },
+            "Comparator": "!=",
+            "OperandTwo": {
+              "Type": "ConstantText",
+              "Value": "Resolved-Cancelled"
+            }
+          }
+        ],
+        "Type": "ExpressionGroup"
+      },
+      "SortBy": [
+        {
+          "Field": {
+            "ReferenceID": "CreateDateTime",
+            "Namespace": "PegaPlatform"
+          },
+          "Direction": "Descending"
+        }
+      ],
+      "AppliesTo": {
+        "ReferenceID": "QIndexResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "List",
+          "Type": "TypeReference",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "QIndexResponse",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        }
+      },
+      "RuleResolutionID": "QIndexResponseList",
+      "Namespace": "ResourceLibrary",
+      "Name": "QIndexResponse list",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "JSONTransform": [
+    {
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "3-1-1",
+      "AppliesTo": {
+        "ReferenceID": "QIndex",
+        "Namespace": "ResourceLibrary"
+      },
+      "Auto-mapAll": false,
+      "Direction": "DESERIALIZE",
+      "SampleJSONData": "{\"description\":\"input\",\"id\":\"input\",\"name\":\"QIndexResponse\",\"inspectionResult\":\"{\\\"JsonInspectionResponse\\\":{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonInspectionResponse\\\",\\\"jsonDocument\\\":{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonDocument\\\",\\\"fields\\\":{\\\"field\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"path\\\":\\\"/nextToken\\\",\\\"name\\\":\\\"nextToken\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"collectionType\\\":\\\"LIST\\\",\\\"path\\\":\\\"/relevantContent<>\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"relevantContent\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"\\\\nRest Connector rule holds the integration system rule. \\\\n\\\\nREST Connector \\\\n\\\\nDetermine Permit Category \\\\n\\\\nID DeterminePermitCat \\\\n\\\\nDetermine Permit Category \\\\n\\\\nService Parameters History \\\\n\\\\nIntegration system *\\\\n\\\\nAl Model\\\\n\\\\nMethod\\\\n\\\\nPOST\\\\n\\\\nTimeout (milliseconds) *\\\\n\\\\n10,000\\\\n\\\\nResource path parameters\\\\n\\\\nName *\\\\nParameter value\\\\nEmpty behavior *\\\\nEncode *\\\\n\\\\nNo records found.\\\\n\\\\n\\\\n+ Add HTTPParam \\\\n\\\\nReference materials: Configuring a REST connector (zoominsoftware.io) \\\\n\\\\nJSON Transform: \\\\n\\\\nJSON transform rule will be used as request JSON tranform for converting object to JSON string (serialization) for forming request to REST Connector. \\\\n\\\\nResponse JSON tranform will convert the JSON string received in response to object (deserialization). \\\\n\\\\nThe Request JSON Transform and Response Data Transform should be specified on Data Connection rule. \\\\n\\\\nSteps to create JSON Transform is available in the attached reference link. \\\\n\\\\nBuildAiRequest is the Request JSON Transform and Al Response Model is the Response JSON Transform used in this integration in Civic Sync. As explained above, Request and Response JSON Transforms are used in Data Connection rule to convert object data to JSON string (Request JSON Transform) and for mapping JSON String received in Response to Object Data (Response JSON Transform). \\\\n\\\\nReference materials: Creating ISON Transforms (zoominsoftware.io)\\\",\\\"path\\\":\\\"/relevantContent<>/snippet\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"snippet\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"Integrating with External Services.docx\\\",\\\"path\\\":\\\"/relevantContent<>/title\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"title\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"\\\",\\\"path\\\":\\\"/relevantContent<>/uri\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"uri\\\"}]}}]}},\\\"executionTime\\\":0}}\",\"showFields\":true,\"documentType\":\"JSON\",\"inspectionType\":\"INSTANCE\",\"inspectionSource\":\"{\\\"nextToken\\\":null,\\\"relevantContent\\\":[{\\\"snippet\\\":\\\"\\\\nRest Connector rule holds the integration system rule. \\\\n\\\\nREST Connector \\\\n\\\\nDetermine Permit Category \\\\n\\\\nID DeterminePermitCat \\\\n\\\\nDetermine Permit Category \\\\n\\\\nService Parameters History \\\\n\\\\nIntegration system *\\\\n\\\\nAl Model\\\\n\\\\nMethod\\\\n\\\\nPOST\\\\n\\\\nTimeout (milliseconds) *\\\\n\\\\n10,000\\\\n\\\\nResource path parameters\\\\n\\\\nName *\\\\nParameter value\\\\nEmpty behavior *\\\\nEncode *\\\\n\\\\nNo records found.\\\\n\\\\n\\\\n+ Add HTTPParam \\\\n\\\\nReference materials: Configuring a REST connector (zoominsoftware.io) \\\\n\\\\nJSON Transform: \\\\n\\\\nJSON transform rule will be used as request JSON tranform for converting object to JSON string (serialization) for forming request to REST Connector. \\\\n\\\\nResponse JSON tranform will convert the JSON string received in response to object (deserialization). \\\\n\\\\nThe Request JSON Transform and Response Data Transform should be specified on Data Connection rule. \\\\n\\\\nSteps to create JSON Transform is available in the attached reference link. \\\\n\\\\nBuildAiRequest is the Request JSON Transform and Al Response Model is the Response JSON Transform used in this integration in Civic Sync. As explained above, Request and Response JSON Transforms are used in Data Connection rule to convert object data to JSON string (Request JSON Transform) and for mapping JSON String received in Response to Object Data (Response JSON Transform). \\\\n\\\\nReference materials: Creating ISON Transforms (zoominsoftware.io)\\\",\\\"title\\\":\\\"Integrating with External Services.docx\\\",\\\"uri\\\":\\\"\\\"},{\\\"snippet\\\":\\\"\\\\nIntegrating with External Services \\\\n\\\\nConnect REST is one of the integration options available in Launchpad for connecting with external systems. This document outlines the guidelines and procedures for creating and invoking a REST connector from Launchpad. \\\\n\\\\nThe following is a list of guidelines typically required to create a REST connector: \\\\n\\\\nCreating a Rest Connector \\\\n\\\\nFollowing are building blocks of a RESTful API connection: \\\\n\\\\nIntegration System \\\\nData Connection \\\\nRest Connector \\\\nJSON Transform \\\\n\\\\nThis article explains how to configure and apply each of these rules for establishing a REST connection with external APIs. \\\\n\\\\nEndpoint URL\\\\n Security Credentials\\\\n\\\\nData Connection\\\\n\\\\nRequest\\\\nTarget System\\\\n\\\\nOptional Settings\\\\nResponse\\\\nor API\\\\n Access Profile\\\\n\\\\nCalls the REST service and\\\\n\\\\nprocesses the response using JSON transformation\\\\n\\\\nJSON Processor\\\\n\\\\nConverts JSON data between formats\\\\n for internal and external systems\\\\n\\\\n\\\\nThis article will detail how to set up an integration with OpenAl in Civic sync, to determine the Permit Category based on the description provided by the user. \\\\n\\\\nIntegration System: \\\\n\\\\nAn integration system is fundamental to establishing connections between your application and external systems using REST Connect. It defines the endpoint URL for the connection and manages the authentication method to ensure secure communication.\\\",\\\"title\\\":\\\"Integrating with External Services.docx\\\",\\\"uri\\\":\\\"\\\"},{\\\"snippet\\\":\\\"\\\\nBuildAiRequest is the Request JSON Transform and Al Response Model is the Response JSON Transform mapped in this Data Connection rule for serialization and deserialization, respectively. \\\\n\\\\nData Connection \\\\n\\\\nGet Permit Category Al \\\\n\\\\nGet Permit Category Al \\\\n\\\\nGeneral\\\\nParameters\\\\nHistory\\\\n\\\\nConnection type *\\\\n\\\\nREST connector\\\\n\\\\nOperation *\\\\n\\\\nRead\\\\n\\\\nREST Connector *\\\\n\\\\nDetermine Permit Category\\\\n Prompt: BuildAiRequest\\\\n\\\\nResponse JSON transform *\\\\nInput parameters\\\\n Al Response Model\\\\n\\\\nPrompt\\\\n\\\\nin\\\\nBuildAiRequest\\\\n\\\\nresource page: casePage\\\\n\\\\n\\\\nReference materials: Configuring a data connection (zoominsoftware.io) \\\\n\\\\nRest Connector: \\\\n\\\\nTo fully integrate your application with an external system or service, add an outbound REST connector. These connectors are designed to fetch data from designated external sources and handle the responses efficiently. REST connectors enable seamless data exchange, ensuring your application can both request and receive information as needed. This capability is crucial for maintaining real-time communication and synchronization with external systems, thereby enhancing the overall functionality and responsiveness of your application. Retrieve information from an integration system using REST connectors by using either or both the GET or POST method. \\\\n\\\\nDetermine Permit Category is the REST Connector rule used in the above mentioned Data Connection Get Permit Category AI.\\\",\\\"title\\\":\\\"Integrating with External Services.docx\\\",\\\"uri\\\":\\\"\\\"},{\\\"snippet\\\":\\\"\\\\nResponse JSON transform *\\\\nInput parameters\\\\n Al Response Model\\\\n\\\\nPrompt\\\\n\\\\nin\\\\nBuildAiRequest\\\\n\\\\nresource page: casePage\\\\n\\\\n\\\\nReference materials: Configuring a data connection (zoominsoftware.io) \\\\n\\\\nRest Connector: \\\\n\\\\nTo fully integrate your application with an external system or service, add an outbound REST connector. These connectors are designed to fetch data from designated external sources and handle the responses efficiently. REST connectors enable seamless data exchange, ensuring your application can both request and receive information as needed. This capability is crucial for maintaining real-time communication and synchronization with external systems, thereby enhancing the overall functionality and responsiveness of your application. Retrieve information from an integration system using REST connectors by using either or both the GET or POST method. \\\\n\\\\nDetermine Permit Category is the REST Connector rule used in the above mentioned Data Connection Get Permit Category AI. Rest Connector rule holds the integration system rule. \\\\n\\\\nREST Connector \\\\n\\\\nDetermine Permit Category \\\\n\\\\nID DeterminePermitCat \\\\n\\\\nDetermine Permit Category \\\\n\\\\nService Parameters History \\\\n\\\\nIntegration system *\\\\n\\\\nAl Model\\\\n\\\\nMethod\\\\n\\\\nPOST\\\\n\\\\nTimeout (milliseconds) *\\\\n\\\\n10,000\\\\n\\\\nResource path parameters\\\\n\\\\nName *\\\",\\\"title\\\":\\\"Integrating with External Services.docx\\\",\\\"uri\\\":\\\"\\\"},{\\\"snippet\\\":\\\"\\\\nRequest\\\\nTarget System\\\\n\\\\nOptional Settings\\\\nResponse\\\\nor API\\\\n Access Profile\\\\n\\\\nCalls the REST service and\\\\n\\\\nprocesses the response using JSON transformation\\\\n\\\\nJSON Processor\\\\n\\\\nConverts JSON data between formats\\\\n for internal and external systems\\\\n\\\\n\\\\nThis article will detail how to set up an integration with OpenAl in Civic sync, to determine the Permit Category based on the description provided by the user. \\\\n\\\\nIntegration System: \\\\n\\\\nAn integration system is fundamental to establishing connections between your application and external systems using REST Connect. It defines the endpoint URL for the connection and manages the authentication method to ensure secure communication. This system is the backbone of your integration, ensuring that your application can reliably and securely interact with external resources. \\\\n\\\\nAl Model is an integration system used in Civic Sync to connect with OpenAl. This rule consists of the end point url for establishing connection with OpenAl. \\\\n\\\\nReference materials: Configuring integration systems using OpenAPI specification files (zoominsoftware.io) \\\\n\\\\nData Connection: \\\\n\\\\nData connections play a pivotal role in integrating with external systems and services. They utilize either a REST connector or queries to fetch data from a source, which is then passed on for further processing. This document focuses on demonstrating how to use data connections effectively with a REST connector. \\\\n\\\\nGet Permit Category Al is a data connection that is used in Civic Sync to connect to OpenAl to retrieve Permit Category. This Data Connection rule is invoked from Get Permit Category automation.\\\",\\\"title\\\":\\\"Integrating with External Services.docx\\\",\\\"uri\\\":\\\"\\\"}]}\",\"inspectionParameters\":{\"key\":\"value\"},\"lazyLoad\":false}",
+      "Namespace": "ResourceLibrary",
+      "Name": "QIndexResponse",
+      "TopLevelStructure": "OBJECT",
+      "Type": "JSONTransform",
+      "RuleResolutionID": "QIndexResponse",
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "QIndex",
+          "Namespace": "ResourceLibrary"
+        },
+        "Description": "",
+        "Mode": "SingleRecord"
+      },
+      "MappingsDefinition": "{\"AtlasMapping\":{\"jsonType\":\"io.atlasmap.v2.AtlasMapping\",\"dataSource\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"input\",\"name\":\"QIndexResponse\",\"description\":\"input\",\"uri\":\"atlas:json:input\",\"dataSourceType\":\"SOURCE\"},{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"output\",\"name\":\"QIndex\",\"description\":\"output\",\"uri\":\"atlas:json:output\",\"dataSourceType\":\"TARGET\"}],\"mappings\":{\"mapping\":[{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.106164\",\"inputFieldGroup\":{\"jsonType\":\"io.atlasmap.v2.FieldGroup\",\"actions\":[],\"field\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"snippet\",\"path\":\"/relevantContent<>/snippet\",\"fieldType\":\"STRING\",\"docId\":\"input\"}]},\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"Snippet\",\"path\":\"/ResourceLibrary;;Response<>/ResourceLibrary;;Snippet\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.995098\",\"inputFieldGroup\":{\"jsonType\":\"io.atlasmap.v2.FieldGroup\",\"actions\":[],\"field\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"title\",\"path\":\"/relevantContent<>/title\",\"fieldType\":\"STRING\",\"docId\":\"input\"}]},\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"title\",\"path\":\"/ResourceLibrary;;Response<>/ResourceLibrary;;title\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.795971\",\"inputFieldGroup\":{\"jsonType\":\"io.atlasmap.v2.FieldGroup\",\"actions\":[],\"field\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"uri\",\"path\":\"/relevantContent<>/uri\",\"fieldType\":\"STRING\",\"docId\":\"input\"}]},\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"uri\",\"path\":\"/ResourceLibrary;;Response<>/ResourceLibrary;;uri\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]}]},\"name\":\"UI.0\",\"version\":\"1.0.0\",\"lookupTables\":{\"lookupTable\":[]},\"constants\":{\"constant\":[]},\"properties\":{\"property\":[]}}}",
+      "TopElementStructure": "",
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            },
+            "Namespace": "PegaPlatform"
+          },
+          "Description": "This is a JSON string that will be transformed to a Pega object",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "JSON string",
+          "Type": ""
+        }
+      ],
+      "MappingModel": "",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "3-1-1",
+      "AppliesTo": {
+        "ReferenceID": "QIndex",
+        "Namespace": "ResourceLibrary"
+      },
+      "Auto-mapAll": false,
+      "Direction": "SERIALIZE",
+      "SampleJSONData": "{\"description\":\"output\",\"id\":\"output\",\"name\":\"QIndexRequest\",\"inspectionResult\":\"{\\\"JsonInspectionResponse\\\":{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonInspectionResponse\\\",\\\"jsonDocument\\\":{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonDocument\\\",\\\"fields\\\":{\\\"field\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"you@example.com\\\",\\\"path\\\":\\\"/email\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"email\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"How to map JSON response from rest connect to object in Launchpad\\\",\\\"path\\\":\\\"/query\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"query\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"c73037e4-ccbb-496c-bf75-665b33e6afd0\\\",\\\"path\\\":\\\"/applicationId\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"applicationId\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"cec7ff7e-12e6-400c-ba52-cdb757cd6a6f\\\",\\\"path\\\":\\\"/retrieverId\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"retrieverId\\\"}]}},\\\"executionTime\\\":0}}\",\"showFields\":true,\"documentType\":\"JSON\",\"inspectionType\":\"INSTANCE\",\"inspectionSource\":\"{\\\"email\\\":\\\"you@example.com\\\",\\\"query\\\":\\\"How to map JSON response from rest connect to object in Launchpad\\\",\\\"applicationId\\\":\\\"c73037e4-ccbb-496c-bf75-665b33e6afd0\\\",\\\"retrieverId\\\":\\\"cec7ff7e-12e6-400c-ba52-cdb757cd6a6f\\\"}\",\"inspectionParameters\":{\"key\":\"value\"},\"lazyLoad\":false}",
+      "Namespace": "ResourceLibrary",
+      "Name": "QIndexRequest",
+      "TopLevelStructure": "OBJECT",
+      "Type": "JSONTransform",
+      "RuleResolutionID": "QIndexRequest",
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "Text",
+          "Format": {
+            "Type": "RuleReference",
+            "ReferenceID": "Text",
+            "Namespace": "PegaPlatform"
+          },
+          "Namespace": "PegaPlatform"
+        },
+        "Description": "",
+        "Mode": "SingleRecord"
+      },
+      "MappingsDefinition": "{\"AtlasMapping\":{\"jsonType\":\"io.atlasmap.v2.AtlasMapping\",\"dataSource\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"input\",\"name\":\"QIndex\",\"description\":\"input\",\"uri\":\"atlas:json:input\",\"dataSourceType\":\"SOURCE\"},{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"output\",\"name\":\"QIndexRequest\",\"description\":\"output\",\"uri\":\"atlas:json:output\",\"dataSourceType\":\"TARGET\"}],\"mappings\":{\"mapping\":[{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.489850\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"EmailID\",\"path\":\"/ResourceLibrary;;EmailID\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"email\",\"path\":\"/email\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.393762\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"ApplicationID\",\"path\":\"/ResourceLibrary;;ApplicationID\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"applicationId\",\"path\":\"/applicationId\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.532017\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"Query\",\"path\":\"/ResourceLibrary;;Query\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"query\",\"path\":\"/query\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.652417\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"RetrieverID\",\"path\":\"/ResourceLibrary;;RetrieverID\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"retrieverId\",\"path\":\"/retrieverId\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]}]},\"name\":\"UI.0\",\"version\":\"1.0.0\",\"lookupTables\":{\"lookupTable\":[]},\"constants\":{\"constant\":[]},\"properties\":{\"property\":[]}}}",
+      "TopElementStructure": "",
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "QIndex",
+            "Namespace": "ResourceLibrary"
+          },
+          "Description": "This is a Pega object that will be transformed to a JSON string",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "Pega object",
+          "Type": ""
+        }
+      ],
+      "MappingModel": "",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "3-1-1",
+      "AppliesTo": {
+        "ReferenceID": "QIndex",
+        "Namespace": "ResourceLibrary"
+      },
+      "Auto-mapAll": false,
+      "Direction": "DESERIALIZE",
+      "SampleJSONData": "{\"description\":\"input\",\"id\":\"input\",\"name\":\"QIndexToken\",\"inspectionResult\":\"{\\\"JsonInspectionResponse\\\":{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonInspectionResponse\\\",\\\"jsonDocument\\\":{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonDocument\\\",\\\"fields\\\":{\\\"field\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImQyOTg0OWU5LWVlMjUtNDg5Mi1iZmMyLThiOGE5ODg5NjA2MiJ9.eyJzdWIiOiJhZWE2NTg1Ny0wMDA3LTNlNTUtOWY1ZC1iNmFhNzU4MzM3NmUiLCJhdWQiOiJxYnVzaW5lc3MtYXVkaWVuY2UiLCJodHRwczovL2F3cy5hbWF6b24uY29tL3RhZ3MiOnsicHJpbmNpcGFsX3RhZ3MiOnsiRW1haWwiOlsicHJhdGltYUBleGFtcGxlLmNvbSJdfX0sImlzcyI6Imh0dHBzOi8vOG9kczJ0YXM2Mi5leGVjdXRlLWFwaS51cy1lYXN0LTEuYW1hem9uYXdzLmNvbS9wcm9kIiwiZXhwIjoxNzQ3MDYwOTMzLCJpYXQiOjE3NDcwNTczMzMsImp0aSI6IjBiOThlNmNjLTYwMGItNGMxMS05YWQ5LTRlNDhlNmViZTQ5MiIsImVtYWlsIjoicHJhdGltYUBleGFtcGxlLmNvbSJ9.DgNPVY2fUTVhGTbJj81a-yl4Sm1V5HwttoDReI42VMx5Q_nbn90H4EbwJybEKsDPtzd-CP0IEeUpYxtyhzQW2iQEaqeu_YdbwEa-n3g9e4UxVT2r_FpVP9ZKKxtDrCJKuIqtwHjiHjUwZbAmQPU2QsTGYf0iwKRGh701TsflpNKq5n26j1hZiZYazMIc1RMmdCwDYK54NabH1GjL4Dn0Og6Pfsh4QRO9wZp7b5IoDzq5FKglyMHClxdzW5k8jxCYAAkAVmzY5G6_BfdXhQG7EjmfwRl4Zm2HOUEh4sD9HR6mLI1OMK3MhHPBgLhkBgSWJF-5UX5oY4Cb4HiHbj0zHQ\\\",\\\"path\\\":\\\"/id_token\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"id_token\\\"}]}},\\\"executionTime\\\":0}}\",\"showFields\":true,\"documentType\":\"JSON\",\"inspectionType\":\"INSTANCE\",\"inspectionSource\":\"{\\\"id_token\\\":\\\"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImQyOTg0OWU5LWVlMjUtNDg5Mi1iZmMyLThiOGE5ODg5NjA2MiJ9.eyJzdWIiOiJhZWE2NTg1Ny0wMDA3LTNlNTUtOWY1ZC1iNmFhNzU4MzM3NmUiLCJhdWQiOiJxYnVzaW5lc3MtYXVkaWVuY2UiLCJodHRwczovL2F3cy5hbWF6b24uY29tL3RhZ3MiOnsicHJpbmNpcGFsX3RhZ3MiOnsiRW1haWwiOlsicHJhdGltYUBleGFtcGxlLmNvbSJdfX0sImlzcyI6Imh0dHBzOi8vOG9kczJ0YXM2Mi5leGVjdXRlLWFwaS51cy1lYXN0LTEuYW1hem9uYXdzLmNvbS9wcm9kIiwiZXhwIjoxNzQ3MDYwOTMzLCJpYXQiOjE3NDcwNTczMzMsImp0aSI6IjBiOThlNmNjLTYwMGItNGMxMS05YWQ5LTRlNDhlNmViZTQ5MiIsImVtYWlsIjoicHJhdGltYUBleGFtcGxlLmNvbSJ9.DgNPVY2fUTVhGTbJj81a-yl4Sm1V5HwttoDReI42VMx5Q_nbn90H4EbwJybEKsDPtzd-CP0IEeUpYxtyhzQW2iQEaqeu_YdbwEa-n3g9e4UxVT2r_FpVP9ZKKxtDrCJKuIqtwHjiHjUwZbAmQPU2QsTGYf0iwKRGh701TsflpNKq5n26j1hZiZYazMIc1RMmdCwDYK54NabH1GjL4Dn0Og6Pfsh4QRO9wZp7b5IoDzq5FKglyMHClxdzW5k8jxCYAAkAVmzY5G6_BfdXhQG7EjmfwRl4Zm2HOUEh4sD9HR6mLI1OMK3MhHPBgLhkBgSWJF-5UX5oY4Cb4HiHbj0zHQ\\\"}\",\"inspectionParameters\":{\"key\":\"value\"},\"lazyLoad\":false}",
+      "Namespace": "ResourceLibrary",
+      "Name": "TokenRequest",
+      "TopLevelStructure": "OBJECT",
+      "Type": "JSONTransform",
+      "RuleResolutionID": "TokenRequest",
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "QIndex",
+          "Namespace": "ResourceLibrary"
+        },
+        "Description": "",
+        "Mode": "SingleRecord"
+      },
+      "MappingsDefinition": "{\"AtlasMapping\":{\"jsonType\":\"io.atlasmap.v2.AtlasMapping\",\"dataSource\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"input\",\"name\":\"QIndexToken\",\"description\":\"input\",\"uri\":\"atlas:json:input\",\"dataSourceType\":\"SOURCE\"},{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"output\",\"name\":\"QIndex\",\"description\":\"output\",\"uri\":\"atlas:json:output\",\"dataSourceType\":\"TARGET\"}],\"mappings\":{\"mapping\":[{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.278630\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"id_token\",\"path\":\"/id_token\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"token\",\"path\":\"/ResourceLibrary;;token\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]}]},\"name\":\"UI.0\",\"version\":\"1.0.0\",\"lookupTables\":{\"lookupTable\":[]},\"constants\":{\"constant\":[]},\"properties\":{\"property\":[]}}}",
+      "TopElementStructure": "",
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            },
+            "Namespace": "PegaPlatform"
+          },
+          "Description": "This is a JSON string that will be transformed to a Pega object",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "JSON string",
+          "Type": ""
+        }
+      ],
+      "MappingModel": "",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Field": [
+    {
+      "AdditionalInfo": {
+        "ReferenceID": "ApplicationID_additionalInfo",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "Field",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "QIndex",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "ApplicationID",
+      "Namespace": "ResourceLibrary",
+      "Name": "ApplicationID",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "RichText",
+      "Type": "Field",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "QIndexResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "Snippet",
+      "Namespace": "ResourceLibrary",
+      "Name": "Snippet",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "AdditionalInfo": {
+        "ReferenceID": "RetrieverID_additionalInfo",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "Field",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "QIndex",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "RetrieverID",
+      "Namespace": "ResourceLibrary",
+      "Name": "RetrieverID",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Field",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "QIndex",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "Query",
+      "Namespace": "ResourceLibrary",
+      "Name": "Query",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Field",
+      "Description": "Email ID of User",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "QIndex",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "EmailID",
+      "Namespace": "ResourceLibrary",
+      "Name": "EmailID",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "ObjectReference",
+      "Description": "This field holds the reference to a QIndexResponse instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "RecordClass": {
+        "ReferenceID": "QIndexResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "AppliesTo": {
+        "ReferenceID": "History-QIndexResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "SingleRecord",
+      "RelationshipType": "Peer",
+      "Namespace": "ResourceLibrary",
+      "Name": "QIndexResponse Reference",
+      "DataAccess": "Refer",
+      "DataSource": {
+        "CallReference": {
+          "ReferenceID": "QIndexResponseLookup",
+          "ReferenceScope": {
+            "ReferenceID": "QIndexResponse",
+            "Namespace": "ResourceLibrary"
+          },
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "DataPage",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "FieldReference",
+              "Root": {
+                "Type": "Variable",
+                "Name": "Current"
+              },
+              "Field": {
+                "Type": "RuleReference",
+                "ReferenceID": "ID",
+                "Namespace": "PegaPlatform"
+              }
+            }
+          }
+        ]
+      },
+      "Type": "Field",
+      "RuleResolutionID": "ObjectReference",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Field",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "QIndex",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "token",
+      "Namespace": "ResourceLibrary",
+      "Name": "token",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Field",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "QIndexResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "title",
+      "Namespace": "ResourceLibrary",
+      "Name": "title",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "EmbeddedData",
+      "Type": "Field",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "RecordClass": {
+        "ReferenceID": "QIndexResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "AppliesTo": {
+        "ReferenceID": "QIndex",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "ListOfRecords",
+      "RuleResolutionID": "Response",
+      "Namespace": "ResourceLibrary",
+      "Name": "Response",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "ObjectReference",
+      "Description": "This field holds the reference to a QIndex instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "RecordClass": {
+        "ReferenceID": "QIndex",
+        "Namespace": "ResourceLibrary"
+      },
+      "AppliesTo": {
+        "ReferenceID": "History-QIndex",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "SingleRecord",
+      "RelationshipType": "Peer",
+      "Namespace": "ResourceLibrary",
+      "Name": "QIndex Reference",
+      "DataAccess": "Refer",
+      "DataSource": {
+        "CallReference": {
+          "ReferenceID": "QIndexLookup",
+          "ReferenceScope": {
+            "ReferenceID": "QIndex",
+            "Namespace": "ResourceLibrary"
+          },
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "DataPage",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "FieldReference",
+              "Root": {
+                "Type": "Variable",
+                "Name": "Current"
+              },
+              "Field": {
+                "Type": "RuleReference",
+                "ReferenceID": "ID",
+                "Namespace": "PegaPlatform"
+              }
+            }
+          }
+        ]
+      },
+      "Type": "Field",
+      "RuleResolutionID": "ObjectReference",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "URL",
+      "Type": "Field",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "QIndexResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "uri",
+      "Namespace": "ResourceLibrary",
+      "Name": "uri",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Automation": [
+    {
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-0",
+      "IsSystemAutomation": false,
+      "AppliesTo": {
+        "ReferenceID": "QIndex",
+        "Namespace": "ResourceLibrary"
+      },
+      "CallType": "ResourceObject",
+      "Namespace": "ResourceLibrary",
+      "Name": "GetQueryResponseFromQIndex",
+      "Type": "Automation",
+      "Locals": [
+        {
+          "Mode": "SingleRecord",
+          "Name": "QIndexObject",
+          "ObjectType": {
+            "TypeReferenceID": "QIndex",
+            "Namespace": "ResourceLibrary",
+            "Type": "TypeReference"
+          },
+          "Description": "Q Index Object"
+        }
+      ],
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "List",
+          "Type": "TypeReference",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "QIndexResponse",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        }
+      },
+      "RuleResolutionID": "GetQueryResponseFromQIndex",
+      "RuleSteps": [
+        {
+          "Id": "_j9k7mquhw",
+          "Type": "ActionSet",
+          "Sets": [
+            {
+              "Id": "_1owtkob9r",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "token",
+                  "Namespace": "ResourceLibrary",
+                  "Type": "RuleReference"
+                }
+              },
+              "Source": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Type": "CallExpression",
+                  "CallType": "DataConnection",
+                  "CallReference": {
+                    "Type": "RuleReference",
+                    "ReferenceID": "GetToken",
+                    "Namespace": "ResourceLibrary",
+                    "ReferenceScope": {
+                      "Type": "RuleReference",
+                      "ReferenceID": "QIndex",
+                      "Namespace": "ResourceLibrary"
+                    }
+                  }
+                },
+                "Field": {
+                  "Type": "RuleReference",
+                  "ReferenceID": "token",
+                  "Namespace": "ResourceLibrary"
+                }
+              }
+            },
+            {
+              "Id": "_hvgolgc9y",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "token",
+                  "Namespace": "ResourceLibrary",
+                  "Type": "RuleReference"
+                }
+              },
+              "Source": {
+                "Type": "ExpressionGroup",
+                "ExpressionType": "+",
+                "Expressions": [
+                  {
+                    "Type": "ConstantText",
+                    "Value": "Bearer "
+                  },
+                  {
+                    "Type": "FieldReference",
+                    "Root": {
+                      "Type": "Variable",
+                      "Name": "Primary"
+                    },
+                    "Field": {
+                      "Type": "RuleReference",
+                      "ReferenceID": "token",
+                      "Namespace": "ResourceLibrary"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "Id": "_kgnke9joy",
+          "Type": "ActionSet",
+          "Sets": [
+            {
+              "Id": "_6wgp319zx",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "ApplicationID",
+                  "Namespace": "ResourceLibrary",
+                  "Type": "RuleReference"
+                }
+              },
+              "Source": {
+                "Type": "Variable",
+                "Name": "ApplicationID"
+              }
+            },
+            {
+              "Id": "_iczlyt1vq",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "RetrieverID",
+                  "Namespace": "ResourceLibrary",
+                  "Type": "RuleReference"
+                }
+              },
+              "Source": {
+                "Type": "Variable",
+                "Name": "RetrieverID"
+              }
+            },
+            {
+              "Id": "_37q7f575l",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "Query",
+                  "Namespace": "ResourceLibrary",
+                  "Type": "RuleReference"
+                }
+              },
+              "Source": {
+                "Type": "Variable",
+                "Name": "Query"
+              }
+            },
+            {
+              "Id": "_oonzits9d",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "EmailID",
+                  "Namespace": "ResourceLibrary",
+                  "Type": "RuleReference"
+                }
+              },
+              "Source": {
+                "Type": "Variable",
+                "Name": "EmailID"
+              }
+            }
+          ]
+        },
+        {
+          "Id": "_zfi1r394c",
+          "Type": "ActionSet",
+          "Sets": [
+            {
+              "Id": "_xr0j612tx",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "Response",
+                  "Namespace": "ResourceLibrary",
+                  "Type": "RuleReference"
+                }
+              },
+              "Source": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Type": "CallExpression",
+                  "CallType": "DataConnection",
+                  "CallReference": {
+                    "Type": "RuleReference",
+                    "ReferenceID": "connectToQIndex",
+                    "Namespace": "ResourceLibrary",
+                    "ReferenceScope": {
+                      "Type": "RuleReference",
+                      "ReferenceID": "QIndex",
+                      "Namespace": "ResourceLibrary"
+                    }
+                  },
+                  "CallInputs": [
+                    {
+                      "Type": "CallInput",
+                      "ParameterName": "token",
+                      "Source": {
+                        "Type": "FieldReference",
+                        "Root": {
+                          "Type": "Variable",
+                          "Name": "Primary"
+                        },
+                        "Field": {
+                          "Type": "RuleReference",
+                          "ReferenceID": "token",
+                          "Namespace": "ResourceLibrary"
+                        }
+                      }
+                    },
+                    {
+                      "Type": "CallInput",
+                      "ParameterName": "QIndexObject",
+                      "Source": {
+                        "Type": "Variable",
+                        "Name": "Primary"
+                      }
+                    }
+                  ]
+                },
+                "Field": {
+                  "Type": "RuleReference",
+                  "ReferenceID": "Response",
+                  "Namespace": "ResourceLibrary"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Id": "_a8di884h4",
+          "Type": "ActionReturn",
+          "Source": {
+            "Type": "FieldReference",
+            "Root": {
+              "Name": "Primary",
+              "Type": "Variable"
+            },
+            "Field": {
+              "ReferenceID": "Response",
+              "Namespace": "ResourceLibrary",
+              "Type": "RuleReference"
+            }
+          }
+        }
+      ],
+      "Inputs": [
+        {
+          "Mode": "SingleRecord",
+          "Required": "true",
+          "Name": "ApplicationID",
+          "Description": "Q Index Application ID",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          },
+          "Type": ""
+        },
+        {
+          "Mode": "SingleRecord",
+          "Required": "true",
+          "Name": "RetrieverID",
+          "Description": "Q Index Retriever ID",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          },
+          "Type": ""
+        },
+        {
+          "Mode": "SingleRecord",
+          "Required": "true",
+          "Name": "Query",
+          "Description": "Query",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          },
+          "Type": ""
+        },
+        {
+          "Mode": "SingleRecord",
+          "Required": "true",
+          "Name": "EmailID",
+          "Description": "EmailID",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          },
+          "Type": ""
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Portal": [
+    {
+      "CreateMenu": "ShowAll",
+      "Type": "Portal",
+      "Description": "Default application work portal",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-3",
+      "RuleResolutionID": "WebPortal",
+      "AvailableCaseToCreate": [
+        {
+          "CaseType": {
+            "ReferenceID": "QIndex",
+            "Namespace": "ResourceLibrary",
+            "ReferenceScope": {
+              "ReferenceID": "QIndex",
+              "Namespace": "ResourceLibrary"
+            }
+          }
+        },
+        {
+          "CaseType": {
+            "ReferenceID": "QIndexResponse",
+            "Namespace": "ResourceLibrary",
+            "ReferenceScope": {
+              "ReferenceID": "QIndexResponse",
+              "Namespace": "ResourceLibrary"
+            }
+          }
+        }
+      ],
+      "NavigationPages": [
+        {
+          "Page": {
+            "ReferenceID": "Home",
+            "ReferenceScope": {
+              "ReferenceID": "Data-Portal",
+              "Namespace": "PegaPlatform"
+            }
+          }
+        },
+        {
+          "Page": {
+            "ReferenceID": "QIndex",
+            "Namespace": "ResourceLibrary",
+            "ReferenceScope": {
+              "ReferenceID": "Data-Portal",
+              "Namespace": "PegaPlatform"
+            }
+          }
+        },
+        {
+          "Page": {
+            "ReferenceID": "QIndexResponseList",
+            "Namespace": "ResourceLibrary",
+            "ReferenceScope": {
+              "ReferenceID": "Data-Portal",
+              "Namespace": "PegaPlatform"
+            }
+          }
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "Work Portal",
+      "Template": "work",
+      "ActionToBePerformed": "MODIFIED"
+    }
+  ],
+  "FullObjectDisplay": [
+    {
+      "Heading": {
+        "Type": "FieldReference",
+        "Root": {
+          "Name": "Primary",
+          "Type": "Variable"
+        },
+        "Field": {
+          "ReferenceID": "Name",
+          "Type": "RuleReference",
+          "Namespace": "PegaPlatform"
+        }
+      },
+      "Description": "QIndexResponse Display",
+      "Reusability": "PublicMayOverride",
+      "UsePrimaryFields": true,
+      "SchemaVersion": "0-1-0",
+      "AppliesTo": {
+        "ReferenceID": "QIndexResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "ShowLifecycle": false,
+      "Namespace": "ResourceLibrary",
+      "Name": "QIndexResponse Display",
+      "Type": "FullObjectDisplay",
+      "Utilities": [
+        {
+          "EmbedListUUID__": "_60vm7wp5z",
+          "Widget": {
+            "Namespace": "PegaPlatform",
+            "ReferenceID": "Attachments",
+            "Type": "RuleReference"
+          },
+          "Type": "WidgetItem",
+          "Config": "{\"label\":\"@L Attachments\",\"iconName\":\"paper-clip\"}"
+        },
+        {
+          "EmbedListUUID__": "_bwm09rcot",
+          "Widget": {
+            "Namespace": "PegaPlatform",
+            "ReferenceID": "Followers",
+            "Type": "RuleReference"
+          },
+          "Type": "WidgetItem",
+          "Config": "{\"label\":\"@L Followers\",\"iconName\":\"user-star\"}"
+        }
+      ],
+      "Subheading": {
+        "Type": "FieldReference",
+        "Root": {
+          "Name": "Primary",
+          "Type": "Variable"
+        },
+        "Field": {
+          "ReferenceID": "BusinessID",
+          "Type": "RuleReference",
+          "Namespace": "PegaPlatform"
+        }
+      },
+      "RuleResolutionID": "QIndexResponseDisplay",
+      "Tabs": [
+        {
+          "EmbedListUUID__": "_b1fhrus6e",
+          "Heading": "Details",
+          "View": {
+            "ReferenceID": "pyDetailsTabContent",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        },
+        {
+          "EmbedListUUID__": "_m890q4skk",
+          "Heading": "Pulse",
+          "View": {
+            "ReferenceID": "pyCasePulse",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        },
+        {
+          "EmbedListUUID__": "_pta48j7r9",
+          "Heading": "History",
+          "View": {
+            "ReferenceID": "History",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        }
+      ],
+      "Icon": "disc-stack-solid",
+      "FieldsToHighlight": 0,
+      "SummaryFields": [],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Heading": {
+        "Type": "FieldReference",
+        "Root": {
+          "Name": "Primary",
+          "Type": "Variable"
+        },
+        "Field": {
+          "ReferenceID": "Name",
+          "Type": "RuleReference",
+          "Namespace": "PegaPlatform"
+        }
+      },
+      "Description": "QIndex Display",
+      "Reusability": "PublicMayOverride",
+      "UsePrimaryFields": true,
+      "SchemaVersion": "0-1-0",
+      "AppliesTo": {
+        "ReferenceID": "QIndex",
+        "Namespace": "ResourceLibrary"
+      },
+      "ShowLifecycle": false,
+      "Namespace": "ResourceLibrary",
+      "Name": "QIndex Display",
+      "Type": "FullObjectDisplay",
+      "Utilities": [
+        {
+          "EmbedListUUID__": "_zg02nkwff",
+          "Widget": {
+            "Namespace": "PegaPlatform",
+            "ReferenceID": "Attachments",
+            "Type": "RuleReference"
+          },
+          "Type": "WidgetItem",
+          "Config": "{\"label\":\"@L Attachments\",\"iconName\":\"paper-clip\"}"
+        },
+        {
+          "EmbedListUUID__": "_om2av513k",
+          "Widget": {
+            "Namespace": "PegaPlatform",
+            "ReferenceID": "Followers",
+            "Type": "RuleReference"
+          },
+          "Type": "WidgetItem",
+          "Config": "{\"label\":\"@L Followers\",\"iconName\":\"user-star\"}"
+        }
+      ],
+      "Subheading": {
+        "Type": "FieldReference",
+        "Root": {
+          "Name": "Primary",
+          "Type": "Variable"
+        },
+        "Field": {
+          "ReferenceID": "BusinessID",
+          "Type": "RuleReference",
+          "Namespace": "PegaPlatform"
+        }
+      },
+      "RuleResolutionID": "QIndexDisplay",
+      "Tabs": [
+        {
+          "EmbedListUUID__": "_iwf2d7n05",
+          "Heading": "Details",
+          "View": {
+            "ReferenceID": "pyDetailsTabContent",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        },
+        {
+          "EmbedListUUID__": "_niyj7zfcd",
+          "Heading": "Pulse",
+          "View": {
+            "ReferenceID": "pyCasePulse",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        },
+        {
+          "EmbedListUUID__": "_7j9r529vm",
+          "Heading": "History",
+          "View": {
+            "ReferenceID": "History",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        }
+      ],
+      "Icon": "disc-stack-solid",
+      "FieldsToHighlight": 0,
+      "SummaryFields": [],
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Class": [
+    {
+      "Type": "Class",
+      "Description": "QIndexResponse",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "BusinessObject",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "QIndexResponse",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceLibrary",
+      "Name": "QIndexResponse",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "QIndex",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "BusinessObject",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "QIndex",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceLibrary",
+      "Name": "QIndex",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "History-QIndex",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "History",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "History-QIndex",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceLibrary",
+      "Name": "History-QIndex",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "History-QIndexResponse",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "History",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "History-QIndexResponse",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceLibrary",
+      "Name": "History-QIndexResponse",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "IntegrationSystem": [
+    {
+      "Type": "IntegrationSystem",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "1-0-0",
+      "SourceType": "BaseURL",
+      "RuleResolutionID": "QIndexTokenEndpoint",
+      "BaseURL": "https://8ods2tas62.execute-api.us-east-1.amazonaws.com/prod/token",
+      "BaseURLSource": "CONSTANT",
+      "Namespace": "ResourceLibrary",
+      "Name": "Q Index Token Endpoint",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "IntegrationSystem",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "1-0-0",
+      "SourceType": "BaseURL",
+      "RuleResolutionID": "SearchRelevantContent",
+      "BaseURL": "https://thahoy66zb.execute-api.us-east-1.amazonaws.com/prod/search",
+      "BaseURLSource": "CONSTANT",
+      "Namespace": "ResourceLibrary",
+      "Name": "Search Relevant Content",
+      "ActionToBePerformed": "ADDED"
+    }
+  ]
+}
