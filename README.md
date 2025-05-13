@@ -19,7 +19,7 @@ This repository contains some sample code and configuration to learn how to crea
 # References
 
 - Pega Launchpad [overview](https://launchpad.io)
-- Creating [Function](https://docs.pega.com/bundle/launchpad/page/platform/launchpad/creating-custom-functions.html) rules
+- Creating [Function](https://docs.pega.com/bundle/launchpad/page/platform/launchpad/creating-functions-uploading-custom-java.html) rules
 
 # Java SDK
 
