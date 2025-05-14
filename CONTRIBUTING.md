@@ -80,6 +80,15 @@ Once it's filed:
 
 ### Your First Code Contribution
 
+#### Pre-requisities:
+
+1. Request through sail point the GitHub access called GitHub - Pegasystems - Organization User
+2. Have your own personal account on github.com
+3. Once you have sailpoint access, go to https://github.com/orgs/pegasystems/sso to associate your pega sso login with that personal account
+4. Share your personal github username with Tim Miranda, who will add you to the Launchpad team on github.com
+   
+#### Adding a new example:
+
 1. Create a new branch
 2. Add a new module to the /examples folder
 3. Make sure your module has a README.MD similar to the other modules. This is for people to learn how to install and use your example.
