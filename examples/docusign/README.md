@@ -204,7 +204,7 @@ This method, given an envelope id and document id, will return the content of th
 Inputs:
 
 - envelopeId: The id of the envelope returned from createEnvelope()
-- documentId: The id of the document you want, obtained from a getEnvelopeDocuments() API call
+- documentId: The id of the document you want (ex: "1", "2", etc), obtained from a getEnvelopeDocuments() API call
 
 Outputs:
 
