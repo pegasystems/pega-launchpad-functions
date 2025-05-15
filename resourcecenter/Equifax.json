@@ -587,6 +587,72 @@
       "ActionToBePerformed": "ADDED"
     },
     {
+      "DataPageMode": "SingleRecord",
+      "CallableRule": {
+        "CallReference": {
+          "ReferenceID": "PIIVerification",
+          "Namespace": "ResourceCenter",
+          "ReferenceScope": {
+            "ReferenceID": "VerifyAccount",
+            "Namespace": "ResourceCenter"
+          }
+        },
+        "CallType": "Automation",
+        "CallInputs": [
+          {
+            "ParameterName": "ssn",
+            "Source": {
+              "Type": "Variable",
+              "Name": "ssn"
+            }
+          }
+        ]
+      },
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-0",
+      "IsNative": false,
+      "CallType": "DataPage",
+      "Namespace": "ResourceCenter",
+      "Name": "ValidateWithEquifax",
+      "ObjectType": {
+        "ReferenceID": "AccountVerificationResponse",
+        "Namespace": "ResourceCenter"
+      },
+      "UseAutomationSource": true,
+      "Type": "DataPage",
+      "Output": {
+        "ObjectType": {
+          "TypeReferenceID": "AccountVerificationResponse",
+          "Type": "TypeReference",
+          "Namespace": "ResourceCenter"
+        },
+        "Description": "",
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "ValidateWithEquifax",
+      "Inputs": [
+        {
+          "ObjectType": {
+            "TypeReferenceID": "Integer",
+            "Type": "TypeReference",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Integer",
+              "Namespace": "PegaPlatform"
+            },
+            "Namespace": "PegaPlatform"
+          },
+          "Type": "",
+          "Description": "ssn",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "ssn"
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
       "DataPageMode": "ListOfRecords",
       "Description": "Identification list",
       "Reusability": "Private",
@@ -3876,6 +3942,527 @@
         "ReferenceID": "NameDisplay",
         "Namespace": "ResourceCenter"
       },
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Automation": [
+    {
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-0",
+      "IsSystemAutomation": false,
+      "AppliesTo": {
+        "ReferenceID": "VerifyAccount",
+        "Namespace": "ResourceCenter"
+      },
+      "CallType": "ResourceObject",
+      "Namespace": "ResourceCenter",
+      "Name": "PIIVerification",
+      "Type": "Automation",
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "AccountVerificationResponse",
+          "Namespace": "ResourceCenter",
+          "Type": "TypeReference"
+        }
+      },
+      "RuleResolutionID": "PIIVerification",
+      "RuleSteps": [
+        {
+          "Id": "_qrr2owfs5",
+          "Type": "ActionSet",
+          "Sets": [
+            {
+              "Id": "_q5824ut3k",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "SSN",
+                  "Namespace": "ResourceCenter",
+                  "Type": "RuleReference"
+                },
+                "ReferencePath": [
+                  {
+                    "Field": {
+                      "ReferenceID": "Identification",
+                      "Namespace": "ResourceCenter",
+                      "Type": "RuleReference"
+                    },
+                    "Type": "FieldReference"
+                  }
+                ]
+              },
+              "Source": {
+                "Type": "Variable",
+                "Name": "ssn"
+              }
+            },
+            {
+              "Id": "_843ca7jct",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "FirstName",
+                  "Namespace": "ResourceCenter",
+                  "Type": "RuleReference"
+                },
+                "ReferencePath": [
+                  {
+                    "Field": {
+                      "ReferenceID": "EntityName",
+                      "Namespace": "ResourceCenter",
+                      "Type": "RuleReference"
+                    },
+                    "Type": "FieldReference"
+                  }
+                ]
+              },
+              "Source": {
+                "Type": "ConstantText",
+                "Value": "John"
+              }
+            },
+            {
+              "Id": "_7lzjizjqc",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "LastName",
+                  "Namespace": "ResourceCenter",
+                  "Type": "RuleReference"
+                },
+                "ReferencePath": [
+                  {
+                    "Field": {
+                      "ReferenceID": "EntityName",
+                      "Namespace": "ResourceCenter",
+                      "Type": "RuleReference"
+                    },
+                    "Type": "FieldReference"
+                  }
+                ]
+              },
+              "Source": {
+                "Type": "ConstantText",
+                "Value": "Doe"
+              }
+            },
+            {
+              "Id": "_dyzrm9ad2",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "MerchantId",
+                  "Namespace": "ResourceCenter",
+                  "Type": "RuleReference"
+                }
+              },
+              "Source": {
+                "Type": "ConstantText",
+                "Value": "efxtest"
+              }
+            },
+            {
+              "Id": "_crxu1er34",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "ServiceType",
+                  "Namespace": "ResourceCenter",
+                  "Type": "RuleReference"
+                }
+              },
+              "Source": {
+                "Type": "ConstantText",
+                "Value": "CV"
+              }
+            }
+          ]
+        },
+        {
+          "Id": "_h0a16r7ja",
+          "Type": "ActionSet",
+          "Sets": [
+            {
+              "Id": "_9n5x8rkgc",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "ConsentEventDate",
+                  "Namespace": "ResourceCenter",
+                  "Type": "RuleReference"
+                },
+                "ReferencePath": [
+                  {
+                    "Field": {
+                      "ReferenceID": "ConsumerConsent",
+                      "Namespace": "ResourceCenter",
+                      "Type": "RuleReference"
+                    },
+                    "Type": "FieldReference"
+                  }
+                ]
+              },
+              "Source": {
+                "Type": "ConstantDateTime",
+                "Value": "2008-09-15T08:34:23.000Z"
+              }
+            },
+            {
+              "Id": "_552ei2vst",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "ConsentEvent",
+                  "Namespace": "ResourceCenter",
+                  "Type": "RuleReference"
+                },
+                "ReferencePath": [
+                  {
+                    "Field": {
+                      "ReferenceID": "ConsumerConsent",
+                      "Namespace": "ResourceCenter",
+                      "Type": "RuleReference"
+                    },
+                    "Type": "FieldReference"
+                  }
+                ]
+              },
+              "Source": {
+                "Type": "ConstantText",
+                "Value": "opt-in"
+              }
+            },
+            {
+              "Id": "_uwxpu9lfr",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "ConsentType",
+                  "Namespace": "ResourceCenter",
+                  "Type": "RuleReference"
+                },
+                "ReferencePath": [
+                  {
+                    "Field": {
+                      "ReferenceID": "ConsumerConsent",
+                      "Namespace": "ResourceCenter",
+                      "Type": "RuleReference"
+                    },
+                    "Type": "FieldReference"
+                  }
+                ]
+              },
+              "Source": {
+                "Type": "ConstantText",
+                "Value": "whitelist"
+              }
+            },
+            {
+              "Id": "_lpceb1an3",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "consentMethod",
+                  "Namespace": "ResourceCenter",
+                  "Type": "RuleReference"
+                },
+                "ReferencePath": [
+                  {
+                    "Field": {
+                      "ReferenceID": "ConsumerConsent",
+                      "Namespace": "ResourceCenter",
+                      "Type": "RuleReference"
+                    },
+                    "Type": "FieldReference"
+                  }
+                ]
+              },
+              "Source": {
+                "Type": "ConstantText",
+                "Value": "TCO"
+              }
+            }
+          ]
+        },
+        {
+          "Id": "_d9gxp6wxq",
+          "Type": "ActionSet",
+          "Sets": [
+            {
+              "Id": "_g75nysi88",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "AccountVerificationResponse",
+                  "Namespace": "ResourceCenter",
+                  "Type": "RuleReference"
+                }
+              },
+              "Source": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Type": "CallExpression",
+                  "CallType": "DataConnection",
+                  "CallReference": {
+                    "Type": "RuleReference",
+                    "ReferenceID": "EquifaxAccountVerification",
+                    "Namespace": "ResourceCenter",
+                    "ReferenceScope": {
+                      "Type": "RuleReference",
+                      "ReferenceID": "VerifyAccount",
+                      "Namespace": "ResourceCenter"
+                    }
+                  },
+                  "CallInputs": [
+                    {
+                      "Type": "CallInput",
+                      "ParameterName": "thisObject",
+                      "Source": {
+                        "Type": "Variable",
+                        "Name": "Primary"
+                      }
+                    }
+                  ]
+                },
+                "Field": {
+                  "Type": "RuleReference",
+                  "ReferenceID": "AccountVerificationResponse",
+                  "Namespace": "ResourceCenter"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Id": "_9rzaawn5u",
+          "Type": "ActionReturn",
+          "Source": {
+            "Type": "FieldReference",
+            "Root": {
+              "Name": "Primary",
+              "Type": "Variable"
+            },
+            "Field": {
+              "ReferenceID": "AccountVerificationResponse",
+              "Namespace": "ResourceCenter",
+              "Type": "RuleReference"
+            }
+          }
+        }
+      ],
+      "Inputs": [
+        {
+          "Mode": "SingleRecord",
+          "Required": "true",
+          "Name": "ssn",
+          "ObjectType": {
+            "TypeReferenceID": "Integer",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Integer",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          },
+          "Description": "SSN",
+          "Type": ""
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Automation",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-0",
+      "IsSystemAutomation": false,
+      "Output": {
+        "Description": "",
+        "Mode": ""
+      },
+      "AppliesTo": {
+        "ReferenceID": "VerifyAccount",
+        "Namespace": "ResourceCenter"
+      },
+      "RuleResolutionID": "SetDescription",
+      "CallType": "ResourceObject",
+      "RuleSteps": [
+        {
+          "Id": "_ekgofkiy5",
+          "Type": "ActionSet",
+          "Sets": [
+            {
+              "Id": "_2ste37tiy",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "ResourceDescription",
+                  "Namespace": "ResourceCenter",
+                  "Type": "RuleReference"
+                }
+              },
+              "Source": {
+                "Type": "ConstantText",
+                "Value": "Equifax provides Verification APIs that help businesses confirm an individual’s identity and validate their financial accounts in real time. These APIs use Equifax’s extensive data sources to authenticate personal information (e.g., SSN, name, DOB, address) and verify bank account ownership, status, and balance. They're widely used for KYC (Know Your Customer), fraud prevention, and onboarding workflows in financial services and fintech.  This Case type demostrates the Account Verification API of Equifax. The Account Verification API is used for customers to verify details about payments using creditcards and bank accounts (individual consumer and commercial bank accounts). The customer can pass the PII data attribute list and credit card or bank account information for verification. The response will be a Boolean Y or N response to each category of Identity data passed in Request."
+              }
+            }
+          ]
+        }
+      ],
+      "Namespace": "ResourceCenter",
+      "Name": "SetDescription",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-0",
+      "IsSystemAutomation": false,
+      "AppliesTo": {
+        "ReferenceID": "VerifyAccount",
+        "Namespace": "ResourceCenter"
+      },
+      "CallType": "ResourceObject",
+      "Namespace": "ResourceCenter",
+      "Name": "EquifaxAccountVerificationConnect",
+      "Locals": [
+        {
+          "Mode": "SingleRecord",
+          "Name": "thisCase",
+          "Description": "thisCase",
+          "ObjectType": {
+            "TypeReferenceID": "VerifyAccount",
+            "Namespace": "ResourceCenter",
+            "Type": "TypeReference"
+          }
+        }
+      ],
+      "Type": "Automation",
+      "Output": {
+        "Description": "",
+        "Mode": ""
+      },
+      "RuleResolutionID": "EquifaxAccountVerificationConnect",
+      "RuleSteps": [
+        {
+          "Id": "_iv4q9tb5k",
+          "Type": "ActionSet",
+          "Sets": [
+            {
+              "Id": "_bl575fvnv",
+              "Target": {
+                "Type": "Variable",
+                "Name": "thisCase"
+              },
+              "Source": {
+                "Type": "Variable",
+                "Name": "Primary"
+              }
+            }
+          ]
+        },
+        {
+          "Id": "_29ai1h5d1",
+          "Type": "ActionSet",
+          "Sets": [
+            {
+              "Id": "_ncfx90xr4",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "AccountVerificationResponse",
+                  "Namespace": "ResourceCenter",
+                  "Type": "RuleReference"
+                }
+              },
+              "Source": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Type": "CallExpression",
+                  "CallType": "DataConnection",
+                  "CallReference": {
+                    "Type": "RuleReference",
+                    "ReferenceID": "EquifaxAccountVerification",
+                    "Namespace": "ResourceCenter",
+                    "ReferenceScope": {
+                      "Type": "RuleReference",
+                      "ReferenceID": "VerifyAccount",
+                      "Namespace": "ResourceCenter"
+                    }
+                  },
+                  "CallInputs": [
+                    {
+                      "Type": "CallInput",
+                      "ParameterName": "thisObject",
+                      "Source": {
+                        "Type": "Variable",
+                        "Name": "thisCase"
+                      }
+                    }
+                  ]
+                },
+                "Field": {
+                  "Type": "RuleReference",
+                  "ReferenceID": "AccountVerificationResponse",
+                  "Namespace": "ResourceCenter"
+                }
+              }
+            }
+          ]
+        }
+      ],
       "ActionToBePerformed": "ADDED"
     }
   ],
@@ -9414,159 +10001,6 @@
         }
       ],
       "MappingModel": "",
-      "ActionToBePerformed": "ADDED"
-    }
-  ],
-  "Automation": [
-    {
-      "Type": "Automation",
-      "Description": "",
-      "Reusability": "Private",
-      "SchemaVersion": "0-2-0",
-      "IsSystemAutomation": false,
-      "Output": {
-        "Description": "",
-        "Mode": ""
-      },
-      "AppliesTo": {
-        "ReferenceID": "VerifyAccount",
-        "Namespace": "ResourceCenter"
-      },
-      "RuleResolutionID": "SetDescription",
-      "CallType": "ResourceObject",
-      "RuleSteps": [
-        {
-          "Id": "_ekgofkiy5",
-          "Type": "ActionSet",
-          "Sets": [
-            {
-              "Id": "_2ste37tiy",
-              "Target": {
-                "Type": "FieldReference",
-                "Root": {
-                  "Name": "Primary",
-                  "Type": "Variable"
-                },
-                "Field": {
-                  "ReferenceID": "ResourceDescription",
-                  "Namespace": "ResourceCenter",
-                  "Type": "RuleReference"
-                }
-              },
-              "Source": {
-                "Type": "ConstantText",
-                "Value": "Equifax provides Verification APIs that help businesses confirm an individual’s identity and validate their financial accounts in real time. These APIs use Equifax’s extensive data sources to authenticate personal information (e.g., SSN, name, DOB, address) and verify bank account ownership, status, and balance. They're widely used for KYC (Know Your Customer), fraud prevention, and onboarding workflows in financial services and fintech.  This Case type demostrates the Account Verification API of Equifax. The Account Verification API is used for customers to verify details about payments using creditcards and bank accounts (individual consumer and commercial bank accounts). The customer can pass the PII data attribute list and credit card or bank account information for verification. The response will be a Boolean Y or N response to each category of Identity data passed in Request."
-              }
-            }
-          ]
-        }
-      ],
-      "Namespace": "ResourceCenter",
-      "Name": "SetDescription",
-      "ActionToBePerformed": "ADDED"
-    },
-    {
-      "Description": "",
-      "Reusability": "Private",
-      "SchemaVersion": "0-2-0",
-      "IsSystemAutomation": false,
-      "AppliesTo": {
-        "ReferenceID": "VerifyAccount",
-        "Namespace": "ResourceCenter"
-      },
-      "CallType": "ResourceObject",
-      "Namespace": "ResourceCenter",
-      "Name": "EquifaxAccountVerificationConnect",
-      "Locals": [
-        {
-          "Mode": "SingleRecord",
-          "Name": "thisCase",
-          "Description": "thisCase",
-          "ObjectType": {
-            "TypeReferenceID": "VerifyAccount",
-            "Namespace": "ResourceCenter",
-            "Type": "TypeReference"
-          }
-        }
-      ],
-      "Type": "Automation",
-      "Output": {
-        "Description": "",
-        "Mode": ""
-      },
-      "RuleResolutionID": "EquifaxAccountVerificationConnect",
-      "RuleSteps": [
-        {
-          "Id": "_iv4q9tb5k",
-          "Type": "ActionSet",
-          "Sets": [
-            {
-              "Id": "_bl575fvnv",
-              "Target": {
-                "Type": "Variable",
-                "Name": "thisCase"
-              },
-              "Source": {
-                "Type": "Variable",
-                "Name": "Primary"
-              }
-            }
-          ]
-        },
-        {
-          "Id": "_29ai1h5d1",
-          "Type": "ActionSet",
-          "Sets": [
-            {
-              "Id": "_ncfx90xr4",
-              "Target": {
-                "Type": "FieldReference",
-                "Root": {
-                  "Name": "Primary",
-                  "Type": "Variable"
-                },
-                "Field": {
-                  "ReferenceID": "AccountVerificationResponse",
-                  "Namespace": "ResourceCenter",
-                  "Type": "RuleReference"
-                }
-              },
-              "Source": {
-                "Type": "FieldReference",
-                "Root": {
-                  "Type": "CallExpression",
-                  "CallType": "DataConnection",
-                  "CallReference": {
-                    "Type": "RuleReference",
-                    "ReferenceID": "EquifaxAccountVerification",
-                    "Namespace": "ResourceCenter",
-                    "ReferenceScope": {
-                      "Type": "RuleReference",
-                      "ReferenceID": "VerifyAccount",
-                      "Namespace": "ResourceCenter"
-                    }
-                  },
-                  "CallInputs": [
-                    {
-                      "Type": "CallInput",
-                      "ParameterName": "thisObject",
-                      "Source": {
-                        "Type": "Variable",
-                        "Name": "thisCase"
-                      }
-                    }
-                  ]
-                },
-                "Field": {
-                  "Type": "RuleReference",
-                  "ReferenceID": "AccountVerificationResponse",
-                  "Namespace": "ResourceCenter"
-                }
-              }
-            }
-          ]
-        }
-      ],
       "ActionToBePerformed": "ADDED"
     }
   ]
