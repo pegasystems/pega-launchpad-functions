@@ -46,6 +46,8 @@ All functions require these inputs to authenticate:
 This example function will create a new Envelope and return the summary status of it. Some of the settings can 
 be configured as inputs, and some are hardcoded in the java method and need to be customized for your use cases.
 
+**Function handler: com.pega.launchpad.docusign.Docusign::createEnvelope**
+
 Inputs:
 
 - subject (String): email subject
@@ -72,6 +74,8 @@ Inputs:
 ### getEnvelope()
 
 This example function, given an envelope id, will return the Envelope json object containing the current status and details for the given envelope.
+
+**Function handler: com.pega.launchpad.docusign.Docusign::getEnvelope**
 
 Inputs:
 
@@ -138,6 +142,8 @@ Sample json output (use json transform to map back to your object data model):
 
 This method, given an envelope ID, will return the EnvelopeDocumentResult json object that contains details about each document in the envelope.
 
+**Function handler: com.pega.launchpad.docusign.Docusign::getEnvelopeDocuments**
+
 Inputs:
 
 - envelopeId: The ID of the envelope returned by createEnvelope() API
@@ -202,6 +208,8 @@ Sample json output (use json transform to map to your object data model):
 ### getDocument()
 
 This method, given an envelope id and document id, will return the content of the document as base64 encoded bytes.
+
+**Function handler: com.pega.launchpad.docusign.Docusign::getDocument**
 
 Inputs:
 
