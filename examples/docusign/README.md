@@ -55,8 +55,10 @@ Inputs:
 - documentContent (String): base64 encoded document to add to envelope
 - documentName (String): filename of the document ("doc1.txt")
 - documentExtension (String): the extension of the document ("txt")
+- xPosition (String): Horizontal offset from left side for the signing area (72 dots per inch). Default is 72 (1 inch)
+- yPosition (String): Vertical offset from top for the signing area (72 dots per inch). Default is 720 (10 inches)
 
-Sample json output (use json transform to map back to your object data model):
+- Sample json output (use json transform to map back to your object data model):
 
 ```
 {
