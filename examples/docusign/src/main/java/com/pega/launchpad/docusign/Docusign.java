@@ -69,7 +69,7 @@ public class Docusign {
     }
 
     /**
-     * @param inputMap Must contain authentication info, subject, status, signerEmail, signerNAme, documentContent, documentName, documentExtension
+     * @param inputMap Must contain authentication info, subject, status, signerEmail, signerNAme, documentContent, documentName, documentExtension, xPosition, yPosition
      * @return Object a com.docusign.esign.model.EnvelopeSummary object
      * @throws IOException  if error
      * @throws ApiException if error
@@ -87,8 +87,8 @@ public class Docusign {
         SignHere signHere = new SignHere();
         signHere.setDocumentId("1");
         signHere.setPageNumber("1");
-        signHere.setXPosition("191");
-        signHere.setYPosition("148");
+        signHere.setXPosition(inputMap.getOrDefault("xPosition", "72"));
+        signHere.setYPosition(inputMap.getOrDefault("yPosition", "720"));
         Tabs tabs = new Tabs();
         tabs.setSignHereTabs(List.of(signHere));
         // Set recipients
