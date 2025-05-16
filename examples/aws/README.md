@@ -41,6 +41,8 @@ This example java class shows how to integrate with Amazon Web Service's [S3](ht
 
 This will create a new bucket in S3.
 
+**Function handler: com.pega.launchpad.aws.S3Helper::createBucket**
+
 Inputs:
 
 - bucketName (String): AWS compliant name for your new bucket
@@ -56,6 +58,8 @@ Sample json output (use json transform to map back to your object data model):
 ### Method: listBuckets()
 
 This example function will return a list of s3 buckets in your account
+
+**Function handler: com.pega.launchpad.aws.S3Helper::listBuckets**
 
 Sample json output (use json transform to map back to your object data model):
 
@@ -78,6 +82,8 @@ Sample json output (use json transform to map back to your object data model):
 
 This method will put an object into a specific bucket.
 
+**Function handler: com.pega.launchpad.aws.S3Helper::putObject**
+
 Inputs:
 
 1. bucketName (String): Name of the bucket
@@ -97,6 +103,8 @@ Sample json output (use json transform to map back to your object data model):
 
 This method will get the base64 encoded content of an object from a specific bucket.
 
+**Function handler: com.pega.launchpad.aws.S3Helper::getObject**
+
 Inputs:
 
 1. bucketName (String): Name of the bucket
@@ -114,6 +122,8 @@ for natural language processing.
 ### Method: detectKeyPhrases()
 
 This method, given some text, will detect the key noun phrases found in that text using the [detectKeyPhrases](https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DetectKeyPhrases.html) API.
+
+**Function handler: com.pega.launchpad.aws.ComprehendHelper::detectKeyPhrases**
 
 Inputs:
 
@@ -156,6 +166,8 @@ This class shows how to integrate with AWS Translate service.
 
 This method will translate a line of text from a source language to a target language.
 
+**Function handler: com.pega.launchpad.aws.TranslateHelper::translateText**
+
 Inputs:
 
 1. text (String): The text to translate
@@ -174,6 +186,8 @@ This class shows how to integrate with AWS Key Management Service (KMS). AWS Key
 
 This method will encrypt text using the specified KMS key and return base64 encoded encrypted value. 
 
+**Function handler: com.pega.launchpad.aws.KMSHelper::encrypt**
+
 Inputs:
 
 1. keyId (String): the arn of the key to use from your KMS instance
@@ -186,6 +200,8 @@ Output:
 ### Method: decrypt()
 
 This method will decrypt base64-encoded bytes using the specified KMS key and return the plaintext value.
+
+**Function handler: com.pega.launchpad.aws.KMSHelper::decrypt**
 
 Inputs:
 
