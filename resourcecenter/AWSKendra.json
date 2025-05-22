@@ -1,0 +1,4286 @@
+{
+  "ApplicationNamespace": "ResourceLibrary",
+  "DataPage": [
+    {
+      "DataPageMode": "ListOfRecords",
+      "Description": "QueryResponse list",
+      "Reusability": "Private",
+      "DataConnection": {
+        "CallReference": {
+          "ReferenceID": "QueryResponseList",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "QueryResponse",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "DataConnection",
+        "CallInputs": []
+      },
+      "SchemaVersion": "0-2-0",
+      "CallType": "DataPage",
+      "Namespace": "ResourceLibrary",
+      "Name": "QueryResponse list",
+      "ObjectType": {
+        "ReferenceID": "QueryResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "DataPage",
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "List",
+          "Type": "TypeReference",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "QueryResponse",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        }
+      },
+      "RuleResolutionID": "QueryResponseList",
+      "Inputs": [],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DataPageMode": "SingleRecord",
+      "Description": "QueryAssist lookup",
+      "Reusability": "Private",
+      "DataConnection": {
+        "CallReference": {
+          "ReferenceID": "QueryAssistLookup",
+          "ReferenceScope": {
+            "ReferenceID": "QueryAssist",
+            "Namespace": "ResourceLibrary"
+          },
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "DataConnection",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "Variable",
+              "Name": "ID"
+            }
+          }
+        ]
+      },
+      "SchemaVersion": "0-2-0",
+      "CallType": "DataPage",
+      "Namespace": "ResourceLibrary",
+      "Name": "QueryAssist lookup",
+      "ObjectType": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "DataPage",
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "QueryAssist",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        }
+      },
+      "RuleResolutionID": "QueryAssistLookup",
+      "Inputs": [
+        {
+          "Description": "object key",
+          "Mode": "SingleRecord",
+          "Name": "ID",
+          "Required": "true",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          }
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DataPageMode": "SingleRecord",
+      "Description": "ResponseAttribute lookup",
+      "Reusability": "Private",
+      "DataConnection": {
+        "CallReference": {
+          "ReferenceID": "ResponseAttributeLookup",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "ResponseAttribute",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "DataConnection",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "Variable",
+              "Name": "ID"
+            }
+          }
+        ]
+      },
+      "SchemaVersion": "0-2-0",
+      "CallType": "DataPage",
+      "Namespace": "ResourceLibrary",
+      "Name": "ResponseAttribute lookup",
+      "ObjectType": {
+        "ReferenceID": "ResponseAttribute",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "DataPage",
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "ResponseAttribute",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        }
+      },
+      "RuleResolutionID": "ResponseAttributeLookup",
+      "Inputs": [
+        {
+          "Description": "object key",
+          "Mode": "SingleRecord",
+          "Name": "ID",
+          "Required": "true",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          }
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DataPageMode": "ListOfRecords",
+      "Description": "Query list",
+      "Reusability": "Private",
+      "DataConnection": {
+        "CallReference": {
+          "ReferenceID": "QueryList",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "Query",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "DataConnection",
+        "CallInputs": []
+      },
+      "SchemaVersion": "0-2-0",
+      "CallType": "DataPage",
+      "Namespace": "ResourceLibrary",
+      "Name": "Query list",
+      "ObjectType": {
+        "ReferenceID": "Query",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "DataPage",
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "List",
+          "Type": "TypeReference",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "Query",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        }
+      },
+      "RuleResolutionID": "QueryList",
+      "Inputs": [],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DataPageMode": "SingleRecord",
+      "Description": "QueryResponse lookup",
+      "Reusability": "Private",
+      "DataConnection": {
+        "CallReference": {
+          "ReferenceID": "QueryResponseLookup",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "QueryResponse",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "DataConnection",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "Variable",
+              "Name": "ID"
+            }
+          }
+        ]
+      },
+      "SchemaVersion": "0-2-0",
+      "CallType": "DataPage",
+      "Namespace": "ResourceLibrary",
+      "Name": "QueryResponse lookup",
+      "ObjectType": {
+        "ReferenceID": "QueryResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "DataPage",
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "QueryResponse",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        }
+      },
+      "RuleResolutionID": "QueryResponseLookup",
+      "Inputs": [
+        {
+          "Description": "object key",
+          "Mode": "SingleRecord",
+          "Name": "ID",
+          "Required": "true",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          }
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DataPageMode": "ListOfRecords",
+      "Description": "ResponseAttribute list",
+      "Reusability": "Private",
+      "DataConnection": {
+        "CallReference": {
+          "ReferenceID": "ResponseAttributeList",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "ResponseAttribute",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "DataConnection",
+        "CallInputs": []
+      },
+      "SchemaVersion": "0-2-0",
+      "CallType": "DataPage",
+      "Namespace": "ResourceLibrary",
+      "Name": "ResponseAttribute list",
+      "ObjectType": {
+        "ReferenceID": "ResponseAttribute",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "DataPage",
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "List",
+          "Type": "TypeReference",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "ResponseAttribute",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        }
+      },
+      "RuleResolutionID": "ResponseAttributeList",
+      "Inputs": [],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DataPageMode": "SingleRecord",
+      "Description": "Query lookup",
+      "Reusability": "Private",
+      "DataConnection": {
+        "CallReference": {
+          "ReferenceID": "QueryLookup",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "Query",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "DataConnection",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "Variable",
+              "Name": "ID"
+            }
+          }
+        ]
+      },
+      "SchemaVersion": "0-2-0",
+      "CallType": "DataPage",
+      "Namespace": "ResourceLibrary",
+      "Name": "Query lookup",
+      "ObjectType": {
+        "ReferenceID": "Query",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "DataPage",
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "Query",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        }
+      },
+      "RuleResolutionID": "QueryLookup",
+      "Inputs": [
+        {
+          "Description": "object key",
+          "Mode": "SingleRecord",
+          "Name": "ID",
+          "Required": "true",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          }
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DataPageMode": "ListOfRecords",
+      "Description": "QueryAssist list",
+      "Reusability": "Private",
+      "DataConnection": {
+        "CallReference": {
+          "ReferenceID": "QueryAssistList",
+          "ReferenceScope": {
+            "ReferenceID": "QueryAssist",
+            "Namespace": "ResourceLibrary"
+          },
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "DataConnection",
+        "CallInputs": []
+      },
+      "SchemaVersion": "0-2-0",
+      "CallType": "DataPage",
+      "Namespace": "ResourceLibrary",
+      "Name": "QueryAssist list",
+      "ObjectType": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "DataPage",
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "List",
+          "Type": "TypeReference",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "QueryAssist",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        }
+      },
+      "RuleResolutionID": "QueryAssistList",
+      "Inputs": [],
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Decision": [
+    {
+      "Type": "Decision",
+      "Description": "",
+      "Reusability": "Private",
+      "DefaultReturn": {
+        "Type": "FieldReference",
+        "Root": {
+          "Type": "Variable",
+          "Name": "Primary"
+        },
+        "ReferencePath": [
+          {
+            "Type": "FieldReference",
+            "Field": {
+              "Type": "RuleReference",
+              "ReferenceID": "Responses",
+              "Namespace": "ResourceLibrary"
+            },
+            "Index": {
+              "Type": "ConstantInteger",
+              "Value": "1"
+            }
+          }
+        ],
+        "Field": {
+          "Type": "RuleReference",
+          "ReferenceID": "ResponseText",
+          "Namespace": "ResourceLibrary"
+        },
+        "_expData": {
+          "_dataModel": {
+            "Type": "FieldReference",
+            "Root": {
+              "Type": "Variable",
+              "Name": "Primary"
+            },
+            "ReferencePath": [
+              {
+                "Type": "FieldReference",
+                "Field": {
+                  "Type": "RuleReference",
+                  "ReferenceID": "Responses",
+                  "Namespace": "ResourceLibrary"
+                },
+                "Index": {
+                  "Type": "ConstantInteger",
+                  "Value": "1"
+                }
+              }
+            ],
+            "Field": {
+              "Type": "RuleReference",
+              "ReferenceID": "ResponseText",
+              "Namespace": "ResourceLibrary"
+            }
+          },
+          "_mode": "Text"
+        },
+        "_userSelectedLhsType": "Expression"
+      },
+      "SchemaVersion": "0-1-0",
+      "LogicType": "Expression",
+      "AppliesTo": {
+        "ReferenceID": "QueryResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "Text",
+          "Namespace": "PegaPlatform",
+          "Format": {
+            "ReferenceID": "Text",
+            "Type": "RuleReference",
+            "Namespace": "PegaPlatform"
+          }
+        }
+      },
+      "RuleResolutionID": "FirstResponseTest",
+      "Code": "added",
+      "Namespace": "ResourceLibrary",
+      "Name": "FirstResponseTest",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Automation": [
+    {
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-0",
+      "IsSystemAutomation": false,
+      "AppliesTo": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "CallType": "ResourceObject",
+      "Namespace": "ResourceLibrary",
+      "Name": "Get Response From Kendra",
+      "Locals": [
+        {
+          "Mode": "SingleRecord",
+          "Name": "QueryAssistCase",
+          "Description": "Query Assist Case",
+          "ObjectType": {
+            "TypeReferenceID": "QueryAssist",
+            "Namespace": "ResourceLibrary",
+            "Type": "TypeReference"
+          }
+        },
+        {
+          "Mode": "SingleRecord",
+          "Name": "JSONBody",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          },
+          "Description": "JSONBody"
+        }
+      ],
+      "Type": "Automation",
+      "Output": {
+        "Description": "",
+        "Mode": ""
+      },
+      "RuleResolutionID": "GetResponseFromKendra",
+      "RuleSteps": [
+        {
+          "Id": "_pf7g672ku",
+          "Type": "ActionSet",
+          "Sets": [
+            {
+              "Id": "_ejc2mg1pi",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "IndexID",
+                  "Namespace": "ResourceLibrary",
+                  "Type": "RuleReference"
+                }
+              },
+              "Source": {
+                "Type": "ConstantText",
+                "Value": "630f7c43-797f-4dad-a848-b79924b92fdc"
+              }
+            }
+          ]
+        },
+        {
+          "Id": "_5sa038j9u",
+          "Type": "ActionSet",
+          "Sets": [
+            {
+              "Id": "_1d5xqderx",
+              "Target": {
+                "Type": "Variable",
+                "Name": "QueryAssistCase"
+              },
+              "Source": {
+                "Type": "Variable",
+                "Name": "Primary"
+              }
+            }
+          ]
+        },
+        {
+          "Id": "_tbxt08242",
+          "Type": "ActionSet",
+          "Sets": [
+            {
+              "Id": "_y0rqbutiv",
+              "Target": {
+                "Type": "Variable",
+                "Name": "QueryAssistCase"
+              },
+              "Source": {
+                "Type": "CallExpression",
+                "CallType": "DataConnection",
+                "CallReference": {
+                  "Type": "RuleReference",
+                  "ReferenceID": "ConnectToKendra",
+                  "Namespace": "ResourceLibrary",
+                  "ReferenceScope": {
+                    "Type": "RuleReference",
+                    "ReferenceID": "QueryAssist",
+                    "Namespace": "ResourceLibrary"
+                  }
+                },
+                "CallInputs": [
+                  {
+                    "Type": "CallInput",
+                    "ParameterName": "QueryAssistCase",
+                    "Source": {
+                      "Type": "Variable",
+                      "Name": "QueryAssistCase"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "Id": "_7jcefs8lz",
+          "Type": "ActionSet",
+          "Sets": [
+            {
+              "Id": "_say4akjb5",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "ResponseObject",
+                  "Namespace": "ResourceLibrary",
+                  "Type": "RuleReference"
+                }
+              },
+              "Source": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "QueryAssistCase",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "ResponseObject",
+                  "Namespace": "ResourceLibrary",
+                  "Type": "RuleReference"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Automation",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-0",
+      "IsSystemAutomation": false,
+      "Output": {
+        "Description": "",
+        "Mode": ""
+      },
+      "AppliesTo": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "SetResourceDescription",
+      "CallType": "ResourceObject",
+      "RuleSteps": [
+        {
+          "Id": "_nw6ciolcw",
+          "Type": "ActionSet",
+          "Sets": [
+            {
+              "Id": "_xahy1wk84",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "ResourceDescription",
+                  "Namespace": "ResourceLibrary",
+                  "Type": "RuleReference"
+                }
+              },
+              "Source": {
+                "Type": "ConstantText",
+                "Value": "AWS Kendra is a highly scalable and intelligent search service powered by machine learning. It enables organizations to search and discover information across their data silos effectively. AWS Kendra can be integrated with multiple existing content repositories, including SharePoint, Salesforce, Amazon S3, and internal databases,to consolidate all relevant support documents and knowledge bases.Here is a use case illustrating how AWS Kendra can be utilized to retrieve answers for queries submitted by users from the resources defined in the AWS Kendra Index. In this illustration, AWS Kendra Index is integrated with AWS S3 that contains documentation related to AWS services like Lambda, S3, EC2 and Kendra. Hence, any queries related to these services will be answered in this resource case type."
+              }
+            }
+          ]
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "Set Resource Description",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "JSONTransform": [
+    {
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "3-1-1",
+      "AppliesTo": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "Direction": "SERIALIZE",
+      "SampleJSONData": "{\"description\":\"output\",\"id\":\"output\",\"name\":\"Kendra Request\",\"inspectionResult\":\"{\\\"JsonInspectionResponse\\\":{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonInspectionResponse\\\",\\\"jsonDocument\\\":{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonDocument\\\",\\\"fields\\\":{\\\"field\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"630f7c43-797f-4dad-a848-b79924b92fdc\\\",\\\"path\\\":\\\"/index_id\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"index_id\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"How many free tier hours are included with Kendra?\\\",\\\"path\\\":\\\"/query_text\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"query_text\\\"}]}},\\\"executionTime\\\":0}}\",\"showFields\":true,\"documentType\":\"JSON\",\"inspectionType\":\"INSTANCE\",\"inspectionSource\":\"{\\\"index_id\\\":\\\"630f7c43-797f-4dad-a848-b79924b92fdc\\\",\\\"query_text\\\":\\\"How many free tier hours are included with Kendra?\\\"}\",\"inspectionParameters\":{\"key\":\"value\"},\"lazyLoad\":false}",
+      "Namespace": "ResourceLibrary",
+      "Name": "Kendra Request",
+      "TopLevelStructure": "OBJECT",
+      "Type": "JSONTransform",
+      "Output": {
+        "Description": "",
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "Text",
+          "Format": {
+            "Type": "RuleReference",
+            "ReferenceID": "Text",
+            "Namespace": "PegaPlatform"
+          },
+          "Namespace": "PegaPlatform"
+        },
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "KendraRequest",
+      "TopElementStructure": "",
+      "MappingsDefinition": "{\"AtlasMapping\":{\"jsonType\":\"io.atlasmap.v2.AtlasMapping\",\"dataSource\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"input\",\"name\":\"QueryAssist\",\"description\":\"input\",\"uri\":\"atlas:json:input\",\"dataSourceType\":\"SOURCE\"},{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"output\",\"name\":\"Kendra Request\",\"description\":\"output\",\"uri\":\"atlas:json:output\",\"dataSourceType\":\"TARGET\"}],\"mappings\":{\"mapping\":[{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.211095\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"Query\",\"path\":\"/ResourceLibrary;;Query\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"query_text\",\"path\":\"/query_text\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.537843\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"IndexID\",\"path\":\"/ResourceLibrary;;IndexID\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"index_id\",\"path\":\"/index_id\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]}]},\"name\":\"UI.0\",\"version\":\"1.0.0\",\"lookupTables\":{\"lookupTable\":[]},\"constants\":{\"constant\":[]},\"properties\":{\"property\":[]}}}",
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "QueryAssist",
+            "Namespace": "ResourceLibrary"
+          },
+          "Description": "This is a Pega object that will be transformed to a JSON string",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "Pega object"
+        }
+      ],
+      "MappingModel": "",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "3-1-1",
+      "AppliesTo": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "Auto-mapAll": false,
+      "Direction": "DESERIALIZE",
+      "SampleJSONData": "{\"description\":\"input\",\"id\":\"input\",\"name\":\"Kendra Response\",\"inspectionResult\":\"{\\\"JsonInspectionResponse\\\":{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonInspectionResponse\\\",\\\"jsonDocument\\\":{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonDocument\\\",\\\"fields\\\":{\\\"field\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"collectionType\\\":\\\"LIST\\\",\\\"path\\\":\\\"/<>\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"1042f7ac-2598-4d54-9d60-94a00a0e6fa9-b758f190-a219-4cfc-bfe5-9e6ef9db4275\\\",\\\"path\\\":\\\"/<>/Id\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"Id\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"ANSWER\\\",\\\"path\\\":\\\"/<>/Type\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"Type\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"TEXT\\\",\\\"path\\\":\\\"/<>/Format\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"Format\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"collectionType\\\":\\\"LIST\\\",\\\"path\\\":\\\"/<>/AdditionalAttributes<>\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"AdditionalAttributes\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"AnswerText\\\",\\\"path\\\":\\\"/<>/AdditionalAttributes<>/Key\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"Key\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"TEXT_WITH_HIGHLIGHTS_VALUE\\\",\\\"path\\\":\\\"/<>/AdditionalAttributes<>/ValueType\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"ValueType\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/<>/AdditionalAttributes<>/Value\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"Value\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/<>/AdditionalAttributes<>/Value/TextWithHighlightsValue\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"TextWithHighlightsValue\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"You can use a\\\\n                                             simple search API to integrate Amazon Kendra into your client applications, such\\\\n                                             as websites or mobile applications.\\\\n                                          \\\\n\\\\n                                          \\\\n                                       \\\\n\\\\t\\\\n                                          \\\\n                                          Connectivity —\\\\n                                             Amazon Kendra\\\\n                                             can connect to\\\\n                                             third-party\\\\n                                             data sources to provide search across documents\\\\n                                             managed\\\\n                                             in different environments.\\\\n                                          \\\\n\\\\n                                          \\\\n                                       \\\\n\\\\n\\\\n                                 \\\\n\\\\n                                 \\\\n                                  \\\\n                                 \\\\n                                 Amazon Kendra Developer Edition\\\\n\\\\n                                 \\\\n                                 The Amazon Kendra Developer Edition provides all of the features of Amazon Kendra\\\\n                                    at a lower cost. It\\\\n                                    includes a free tier that provides 750 hours of use. The Developer Edition is ideal\\\\n                                    to\\\\n                                    explore how Amazon Kendra indexes your documents, to try out features, and to develop\\\\n                                    applications that use Amazon Kendra.\\\",\\\"path\\\":\\\"/<>/AdditionalAttributes<>/Value/TextWithHighlightsValue/Text\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"Text\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"collectionType\\\":\\\"LIST\\\",\\\"path\\\":\\\"/<>/AdditionalAttributes<>/Value/TextWithHighlightsValue/Highlights<>\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"Highlights\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":1453,\\\"path\\\":\\\"/<>/AdditionalAttributes<>/Value/TextWithHighlightsValue/Highlights<>/BeginOffset\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"INTEGER\\\",\\\"name\\\":\\\"BeginOffset\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":1456,\\\"path\\\":\\\"/<>/AdditionalAttributes<>/Value/TextWithHighlightsValue/Highlights<>/EndOffset\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"INTEGER\\\",\\\"name\\\":\\\"EndOffset\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":false,\\\"path\\\":\\\"/<>/AdditionalAttributes<>/Value/TextWithHighlightsValue/Highlights<>/TopAnswer\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"BOOLEAN\\\",\\\"name\\\":\\\"TopAnswer\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"STANDARD\\\",\\\"path\\\":\\\"/<>/AdditionalAttributes<>/Value/TextWithHighlightsValue/Highlights<>/Type\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"Type\\\"}]}}]}}]}}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"kendra.latest.dg.what-is-kendra\\\",\\\"path\\\":\\\"/<>/DocumentId\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"DocumentId\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/<>/DocumentTitle\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"DocumentTitle\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"What is Amazon Kendra? - Amazon Kendra\\\",\\\"path\\\":\\\"/<>/DocumentTitle/Text\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"Text\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"collectionType\\\":\\\"LIST\\\",\\\"path\\\":\\\"/<>/DocumentTitle/Highlights<>\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"Highlights\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":15,\\\"path\\\":\\\"/<>/DocumentTitle/Highlights<>/BeginOffset\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"INTEGER\\\",\\\"name\\\":\\\"BeginOffset\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":21,\\\"path\\\":\\\"/<>/DocumentTitle/Highlights<>/EndOffset\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"INTEGER\\\",\\\"name\\\":\\\"EndOffset\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":false,\\\"path\\\":\\\"/<>/DocumentTitle/Highlights<>/TopAnswer\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"BOOLEAN\\\",\\\"name\\\":\\\"TopAnswer\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"STANDARD\\\",\\\"path\\\":\\\"/<>/DocumentTitle/Highlights<>/Type\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"Type\\\"}]}}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/<>/DocumentExcerpt\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"DocumentExcerpt\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"You can use a\\\\n                                             simple search API to integrate Amazon Kendra into your client applications, such\\\\n                                             as websites or mobile applications.\\\\n                                          \\\\n\\\\n                                   \\\",\\\"path\\\":\\\"/<>/DocumentExcerpt/Text\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"Text\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"collectionType\\\":\\\"LIST\\\",\\\"path\\\":\\\"/<>/DocumentExcerpt/Highlights<>\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"Highlights\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":0,\\\"path\\\":\\\"/<>/DocumentExcerpt/Highlights<>/BeginOffset\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"INTEGER\\\",\\\"name\\\":\\\"BeginOffset\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":300,\\\"path\\\":\\\"/<>/DocumentExcerpt/Highlights<>/EndOffset\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"INTEGER\\\",\\\"name\\\":\\\"EndOffset\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":false,\\\"path\\\":\\\"/<>/DocumentExcerpt/Highlights<>/TopAnswer\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"BOOLEAN\\\",\\\"name\\\":\\\"TopAnswer\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"STANDARD\\\",\\\"path\\\":\\\"/<>/DocumentExcerpt/Highlights<>/Type\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"Type\\\"}]}}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"http://docs.aws.amazon.com/kendra/latest/dg/what-is-kendra.html\\\",\\\"path\\\":\\\"/<>/DocumentURI\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"DocumentURI\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"collectionType\\\":\\\"LIST\\\",\\\"path\\\":\\\"/<>/DocumentAttributes<>\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"DocumentAttributes\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"_source_uri\\\",\\\"path\\\":\\\"/<>/DocumentAttributes<>/Key\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"Key\\\"},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/<>/DocumentAttributes<>/Value\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"Value\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"http://docs.aws.amazon.com/kendra/latest/dg/what-is-kendra.html\\\",\\\"path\\\":\\\"/<>/DocumentAttributes<>/Value/StringValue\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"StringValue\\\"}]}}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonComplexType\\\",\\\"path\\\":\\\"/<>/ScoreAttributes\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"COMPLEX\\\",\\\"name\\\":\\\"ScoreAttributes\\\",\\\"jsonFields\\\":{\\\"jsonField\\\":[{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"HIGH\\\",\\\"path\\\":\\\"/<>/ScoreAttributes/ScoreConfidence\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"ScoreConfidence\\\"}]}},{\\\"jsonType\\\":\\\"io.atlasmap.json.v2.JsonField\\\",\\\"value\\\":\\\"AYADeD6qXpnkcmbYFYIDYVJrPtsAXwABABVhd3MtY3J5cHRvLXB1YmxpYy1rZXkAREEzaElDQ2NkWmZFK2tYOEJMbm5HTnVUOFN2dWd3S3BpcUVRc1d2VW9tWWcyQ3Nhb1JKK0RKTjF3ZUVCemhHTEdNUT09AAEAB2F3cy1rbXMAS2Fybjphd3M6a21zOnVzLWVhc3QtMTo3OTQyODk5MjcwNzA6a2V5LzA4YjVkYTRmLWQyOWEtNDU3Mi04OTAwLTRkZjMzN2VjYzljYwC4AQIBAHhYcdgHOffCDlsGK30ut3E_WAVKkt-AORxILQne_ryY-wGcY9onCs_SfxC9gZiMbVUdAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQM8_AXJs9s3aQLQyZ8AgEQgDuMzpKdFmOp7u3g8E5dUKoBm6Il9mCWtVi-zjwEs-dl5yRWaZNWarqQBJSOx4g1SkST0011qoU3ezcdUAIAAAAADAAAEAAAAAAAAAAAAAAAAABTRIQmFBePdDOkqMyjFyi8_____wAAAAEAAAAAAAAAAAAAAAEAAAF2Zq-zRp_HrO5jYFc1ICendWDRX5SkQxpGyYKA2XRzKgZn-CQUX1fYXFm1nSIZWWXWkdAqUfM7foydL-2CkiWO5NIOSh-_GG4UkqAluKX5uf4xhPdeCyssmTVEQdy18Qt-eLdFrKAH7k2QCCHYOqDaNkY-jJPHIsucnzpKEj-VJeQdmUzC09-5AyEmcyZdBoGH_XIO_NriaB3BtTpTLjjctm7pUiWPlrgUcNU6gs_zt7V_n8Sr2_d7j6dqFfux4P4UVioXZQZfmKkkD6eIQqfs7ndGzCTqhjJ5uI0TAbZz1nFg-8ovLs0qgwXPNysp-DQOtmU4VGVKjwJi-pl8hbToMzhpmA1tF-_D6z8jZwJ4t5QThHw87QAJ37XMk_Esl0dWTZFlwdPn9VIbtyk4ZsaZty-QSFMs9aqlQIU1CRp2GfRoTUzwif-UoJ-RsKFoimcy_PQNUl_Hqf5HPZyDdfJzr1RfMrKsz9LGDNf92cRwEHyHDLOLMNXpdc1OSyeQ9SsjHvvcK3hqAGcwZQIxAN1fXKN77fajjhKGehmj7bnmzzCer2-CymIAQ3Xy-baWJJvDC90ivJLzDkOgmPhpyQIwEiMsRWTKPuMPKTillHnwcFg8gMG7HEnLCAR2Cc21ESPrVU2nNhFDIz-qavRX9QFJ.1042f7ac-2598-4d54-9d60-94a00a0e6fa9-b758f190-a219-4cfc-bfe5-9e6ef9db4275\\\",\\\"path\\\":\\\"/<>/FeedbackToken\\\",\\\"status\\\":\\\"SUPPORTED\\\",\\\"fieldType\\\":\\\"STRING\\\",\\\"name\\\":\\\"FeedbackToken\\\"}]}}]}},\\\"executionTime\\\":1}}\",\"showFields\":true,\"documentType\":\"JSON\",\"inspectionType\":\"INSTANCE\",\"inspectionSource\":\"[{\\\"Id\\\":\\\"1042f7ac-2598-4d54-9d60-94a00a0e6fa9-b758f190-a219-4cfc-bfe5-9e6ef9db4275\\\",\\\"Type\\\":\\\"ANSWER\\\",\\\"Format\\\":\\\"TEXT\\\",\\\"AdditionalAttributes\\\":[{\\\"Key\\\":\\\"AnswerText\\\",\\\"ValueType\\\":\\\"TEXT_WITH_HIGHLIGHTS_VALUE\\\",\\\"Value\\\":{\\\"TextWithHighlightsValue\\\":{\\\"Text\\\":\\\"You can use a\\\\n                                             simple search API to integrate Amazon Kendra into your client applications, such\\\\n                                             as websites or mobile applications.\\\\n                                          \\\\n\\\\n                                          \\\\n                                       \\\\n\\\\t\\\\n                                          \\\\n                                          Connectivity —\\\\n                                             Amazon Kendra\\\\n                                             can connect to\\\\n                                             third-party\\\\n                                             data sources to provide search across documents\\\\n                                             managed\\\\n                                             in different environments.\\\\n                                          \\\\n\\\\n                                          \\\\n                                       \\\\n\\\\n\\\\n                                 \\\\n\\\\n                                 \\\\n                                  \\\\n                                 \\\\n                                 Amazon Kendra Developer Edition\\\\n\\\\n                                 \\\\n                                 The Amazon Kendra Developer Edition provides all of the features of Amazon Kendra\\\\n                                    at a lower cost. It\\\\n                                    includes a free tier that provides 750 hours of use. The Developer Edition is ideal\\\\n                                    to\\\\n                                    explore how Amazon Kendra indexes your documents, to try out features, and to develop\\\\n                                    applications that use Amazon Kendra.\\\",\\\"Highlights\\\":[{\\\"BeginOffset\\\":1453,\\\"EndOffset\\\":1456,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":97,\\\"EndOffset\\\":103,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":502,\\\"EndOffset\\\":508,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":1151,\\\"EndOffset\\\":1157,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":1255,\\\"EndOffset\\\":1261,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":1319,\\\"EndOffset\\\":1325,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":1418,\\\"EndOffset\\\":1426,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":1429,\\\"EndOffset\\\":1433,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":1434,\\\"EndOffset\\\":1438,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":1457,\\\"EndOffset\\\":1462,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":1596,\\\"EndOffset\\\":1602,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":1728,\\\"EndOffset\\\":1734,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"}]}}}],\\\"DocumentId\\\":\\\"kendra.latest.dg.what-is-kendra\\\",\\\"DocumentTitle\\\":{\\\"Text\\\":\\\"What is Amazon Kendra? - Amazon Kendra\\\",\\\"Highlights\\\":[{\\\"BeginOffset\\\":15,\\\"EndOffset\\\":21,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":32,\\\"EndOffset\\\":38,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"}]},\\\"DocumentExcerpt\\\":{\\\"Text\\\":\\\"You can use a\\\\n                                             simple search API to integrate Amazon Kendra into your client applications, such\\\\n                                             as websites or mobile applications.\\\\n                                          \\\\n\\\\n                                   \\\",\\\"Highlights\\\":[{\\\"BeginOffset\\\":0,\\\"EndOffset\\\":300,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"}]},\\\"DocumentURI\\\":\\\"http://docs.aws.amazon.com/kendra/latest/dg/what-is-kendra.html\\\",\\\"DocumentAttributes\\\":[{\\\"Key\\\":\\\"_source_uri\\\",\\\"Value\\\":{\\\"StringValue\\\":\\\"http://docs.aws.amazon.com/kendra/latest/dg/what-is-kendra.html\\\"}}],\\\"ScoreAttributes\\\":{\\\"ScoreConfidence\\\":\\\"HIGH\\\"},\\\"FeedbackToken\\\":\\\"AYADeD6qXpnkcmbYFYIDYVJrPtsAXwABABVhd3MtY3J5cHRvLXB1YmxpYy1rZXkAREEzaElDQ2NkWmZFK2tYOEJMbm5HTnVUOFN2dWd3S3BpcUVRc1d2VW9tWWcyQ3Nhb1JKK0RKTjF3ZUVCemhHTEdNUT09AAEAB2F3cy1rbXMAS2Fybjphd3M6a21zOnVzLWVhc3QtMTo3OTQyODk5MjcwNzA6a2V5LzA4YjVkYTRmLWQyOWEtNDU3Mi04OTAwLTRkZjMzN2VjYzljYwC4AQIBAHhYcdgHOffCDlsGK30ut3E_WAVKkt-AORxILQne_ryY-wGcY9onCs_SfxC9gZiMbVUdAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQM8_AXJs9s3aQLQyZ8AgEQgDuMzpKdFmOp7u3g8E5dUKoBm6Il9mCWtVi-zjwEs-dl5yRWaZNWarqQBJSOx4g1SkST0011qoU3ezcdUAIAAAAADAAAEAAAAAAAAAAAAAAAAABTRIQmFBePdDOkqMyjFyi8_____wAAAAEAAAAAAAAAAAAAAAEAAAF2Zq-zRp_HrO5jYFc1ICendWDRX5SkQxpGyYKA2XRzKgZn-CQUX1fYXFm1nSIZWWXWkdAqUfM7foydL-2CkiWO5NIOSh-_GG4UkqAluKX5uf4xhPdeCyssmTVEQdy18Qt-eLdFrKAH7k2QCCHYOqDaNkY-jJPHIsucnzpKEj-VJeQdmUzC09-5AyEmcyZdBoGH_XIO_NriaB3BtTpTLjjctm7pUiWPlrgUcNU6gs_zt7V_n8Sr2_d7j6dqFfux4P4UVioXZQZfmKkkD6eIQqfs7ndGzCTqhjJ5uI0TAbZz1nFg-8ovLs0qgwXPNysp-DQOtmU4VGVKjwJi-pl8hbToMzhpmA1tF-_D6z8jZwJ4t5QThHw87QAJ37XMk_Esl0dWTZFlwdPn9VIbtyk4ZsaZty-QSFMs9aqlQIU1CRp2GfRoTUzwif-UoJ-RsKFoimcy_PQNUl_Hqf5HPZyDdfJzr1RfMrKsz9LGDNf92cRwEHyHDLOLMNXpdc1OSyeQ9SsjHvvcK3hqAGcwZQIxAN1fXKN77fajjhKGehmj7bnmzzCer2-CymIAQ3Xy-baWJJvDC90ivJLzDkOgmPhpyQIwEiMsRWTKPuMPKTillHnwcFg8gMG7HEnLCAR2Cc21ESPrVU2nNhFDIz-qavRX9QFJ.1042f7ac-2598-4d54-9d60-94a00a0e6fa9-b758f190-a219-4cfc-bfe5-9e6ef9db4275\\\"},{\\\"Id\\\":\\\"1042f7ac-2598-4d54-9d60-94a00a0e6fa9-f0b22378-dfe1-400a-937e-00d37208ad65\\\",\\\"Type\\\":\\\"ANSWER\\\",\\\"Format\\\":\\\"TEXT\\\",\\\"AdditionalAttributes\\\":[{\\\"Key\\\":\\\"AnswerText\\\",\\\"ValueType\\\":\\\"TEXT_WITH_HIGHLIGHTS_VALUE\\\",\\\"Value\\\":{\\\"TextWithHighlightsValue\\\":{\\\"Text\\\":\\\"Amazon Kendra Developer Edition\\\\n\\\\n                                 \\\\n                                 The Amazon Kendra Developer Edition provides all of the features of Amazon Kendra\\\\n                                    at a lower cost. It\\\\n                                    includes a free tier that provides 750 hours of use. The Developer Edition is ideal\\\\n                                    to\\\\n                                    explore how Amazon Kendra indexes your documents, to try out features, and to develop\\\\n                                    applications that use Amazon Kendra. \\\\n                                 \\\\n\\\\n                                 \\\\n                                 The developer edition provides the following:\\\\n\\\\n                                 \\\\n                                 \\\\n                                     \\\\n                                     \\\\n                                     \\\\n                                     \\\\n                                    \\\\n                                    \\\\t\\\\n                                          \\\\n                                          Up to 5 indexes with up to 5 data sources each\\\\n\\\\n                                          \\\\n                                       \\\\n\\\\t\\\\n                                          \\\\n                                          10,000 documents or 3 Gb of extracted text\\\\n\\\\n                                          \\\\n                                       \\\\n\\\\t\\\\n                                          \\\\n                                          4,000 queries per day\\\\n\\\\n                                          \\\\n                                       \\\\n\\\\t\\\\n                                          \\\\n                                          Runs in 1 availability zone (AZ)\\\\n\\\\n                                          \\\\n                                       \\\\n\\\\n\\\\n                                 \\\\n\\\\n                                 \\\\n                                 You should not use the Developer Edition for a production application. The Developer\\\\n                                    Edition doesn't provide any guarantees of latency or availability.\\\",\\\"Highlights\\\":[{\\\"BeginOffset\\\":7,\\\"EndOffset\\\":13,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":111,\\\"EndOffset\\\":117,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":175,\\\"EndOffset\\\":181,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":274,\\\"EndOffset\\\":282,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":285,\\\"EndOffset\\\":289,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":290,\\\"EndOffset\\\":294,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":313,\\\"EndOffset\\\":318,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":452,\\\"EndOffset\\\":458,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":584,\\\"EndOffset\\\":590,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"}]}}}],\\\"DocumentId\\\":\\\"kendra.latest.dg.what-is-kendra\\\",\\\"DocumentTitle\\\":{\\\"Text\\\":\\\"What is Amazon Kendra? - Amazon Kendra\\\",\\\"Highlights\\\":[{\\\"BeginOffset\\\":15,\\\"EndOffset\\\":21,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":32,\\\"EndOffset\\\":38,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"}]},\\\"DocumentExcerpt\\\":{\\\"Text\\\":\\\"Amazon Kendra Developer Edition\\\\n\\\\n                                 \\\\n                                 The Amazon Kendra Developer Edition provides all of the features of Amazon Kendra\\\\n                                    at a lower cost. It\\\\n                                    includes a free tier that \\\",\\\"Highlights\\\":[{\\\"BeginOffset\\\":0,\\\"EndOffset\\\":300,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"}]},\\\"DocumentURI\\\":\\\"http://docs.aws.amazon.com/kendra/latest/dg/what-is-kendra.html\\\",\\\"DocumentAttributes\\\":[{\\\"Key\\\":\\\"_source_uri\\\",\\\"Value\\\":{\\\"StringValue\\\":\\\"http://docs.aws.amazon.com/kendra/latest/dg/what-is-kendra.html\\\"}}],\\\"ScoreAttributes\\\":{\\\"ScoreConfidence\\\":\\\"MEDIUM\\\"},\\\"FeedbackToken\\\":\\\"AYADeD6qXpnkcmbYFYIDYVJrPtsAXwABABVhd3MtY3J5cHRvLXB1YmxpYy1rZXkAREEzaElDQ2NkWmZFK2tYOEJMbm5HTnVUOFN2dWd3S3BpcUVRc1d2VW9tWWcyQ3Nhb1JKK0RKTjF3ZUVCemhHTEdNUT09AAEAB2F3cy1rbXMAS2Fybjphd3M6a21zOnVzLWVhc3QtMTo3OTQyODk5MjcwNzA6a2V5LzA4YjVkYTRmLWQyOWEtNDU3Mi04OTAwLTRkZjMzN2VjYzljYwC4AQIBAHhYcdgHOffCDlsGK30ut3E_WAVKkt-AORxILQne_ryY-wGcY9onCs_SfxC9gZiMbVUdAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQM8_AXJs9s3aQLQyZ8AgEQgDuMzpKdFmOp7u3g8E5dUKoBm6Il9mCWtVi-zjwEs-dl5yRWaZNWarqQBJSOx4g1SkST0011qoU3ezcdUAIAAAAADAAAEAAAAAAAAAAAAAAAAABTRIQmFBePdDOkqMyjFyi8_____wAAAAEAAAAAAAAAAAAAAAEAAAF2Zq-zRp_HrO5jYFc1ICendWDRX5SkQxpGyYKA2XRzKgZn-CQUX1fYXFm1nSIZWWXWkdAqUfM7foydL-2CkiWO5NIOSh-_GG4UkqAluKX5uf4xhPdeCyssmTVEQdy18Qt-eLdFrKAH7k2QCCHYOqDaNkY-jJPHIsucnzpKEj-VJeQdmUzC09-5AyEmcyZdBoGH_XIO_NriaB3BtTpTLjjctm7pUiWPlrgUcNU6gs_zt7V_n8Sr2_d7j6dqFfux4P4UVioXZQZfmKkkD6eIQqfs7ndGzCTqhjJ5uI0TAbZz1nFg-8ovLs0qgwXPNysp-DQOtmU4VGVKjwJi-pl8hbToMzhpmA1tF-_D6z8jZwJ4t5QThHw87QAJ37XMk_Esl0dWTZFlwdPn9VIbtyk4ZsaZty-QSFMs9aqlQIU1CRp2GfRoTUzwif-UoJ-RsKFoimcy_PQNUl_Hqf5HPZyDdfJzr1RfMrKsz9LGDNf92cRwEHyHDLOLMNXpdc1OSyeQ9SsjHvvcK3hqAGcwZQIxAN1fXKN77fajjhKGehmj7bnmzzCer2-CymIAQ3Xy-baWJJvDC90ivJLzDkOgmPhpyQIwEiMsRWTKPuMPKTillHnwcFg8gMG7HEnLCAR2Cc21ESPrVU2nNhFDIz-qavRX9QFJ.1042f7ac-2598-4d54-9d60-94a00a0e6fa9-f0b22378-dfe1-400a-937e-00d37208ad65\\\"},{\\\"Id\\\":\\\"1042f7ac-2598-4d54-9d60-94a00a0e6fa9-44bab132-29cc-4767-9a4b-556588939ac7\\\",\\\"Type\\\":\\\"DOCUMENT\\\",\\\"Format\\\":\\\"TEXT\\\",\\\"AdditionalAttributes\\\":[],\\\"DocumentId\\\":\\\"kendra.latest.dg.what-is-kendra\\\",\\\"DocumentTitle\\\":{\\\"Text\\\":\\\"What is Amazon Kendra? - Amazon Kendra\\\",\\\"Highlights\\\":[{\\\"BeginOffset\\\":15,\\\"EndOffset\\\":21,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":32,\\\"EndOffset\\\":38,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"}]},\\\"DocumentExcerpt\\\":{\\\"Text\\\":\\\"...The Amazon Kendra Developer Edition provides all of the features of Amazon Kendra\\\\n                                    at a lower cost. It\\\\n                                    includes a free tier that provides 750 hours of use. The Developer Edition is ideal\\\\n                                    to...\\\",\\\"Highlights\\\":[{\\\"BeginOffset\\\":14,\\\"EndOffset\\\":20,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":78,\\\"EndOffset\\\":84,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":177,\\\"EndOffset\\\":185,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":188,\\\"EndOffset\\\":192,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":193,\\\"EndOffset\\\":197,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":216,\\\"EndOffset\\\":221,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"}]},\\\"DocumentURI\\\":\\\"http://docs.aws.amazon.com/kendra/latest/dg/what-is-kendra.html\\\",\\\"DocumentAttributes\\\":[{\\\"Key\\\":\\\"_source_uri\\\",\\\"Value\\\":{\\\"StringValue\\\":\\\"http://docs.aws.amazon.com/kendra/latest/dg/what-is-kendra.html\\\"}}],\\\"ScoreAttributes\\\":{\\\"ScoreConfidence\\\":\\\"VERY_HIGH\\\"},\\\"FeedbackToken\\\":\\\"AYADeD6qXpnkcmbYFYIDYVJrPtsAXwABABVhd3MtY3J5cHRvLXB1YmxpYy1rZXkAREEzaElDQ2NkWmZFK2tYOEJMbm5HTnVUOFN2dWd3S3BpcUVRc1d2VW9tWWcyQ3Nhb1JKK0RKTjF3ZUVCemhHTEdNUT09AAEAB2F3cy1rbXMAS2Fybjphd3M6a21zOnVzLWVhc3QtMTo3OTQyODk5MjcwNzA6a2V5LzA4YjVkYTRmLWQyOWEtNDU3Mi04OTAwLTRkZjMzN2VjYzljYwC4AQIBAHhYcdgHOffCDlsGK30ut3E_WAVKkt-AORxILQne_ryY-wGcY9onCs_SfxC9gZiMbVUdAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQM8_AXJs9s3aQLQyZ8AgEQgDuMzpKdFmOp7u3g8E5dUKoBm6Il9mCWtVi-zjwEs-dl5yRWaZNWarqQBJSOx4g1SkST0011qoU3ezcdUAIAAAAADAAAEAAAAAAAAAAAAAAAAABTRIQmFBePdDOkqMyjFyi8_____wAAAAEAAAAAAAAAAAAAAAEAAAF2Zq-zRp_HrO5jYFc1ICendWDRX5SkQxpGyYKA2XRzKgZn-CQUX1fYXFm1nSIZWWXWkdAqUfM7foydL-2CkiWO5NIOSh-_GG4UkqAluKX5uf4xhPdeCyssmTVEQdy18Qt-eLdFrKAH7k2QCCHYOqDaNkY-jJPHIsucnzpKEj-VJeQdmUzC09-5AyEmcyZdBoGH_XIO_NriaB3BtTpTLjjctm7pUiWPlrgUcNU6gs_zt7V_n8Sr2_d7j6dqFfux4P4UVioXZQZfmKkkD6eIQqfs7ndGzCTqhjJ5uI0TAbZz1nFg-8ovLs0qgwXPNysp-DQOtmU4VGVKjwJi-pl8hbToMzhpmA1tF-_D6z8jZwJ4t5QThHw87QAJ37XMk_Esl0dWTZFlwdPn9VIbtyk4ZsaZty-QSFMs9aqlQIU1CRp2GfRoTUzwif-UoJ-RsKFoimcy_PQNUl_Hqf5HPZyDdfJzr1RfMrKsz9LGDNf92cRwEHyHDLOLMNXpdc1OSyeQ9SsjHvvcK3hqAGcwZQIxAN1fXKN77fajjhKGehmj7bnmzzCer2-CymIAQ3Xy-baWJJvDC90ivJLzDkOgmPhpyQIwEiMsRWTKPuMPKTillHnwcFg8gMG7HEnLCAR2Cc21ESPrVU2nNhFDIz-qavRX9QFJ.1042f7ac-2598-4d54-9d60-94a00a0e6fa9-44bab132-29cc-4767-9a4b-556588939ac7\\\"},{\\\"Id\\\":\\\"1042f7ac-2598-4d54-9d60-94a00a0e6fa9-5e403e44-2309-4ced-8877-d6451017b904\\\",\\\"Type\\\":\\\"DOCUMENT\\\",\\\"Format\\\":\\\"TEXT\\\",\\\"AdditionalAttributes\\\":[],\\\"DocumentId\\\":\\\"kendra.latest.dg.gs-prerequisites\\\",\\\"DocumentTitle\\\":{\\\"Text\\\":\\\"Prerequisites - Amazon Kendra\\\",\\\"Highlights\\\":[{\\\"BeginOffset\\\":23,\\\"EndOffset\\\":29,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"}]},\\\"DocumentExcerpt\\\":{\\\"Text\\\":\\\"...Allow\\\\\\\"\\\\n        },\\\\n        {\\\\n            \\\\\\\"Effect\\\\\\\": \\\\\\\"Allow\\\\\\\",\\\\n            \\\\\\\"Action\\\\\\\": [\\\\n                \\\\\\\"kendra:BatchPutDocument\\\\\\\",\\\\n                \\\\\\\"kendra:BatchDeleteDocument\\\\\\\"\\\\n            ],\\\\n            \\\\\\\"Resource\\\\\\\": \\\\\\\"arn:aws:kendra:region:account ID:index...\\\",\\\"Highlights\\\":[{\\\"BeginOffset\\\":103,\\\"EndOffset\\\":109,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":146,\\\"EndOffset\\\":152,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":222,\\\"EndOffset\\\":228,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"}]},\\\"DocumentURI\\\":\\\"http://docs.aws.amazon.com/kendra/latest/dg/gs-prerequisites.html\\\",\\\"DocumentAttributes\\\":[{\\\"Key\\\":\\\"_source_uri\\\",\\\"Value\\\":{\\\"StringValue\\\":\\\"http://docs.aws.amazon.com/kendra/latest/dg/gs-prerequisites.html\\\"}}],\\\"ScoreAttributes\\\":{\\\"ScoreConfidence\\\":\\\"HIGH\\\"},\\\"FeedbackToken\\\":\\\"AYADeD6qXpnkcmbYFYIDYVJrPtsAXwABABVhd3MtY3J5cHRvLXB1YmxpYy1rZXkAREEzaElDQ2NkWmZFK2tYOEJMbm5HTnVUOFN2dWd3S3BpcUVRc1d2VW9tWWcyQ3Nhb1JKK0RKTjF3ZUVCemhHTEdNUT09AAEAB2F3cy1rbXMAS2Fybjphd3M6a21zOnVzLWVhc3QtMTo3OTQyODk5MjcwNzA6a2V5LzA4YjVkYTRmLWQyOWEtNDU3Mi04OTAwLTRkZjMzN2VjYzljYwC4AQIBAHhYcdgHOffCDlsGK30ut3E_WAVKkt-AORxILQne_ryY-wGcY9onCs_SfxC9gZiMbVUdAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQM8_AXJs9s3aQLQyZ8AgEQgDuMzpKdFmOp7u3g8E5dUKoBm6Il9mCWtVi-zjwEs-dl5yRWaZNWarqQBJSOx4g1SkST0011qoU3ezcdUAIAAAAADAAAEAAAAAAAAAAAAAAAAABTRIQmFBePdDOkqMyjFyi8_____wAAAAEAAAAAAAAAAAAAAAEAAAF2Zq-zRp_HrO5jYFc1ICendWDRX5SkQxpGyYKA2XRzKgZn-CQUX1fYXFm1nSIZWWXWkdAqUfM7foydL-2CkiWO5NIOSh-_GG4UkqAluKX5uf4xhPdeCyssmTVEQdy18Qt-eLdFrKAH7k2QCCHYOqDaNkY-jJPHIsucnzpKEj-VJeQdmUzC09-5AyEmcyZdBoGH_XIO_NriaB3BtTpTLjjctm7pUiWPlrgUcNU6gs_zt7V_n8Sr2_d7j6dqFfux4P4UVioXZQZfmKkkD6eIQqfs7ndGzCTqhjJ5uI0TAbZz1nFg-8ovLs0qgwXPNysp-DQOtmU4VGVKjwJi-pl8hbToMzhpmA1tF-_D6z8jZwJ4t5QThHw87QAJ37XMk_Esl0dWTZFlwdPn9VIbtyk4ZsaZty-QSFMs9aqlQIU1CRp2GfRoTUzwif-UoJ-RsKFoimcy_PQNUl_Hqf5HPZyDdfJzr1RfMrKsz9LGDNf92cRwEHyHDLOLMNXpdc1OSyeQ9SsjHvvcK3hqAGcwZQIxAN1fXKN77fajjhKGehmj7bnmzzCer2-CymIAQ3Xy-baWJJvDC90ivJLzDkOgmPhpyQIwEiMsRWTKPuMPKTillHnwcFg8gMG7HEnLCAR2Cc21ESPrVU2nNhFDIz-qavRX9QFJ.1042f7ac-2598-4d54-9d60-94a00a0e6fa9-5e403e44-2309-4ced-8877-d6451017b904\\\"},{\\\"Id\\\":\\\"1042f7ac-2598-4d54-9d60-94a00a0e6fa9-b15e6ab0-bd05-4a2a-8710-a479d2473f0e\\\",\\\"Type\\\":\\\"DOCUMENT\\\",\\\"Format\\\":\\\"TEXT\\\",\\\"AdditionalAttributes\\\":[],\\\"DocumentId\\\":\\\"kendra.latest.dg.vpc-configuration\\\",\\\"DocumentTitle\\\":{\\\"Text\\\":\\\"Configuring Amazon Kendra to use a VPC - Amazon Kendra\\\",\\\"Highlights\\\":[{\\\"BeginOffset\\\":19,\\\"EndOffset\\\":25,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":48,\\\"EndOffset\\\":54,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"}]},\\\"DocumentExcerpt\\\":{\\\"Text\\\":\\\"...Templates – Free tier...\\\",\\\"Highlights\\\":[{\\\"BeginOffset\\\":15,\\\"EndOffset\\\":19,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":20,\\\"EndOffset\\\":24,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"}]},\\\"DocumentURI\\\":\\\"http://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html\\\",\\\"DocumentAttributes\\\":[{\\\"Key\\\":\\\"_source_uri\\\",\\\"Value\\\":{\\\"StringValue\\\":\\\"http://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html\\\"}}],\\\"ScoreAttributes\\\":{\\\"ScoreConfidence\\\":\\\"HIGH\\\"},\\\"FeedbackToken\\\":\\\"AYADeD6qXpnkcmbYFYIDYVJrPtsAXwABABVhd3MtY3J5cHRvLXB1YmxpYy1rZXkAREEzaElDQ2NkWmZFK2tYOEJMbm5HTnVUOFN2dWd3S3BpcUVRc1d2VW9tWWcyQ3Nhb1JKK0RKTjF3ZUVCemhHTEdNUT09AAEAB2F3cy1rbXMAS2Fybjphd3M6a21zOnVzLWVhc3QtMTo3OTQyODk5MjcwNzA6a2V5LzA4YjVkYTRmLWQyOWEtNDU3Mi04OTAwLTRkZjMzN2VjYzljYwC4AQIBAHhYcdgHOffCDlsGK30ut3E_WAVKkt-AORxILQne_ryY-wGcY9onCs_SfxC9gZiMbVUdAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQM8_AXJs9s3aQLQyZ8AgEQgDuMzpKdFmOp7u3g8E5dUKoBm6Il9mCWtVi-zjwEs-dl5yRWaZNWarqQBJSOx4g1SkST0011qoU3ezcdUAIAAAAADAAAEAAAAAAAAAAAAAAAAABTRIQmFBePdDOkqMyjFyi8_____wAAAAEAAAAAAAAAAAAAAAEAAAF2Zq-zRp_HrO5jYFc1ICendWDRX5SkQxpGyYKA2XRzKgZn-CQUX1fYXFm1nSIZWWXWkdAqUfM7foydL-2CkiWO5NIOSh-_GG4UkqAluKX5uf4xhPdeCyssmTVEQdy18Qt-eLdFrKAH7k2QCCHYOqDaNkY-jJPHIsucnzpKEj-VJeQdmUzC09-5AyEmcyZdBoGH_XIO_NriaB3BtTpTLjjctm7pUiWPlrgUcNU6gs_zt7V_n8Sr2_d7j6dqFfux4P4UVioXZQZfmKkkD6eIQqfs7ndGzCTqhjJ5uI0TAbZz1nFg-8ovLs0qgwXPNysp-DQOtmU4VGVKjwJi-pl8hbToMzhpmA1tF-_D6z8jZwJ4t5QThHw87QAJ37XMk_Esl0dWTZFlwdPn9VIbtyk4ZsaZty-QSFMs9aqlQIU1CRp2GfRoTUzwif-UoJ-RsKFoimcy_PQNUl_Hqf5HPZyDdfJzr1RfMrKsz9LGDNf92cRwEHyHDLOLMNXpdc1OSyeQ9SsjHvvcK3hqAGcwZQIxAN1fXKN77fajjhKGehmj7bnmzzCer2-CymIAQ3Xy-baWJJvDC90ivJLzDkOgmPhpyQIwEiMsRWTKPuMPKTillHnwcFg8gMG7HEnLCAR2Cc21ESPrVU2nNhFDIz-qavRX9QFJ.1042f7ac-2598-4d54-9d60-94a00a0e6fa9-b15e6ab0-bd05-4a2a-8710-a479d2473f0e\\\"},{\\\"Id\\\":\\\"1042f7ac-2598-4d54-9d60-94a00a0e6fa9-d90063e8-1e01-4ef7-8ce2-861f9a089996\\\",\\\"Type\\\":\\\"DOCUMENT\\\",\\\"Format\\\":\\\"TEXT\\\",\\\"AdditionalAttributes\\\":[],\\\"DocumentId\\\":\\\"kendra.latest.dg.API_SharePointConfiguration\\\",\\\"DocumentTitle\\\":{\\\"Text\\\":\\\"SharePointConfiguration - Amazon Kendra\\\",\\\"Highlights\\\":[{\\\"BeginOffset\\\":33,\\\"EndOffset\\\":39,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"}]},\\\"DocumentExcerpt\\\":{\\\"Text\\\":\\\"...objects that map Microsoft\\\\n                                             SharePoint attributes to custom fields in the Amazon Kendra index...\\\",\\\"Highlights\\\":[{\\\"BeginOffset\\\":128,\\\"EndOffset\\\":134,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"}]},\\\"DocumentURI\\\":\\\"http://docs.aws.amazon.com/kendra/latest/dg/API_SharePointConfiguration.html\\\",\\\"DocumentAttributes\\\":[{\\\"Key\\\":\\\"_source_uri\\\",\\\"Value\\\":{\\\"StringValue\\\":\\\"http://docs.aws.amazon.com/kendra/latest/dg/API_SharePointConfiguration.html\\\"}}],\\\"ScoreAttributes\\\":{\\\"ScoreConfidence\\\":\\\"HIGH\\\"},\\\"FeedbackToken\\\":\\\"AYADeD6qXpnkcmbYFYIDYVJrPtsAXwABABVhd3MtY3J5cHRvLXB1YmxpYy1rZXkAREEzaElDQ2NkWmZFK2tYOEJMbm5HTnVUOFN2dWd3S3BpcUVRc1d2VW9tWWcyQ3Nhb1JKK0RKTjF3ZUVCemhHTEdNUT09AAEAB2F3cy1rbXMAS2Fybjphd3M6a21zOnVzLWVhc3QtMTo3OTQyODk5MjcwNzA6a2V5LzA4YjVkYTRmLWQyOWEtNDU3Mi04OTAwLTRkZjMzN2VjYzljYwC4AQIBAHhYcdgHOffCDlsGK30ut3E_WAVKkt-AORxILQne_ryY-wGcY9onCs_SfxC9gZiMbVUdAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQM8_AXJs9s3aQLQyZ8AgEQgDuMzpKdFmOp7u3g8E5dUKoBm6Il9mCWtVi-zjwEs-dl5yRWaZNWarqQBJSOx4g1SkST0011qoU3ezcdUAIAAAAADAAAEAAAAAAAAAAAAAAAAABTRIQmFBePdDOkqMyjFyi8_____wAAAAEAAAAAAAAAAAAAAAEAAAF2Zq-zRp_HrO5jYFc1ICendWDRX5SkQxpGyYKA2XRzKgZn-CQUX1fYXFm1nSIZWWXWkdAqUfM7foydL-2CkiWO5NIOSh-_GG4UkqAluKX5uf4xhPdeCyssmTVEQdy18Qt-eLdFrKAH7k2QCCHYOqDaNkY-jJPHIsucnzpKEj-VJeQdmUzC09-5AyEmcyZdBoGH_XIO_NriaB3BtTpTLjjctm7pUiWPlrgUcNU6gs_zt7V_n8Sr2_d7j6dqFfux4P4UVioXZQZfmKkkD6eIQqfs7ndGzCTqhjJ5uI0TAbZz1nFg-8ovLs0qgwXPNysp-DQOtmU4VGVKjwJi-pl8hbToMzhpmA1tF-_D6z8jZwJ4t5QThHw87QAJ37XMk_Esl0dWTZFlwdPn9VIbtyk4ZsaZty-QSFMs9aqlQIU1CRp2GfRoTUzwif-UoJ-RsKFoimcy_PQNUl_Hqf5HPZyDdfJzr1RfMrKsz9LGDNf92cRwEHyHDLOLMNXpdc1OSyeQ9SsjHvvcK3hqAGcwZQIxAN1fXKN77fajjhKGehmj7bnmzzCer2-CymIAQ3Xy-baWJJvDC90ivJLzDkOgmPhpyQIwEiMsRWTKPuMPKTillHnwcFg8gMG7HEnLCAR2Cc21ESPrVU2nNhFDIz-qavRX9QFJ.1042f7ac-2598-4d54-9d60-94a00a0e6fa9-d90063e8-1e01-4ef7-8ce2-861f9a089996\\\"},{\\\"Id\\\":\\\"1042f7ac-2598-4d54-9d60-94a00a0e6fa9-93cd7ec4-1151-45f9-9de5-cce135fa5bd4\\\",\\\"Type\\\":\\\"DOCUMENT\\\",\\\"Format\\\":\\\"TEXT\\\",\\\"AdditionalAttributes\\\":[],\\\"DocumentId\\\":\\\"kendra.latest.dg.data-protection\\\",\\\"DocumentTitle\\\":{\\\"Text\\\":\\\"Data protection in Amazon Kendra - Amazon Kendra\\\",\\\"Highlights\\\":[{\\\"BeginOffset\\\":26,\\\"EndOffset\\\":32,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":42,\\\"EndOffset\\\":48,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"}]},\\\"DocumentExcerpt\\\":{\\\"Text\\\":\\\"...your\\\\n                                    customers' account numbers, into free-form fields such as a Name field. This includes when you work with Amazon Kendra or other AWS\\\\n                                    services using the console, API, AWS CLI, or AWS SDKs...\\\",\\\"Highlights\\\":[{\\\"BeginOffset\\\":77,\\\"EndOffset\\\":81,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":121,\\\"EndOffset\\\":129,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":156,\\\"EndOffset\\\":162,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"}]},\\\"DocumentURI\\\":\\\"http://docs.aws.amazon.com/kendra/latest/dg/data-protection.html\\\",\\\"DocumentAttributes\\\":[{\\\"Key\\\":\\\"_source_uri\\\",\\\"Value\\\":{\\\"StringValue\\\":\\\"http://docs.aws.amazon.com/kendra/latest/dg/data-protection.html\\\"}}],\\\"ScoreAttributes\\\":{\\\"ScoreConfidence\\\":\\\"MEDIUM\\\"},\\\"FeedbackToken\\\":\\\"AYADeD6qXpnkcmbYFYIDYVJrPtsAXwABABVhd3MtY3J5cHRvLXB1YmxpYy1rZXkAREEzaElDQ2NkWmZFK2tYOEJMbm5HTnVUOFN2dWd3S3BpcUVRc1d2VW9tWWcyQ3Nhb1JKK0RKTjF3ZUVCemhHTEdNUT09AAEAB2F3cy1rbXMAS2Fybjphd3M6a21zOnVzLWVhc3QtMTo3OTQyODk5MjcwNzA6a2V5LzA4YjVkYTRmLWQyOWEtNDU3Mi04OTAwLTRkZjMzN2VjYzljYwC4AQIBAHhYcdgHOffCDlsGK30ut3E_WAVKkt-AORxILQne_ryY-wGcY9onCs_SfxC9gZiMbVUdAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQM8_AXJs9s3aQLQyZ8AgEQgDuMzpKdFmOp7u3g8E5dUKoBm6Il9mCWtVi-zjwEs-dl5yRWaZNWarqQBJSOx4g1SkST0011qoU3ezcdUAIAAAAADAAAEAAAAAAAAAAAAAAAAABTRIQmFBePdDOkqMyjFyi8_____wAAAAEAAAAAAAAAAAAAAAEAAAF2Zq-zRp_HrO5jYFc1ICendWDRX5SkQxpGyYKA2XRzKgZn-CQUX1fYXFm1nSIZWWXWkdAqUfM7foydL-2CkiWO5NIOSh-_GG4UkqAluKX5uf4xhPdeCyssmTVEQdy18Qt-eLdFrKAH7k2QCCHYOqDaNkY-jJPHIsucnzpKEj-VJeQdmUzC09-5AyEmcyZdBoGH_XIO_NriaB3BtTpTLjjctm7pUiWPlrgUcNU6gs_zt7V_n8Sr2_d7j6dqFfux4P4UVioXZQZfmKkkD6eIQqfs7ndGzCTqhjJ5uI0TAbZz1nFg-8ovLs0qgwXPNysp-DQOtmU4VGVKjwJi-pl8hbToMzhpmA1tF-_D6z8jZwJ4t5QThHw87QAJ37XMk_Esl0dWTZFlwdPn9VIbtyk4ZsaZty-QSFMs9aqlQIU1CRp2GfRoTUzwif-UoJ-RsKFoimcy_PQNUl_Hqf5HPZyDdfJzr1RfMrKsz9LGDNf92cRwEHyHDLOLMNXpdc1OSyeQ9SsjHvvcK3hqAGcwZQIxAN1fXKN77fajjhKGehmj7bnmzzCer2-CymIAQ3Xy-baWJJvDC90ivJLzDkOgmPhpyQIwEiMsRWTKPuMPKTillHnwcFg8gMG7HEnLCAR2Cc21ESPrVU2nNhFDIz-qavRX9QFJ.1042f7ac-2598-4d54-9d60-94a00a0e6fa9-93cd7ec4-1151-45f9-9de5-cce135fa5bd4\\\"},{\\\"Id\\\":\\\"1042f7ac-2598-4d54-9d60-94a00a0e6fa9-6a753a11-4368-4171-b4b7-d91f13580d4a\\\",\\\"Type\\\":\\\"DOCUMENT\\\",\\\"Format\\\":\\\"TEXT\\\",\\\"AdditionalAttributes\\\":[],\\\"DocumentId\\\":\\\"kendra.latest.dg.API_SalesforceKnowledgeArticleConfiguration\\\",\\\"DocumentTitle\\\":{\\\"Text\\\":\\\"SalesforceKnowledgeArticleConfiguration - Amazon Kendra\\\",\\\"Highlights\\\":[{\\\"BeginOffset\\\":49,\\\"EndOffset\\\":55,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"}]},\\\"DocumentExcerpt\\\":{\\\"Text\\\":\\\"...Specifies the document states that should be included when Amazon Kendra indexes knowledge\\\\n                                             articles. You must specify at least one state...\\\",\\\"Highlights\\\":[{\\\"BeginOffset\\\":48,\\\"EndOffset\\\":56,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":69,\\\"EndOffset\\\":75,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"}]},\\\"DocumentURI\\\":\\\"http://docs.aws.amazon.com/kendra/latest/dg/API_SalesforceKnowledgeArticleConfiguration.html\\\",\\\"DocumentAttributes\\\":[{\\\"Key\\\":\\\"_source_uri\\\",\\\"Value\\\":{\\\"StringValue\\\":\\\"http://docs.aws.amazon.com/kendra/latest/dg/API_SalesforceKnowledgeArticleConfiguration.html\\\"}}],\\\"ScoreAttributes\\\":{\\\"ScoreConfidence\\\":\\\"MEDIUM\\\"},\\\"FeedbackToken\\\":\\\"AYADeD6qXpnkcmbYFYIDYVJrPtsAXwABABVhd3MtY3J5cHRvLXB1YmxpYy1rZXkAREEzaElDQ2NkWmZFK2tYOEJMbm5HTnVUOFN2dWd3S3BpcUVRc1d2VW9tWWcyQ3Nhb1JKK0RKTjF3ZUVCemhHTEdNUT09AAEAB2F3cy1rbXMAS2Fybjphd3M6a21zOnVzLWVhc3QtMTo3OTQyODk5MjcwNzA6a2V5LzA4YjVkYTRmLWQyOWEtNDU3Mi04OTAwLTRkZjMzN2VjYzljYwC4AQIBAHhYcdgHOffCDlsGK30ut3E_WAVKkt-AORxILQne_ryY-wGcY9onCs_SfxC9gZiMbVUdAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQM8_AXJs9s3aQLQyZ8AgEQgDuMzpKdFmOp7u3g8E5dUKoBm6Il9mCWtVi-zjwEs-dl5yRWaZNWarqQBJSOx4g1SkST0011qoU3ezcdUAIAAAAADAAAEAAAAAAAAAAAAAAAAABTRIQmFBePdDOkqMyjFyi8_____wAAAAEAAAAAAAAAAAAAAAEAAAF2Zq-zRp_HrO5jYFc1ICendWDRX5SkQxpGyYKA2XRzKgZn-CQUX1fYXFm1nSIZWWXWkdAqUfM7foydL-2CkiWO5NIOSh-_GG4UkqAluKX5uf4xhPdeCyssmTVEQdy18Qt-eLdFrKAH7k2QCCHYOqDaNkY-jJPHIsucnzpKEj-VJeQdmUzC09-5AyEmcyZdBoGH_XIO_NriaB3BtTpTLjjctm7pUiWPlrgUcNU6gs_zt7V_n8Sr2_d7j6dqFfux4P4UVioXZQZfmKkkD6eIQqfs7ndGzCTqhjJ5uI0TAbZz1nFg-8ovLs0qgwXPNysp-DQOtmU4VGVKjwJi-pl8hbToMzhpmA1tF-_D6z8jZwJ4t5QThHw87QAJ37XMk_Esl0dWTZFlwdPn9VIbtyk4ZsaZty-QSFMs9aqlQIU1CRp2GfRoTUzwif-UoJ-RsKFoimcy_PQNUl_Hqf5HPZyDdfJzr1RfMrKsz9LGDNf92cRwEHyHDLOLMNXpdc1OSyeQ9SsjHvvcK3hqAGcwZQIxAN1fXKN77fajjhKGehmj7bnmzzCer2-CymIAQ3Xy-baWJJvDC90ivJLzDkOgmPhpyQIwEiMsRWTKPuMPKTillHnwcFg8gMG7HEnLCAR2Cc21ESPrVU2nNhFDIz-qavRX9QFJ.1042f7ac-2598-4d54-9d60-94a00a0e6fa9-6a753a11-4368-4171-b4b7-d91f13580d4a\\\"},{\\\"Id\\\":\\\"1042f7ac-2598-4d54-9d60-94a00a0e6fa9-a46162c8-efeb-400b-b84d-adda2f237ca0\\\",\\\"Type\\\":\\\"DOCUMENT\\\",\\\"Format\\\":\\\"TEXT\\\",\\\"AdditionalAttributes\\\":[],\\\"DocumentId\\\":\\\"kendra.latest.dg.submitting-feedback\\\",\\\"DocumentTitle\\\":{\\\"Text\\\":\\\"Submitting feedback - Amazon Kendra\\\",\\\"Highlights\\\":[{\\\"BeginOffset\\\":29,\\\"EndOffset\\\":35,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"}]},\\\"DocumentExcerpt\\\":{\\\"Text\\\":\\\"...services.kendra.model.ClickFeedback;\\\\nimport software.amazon.awssdk.services.kendra.model.RelevanceFeedback;\\\\nimport software.amazon.awssdk.services.kendra.model.RelevanceType;\\\\nimport software.amazon.awssdk.services.kendra.model.SubmitFeedbackRequest;\\\\nimport software.amazon.awssdk.services.kendra...\\\",\\\"Highlights\\\":[{\\\"BeginOffset\\\":12,\\\"EndOffset\\\":18,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":79,\\\"EndOffset\\\":85,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":150,\\\"EndOffset\\\":156,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":217,\\\"EndOffset\\\":223,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":292,\\\"EndOffset\\\":298,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"}]},\\\"DocumentURI\\\":\\\"http://docs.aws.amazon.com/kendra/latest/dg/submitting-feedback.html\\\",\\\"DocumentAttributes\\\":[{\\\"Key\\\":\\\"_source_uri\\\",\\\"Value\\\":{\\\"StringValue\\\":\\\"http://docs.aws.amazon.com/kendra/latest/dg/submitting-feedback.html\\\"}}],\\\"ScoreAttributes\\\":{\\\"ScoreConfidence\\\":\\\"MEDIUM\\\"},\\\"FeedbackToken\\\":\\\"AYADeD6qXpnkcmbYFYIDYVJrPtsAXwABABVhd3MtY3J5cHRvLXB1YmxpYy1rZXkAREEzaElDQ2NkWmZFK2tYOEJMbm5HTnVUOFN2dWd3S3BpcUVRc1d2VW9tWWcyQ3Nhb1JKK0RKTjF3ZUVCemhHTEdNUT09AAEAB2F3cy1rbXMAS2Fybjphd3M6a21zOnVzLWVhc3QtMTo3OTQyODk5MjcwNzA6a2V5LzA4YjVkYTRmLWQyOWEtNDU3Mi04OTAwLTRkZjMzN2VjYzljYwC4AQIBAHhYcdgHOffCDlsGK30ut3E_WAVKkt-AORxILQne_ryY-wGcY9onCs_SfxC9gZiMbVUdAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQM8_AXJs9s3aQLQyZ8AgEQgDuMzpKdFmOp7u3g8E5dUKoBm6Il9mCWtVi-zjwEs-dl5yRWaZNWarqQBJSOx4g1SkST0011qoU3ezcdUAIAAAAADAAAEAAAAAAAAAAAAAAAAABTRIQmFBePdDOkqMyjFyi8_____wAAAAEAAAAAAAAAAAAAAAEAAAF2Zq-zRp_HrO5jYFc1ICendWDRX5SkQxpGyYKA2XRzKgZn-CQUX1fYXFm1nSIZWWXWkdAqUfM7foydL-2CkiWO5NIOSh-_GG4UkqAluKX5uf4xhPdeCyssmTVEQdy18Qt-eLdFrKAH7k2QCCHYOqDaNkY-jJPHIsucnzpKEj-VJeQdmUzC09-5AyEmcyZdBoGH_XIO_NriaB3BtTpTLjjctm7pUiWPlrgUcNU6gs_zt7V_n8Sr2_d7j6dqFfux4P4UVioXZQZfmKkkD6eIQqfs7ndGzCTqhjJ5uI0TAbZz1nFg-8ovLs0qgwXPNysp-DQOtmU4VGVKjwJi-pl8hbToMzhpmA1tF-_D6z8jZwJ4t5QThHw87QAJ37XMk_Esl0dWTZFlwdPn9VIbtyk4ZsaZty-QSFMs9aqlQIU1CRp2GfRoTUzwif-UoJ-RsKFoimcy_PQNUl_Hqf5HPZyDdfJzr1RfMrKsz9LGDNf92cRwEHyHDLOLMNXpdc1OSyeQ9SsjHvvcK3hqAGcwZQIxAN1fXKN77fajjhKGehmj7bnmzzCer2-CymIAQ3Xy-baWJJvDC90ivJLzDkOgmPhpyQIwEiMsRWTKPuMPKTillHnwcFg8gMG7HEnLCAR2Cc21ESPrVU2nNhFDIz-qavRX9QFJ.1042f7ac-2598-4d54-9d60-94a00a0e6fa9-a46162c8-efeb-400b-b84d-adda2f237ca0\\\"},{\\\"Id\\\":\\\"1042f7ac-2598-4d54-9d60-94a00a0e6fa9-57113f25-1c6b-4894-be75-e83c105486b8\\\",\\\"Type\\\":\\\"DOCUMENT\\\",\\\"Format\\\":\\\"TEXT\\\",\\\"AdditionalAttributes\\\":[],\\\"DocumentId\\\":\\\"AWSEC2.latest.UserGuide.concepts-reserved-instances-application\\\",\\\"DocumentTitle\\\":{\\\"Text\\\":\\\"How you are billed - Amazon Elastic Compute Cloud\\\",\\\"Highlights\\\":[]},\\\"DocumentExcerpt\\\":{\\\"Text\\\":\\\"...see AWS Free Tier.\\\\n                                 \\\\n\\\\n                                 \\\\n                                    Contents\\\\n\\\\n                                    \\\\tUsage billing\\\\n\\\\tViewing your bill\\\\n\\\\tReserved Instances and consolidated billing\\\\n\\\\tReserved Instance discount pricing tiers...\\\",\\\"Highlights\\\":[{\\\"BeginOffset\\\":11,\\\"EndOffset\\\":15,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":16,\\\"EndOffset\\\":20,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"},{\\\"BeginOffset\\\":288,\\\"EndOffset\\\":293,\\\"TopAnswer\\\":false,\\\"Type\\\":\\\"STANDARD\\\"}]},\\\"DocumentURI\\\":\\\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-reserved-instances-application.html\\\",\\\"DocumentAttributes\\\":[{\\\"Key\\\":\\\"_source_uri\\\",\\\"Value\\\":{\\\"StringValue\\\":\\\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-reserved-instances-application.html\\\"}}],\\\"ScoreAttributes\\\":{\\\"ScoreConfidence\\\":\\\"MEDIUM\\\"},\\\"FeedbackToken\\\":\\\"AYADeD6qXpnkcmbYFYIDYVJrPtsAXwABABVhd3MtY3J5cHRvLXB1YmxpYy1rZXkAREEzaElDQ2NkWmZFK2tYOEJMbm5HTnVUOFN2dWd3S3BpcUVRc1d2VW9tWWcyQ3Nhb1JKK0RKTjF3ZUVCemhHTEdNUT09AAEAB2F3cy1rbXMAS2Fybjphd3M6a21zOnVzLWVhc3QtMTo3OTQyODk5MjcwNzA6a2V5LzA4YjVkYTRmLWQyOWEtNDU3Mi04OTAwLTRkZjMzN2VjYzljYwC4AQIBAHhYcdgHOffCDlsGK30ut3E_WAVKkt-AORxILQne_ryY-wGcY9onCs_SfxC9gZiMbVUdAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQM8_AXJs9s3aQLQyZ8AgEQgDuMzpKdFmOp7u3g8E5dUKoBm6Il9mCWtVi-zjwEs-dl5yRWaZNWarqQBJSOx4g1SkST0011qoU3ezcdUAIAAAAADAAAEAAAAAAAAAAAAAAAAABTRIQmFBePdDOkqMyjFyi8_____wAAAAEAAAAAAAAAAAAAAAEAAAF2Zq-zRp_HrO5jYFc1ICendWDRX5SkQxpGyYKA2XRzKgZn-CQUX1fYXFm1nSIZWWXWkdAqUfM7foydL-2CkiWO5NIOSh-_GG4UkqAluKX5uf4xhPdeCyssmTVEQdy18Qt-eLdFrKAH7k2QCCHYOqDaNkY-jJPHIsucnzpKEj-VJeQdmUzC09-5AyEmcyZdBoGH_XIO_NriaB3BtTpTLjjctm7pUiWPlrgUcNU6gs_zt7V_n8Sr2_d7j6dqFfux4P4UVioXZQZfmKkkD6eIQqfs7ndGzCTqhjJ5uI0TAbZz1nFg-8ovLs0qgwXPNysp-DQOtmU4VGVKjwJi-pl8hbToMzhpmA1tF-_D6z8jZwJ4t5QThHw87QAJ37XMk_Esl0dWTZFlwdPn9VIbtyk4ZsaZty-QSFMs9aqlQIU1CRp2GfRoTUzwif-UoJ-RsKFoimcy_PQNUl_Hqf5HPZyDdfJzr1RfMrKsz9LGDNf92cRwEHyHDLOLMNXpdc1OSyeQ9SsjHvvcK3hqAGcwZQIxAN1fXKN77fajjhKGehmj7bnmzzCer2-CymIAQ3Xy-baWJJvDC90ivJLzDkOgmPhpyQIwEiMsRWTKPuMPKTillHnwcFg8gMG7HEnLCAR2Cc21ESPrVU2nNhFDIz-qavRX9QFJ.1042f7ac-2598-4d54-9d60-94a00a0e6fa9-57113f25-1c6b-4894-be75-e83c105486b8\\\"}]\",\"inspectionParameters\":{\"key\":\"value\"},\"lazyLoad\":false}",
+      "Namespace": "ResourceLibrary",
+      "Name": "Kendra Response",
+      "TopLevelStructure": "OBJECT",
+      "Type": "JSONTransform",
+      "RuleResolutionID": "KendraResponse",
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "QueryAssist",
+          "Namespace": "ResourceLibrary"
+        },
+        "Description": "",
+        "Mode": "SingleRecord"
+      },
+      "MappingsDefinition": "{\"AtlasMapping\":{\"jsonType\":\"io.atlasmap.v2.AtlasMapping\",\"dataSource\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"input\",\"name\":\"Kendra Response\",\"description\":\"input\",\"uri\":\"atlas:json:input\",\"dataSourceType\":\"SOURCE\"},{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"output\",\"name\":\"QueryAssist\",\"description\":\"output\",\"uri\":\"atlas:json:output\",\"dataSourceType\":\"TARGET\"}],\"mappings\":{\"mapping\":[{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.847492\",\"inputFieldGroup\":{\"jsonType\":\"io.atlasmap.v2.FieldGroup\",\"actions\":[],\"field\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"DocumentURI\",\"path\":\"/<>/DocumentURI\",\"fieldType\":\"STRING\",\"docId\":\"input\"}]},\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"DocumentURI\",\"path\":\"/ResourceLibrary;;ResponseObject<>/ResourceLibrary;;DocumentURI\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.2708\",\"inputFieldGroup\":{\"jsonType\":\"io.atlasmap.v2.FieldGroup\",\"actions\":[],\"field\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"Text\",\"path\":\"/<>/AdditionalAttributes<>/Value/TextWithHighlightsValue/Text\",\"fieldType\":\"STRING\",\"docId\":\"input\"}]},\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"ResponseText\",\"path\":\"/ResourceLibrary;;ResponseObject<>/ResourceLibrary;;Responses<>/ResourceLibrary;;ResponseText\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]}]},\"name\":\"UI.0\",\"version\":\"1.0.0\",\"lookupTables\":{\"lookupTable\":[]},\"constants\":{\"constant\":[]},\"properties\":{\"property\":[]}}}",
+      "TopElementStructure": "",
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            },
+            "Namespace": "PegaPlatform"
+          },
+          "Description": "This is a JSON string that will be transformed to a Pega object",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "JSON string",
+          "Type": ""
+        }
+      ],
+      "MappingModel": "",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "CaseStatus": [
+    {
+      "Type": "CaseStatus",
+      "Description": "Resolved-Completed",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Resolved-Completed2",
+      "Namespace": "ResourceLibrary",
+      "Name": "Resolved-Completed",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "CaseStatus",
+      "Description": "Open-In progress",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Open-InProgress",
+      "Namespace": "ResourceLibrary",
+      "Name": "Open-In progress",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "CaseStatus",
+      "Description": "New-Query Assist creation",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "New-QueryAssistCreation",
+      "Namespace": "ResourceLibrary",
+      "Name": "New-Query Assist creation",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "CaseStatus",
+      "Description": "Resolved-Withdrawn",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Resolved-Withdrawn2",
+      "Namespace": "ResourceLibrary",
+      "Name": "Resolved-Withdrawn",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "CaseStatus",
+      "Description": "Pending-Completed",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Pending-Completed",
+      "Namespace": "ResourceLibrary",
+      "Name": "Pending-Completed",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "CaseStatus",
+      "Description": "Pending-Withdrawn",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "AppliesTo": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Pending-Withdrawn",
+      "Namespace": "ResourceLibrary",
+      "Name": "Pending-Withdrawn",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Query": [
+    {
+      "Type": "Query",
+      "Description": "Query to List all QueryResponse instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Filter": {
+        "ExpressionType": "AND",
+        "Expressions": [
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Field": {
+                "ReferenceID": "Status",
+                "Namespace": "PegaPlatform",
+                "Type": "RuleReference"
+              },
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              }
+            },
+            "Comparator": "!=",
+            "OperandTwo": {
+              "Value": "Resolved-Inactive",
+              "Type": "ConstantText"
+            }
+          },
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              },
+              "Field": {
+                "Type": "RuleReference",
+                "ReferenceID": "Status",
+                "Namespace": "PegaPlatform"
+              }
+            },
+            "Comparator": "!=",
+            "OperandTwo": {
+              "Type": "ConstantText",
+              "Value": "Resolved-Cancelled"
+            }
+          }
+        ],
+        "Type": "ExpressionGroup"
+      },
+      "SortBy": [
+        {
+          "Field": {
+            "ReferenceID": "CreateDateTime",
+            "Namespace": "PegaPlatform"
+          },
+          "Direction": "Descending"
+        }
+      ],
+      "AppliesTo": {
+        "ReferenceID": "QueryResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "List",
+          "Type": "TypeReference",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "QueryResponse",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        }
+      },
+      "RuleResolutionID": "QueryResponseList",
+      "Namespace": "ResourceLibrary",
+      "Name": "QueryResponse list",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Query",
+      "Description": "Query to List all Query instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Filter": {
+        "ExpressionType": "AND",
+        "Expressions": [
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Field": {
+                "ReferenceID": "Status",
+                "Namespace": "PegaPlatform",
+                "Type": "RuleReference"
+              },
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              }
+            },
+            "Comparator": "!=",
+            "OperandTwo": {
+              "Value": "Resolved-Inactive",
+              "Type": "ConstantText"
+            }
+          },
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              },
+              "Field": {
+                "Type": "RuleReference",
+                "ReferenceID": "Status",
+                "Namespace": "PegaPlatform"
+              }
+            },
+            "Comparator": "!=",
+            "OperandTwo": {
+              "Type": "ConstantText",
+              "Value": "Resolved-Cancelled"
+            }
+          }
+        ],
+        "Type": "ExpressionGroup"
+      },
+      "SortBy": [
+        {
+          "Field": {
+            "ReferenceID": "CreateDateTime",
+            "Namespace": "PegaPlatform"
+          },
+          "Direction": "Descending"
+        }
+      ],
+      "AppliesTo": {
+        "ReferenceID": "Query",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "List",
+          "Type": "TypeReference",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "Query",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        }
+      },
+      "RuleResolutionID": "QueryList",
+      "Namespace": "ResourceLibrary",
+      "Name": "Query list",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Query",
+      "Description": "Query to List all QueryAssist instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Filter": {
+        "ExpressionType": "",
+        "Expressions": [
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              },
+              "Field": {
+                "Type": "RuleReference",
+                "ReferenceID": "Status",
+                "Namespace": "PegaPlatform"
+              }
+            },
+            "Comparator": "!=",
+            "OperandTwo": {
+              "Type": "ConstantText",
+              "Value": "Resolved-Cancelled"
+            }
+          }
+        ],
+        "Type": "ExpressionGroup"
+      },
+      "SortBy": [
+        {
+          "Field": {
+            "ReferenceID": "CreateDateTime",
+            "Namespace": "PegaPlatform"
+          },
+          "Direction": "Descending"
+        }
+      ],
+      "AppliesTo": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "List",
+          "Type": "TypeReference",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "QueryAssist",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        }
+      },
+      "RuleResolutionID": "QueryAssistList",
+      "Namespace": "ResourceLibrary",
+      "Name": "QueryAssist list",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Query",
+      "Description": "Query to lookup ResponseAttribute instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Filter": {
+        "ExpressionType": "",
+        "Expressions": [
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Field": {
+                "ReferenceID": "ID",
+                "Namespace": "PegaPlatform"
+              },
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              }
+            },
+            "Comparator": "==",
+            "OperandTwo": {
+              "Name": "ID",
+              "Type": "Variable"
+            }
+          }
+        ]
+      },
+      "AppliesTo": {
+        "ReferenceID": "ResponseAttribute",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "ResponseAttribute",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        }
+      },
+      "RuleResolutionID": "ResponseAttributeLookup",
+      "Inputs": [
+        {
+          "Description": "object key",
+          "Mode": "SingleRecord",
+          "Name": "ID",
+          "Required": "true",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          },
+          "Type": ""
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "ResponseAttribute lookup",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Query",
+      "Description": "Query to List all ResponseAttribute instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Filter": {
+        "ExpressionType": "AND",
+        "Expressions": [
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Field": {
+                "ReferenceID": "Status",
+                "Namespace": "PegaPlatform",
+                "Type": "RuleReference"
+              },
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              }
+            },
+            "Comparator": "!=",
+            "OperandTwo": {
+              "Value": "Resolved-Inactive",
+              "Type": "ConstantText"
+            }
+          },
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              },
+              "Field": {
+                "Type": "RuleReference",
+                "ReferenceID": "Status",
+                "Namespace": "PegaPlatform"
+              }
+            },
+            "Comparator": "!=",
+            "OperandTwo": {
+              "Type": "ConstantText",
+              "Value": "Resolved-Cancelled"
+            }
+          }
+        ],
+        "Type": "ExpressionGroup"
+      },
+      "SortBy": [
+        {
+          "Field": {
+            "ReferenceID": "CreateDateTime",
+            "Namespace": "PegaPlatform"
+          },
+          "Direction": "Descending"
+        }
+      ],
+      "AppliesTo": {
+        "ReferenceID": "ResponseAttribute",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "List",
+          "Type": "TypeReference",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "ResponseAttribute",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        }
+      },
+      "RuleResolutionID": "ResponseAttributeList",
+      "Namespace": "ResourceLibrary",
+      "Name": "ResponseAttribute list",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Query",
+      "Description": "Query to lookup Query instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Filter": {
+        "ExpressionType": "",
+        "Expressions": [
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Field": {
+                "ReferenceID": "ID",
+                "Namespace": "PegaPlatform"
+              },
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              }
+            },
+            "Comparator": "==",
+            "OperandTwo": {
+              "Name": "ID",
+              "Type": "Variable"
+            }
+          }
+        ]
+      },
+      "AppliesTo": {
+        "ReferenceID": "Query",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "Query",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        }
+      },
+      "RuleResolutionID": "QueryLookup",
+      "Inputs": [
+        {
+          "Description": "object key",
+          "Mode": "SingleRecord",
+          "Name": "ID",
+          "Required": "true",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          },
+          "Type": ""
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "Query lookup",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Query",
+      "Description": "Query to lookup QueryAssist instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Filter": {
+        "ExpressionType": "",
+        "Expressions": [
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Field": {
+                "ReferenceID": "ID",
+                "Namespace": "PegaPlatform"
+              },
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              }
+            },
+            "Comparator": "==",
+            "OperandTwo": {
+              "Name": "ID",
+              "Type": "Variable"
+            }
+          }
+        ]
+      },
+      "AppliesTo": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "QueryAssist",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        }
+      },
+      "RuleResolutionID": "QueryAssistLookup",
+      "Inputs": [
+        {
+          "Description": "object key",
+          "Mode": "SingleRecord",
+          "Name": "ID",
+          "Required": "true",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          },
+          "Type": ""
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "QueryAssist lookup",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Query",
+      "Description": "Query to lookup QueryResponse instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Filter": {
+        "ExpressionType": "",
+        "Expressions": [
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Field": {
+                "ReferenceID": "ID",
+                "Namespace": "PegaPlatform"
+              },
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              }
+            },
+            "Comparator": "==",
+            "OperandTwo": {
+              "Name": "ID",
+              "Type": "Variable"
+            }
+          }
+        ]
+      },
+      "AppliesTo": {
+        "ReferenceID": "QueryResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "QueryResponse",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        }
+      },
+      "RuleResolutionID": "QueryResponseLookup",
+      "Inputs": [
+        {
+          "Description": "object key",
+          "Mode": "SingleRecord",
+          "Name": "ID",
+          "Required": "true",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          },
+          "Type": ""
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "QueryResponse lookup",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Field": [
+    {
+      "Type": "Field",
+      "Description": "IndexID of AWS Kendra Index",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "IndexID",
+      "Namespace": "ResourceLibrary",
+      "Name": "IndexID",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "RichText",
+      "Type": "Field",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "Query",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "Response",
+      "Namespace": "ResourceLibrary",
+      "Name": "Response",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "URL",
+      "Type": "Field",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "Query",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "DocumentURI",
+      "Namespace": "ResourceLibrary",
+      "Name": "Document URI",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "RichText",
+      "Type": "Field",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "Query",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "Query",
+      "Namespace": "ResourceLibrary",
+      "Name": "Query",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "ObjectReference",
+      "Description": "This field holds the reference to a Response Attribute instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "RecordClass": {
+        "ReferenceID": "ResponseAttribute",
+        "Namespace": "ResourceLibrary"
+      },
+      "AppliesTo": {
+        "ReferenceID": "History-ResponseAttribute",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "SingleRecord",
+      "RelationshipType": "Peer",
+      "Namespace": "ResourceLibrary",
+      "Name": "Response Attribute Reference",
+      "DataAccess": "Refer",
+      "DataSource": {
+        "CallReference": {
+          "ReferenceID": "ResponseAttributeLookup",
+          "ReferenceScope": {
+            "ReferenceID": "ResponseAttribute",
+            "Namespace": "ResourceLibrary"
+          },
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "DataPage",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "FieldReference",
+              "Root": {
+                "Type": "Variable",
+                "Name": "Current"
+              },
+              "Field": {
+                "Type": "RuleReference",
+                "ReferenceID": "ID",
+                "Namespace": "PegaPlatform"
+              }
+            }
+          }
+        ]
+      },
+      "Type": "Field",
+      "RuleResolutionID": "ObjectReference",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "EmbeddedData",
+      "Type": "Field",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "RecordClass": {
+        "ReferenceID": "ResponseAttribute",
+        "Namespace": "ResourceLibrary"
+      },
+      "AppliesTo": {
+        "ReferenceID": "QueryResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "ListOfRecords",
+      "RuleResolutionID": "Responses",
+      "Namespace": "ResourceLibrary",
+      "Name": "Responses",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "ObjectReference",
+      "Description": "This field holds the reference to a Query Response instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "RecordClass": {
+        "ReferenceID": "QueryResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "AppliesTo": {
+        "ReferenceID": "History-QueryResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "SingleRecord",
+      "RelationshipType": "Peer",
+      "Namespace": "ResourceLibrary",
+      "Name": "Query Response Reference",
+      "DataAccess": "Refer",
+      "DataSource": {
+        "CallReference": {
+          "ReferenceID": "QueryResponseLookup",
+          "ReferenceScope": {
+            "ReferenceID": "QueryResponse",
+            "Namespace": "ResourceLibrary"
+          },
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "DataPage",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "FieldReference",
+              "Root": {
+                "Type": "Variable",
+                "Name": "Current"
+              },
+              "Field": {
+                "Type": "RuleReference",
+                "ReferenceID": "ID",
+                "Namespace": "PegaPlatform"
+              }
+            }
+          }
+        ]
+      },
+      "Type": "Field",
+      "RuleResolutionID": "ObjectReference",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "URL",
+      "Type": "Field",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "QueryResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "DocumentURI",
+      "Namespace": "ResourceLibrary",
+      "Name": "DocumentURI",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "RichText",
+      "Type": "Field",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "ResourceDescription",
+      "Namespace": "ResourceLibrary",
+      "Name": "Resource Description",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "AdditionalInfo": {
+        "ReferenceID": "Query_additionalInfo",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "Field",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "Query",
+      "Namespace": "ResourceLibrary",
+      "Name": "Query",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "EmbeddedData",
+      "Type": "Field",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "RecordClass": {
+        "ReferenceID": "QueryResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "AppliesTo": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "ListOfRecords",
+      "RuleResolutionID": "ResponseObject",
+      "Namespace": "ResourceLibrary",
+      "Name": "Response Object",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "RichText",
+      "Type": "Field",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "ResponseAttribute",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "ResponseText",
+      "Namespace": "ResourceLibrary",
+      "Name": "Response Text",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "ObjectReference",
+      "Description": "This field holds the reference to a Query Assist instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "RecordClass": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "AppliesTo": {
+        "ReferenceID": "History-QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "SingleRecord",
+      "RelationshipType": "Peer",
+      "Namespace": "ResourceLibrary",
+      "Name": "Query Assist Reference",
+      "DataAccess": "Refer",
+      "DataSource": {
+        "CallReference": {
+          "ReferenceID": "QueryAssistLookup",
+          "ReferenceScope": {
+            "ReferenceID": "QueryAssist",
+            "Namespace": "ResourceLibrary"
+          },
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "DataPage",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "FieldReference",
+              "Root": {
+                "Type": "Variable",
+                "Name": "Current"
+              },
+              "Field": {
+                "Type": "RuleReference",
+                "ReferenceID": "ID",
+                "Namespace": "PegaPlatform"
+              }
+            }
+          }
+        ]
+      },
+      "Type": "Field",
+      "RuleResolutionID": "ObjectReference",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "IsCalculated": true,
+      "Type": "Field",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
+        "ReferenceID": "QueryResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "FirstResponseTest",
+      "CalculatedValue": {
+        "CallType": "Decision",
+        "CallInputs": [],
+        "CallReference": {
+          "ReferenceID": "FirstResponseTest",
+          "Namespace": "ResourceLibrary"
+        }
+      },
+      "Namespace": "ResourceLibrary",
+      "Name": "FirstResponseTest",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "ObjectReference",
+      "Description": "This field holds the reference to a Query instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "RecordClass": {
+        "ReferenceID": "Query",
+        "Namespace": "ResourceLibrary"
+      },
+      "AppliesTo": {
+        "ReferenceID": "History-Query",
+        "Namespace": "ResourceLibrary"
+      },
+      "Mode": "SingleRecord",
+      "RelationshipType": "Peer",
+      "Namespace": "ResourceLibrary",
+      "Name": "Query Reference",
+      "DataAccess": "Refer",
+      "DataSource": {
+        "CallReference": {
+          "ReferenceID": "QueryLookup",
+          "ReferenceScope": {
+            "ReferenceID": "Query",
+            "Namespace": "ResourceLibrary"
+          },
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "DataPage",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "FieldReference",
+              "Root": {
+                "Type": "Variable",
+                "Name": "Current"
+              },
+              "Field": {
+                "Type": "RuleReference",
+                "ReferenceID": "ID",
+                "Namespace": "PegaPlatform"
+              }
+            }
+          }
+        ]
+      },
+      "Type": "Field",
+      "RuleResolutionID": "ObjectReference",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "FullObjectDisplay": [
+    {
+      "Heading": {
+        "Type": "FieldReference",
+        "Root": {
+          "Name": "Primary",
+          "Type": "Variable"
+        },
+        "Field": {
+          "ReferenceID": "Name",
+          "Type": "RuleReference",
+          "Namespace": "PegaPlatform"
+        }
+      },
+      "Description": "Query Assist Display",
+      "Reusability": "PublicMayOverride",
+      "UsePrimaryFields": true,
+      "SchemaVersion": "0-1-0",
+      "AppliesTo": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "ShowLifecycle": true,
+      "Namespace": "ResourceLibrary",
+      "Name": "Query Assist Display",
+      "Type": "FullObjectDisplay",
+      "Utilities": [
+        {
+          "EmbedListUUID__": "_46tdoq6ms",
+          "Widget": {
+            "Namespace": "PegaPlatform",
+            "ReferenceID": "Attachments",
+            "Type": "RuleReference"
+          },
+          "Type": "WidgetItem",
+          "Config": "{\"label\":\"@L Attachments\",\"iconName\":\"paper-clip\"}"
+        },
+        {
+          "EmbedListUUID__": "_11lzr3opl",
+          "Widget": {
+            "Namespace": "PegaPlatform",
+            "ReferenceID": "Followers",
+            "Type": "RuleReference"
+          },
+          "Type": "WidgetItem",
+          "Config": "{\"label\":\"@L Followers\",\"iconName\":\"user-star\"}"
+        }
+      ],
+      "Subheading": {
+        "Type": "FieldReference",
+        "Root": {
+          "Name": "Primary",
+          "Type": "Variable"
+        },
+        "Field": {
+          "ReferenceID": "BusinessID",
+          "Type": "RuleReference",
+          "Namespace": "PegaPlatform"
+        }
+      },
+      "RuleResolutionID": "QueryAssistDisplay",
+      "Tabs": [
+        {
+          "EmbedListUUID__": "_st2d4wlbv",
+          "Heading": "Details",
+          "View": {
+            "ReferenceID": "pyDetailsTabContent",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        },
+        {
+          "EmbedListUUID__": "_sfg4d4mhw",
+          "Heading": "Pulse",
+          "View": {
+            "ReferenceID": "pyCasePulse",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        },
+        {
+          "EmbedListUUID__": "_zda3dyze0",
+          "Heading": "History",
+          "View": {
+            "ReferenceID": "History",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        }
+      ],
+      "Icon": "case-solid",
+      "FieldsToHighlight": 0,
+      "SummaryFields": [],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Heading": {
+        "Type": "FieldReference",
+        "Root": {
+          "Name": "Primary",
+          "Type": "Variable"
+        },
+        "Field": {
+          "ReferenceID": "Name",
+          "Type": "RuleReference",
+          "Namespace": "PegaPlatform"
+        }
+      },
+      "Description": "Response Attribute Display",
+      "Reusability": "PublicMayOverride",
+      "UsePrimaryFields": true,
+      "SchemaVersion": "0-1-0",
+      "AppliesTo": {
+        "ReferenceID": "ResponseAttribute",
+        "Namespace": "ResourceLibrary"
+      },
+      "ShowLifecycle": false,
+      "Namespace": "ResourceLibrary",
+      "Name": "Response Attribute Display",
+      "Type": "FullObjectDisplay",
+      "Utilities": [
+        {
+          "EmbedListUUID__": "_gpmirf6qs",
+          "Widget": {
+            "Namespace": "PegaPlatform",
+            "ReferenceID": "Attachments",
+            "Type": "RuleReference"
+          },
+          "Type": "WidgetItem",
+          "Config": "{\"label\":\"@L Attachments\",\"iconName\":\"paper-clip\"}"
+        },
+        {
+          "EmbedListUUID__": "_6jq2yi4kl",
+          "Widget": {
+            "Namespace": "PegaPlatform",
+            "ReferenceID": "Followers",
+            "Type": "RuleReference"
+          },
+          "Type": "WidgetItem",
+          "Config": "{\"label\":\"@L Followers\",\"iconName\":\"user-star\"}"
+        }
+      ],
+      "Subheading": {
+        "Type": "FieldReference",
+        "Root": {
+          "Name": "Primary",
+          "Type": "Variable"
+        },
+        "Field": {
+          "ReferenceID": "BusinessID",
+          "Type": "RuleReference",
+          "Namespace": "PegaPlatform"
+        }
+      },
+      "RuleResolutionID": "ResponseAttributeDisplay",
+      "Tabs": [
+        {
+          "EmbedListUUID__": "_n5upreac0",
+          "Heading": "Details",
+          "View": {
+            "ReferenceID": "pyDetailsTabContent",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        },
+        {
+          "EmbedListUUID__": "_elslww0yq",
+          "Heading": "Pulse",
+          "View": {
+            "ReferenceID": "pyCasePulse",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        },
+        {
+          "EmbedListUUID__": "_ombtgexkp",
+          "Heading": "History",
+          "View": {
+            "ReferenceID": "History",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        }
+      ],
+      "Icon": "disc-stack-solid",
+      "FieldsToHighlight": 0,
+      "SummaryFields": [],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Heading": {
+        "Type": "FieldReference",
+        "Root": {
+          "Name": "Primary",
+          "Type": "Variable"
+        },
+        "Field": {
+          "ReferenceID": "Name",
+          "Type": "RuleReference",
+          "Namespace": "PegaPlatform"
+        }
+      },
+      "Description": "Query Display",
+      "Reusability": "PublicMayOverride",
+      "UsePrimaryFields": true,
+      "SchemaVersion": "0-1-0",
+      "AppliesTo": {
+        "ReferenceID": "Query",
+        "Namespace": "ResourceLibrary"
+      },
+      "ShowLifecycle": false,
+      "Namespace": "ResourceLibrary",
+      "Name": "Query Display",
+      "Type": "FullObjectDisplay",
+      "Utilities": [
+        {
+          "EmbedListUUID__": "_885h3m83c",
+          "Widget": {
+            "Namespace": "PegaPlatform",
+            "ReferenceID": "Attachments",
+            "Type": "RuleReference"
+          },
+          "Type": "WidgetItem",
+          "Config": "{\"label\":\"@L Attachments\",\"iconName\":\"paper-clip\"}"
+        },
+        {
+          "EmbedListUUID__": "_cgve9opv3",
+          "Widget": {
+            "Namespace": "PegaPlatform",
+            "ReferenceID": "Followers",
+            "Type": "RuleReference"
+          },
+          "Type": "WidgetItem",
+          "Config": "{\"label\":\"@L Followers\",\"iconName\":\"user-star\"}"
+        }
+      ],
+      "Subheading": {
+        "Type": "FieldReference",
+        "Root": {
+          "Name": "Primary",
+          "Type": "Variable"
+        },
+        "Field": {
+          "ReferenceID": "BusinessID",
+          "Type": "RuleReference",
+          "Namespace": "PegaPlatform"
+        }
+      },
+      "RuleResolutionID": "QueryDisplay",
+      "Tabs": [
+        {
+          "EmbedListUUID__": "_kekdpxi25",
+          "Heading": "Details",
+          "View": {
+            "ReferenceID": "pyDetailsTabContent",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        },
+        {
+          "EmbedListUUID__": "_w1n78omaa",
+          "Heading": "Pulse",
+          "View": {
+            "ReferenceID": "pyCasePulse",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        },
+        {
+          "EmbedListUUID__": "_tiy92nikr",
+          "Heading": "History",
+          "View": {
+            "ReferenceID": "History",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        }
+      ],
+      "Icon": "disc-stack-solid",
+      "FieldsToHighlight": 0,
+      "SummaryFields": [],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Heading": {
+        "Type": "FieldReference",
+        "Root": {
+          "Name": "Primary",
+          "Type": "Variable"
+        },
+        "Field": {
+          "ReferenceID": "Name",
+          "Type": "RuleReference",
+          "Namespace": "PegaPlatform"
+        }
+      },
+      "Description": "Query Response Display",
+      "Reusability": "PublicMayOverride",
+      "UsePrimaryFields": false,
+      "SchemaVersion": "0-1-0",
+      "AppliesTo": {
+        "ReferenceID": "QueryResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "ShowLifecycle": false,
+      "Namespace": "ResourceLibrary",
+      "Name": "Query Response Display",
+      "Type": "FullObjectDisplay",
+      "Utilities": [
+        {
+          "EmbedListUUID__": "_ofhj4lm6s",
+          "Widget": {
+            "Namespace": "PegaPlatform",
+            "ReferenceID": "Attachments",
+            "Type": "RuleReference"
+          },
+          "Type": "WidgetItem",
+          "Config": "{\"label\":\"@L Attachments\",\"iconName\":\"paper-clip\"}"
+        },
+        {
+          "EmbedListUUID__": "_exdh1i8e1",
+          "Widget": {
+            "Namespace": "PegaPlatform",
+            "ReferenceID": "Followers",
+            "Type": "RuleReference"
+          },
+          "Type": "WidgetItem",
+          "Config": "{\"label\":\"@L Followers\",\"iconName\":\"user-star\"}"
+        }
+      ],
+      "Subheading": {
+        "Type": "FieldReference",
+        "Root": {
+          "Name": "Primary",
+          "Type": "Variable"
+        },
+        "Field": {
+          "ReferenceID": "BusinessID",
+          "Type": "RuleReference",
+          "Namespace": "PegaPlatform"
+        }
+      },
+      "RuleResolutionID": "QueryResponseDisplay",
+      "Tabs": [
+        {
+          "EmbedListUUID__": "_z7sdyebzv",
+          "Heading": "Details",
+          "View": {
+            "ReferenceID": "pyDetailsTabContent",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        },
+        {
+          "EmbedListUUID__": "_3ipu5ree6",
+          "Heading": "Pulse",
+          "View": {
+            "ReferenceID": "pyCasePulse",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        },
+        {
+          "EmbedListUUID__": "_hgmilqy6m",
+          "Heading": "History",
+          "View": {
+            "ReferenceID": "History",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        }
+      ],
+      "Icon": "disc-stack-solid",
+      "FieldsToHighlight": 0,
+      "SummaryFields": [
+        {
+          "Config": "{\"value\":\"@P .Name\",\"label\":\"@L Name\"}",
+          "DisplayAs": "TextInput",
+          "EmbedListUUID__": "_5a9libeyr",
+          "Field": {
+            "Field": {
+              "ReferenceID": "Name",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            },
+            "Root": {
+              "Name": "Primary",
+              "Type": "Variable"
+            },
+            "Type": "FieldReference"
+          }
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Class": [
+    {
+      "Type": "Class",
+      "Description": "Response Attribute",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "BusinessObject",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "ResponseAttribute",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceLibrary",
+      "Name": "Response Attribute",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "History-QueryAssist",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "History",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "History-QueryAssist",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceLibrary",
+      "Name": "History-QueryAssist",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "Query Response",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "BusinessObject",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "QueryResponse",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceLibrary",
+      "Name": "Query Response",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "Query Assist",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "Case",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "QueryAssist",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceLibrary",
+      "Name": "Query Assist",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "History-QueryResponse",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "History",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "History-QueryResponse",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceLibrary",
+      "Name": "History-QueryResponse",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "Query",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "BusinessObject",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "Query",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceLibrary",
+      "Name": "Answer",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "History-Query",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "History",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "History-Query",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceLibrary",
+      "Name": "History-Query",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "History-ResponseAttribute",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "History",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "History-ResponseAttribute",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceLibrary",
+      "Name": "History-ResponseAttribute",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "CaseType": [
+    {
+      "Description": "",
+      "Reusability": "Private",
+      "Category": "Data",
+      "SchemaVersion": "2-12-0",
+      "AppliesTo": {
+        "ReferenceID": "Query",
+        "Namespace": "ResourceLibrary"
+      },
+      "OptionalActions": [
+        {
+          "Action": {
+            "ReferenceID": "Edit",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Always"
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "Create",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Always"
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "MarkAsActive",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsDataInactive",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "MarkAsInactive",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsDataActive",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        }
+      ],
+      "PrimaryFields": [
+        {
+          "ReferenceID": "Name",
+          "Namespace": "PegaPlatform"
+        },
+        {
+          "ReferenceID": "Description",
+          "Namespace": "PegaPlatform"
+        },
+        {
+          "ReferenceID": "Response",
+          "Namespace": "ResourceLibrary"
+        },
+        {
+          "ReferenceID": "DocumentURI",
+          "Namespace": "ResourceLibrary"
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "PrimaryStages": [],
+      "AlternateStages": [],
+      "Name": "Answer",
+      "PluralName": "Answers",
+      "LookupDataPage": {
+        "ReferenceID": "QueryLookup",
+        "Namespace": "ResourceLibrary"
+      },
+      "ListDataPage": {
+        "ReferenceID": "QueryList",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "CaseType",
+      "IdPrefix": "Q-",
+      "RuleResolutionID": "Query",
+      "AllowedInitializationFields": [
+        {
+          "Name": {
+            "ReferenceID": "Response",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        {
+          "Name": {
+            "ReferenceID": "DocumentURI",
+            "Namespace": "ResourceLibrary"
+          }
+        }
+      ],
+      "Display": {
+        "ReferenceID": "QueryDisplay",
+        "Namespace": "ResourceLibrary"
+      },
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Description": "This case type uses AWS Kendra to retrieve answers to queries submitted by users from existing content repositories, including SharePoint, Salesforce, Amazon S3, and internal databases, to consolidate all relevant support documents and knowledge bases.",
+      "Reusability": "Private",
+      "Category": "Case",
+      "SchemaVersion": "2-12-0",
+      "AppliesTo": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "InitializationStage": {
+        "Stage": {
+          "ReferenceID": "QueryAssistCreation",
+          "Namespace": "ResourceLibrary"
+        },
+        "EntryStatus": {
+          "ReferenceID": "New-QueryAssistCreation",
+          "Namespace": "ResourceLibrary"
+        }
+      },
+      "OptionalActions": [
+        {
+          "Action": {
+            "ReferenceID": "Edit",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsCaseOpen",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "pyChangeStage",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsCaseOpen",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "ReassignTask",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsCaseOpen",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "Reopen",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsCaseResolved",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "RestartCurrentStage",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsCaseOpen",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "ResolveCase",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsCaseOpen",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "ChangeCaseGoalAndDeadline",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "HasCaseSLA",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "ChangeAssignmentGoalAndDeadline",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "HasAssignmentSLA",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        }
+      ],
+      "PrimaryFields": [
+        {
+          "ReferenceID": "Name",
+          "Namespace": "PegaPlatform"
+        },
+        {
+          "ReferenceID": "Description",
+          "Namespace": "PegaPlatform"
+        },
+        {
+          "ReferenceID": "Query",
+          "Namespace": "ResourceLibrary"
+        },
+        {
+          "ReferenceID": "IndexID",
+          "Namespace": "ResourceLibrary"
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "InitialUrgency": 10,
+      "PrimaryStages": [
+        {
+          "Stage": {
+            "ReferenceID": "InProgress",
+            "Namespace": "ResourceLibrary"
+          },
+          "EntryStatus": {
+            "ReferenceID": "Open-InProgress",
+            "Namespace": "ResourceLibrary"
+          },
+          "Transition": "Manual",
+          "SkipStage": {
+            "SkipType": "Never"
+          }
+        },
+        {
+          "Stage": {
+            "ReferenceID": "Completed",
+            "Namespace": "ResourceLibrary"
+          },
+          "EntryStatus": {
+            "ReferenceID": "Pending-Completed",
+            "Namespace": "ResourceLibrary"
+          },
+          "Transition": "Resolution",
+          "SkipStage": {
+            "SkipType": "Never"
+          },
+          "ResolutionConfiguration": {
+            "Status": {
+              "ReferenceID": "Resolved-Completed2",
+              "Namespace": "ResourceLibrary"
+            }
+          }
+        }
+      ],
+      "AlternateStages": [
+        {
+          "Stage": {
+            "ReferenceID": "Withdrawn",
+            "Namespace": "ResourceLibrary"
+          },
+          "EntryStatus": {
+            "ReferenceID": "Pending-Withdrawn",
+            "Namespace": "ResourceLibrary"
+          },
+          "Transition": "Resolution",
+          "ResolutionConfiguration": {
+            "Status": {
+              "ReferenceID": "Resolved-Withdrawn2",
+              "Namespace": "ResourceLibrary"
+            }
+          }
+        }
+      ],
+      "Name": "Query Assist",
+      "PluralName": "",
+      "LookupDataPage": {
+        "ReferenceID": "QueryAssistLookup",
+        "Namespace": "ResourceLibrary"
+      },
+      "ListDataPage": {
+        "ReferenceID": "QueryAssistList",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "CaseType",
+      "IdPrefix": "Q-",
+      "RuleResolutionID": "QueryAssist",
+      "AllowedInitializationFields": [
+        {
+          "Name": {
+            "ReferenceID": "Query",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        {
+          "Name": {
+            "ReferenceID": "IndexID",
+            "Namespace": "ResourceLibrary"
+          }
+        }
+      ],
+      "EnableGetNextWork": true,
+      "Display": {
+        "ReferenceID": "QueryAssistDisplay",
+        "Namespace": "ResourceLibrary"
+      },
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Description": "",
+      "Reusability": "Private",
+      "Category": "Data",
+      "SchemaVersion": "2-12-0",
+      "AppliesTo": {
+        "ReferenceID": "QueryResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "OptionalActions": [
+        {
+          "Action": {
+            "ReferenceID": "Edit",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Always"
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "Create",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Always"
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "MarkAsActive",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsDataInactive",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "MarkAsInactive",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsDataActive",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        }
+      ],
+      "PrimaryFields": [
+        {
+          "ReferenceID": "Name",
+          "Namespace": "PegaPlatform"
+        },
+        {
+          "ReferenceID": "Description",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "PrimaryStages": [],
+      "AlternateStages": [],
+      "Name": "Query Response",
+      "PluralName": "",
+      "LookupDataPage": {
+        "ReferenceID": "QueryResponseLookup",
+        "Namespace": "ResourceLibrary"
+      },
+      "ListDataPage": {
+        "ReferenceID": "QueryResponseList",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "CaseType",
+      "IdPrefix": "Q-",
+      "RuleResolutionID": "QueryResponse",
+      "Display": {
+        "ReferenceID": "QueryResponseDisplay",
+        "Namespace": "ResourceLibrary"
+      },
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Description": "",
+      "Reusability": "Private",
+      "Category": "Data",
+      "SchemaVersion": "2-12-0",
+      "AppliesTo": {
+        "ReferenceID": "ResponseAttribute",
+        "Namespace": "ResourceLibrary"
+      },
+      "OptionalActions": [
+        {
+          "Action": {
+            "ReferenceID": "Edit",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Always"
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "Create",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Always"
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "MarkAsActive",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsDataInactive",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "MarkAsInactive",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsDataActive",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        }
+      ],
+      "PrimaryFields": [
+        {
+          "ReferenceID": "Name",
+          "Namespace": "PegaPlatform"
+        },
+        {
+          "ReferenceID": "Description",
+          "Namespace": "PegaPlatform"
+        },
+        {
+          "ReferenceID": "ResponseText",
+          "Namespace": "ResourceLibrary"
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "PrimaryStages": [],
+      "AlternateStages": [],
+      "Name": "Response Attribute",
+      "PluralName": "Response Attributes",
+      "LookupDataPage": {
+        "ReferenceID": "ResponseAttributeLookup",
+        "Namespace": "ResourceLibrary"
+      },
+      "ListDataPage": {
+        "ReferenceID": "ResponseAttributeList",
+        "Namespace": "ResourceLibrary"
+      },
+      "Type": "CaseType",
+      "IdPrefix": "R-",
+      "RuleResolutionID": "ResponseAttribute",
+      "AllowedInitializationFields": [
+        {
+          "Name": {
+            "ReferenceID": "ResponseText",
+            "Namespace": "ResourceLibrary"
+          }
+        }
+      ],
+      "Display": {
+        "ReferenceID": "ResponseAttributeDisplay",
+        "Namespace": "ResourceLibrary"
+      },
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Action": [
+    {
+      "Type": "Action",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-1",
+      "AppliesTo": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "QueryResponse",
+      "View": {
+        "ReferenceID": "QueryResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "AllowOn": "INDIVIDUAL_AND_BULK",
+      "Namespace": "ResourceLibrary",
+      "Name": "QueryResponse",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Action",
+      "PreProcessing": {
+        "Automation": {
+          "CallReference": {
+            "ReferenceID": "SetResourceDescription",
+            "Namespace": "ResourceLibrary"
+          },
+          "CallType": "Automation",
+          "CallInputs": []
+        }
+      },
+      "Description": "Collect Query Assist info",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-1",
+      "AppliesTo": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "CollectQueryAssistInfo",
+      "PostProcessing": {
+        "Automation": {
+          "CallReference": {
+            "ReferenceID": "GetResponseFromKendra",
+            "Namespace": "ResourceLibrary"
+          },
+          "CallType": "Automation",
+          "CallInputs": []
+        }
+      },
+      "View": {
+        "ReferenceID": "Create",
+        "Namespace": "PegaPlatform"
+      },
+      "AllowOn": "INDIVIDUAL_AND_BULK",
+      "Namespace": "ResourceLibrary",
+      "Name": "Collect Query Assist info",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "View": [
+    {
+      "Type": "View",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "QueryResponse_ResponseObject",
+      "ContextMetadata": "",
+      "AutoGenerated": false,
+      "ViewType": "multirecordlist",
+      "Namespace": "ResourceLibrary",
+      "Name": "Query Response_ResponseObject",
+      "Template": "SimpleTable",
+      "ViewMetadata": "{\"name\":\"QueryResponse_ResponseObject\",\"type\":\"View\",\"config\":{\"type\":\"multirecordlist\",\"contextClass\":\"QueryResponse\",\"referenceList\":\"@P .ResponseObject\",\"targetClassLabel\":\"@L Query Response\",\"heading\":\"@L Response\",\"name\":\"ResponseObject\",\"ruleClass\":\"QueryAssist\",\"ruleNamespace\":\"ResourceLibrary\",\"ruleClassNamespace\":\"ResourceLibrary\",\"renderMode\":\"ReadOnly\",\"multiRecordDisplayAs\":\"fieldGroup\",\"template\":\"SimpleTable\",\"parentClass\":\"QueryAssist\",\"rowHeader\":{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .Name\",\"label\":\"@L Name\"}}},\"ID\":\"1f27b648-bb3e-4c5f-9c6c-75e1bb7fff65\",\"children\":[{\"name\":\"view\",\"type\":\"Region\",\"children\":[{\"type\":\"reference\",\"config\":{\"name\":\"pyReview\",\"ruleClass\":\"QueryResponse\",\"type\":\"view\",\"context\":\"@CLASS QueryResponse\"}}]}]}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "Query Assist list",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "Data-Portal",
+        "Namespace": "PegaPlatform"
+      },
+      "RuleResolutionID": "QueryAssistList",
+      "ViewType": "landingpage",
+      "Namespace": "ResourceLibrary",
+      "Template": "ListPage",
+      "Name": "Query Assist list",
+      "ViewMetadata": "{\"name\":\"Query Assist list\",\"type\":\"View\",\"config\":{\"type\":\"listpage\",\"template\":\"ListPage\",\"icon\":\"pi pi-headline\",\"title\":\"@L Query Assist list\",\"personalization\":true,\"grouping\":true,\"globalSearch\":true,\"reorderFields\":true,\"toggleFieldVisibility\":true,\"showUploadRecords\":true,\"referenceList\":\"QueryAssistList\",\"ruleClass\":\"Data-Portal\",\"ruleClassNamespace\":\"ResourceLibrary\",\"presets\":[{\"name\":\"presets\",\"label\":\"Query Assist list\",\"template\":\"Table\",\"config\":{},\"children\":[{\"name\":\"Columns\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .BusinessID\",\"label\": \"@L ID\",\"displayAsLink\":true}},{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .Name\",\"label\": \"@L Name\",\"displayAsLink\":true}},{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .Status\",\"label\": \"@L Status\",\"displayAsLink\":false}},{\"type\":\"TextArea\",\"config\":{\"value\":\"@P .Description\",\"label\":\"@L Description\"}}]}]}],\"actions\":[{\"action\":\"UPLOAD_RECORDS\",\"config\":{\"label\":\"@L Upload\",\"objectType\":\"QueryAssist\"}}]}}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "Response Attributes",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "Data-Portal",
+        "Namespace": "PegaPlatform"
+      },
+      "RuleResolutionID": "ResponseAttributes",
+      "ViewType": "landingpage",
+      "Namespace": "ResourceLibrary",
+      "Template": "ListPage",
+      "Name": "Response Attributes",
+      "ViewMetadata": "{\"name\":\"Response Attributes\",\"type\":\"View\",\"config\":{\"type\":\"listpage\",\"template\":\"ListPage\",\"icon\":\"pi pi-headline\",\"title\":\"@L Response Attributes\",\"personalization\":true,\"grouping\":true,\"globalSearch\":true,\"reorderFields\":true,\"toggleFieldVisibility\":true,\"showUploadRecords\":true,\"referenceList\":\"ResponseAttributeList\",\"ruleClass\":\"Data-Portal\",\"ruleClassNamespace\":\"ResourceLibrary\",\"presets\":[{\"name\":\"presets\",\"label\":\"Response Attributes\",\"template\":\"Table\",\"config\":{},\"children\":[{\"name\":\"Columns\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .BusinessID\",\"label\": \"@L ID\",\"displayAsLink\":true}},{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .Name\",\"label\": \"@L Name\",\"displayAsLink\":true}},{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .Status\",\"label\": \"@L Status\",\"displayAsLink\":false}},{\"type\":\"TextArea\",\"config\":{\"value\":\"@P .Description\",\"label\":\"@L Description\"}}]}]}],\"actions\":[{\"action\":\"UPLOAD_RECORDS\",\"config\":{\"label\":\"@L Upload\",\"objectType\":\"ResponseAttribute\"}}]}}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "View to collect details for Object creation.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "QueryResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Create",
+      "AutoGenerated": true,
+      "ViewType": "embeddedform",
+      "Namespace": "PegaPlatform",
+      "Template": "DefaultForm",
+      "Name": "Create",
+      "ViewMetadata": "{\"name\":\"Create\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"BusinessObject\",\"ruleClassNamespace\":\"PegaPlatform\",\"label\":\"@L View to collect details for Object creation.\"},\"children\":[{\"type\":\"Region\",\"name\":\"Fields\",\"children\":[]}],\"ID\":\"86b7273f-c4d8-43e4-89b3-3931d4018a18\"}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "View to collect details for Object creation.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "Query",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Create",
+      "AutoGenerated": true,
+      "ViewType": "embeddedform",
+      "Namespace": "PegaPlatform",
+      "Template": "DefaultForm",
+      "Name": "Create",
+      "ViewMetadata": "{\"name\":\"Create\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"BusinessObject\",\"ruleClassNamespace\":\"PegaPlatform\",\"label\":\"@L View to collect details for Object creation.\"},\"children\":[{\"type\":\"Region\",\"name\":\"Fields\",\"children\":[]}],\"ID\":\"86b7273f-c4d8-43e4-89b3-3931d4018a18\"}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "Update details",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Edit",
+      "AutoGenerated": true,
+      "ViewType": "",
+      "Namespace": "PegaPlatform",
+      "Template": "DefaultForm",
+      "Name": "Edit",
+      "ViewMetadata": "{\"name\":\"Edit\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"BusinessObject\",\"label\":\"Update case details\"},\"children\":[{\"name\":\"Fields\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .Name\",\"label\":\"@L Label\"}},{\"type\":\"TextArea\",\"config\":{\"value\":\"@P .Description\",\"label\":\"@L Description\"}}]}],\"ID\":\"4e78a729-1eb6-4e4e-94c2-6dc6e112fc86\"}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "QueryResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "pyDetailsTabContent",
+      "ContextMetadata": "",
+      "ViewType": "tab",
+      "Namespace": "PegaPlatform",
+      "Name": "Details",
+      "Template": "OneColumnTab",
+      "ViewMetadata": "{\"name\":\"pyDetailsTabContent\",\"type\":\"View\",\"config\":{\"template\":\"OneColumnTab\",\"ruleClass\":\"QueryResponse\"},\"children\":[{\"name\":\"A\",\"type\":\"Region\",\"children\":[{\"type\":\"reference\",\"config\":{\"name\":\"pyReview\",\"inheritedProps\":[{\"prop\":\"label\",\"value\":\"@L Details\"},{\"prop\":\"showLabel\",\"value\":true}],\"type\":\"view\",\"visibility\":\"@E .FirstResponseTest != ''\"}}]}],\"ID\":\"6a34ff17-5ca4-4e11-bd73-3c1d3a7da83c\"}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "View to collect details for Object creation.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "ResponseAttribute",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Create",
+      "AutoGenerated": true,
+      "ViewType": "embeddedform",
+      "Namespace": "PegaPlatform",
+      "Template": "DefaultForm",
+      "Name": "Create",
+      "ViewMetadata": "{\"name\":\"Create\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"BusinessObject\",\"ruleClassNamespace\":\"PegaPlatform\",\"label\":\"@L View to collect details for Object creation.\"},\"children\":[{\"type\":\"Region\",\"name\":\"Fields\",\"children\":[]}],\"ID\":\"86b7273f-c4d8-43e4-89b3-3931d4018a18\"}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "View to collect details for Object creation.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Create",
+      "AutoGenerated": false,
+      "ViewType": "embeddedform",
+      "Namespace": "PegaPlatform",
+      "Name": "Create",
+      "Template": "DefaultForm",
+      "ViewMetadata": "{\"name\":\"Create\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"QueryAssist\",\"ruleClassNamespace\":\"PegaPlatform\",\"label\":\"@L View to collect details for Object creation.\"},\"children\":[{\"type\":\"Region\",\"name\":\"Fields\",\"children\":[{\"type\":\"RichText\",\"config\":{\"value\":\"@P .ResourceDescription\",\"label\":\"@L Resource Description\",\"readOnly\":true}},{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .Query\",\"label\":\"@L Query\"}}]}],\"ID\":\"729b3077-76e9-43af-8204-21c310421e47\"}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "QueryResponse",
+      "ContextMetadata": "",
+      "ViewType": "form",
+      "Namespace": "ResourceLibrary",
+      "Name": "Query Response",
+      "Template": "DefaultForm",
+      "ViewMetadata": "{\"name\":\"QueryResponse\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"QueryAssist\",\"ruleClassNamespace\":\"ResourceLibrary\",\"label\":\"@L Query Response\"},\"children\":[{\"name\":\"Fields\",\"type\":\"Region\",\"children\":[{\"type\":\"reference\",\"config\":{\"name\":\"QueryResponse_ResponseObject\",\"inheritedProps\":[{\"prop\":\"label\",\"value\":\"@L Response Object\"}],\"authorContext\":\".ResponseObject\",\"ruleClass\":\"QueryAssist\",\"ruleNamespace\":\"ResourceLibrary\",\"ruleClassNamespace\":\"ResourceLibrary\",\"type\":\"view\",\"hideLabel\":true,\"visibility\":true}}]}],\"ID\":\"98466709-3f33-46f2-a838-141dbab7e207\"}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "Queries",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "Data-Portal",
+        "Namespace": "PegaPlatform"
+      },
+      "RuleResolutionID": "Queries",
+      "ViewType": "landingpage",
+      "Namespace": "ResourceLibrary",
+      "Template": "ListPage",
+      "Name": "Queries",
+      "ViewMetadata": "{\"name\":\"Queries\",\"type\":\"View\",\"config\":{\"type\":\"listpage\",\"template\":\"ListPage\",\"icon\":\"pi pi-headline\",\"title\":\"@L Queries\",\"personalization\":true,\"grouping\":true,\"globalSearch\":true,\"reorderFields\":true,\"toggleFieldVisibility\":true,\"showUploadRecords\":true,\"referenceList\":\"QueryList\",\"ruleClass\":\"Data-Portal\",\"ruleClassNamespace\":\"ResourceLibrary\",\"presets\":[{\"name\":\"presets\",\"label\":\"Queries\",\"template\":\"Table\",\"config\":{},\"children\":[{\"name\":\"Columns\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .BusinessID\",\"label\": \"@L ID\",\"displayAsLink\":true}},{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .Name\",\"label\": \"@L Name\",\"displayAsLink\":true}},{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .Status\",\"label\": \"@L Status\",\"displayAsLink\":false}},{\"type\":\"TextArea\",\"config\":{\"value\":\"@P .Description\",\"label\":\"@L Description\"}}]}]}],\"actions\":[{\"action\":\"UPLOAD_RECORDS\",\"config\":{\"label\":\"@L Upload\",\"objectType\":\"Query\"}}]}}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "Update details",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "ResponseAttribute",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Edit",
+      "AutoGenerated": true,
+      "ViewType": "",
+      "Namespace": "PegaPlatform",
+      "Template": "DefaultForm",
+      "Name": "Edit",
+      "ViewMetadata": "{\"name\":\"Edit\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"BusinessObject\",\"label\":\"Update case details\"},\"children\":[{\"name\":\"Fields\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .Name\",\"label\":\"@L Label\"}},{\"type\":\"TextArea\",\"config\":{\"value\":\"@P .Description\",\"label\":\"@L Description\"}}]}],\"ID\":\"4e78a729-1eb6-4e4e-94c2-6dc6e112fc86\"}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "Query Response list",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "Data-Portal",
+        "Namespace": "PegaPlatform"
+      },
+      "RuleResolutionID": "QueryResponseList",
+      "ViewType": "landingpage",
+      "Namespace": "ResourceLibrary",
+      "Template": "ListPage",
+      "Name": "Query Response list",
+      "ViewMetadata": "{\"name\":\"Query Response list\",\"type\":\"View\",\"config\":{\"type\":\"listpage\",\"template\":\"ListPage\",\"icon\":\"pi pi-headline\",\"title\":\"@L Query Response list\",\"personalization\":true,\"grouping\":true,\"globalSearch\":true,\"reorderFields\":true,\"toggleFieldVisibility\":true,\"showUploadRecords\":true,\"referenceList\":\"QueryResponseList\",\"ruleClass\":\"Data-Portal\",\"ruleClassNamespace\":\"ResourceLibrary\",\"presets\":[{\"name\":\"presets\",\"label\":\"Query Response list\",\"template\":\"Table\",\"config\":{},\"children\":[{\"name\":\"Columns\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .BusinessID\",\"label\": \"@L ID\",\"displayAsLink\":true}},{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .Name\",\"label\": \"@L Name\",\"displayAsLink\":true}},{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .Status\",\"label\": \"@L Status\",\"displayAsLink\":false}},{\"type\":\"TextArea\",\"config\":{\"value\":\"@P .Description\",\"label\":\"@L Description\"}}]}]}],\"actions\":[{\"action\":\"UPLOAD_RECORDS\",\"config\":{\"label\":\"@L Upload\",\"objectType\":\"QueryResponse\"}}]}}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "Update details",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "Query",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Edit",
+      "AutoGenerated": true,
+      "ViewType": "",
+      "Namespace": "PegaPlatform",
+      "Template": "DefaultForm",
+      "Name": "Edit",
+      "ViewMetadata": "{\"name\":\"Edit\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"BusinessObject\",\"label\":\"Update case details\"},\"children\":[{\"name\":\"Fields\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .Name\",\"label\":\"@L Label\"}},{\"type\":\"TextArea\",\"config\":{\"value\":\"@P .Description\",\"label\":\"@L Description\"}}]}],\"ID\":\"4e78a729-1eb6-4e4e-94c2-6dc6e112fc86\"}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "Update details",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "QueryResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Edit",
+      "AutoGenerated": true,
+      "ViewType": "",
+      "Namespace": "PegaPlatform",
+      "Template": "DefaultForm",
+      "Name": "Edit",
+      "ViewMetadata": "{\"name\":\"Edit\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"BusinessObject\",\"label\":\"Update case details\"},\"children\":[{\"name\":\"Fields\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .Name\",\"label\":\"@L Label\"}},{\"type\":\"TextArea\",\"config\":{\"value\":\"@P .Description\",\"label\":\"@L Description\"}}]}],\"ID\":\"4e78a729-1eb6-4e4e-94c2-6dc6e112fc86\"}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "Details",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "QueryResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "pyReview",
+      "ViewType": "details",
+      "Namespace": "PegaPlatform",
+      "Name": "Details",
+      "Template": "Details",
+      "ViewMetadata": "{\"name\":\"pyReview\",\"type\":\"View\",\"config\":{\"template\":\"Details\",\"ruleClass\":\"QueryResponse\",\"showLabel\":true,\"label\":\"@L Details\"},\"children\":[{\"name\":\"A\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .FirstResponseTest\",\"label\":\"@L Response\"}},{\"type\":\"URL\",\"config\":{\"value\":\"@P .DocumentURI\",\"label\":\"@L DocumentURI\"}}]}],\"ID\":\"daca1dc5-b150-4b3d-b331-3bc5dff9851c\"}",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Process": [
+    {
+      "Connectors": [
+        {
+          "ID": "1a284dd9-71f4-4b84-9c25-89bff4bcec59",
+          "To": "e492c643-2ec2-4754-bf22-03c98855215b",
+          "Type": "Process-Connector"
+        },
+        {
+          "ID": "03971eea-4138-4d56-b8aa-a71e98d2e4a6",
+          "To": "2e98e7fd-b622-46bc-8daf-582041d0a85a",
+          "Type": "Process-Connector"
+        }
+      ],
+      "Type": "Process",
+      "Description": "Query Response",
+      "Reusability": "Private",
+      "SchemaVersion": "2-1-1",
+      "AppliesTo": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "QueryResponse",
+      "Nodes": [
+        {
+          "ID": "16dfdbfe-f681-4d24-b18d-13c9e59b6df5",
+          "Type": "Start",
+          "ToConnectors": [
+            {
+              "ID": "03971eea-4138-4d56-b8aa-a71e98d2e4a6",
+              "Type": "Process-Connector"
+            }
+          ],
+          "Name": "Start"
+        },
+        {
+          "ID": "2e98e7fd-b622-46bc-8daf-582041d0a85a",
+          "Type": "Assignment",
+          "ToConnectors": [
+            {
+              "ID": "1a284dd9-71f4-4b84-9c25-89bff4bcec59",
+              "Type": "Process-Connector",
+              "Name": "Submit",
+              "Value": "Submit"
+            }
+          ],
+          "Name": "Query Response",
+          "Action": {
+            "ReferenceID": "QueryResponse",
+            "Namespace": "ResourceLibrary"
+          },
+          "Routing": {
+            "RoutingType": "CurrentUser"
+          }
+        },
+        {
+          "ID": "e492c643-2ec2-4754-bf22-03c98855215b",
+          "Type": "End",
+          "ToConnectors": [],
+          "Name": "End"
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "Query Response",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Connectors": [
+        {
+          "ID": "c11c0c05-5576-4411-8067-aab896dd07a5",
+          "To": "717eb26c-dc86-4ff0-8528-32532080066a",
+          "Type": "Process-Connector"
+        },
+        {
+          "ID": "7647996a-86de-4457-a876-93603ac77448",
+          "To": "be363387-dc3e-46cd-9ba1-7415788d01c7",
+          "Type": "Process-Connector"
+        }
+      ],
+      "Type": "Process",
+      "Description": "Create new Query Assist",
+      "Reusability": "Private",
+      "SchemaVersion": "2-1-1",
+      "AppliesTo": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "CreateNewQueryAssist",
+      "Nodes": [
+        {
+          "ID": "97e490f5-0b2d-4f2c-9a36-bd4ec735dd6e",
+          "Type": "Start",
+          "ToConnectors": [
+            {
+              "ID": "7647996a-86de-4457-a876-93603ac77448",
+              "Type": "Process-Connector"
+            }
+          ],
+          "Name": "Start"
+        },
+        {
+          "ID": "be363387-dc3e-46cd-9ba1-7415788d01c7",
+          "Type": "Assignment",
+          "ToConnectors": [
+            {
+              "ID": "c11c0c05-5576-4411-8067-aab896dd07a5",
+              "Type": "Process-Connector",
+              "Name": "Submit",
+              "Value": "Submit"
+            }
+          ],
+          "Name": "Collect Query Assist info",
+          "Action": {
+            "ReferenceID": "CollectQueryAssistInfo",
+            "Namespace": "ResourceLibrary"
+          },
+          "Routing": {
+            "RoutingType": "CurrentUser"
+          }
+        },
+        {
+          "ID": "717eb26c-dc86-4ff0-8528-32532080066a",
+          "Type": "End",
+          "ToConnectors": [],
+          "Name": "End"
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "Create new Query Assist",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Stage": [
+    {
+      "Type": "Stage",
+      "Description": "In progress",
+      "Reusability": "Private",
+      "SchemaVersion": "2-2-0",
+      "AppliesTo": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "InProgress",
+      "Processes": [
+        {
+          "Process": {
+            "ReferenceID": "QueryResponse",
+            "Namespace": "ResourceLibrary"
+          },
+          "SkipProcess": {
+            "SkipType": "Never"
+          }
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "In progress",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Stage",
+      "Description": "Withdrawn",
+      "Reusability": "Private",
+      "SchemaVersion": "2-2-0",
+      "AppliesTo": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Withdrawn",
+      "Processes": [],
+      "Namespace": "ResourceLibrary",
+      "Name": "Withdrawn",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Stage",
+      "Description": "Query Assist creation",
+      "Reusability": "Private",
+      "SchemaVersion": "2-2-0",
+      "AppliesTo": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "QueryAssistCreation",
+      "Processes": [
+        {
+          "Process": {
+            "ReferenceID": "CreateNewQueryAssist",
+            "Namespace": "ResourceLibrary"
+          },
+          "SkipProcess": {
+            "SkipType": "Never"
+          }
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "Query Assist creation",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Stage",
+      "Description": "Completed",
+      "Reusability": "Private",
+      "SchemaVersion": "2-2-0",
+      "AppliesTo": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Completed",
+      "Processes": [],
+      "Namespace": "ResourceLibrary",
+      "Name": "Completed",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "DataConnection": [
+    {
+      "Description": "Query lookup",
+      "Reusability": "Private",
+      "Query": {
+        "CallReference": {
+          "ReferenceScope": {
+            "ReferenceID": "Query",
+            "Namespace": "ResourceLibrary"
+          },
+          "ReferenceID": "QueryLookup",
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "Query",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "Variable",
+              "Name": "ID"
+            }
+          }
+        ]
+      },
+      "ConnectionType": "QUERY",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "Query",
+        "Namespace": "ResourceLibrary"
+      },
+      "Operation": "READ",
+      "Namespace": "ResourceLibrary",
+      "Name": "Query lookup",
+      "Type": "DataConnection",
+      "Output": {
+        "ObjectType": {
+          "TypeReferenceID": "Query",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        },
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "QueryLookup",
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            }
+          },
+          "Description": "object key",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "ID"
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "DataConnection",
+      "Description": "ResponseAttribute list",
+      "Reusability": "Private",
+      "Query": {
+        "CallReference": {
+          "ReferenceID": "ResponseAttributeList",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "ResponseAttribute",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "Query",
+        "CallInputs": []
+      },
+      "ConnectionType": "QUERY",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "ResponseAttribute",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "List",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "ResponseAttribute",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        },
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "ResponseAttributeList",
+      "Operation": "READ",
+      "Namespace": "ResourceLibrary",
+      "Name": "ResponseAttribute list",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Description": "QueryResponse lookup",
+      "Reusability": "Private",
+      "Query": {
+        "CallReference": {
+          "ReferenceScope": {
+            "ReferenceID": "QueryResponse",
+            "Namespace": "ResourceLibrary"
+          },
+          "ReferenceID": "QueryResponseLookup",
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "Query",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "Variable",
+              "Name": "ID"
+            }
+          }
+        ]
+      },
+      "ConnectionType": "QUERY",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "QueryResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "Operation": "READ",
+      "Namespace": "ResourceLibrary",
+      "Name": "QueryResponse lookup",
+      "Type": "DataConnection",
+      "Output": {
+        "ObjectType": {
+          "TypeReferenceID": "QueryResponse",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        },
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "QueryResponseLookup",
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            }
+          },
+          "Description": "object key",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "ID"
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "DataConnection",
+      "Description": "QueryResponse list",
+      "Reusability": "Private",
+      "Query": {
+        "CallReference": {
+          "ReferenceID": "QueryResponseList",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "QueryResponse",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "Query",
+        "CallInputs": []
+      },
+      "ConnectionType": "QUERY",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "QueryResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "List",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "QueryResponse",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        },
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "QueryResponseList",
+      "Operation": "READ",
+      "Namespace": "ResourceLibrary",
+      "Name": "QueryResponse list",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Description": "ResponseAttribute lookup",
+      "Reusability": "Private",
+      "Query": {
+        "CallReference": {
+          "ReferenceScope": {
+            "ReferenceID": "ResponseAttribute",
+            "Namespace": "ResourceLibrary"
+          },
+          "ReferenceID": "ResponseAttributeLookup",
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "Query",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "Variable",
+              "Name": "ID"
+            }
+          }
+        ]
+      },
+      "ConnectionType": "QUERY",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "ResponseAttribute",
+        "Namespace": "ResourceLibrary"
+      },
+      "Operation": "READ",
+      "Namespace": "ResourceLibrary",
+      "Name": "ResponseAttribute lookup",
+      "Type": "DataConnection",
+      "Output": {
+        "ObjectType": {
+          "TypeReferenceID": "ResponseAttribute",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        },
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "ResponseAttributeLookup",
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            }
+          },
+          "Description": "object key",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "ID"
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Connector": {
+        "CallReference": {
+          "ReferenceID": "ConnectToAWSKendra",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "QueryAssist",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "RESTConnector",
+        "CallInputs": [
+          {
+            "ParameterName": "JSONBody",
+            "Source": {
+              "Type": "CallExpression",
+              "CallReference": {
+                "ReferenceID": "KendraRequest",
+                "Namespace": "ResourceLibrary",
+                "ReferenceScope": {
+                  "ReferenceID": "QueryAssist",
+                  "Namespace": "ResourceLibrary"
+                }
+              },
+              "CallType": "JSONTransform",
+              "CallInputs": [
+                {
+                  "ParameterName": "Pega object",
+                  "Source": {
+                    "Type": "Variable",
+                    "Name": "QueryAssistCase"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "Description": "",
+      "Reusability": "Private",
+      "ConnectionType": "REST_CONNECTOR",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "CallType": "Library",
+      "Operation": "READ",
+      "Namespace": "ResourceLibrary",
+      "Name": "ConnectToKendra",
+      "Type": "DataConnection",
+      "ResponseJSONTransform": {
+        "ReferenceID": "KendraResponse",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "ConnectToKendra",
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "QueryAssist",
+          "Namespace": "ResourceLibrary"
+        },
+        "Description": "",
+        "Mode": "SingleRecord"
+      },
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "QueryAssist",
+            "Namespace": "ResourceLibrary"
+          },
+          "Type": "",
+          "Description": "Primary Case",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "QueryAssistCase"
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "DataConnection",
+      "Description": "QueryAssist list",
+      "Reusability": "Private",
+      "Query": {
+        "CallReference": {
+          "ReferenceScope": {
+            "ReferenceID": "QueryAssist",
+            "Namespace": "ResourceLibrary"
+          },
+          "ReferenceID": "QueryAssistList",
+          "Namespace": "ResourceLibrary"
+        },
+        "CallInputs": [],
+        "CallType": "Query"
+      },
+      "ConnectionType": "QUERY",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "List",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "QueryAssist",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        },
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "QueryAssistList",
+      "Operation": "READ",
+      "Namespace": "ResourceLibrary",
+      "Name": "QueryAssist list",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Description": "QueryAssist lookup",
+      "Reusability": "Private",
+      "Query": {
+        "CallReference": {
+          "ReferenceScope": {
+            "ReferenceID": "QueryAssist",
+            "Namespace": "ResourceLibrary"
+          },
+          "ReferenceID": "QueryAssistLookup",
+          "Namespace": "ResourceLibrary"
+        },
+        "CallType": "Query",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "Variable",
+              "Name": "ID"
+            }
+          }
+        ]
+      },
+      "ConnectionType": "QUERY",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "Operation": "READ",
+      "Namespace": "ResourceLibrary",
+      "Name": "QueryAssist lookup",
+      "Type": "DataConnection",
+      "Output": {
+        "ObjectType": {
+          "TypeReferenceID": "QueryAssist",
+          "Namespace": "ResourceLibrary",
+          "Type": "TypeReference"
+        },
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "QueryAssistLookup",
+      "Inputs": [
+        {
+          "ObjectType": {
+            "Type": "TypeReference",
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform"
+            }
+          },
+          "Description": "object key",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "ID"
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "DataConnection",
+      "Description": "Query list",
+      "Reusability": "Private",
+      "Query": {
+        "CallReference": {
+          "ReferenceID": "QueryList",
+          "Namespace": "ResourceLibrary",
+          "ReferenceScope": {
+            "ReferenceID": "Query",
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        "CallType": "Query",
+        "CallInputs": []
+      },
+      "ConnectionType": "QUERY",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "Query",
+        "Namespace": "ResourceLibrary"
+      },
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "List",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "Query",
+              "Namespace": "ResourceLibrary",
+              "Type": "TypeReference"
+            }
+          ]
+        },
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "QueryList",
+      "Operation": "READ",
+      "Namespace": "ResourceLibrary",
+      "Name": "Query list",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Portal": [
+    {
+      "DisableNotifications": false,
+      "Description": "Default application work portal",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-3",
+      "NavigationPages": [
+        {
+          "Page": {
+            "ReferenceID": "Home",
+            "ReferenceScope": {
+              "ReferenceID": "Data-Portal",
+              "Namespace": "PegaPlatform"
+            }
+          }
+        },
+        {
+          "Page": {
+            "ReferenceID": "QueryAssistList",
+            "ReferenceScope": {
+              "ReferenceID": "Data-Portal",
+              "Namespace": "PegaPlatform"
+            },
+            "Namespace": "ResourceLibrary"
+          }
+        },
+        {
+          "Page": {
+            "ReferenceID": "Queries",
+            "Namespace": "ResourceLibrary",
+            "ReferenceScope": {
+              "ReferenceID": "Data-Portal",
+              "Namespace": "PegaPlatform"
+            }
+          }
+        },
+        {
+          "Page": {
+            "ReferenceID": "ResponseAttributes",
+            "Namespace": "ResourceLibrary",
+            "ReferenceScope": {
+              "ReferenceID": "Data-Portal",
+              "Namespace": "PegaPlatform"
+            }
+          }
+        },
+        {
+          "Page": {
+            "ReferenceID": "QueryResponseList",
+            "Namespace": "ResourceLibrary",
+            "ReferenceScope": {
+              "ReferenceID": "Data-Portal",
+              "Namespace": "PegaPlatform"
+            }
+          }
+        }
+      ],
+      "Namespace": "ResourceLibrary",
+      "Name": "Work Portal",
+      "Template": "work",
+      "CreateMenu": "Custom",
+      "Type": "Portal",
+      "RuleResolutionID": "WebPortal",
+      "AvailableCaseToCreate": [
+        {
+          "CaseType": {
+            "ReferenceID": "QueryAssist",
+            "Namespace": "ResourceLibrary",
+            "ReferenceScope": {
+              "ReferenceID": "QueryAssist",
+              "Namespace": "ResourceLibrary"
+            }
+          }
+        }
+      ],
+      "DisableRecents": false,
+      "ActionToBePerformed": "MODIFIED"
+    }
+  ],
+  "DynamicText": [
+    {
+      "Type": "DynamicText",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-1",
+      "Content": "<div class=\"ms-StackItem css-139\">\n<div class=\"ms-Stack css-140\">\n<div class=\"ms-StackItem css-141\">\n<div class=\"_answerText_1qm4u_14\">\n<p>Sample Questions for Querying :</p>\n</div>\n</div>\n</div>\n</div>\n<p>&middot; \"How many free tier hours are included with Kendra?\"<br>&middot; \"How do I SSH into my EC2 instance?\"<br>&middot; \"What is EBS?\"<br>&middot; \"Concurrent executions in Lambda per region\"</p>",
+      "AppliesTo": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "RuleResolutionID": "Query_additionalInfo",
+      "Namespace": "ResourceLibrary",
+      "Name": "Query_additionalInfo",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "RESTConnector": [
+    {
+      "MappingType": "default",
+      "ResourceParams": [
+        {
+          "EmptyBehavior": "SKIP",
+          "EncodingType": "URL",
+          "ParamValue": {
+            "Type": "ConstantText",
+            "Value": "default"
+          },
+          "Name": "stage"
+        },
+        {
+          "EmptyBehavior": "SKIP",
+          "EncodingType": "URL",
+          "ParamValue": {
+            "Type": "ConstantText",
+            "Value": "connectTokendra"
+          },
+          "Name": "resource"
+        },
+        {
+          "EmptyBehavior": "SKIP",
+          "EncodingType": "URL",
+          "ParamValue": {
+            "Type": "ConstantText",
+            "Value": "GetDetailsFromQIndex"
+          },
+          "Name": "method"
+        }
+      ],
+      "mapping": "default",
+      "Description": "",
+      "Reusability": "Private",
+      "IsSystemGenerated": false,
+      "SchemaVersion": "0-3-0",
+      "MSTimeout": 3000,
+      "Timeout": 3,
+      "AppliesTo": {
+        "ReferenceID": "QueryAssist",
+        "Namespace": "ResourceLibrary"
+      },
+      "Method": "POST",
+      "IntegrationSystem": {
+        "ReferenceID": "APIGatewayEndPoint",
+        "Namespace": "ResourceLibrary"
+      },
+      "Namespace": "ResourceLibrary",
+      "Name": "ConnectToAWSKendra",
+      "Type": "RESTConnector",
+      "RuleResolutionID": "ConnectToAWSKendra",
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "Text",
+          "Format": {
+            "Type": "RuleReference",
+            "ReferenceID": "Text",
+            "Namespace": "PegaPlatform"
+          },
+          "Namespace": "PegaPlatform"
+        },
+        "Description": "",
+        "Mode": "SingleRecord"
+      },
+      "UseDirectURL": false,
+      "RequestHeaders": [
+        {
+          "Description": "Content-Type",
+          "ParamValue": {
+            "Type": "ConstantText",
+            "Value": "application/json"
+          },
+          "Name": "Content-Type"
+        }
+      ],
+      "Inputs": [
+        {
+          "Mode": "SingleRecord",
+          "Required": "true",
+          "Name": "JSONBody",
+          "Description": "JSON Body",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          }
+        }
+      ],
+      "RequestBody": {
+        "ValueType": "",
+        "Value": "",
+        "ParamValue": {
+          "Type": "Variable",
+          "Name": "JSONBody"
+        },
+        "Name": ""
+      },
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "IntegrationSystem": [
+    {
+      "Type": "IntegrationSystem",
+      "Description": "AWS API Gateway end point that is configured to connect to AWS Kendra",
+      "Reusability": "Private",
+      "SchemaVersion": "1-0-0",
+      "SourceType": "BaseURL",
+      "RuleResolutionID": "APIGatewayEndPoint",
+      "BaseURL": "https://grrc0s7w4e.execute-api.us-east-1.amazonaws.com/",
+      "BaseURLSource": "CONSTANT",
+      "Namespace": "ResourceLibrary",
+      "Name": "API Gateway End Point",
+      "ActionToBePerformed": "ADDED"
+    }
+  ]
+}
