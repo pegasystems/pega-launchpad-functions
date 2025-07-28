@@ -113,7 +113,13 @@ public class S3Helper {
         }
     }
 
-    public static String getPresignedURLForObject(Map<String, String> input) {
+    /**
+     * Get a presigned URL to get an object from a bucket
+     *
+     * @param input Must contain accessKeyId, secretAccessKey, bucketName, objectKey
+     * @return String URL to use to get the specified file
+     */
+    public static String presignGetObject(Map<String, String> input) {
         System.setProperty("aws.accessKeyId", input.get("accessKeyId"));
         System.setProperty("aws.secretAccessKey", input.get("secretAccessKey"));
 
@@ -136,7 +142,13 @@ public class S3Helper {
         }
     }
 
-    public static String getPresignedURLForUpload(Map<String, String> input) {
+    /**
+     * Get a presigned URL to put an object into a bucket
+     *
+     * @param input Must contain accessKeyId, secretAccessKey, bucketName, objectKey
+     * @return String URL to use to put content into the specified bucket and object key
+     */
+    public static String presignPutObject(Map<String, String> input) {
         System.setProperty("aws.accessKeyId", input.get("accessKeyId"));
         System.setProperty("aws.secretAccessKey", input.get("secretAccessKey"));
 

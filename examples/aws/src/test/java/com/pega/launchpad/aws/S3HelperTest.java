@@ -54,7 +54,7 @@ class S3HelperTest {
         String newFileName= "someobject" + System.currentTimeMillis();
         inputMap.put("objectKey", newFileName);
 
-        String uploadUrl = S3Helper.getPresignedURLForUpload(inputMap);
+        String uploadUrl = S3Helper.presignPutObject(inputMap);
 
         System.out.println("Presigned url to upload the file: " + uploadUrl);
 
@@ -72,7 +72,7 @@ class S3HelperTest {
         }
 
         // Get a presigned url to download that same file from s3
-        String url = S3Helper.getPresignedURLForObject(inputMap);
+        String url = S3Helper.presignGetObject(inputMap);
 
         System.out.println("Presigned url to download the file: " + url);
 
