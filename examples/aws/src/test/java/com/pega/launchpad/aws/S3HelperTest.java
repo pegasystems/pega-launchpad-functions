@@ -57,6 +57,8 @@ class S3HelperTest {
 
         String uploadUrl = S3Helper.getPresignedURLForUpload(inputMap);
 
+        System.out.println("Presigned url to upload the file: " + uploadUrl);
+
         HttpRequest.Builder requestBuilder = HttpRequest.newBuilder();
         HttpClient httpClient = HttpClient.newHttpClient();
 
@@ -72,6 +74,8 @@ class S3HelperTest {
 
         // Get a presigned url to download that same file from s3
         String url = S3Helper.getPresignedURLForObject(inputMap);
+
+        System.out.println("Presigned url to download the file: " + url);
 
         // Use HTTP to retrieve the file
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(); // Capture the response body to a byte array.
