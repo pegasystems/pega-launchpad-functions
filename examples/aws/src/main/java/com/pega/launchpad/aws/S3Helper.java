@@ -8,7 +8,13 @@ import software.amazon.awssdk.services.s3.model.CreateBucketRequest;
 import software.amazon.awssdk.services.s3.model.GetObjectRequest;
 import software.amazon.awssdk.services.s3.model.GetObjectResponse;
 import software.amazon.awssdk.services.s3.model.PutObjectRequest;
+import software.amazon.awssdk.services.s3.presigner.S3Presigner;
+import software.amazon.awssdk.services.s3.presigner.model.GetObjectPresignRequest;
+import software.amazon.awssdk.services.s3.presigner.model.PresignedGetObjectRequest;
+import software.amazon.awssdk.services.s3.presigner.model.PresignedPutObjectRequest;
+import software.amazon.awssdk.services.s3.presigner.model.PutObjectPresignRequest;
 
+import java.time.Duration;
 import java.util.Base64;
 import java.util.Map;
 
@@ -104,6 +110,54 @@ public class S3Helper {
             byte[] b = bytes.asByteArray();
             return Base64.getEncoder().encodeToString(b);
 
+        }
+    }
+
+    public static String getPresignedURLForObject(Map<String, String> input) {
+        System.setProperty("aws.accessKeyId", input.get("accessKeyId"));
+        System.setProperty("aws.secretAccessKey", input.get("secretAccessKey"));
+
+        try (S3Presigner presigner = S3Presigner.builder()
+                .region(Region.of(input.getOrDefault("region", Region.US_EAST_1.id())))
+                .build()) {
+
+            GetObjectRequest objectRequest = GetObjectRequest.builder()
+                    .bucket(input.get("bucketName"))
+                    .key(input.get("objectKey"))
+                    .build();
+
+            GetObjectPresignRequest presignRequest = GetObjectPresignRequest.builder()
+                    .signatureDuration(Duration.ofMinutes(1))  // The URL will expire in 1 minute.
+                    .getObjectRequest(objectRequest)
+                    .build();
+
+            PresignedGetObjectRequest presignedRequest = presigner.presignGetObject(presignRequest);
+            return presignedRequest.url().toExternalForm();
+        }
+    }
+
+    public static String getPresignedURLForUpload(Map<String, String> input) {
+        System.setProperty("aws.accessKeyId", input.get("accessKeyId"));
+        System.setProperty("aws.secretAccessKey", input.get("secretAccessKey"));
+
+        try (S3Presigner presigner = S3Presigner.builder()
+                .region(Region.of(input.getOrDefault("region", Region.US_EAST_1.id())))
+                .build()) {
+
+            PutObjectRequest objectRequest = PutObjectRequest.builder()
+                    .bucket(input.get("bucketName"))
+                    .key(input.get("objectKey"))
+                    .build();
+
+            PutObjectPresignRequest presignRequest = PutObjectPresignRequest.builder()
+                    .signatureDuration(Duration.ofMinutes(1))  // The URL expires in 1 minute
+                    .putObjectRequest(objectRequest)
+                    .build();
+
+            PresignedPutObjectRequest presignedRequest = presigner.presignPutObject(presignRequest);
+            String myURL = presignedRequest.url().toString();
+
+            return presignedRequest.url().toExternalForm();
         }
     }
 
