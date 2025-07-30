@@ -222,6 +222,8 @@ This method will encrypt text using the specified KMS key and return base64 enco
 
 **Function handler: com.pega.launchpad.aws.KMSHelper::encrypt**
 
+**Function handler: com.pega.launchpad.aws.KMSHelper::encrypt**
+
 Inputs:
 
 1. keyId (String): the arn of the key to use from your KMS instance

@@ -54,6 +54,8 @@ This example java class shows how to integrate with Oracle Cloud Infrastructure 
 
 This will create a new bucket in your cloud storage.
 
+**Function handler: com.pega.launchpad.oracle.ObjectStorageSyncExample::createBucket**
+
 Inputs:
 
 - bucketName (String): OCI compliant name for your new bucket
@@ -159,6 +161,8 @@ Sample json output (use json transform to map back to your object data model):
 
 This will list all the buckets in your profile.
 
+**Function handler: com.pega.launchpad.oracle.ObjectStorageSyncExample::listBuckets**
+
 Sample json output (use json transform to map back to your object data model):
 
 ```
@@ -205,6 +209,8 @@ Sample json output (use json transform to map back to your object data model):
 ### Method: putObject()
 
 This method will put an object into a specific bucket.
+
+**Function handler: com.pega.launchpad.oracle.ObjectStorageSyncExample::putObject**
 
 Inputs:
 
@@ -271,6 +277,8 @@ Sample json output (use json transform to map back to your object data model):
 
 ### Method: getObject()
 
+**Function handler: com.pega.launchpad.oracle.ObjectStorageSyncExample::getObject**
+
 This method will get the base64 encoded content of an object from a specific bucket.
 
 Inputs:
@@ -281,3 +289,9 @@ Inputs:
 Output:
 
 - String: The base64 encoded object content
+
+## Running unit tests
+
+To successfully run the unit tests locally, you'll need to set an environmental variable:
+
+- privateKeyBase64: the base64-encoded json of your PEM formatted oracle public RSA key

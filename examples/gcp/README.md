@@ -35,6 +35,8 @@ This example java class shows how to integrate with [GCP Cloud Storage](https://
 
 ### Method: createBucket()
 
+**Function handler: com.pega.launchpad.gcp.GCPHelper::createBucket**
+
 This will create a new bucket in your GCP account.
 
 Inputs:
@@ -228,6 +230,8 @@ Sample json output (use json transform to map back to your object data model):
 
 This method will put an object into a specific bucket.
 
+**Function handler: com.pega.launchpad.gcp.GCPHelper::createObject**
+
 Inputs:
 
 1. bucketName (String): Name of the bucket
@@ -316,6 +320,8 @@ Sample json output (use json transform to map back to your object data model):
 ### Method: getObject()
 
 This method will get the base64 encoded content of an object from a specific bucket.
+
+**Function handler: com.pega.launchpad.gcp.GCPHelper::getObject**
 
 Inputs:
 

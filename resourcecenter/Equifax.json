@@ -174,14 +174,14 @@
     },
     {
       "DataPageMode": "ListOfRecords",
-      "Description": "Account list",
+      "Description": "Account_Equifax list",
       "Reusability": "Private",
       "DataConnection": {
         "CallReference": {
-          "ReferenceID": "AccountList",
+          "ReferenceID": "Account_EquifaxList",
           "Namespace": "ResourceCenter",
           "ReferenceScope": {
-            "ReferenceID": "Account",
+            "ReferenceID": "Account_Equifax",
             "Namespace": "ResourceCenter"
           }
         },
@@ -191,9 +191,9 @@
       "SchemaVersion": "0-2-0",
       "CallType": "DataPage",
       "Namespace": "ResourceCenter",
-      "Name": "Account list",
+      "Name": "Account_Equifax list",
       "ObjectType": {
-        "ReferenceID": "Account",
+        "ReferenceID": "Account_Equifax",
         "Namespace": "ResourceCenter"
       },
       "Type": "DataPage",
@@ -206,14 +206,14 @@
           "Namespace": "PegaPlatform",
           "TypeArguments": [
             {
-              "TypeReferenceID": "Account",
+              "TypeReferenceID": "Account_Equifax",
               "Namespace": "ResourceCenter",
               "Type": "TypeReference"
             }
           ]
         }
       },
-      "RuleResolutionID": "AccountList",
+      "RuleResolutionID": "Account_EquifaxList",
       "Inputs": [],
       "ActionToBePerformed": "ADDED"
     },
@@ -305,6 +305,69 @@
       },
       "RuleResolutionID": "ConsumerConsentList",
       "Inputs": [],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DataPageMode": "SingleRecord",
+      "Description": "Account_Equifax lookup",
+      "Reusability": "Private",
+      "DataConnection": {
+        "CallReference": {
+          "ReferenceID": "Account_EquifaxLookup",
+          "Namespace": "ResourceCenter",
+          "ReferenceScope": {
+            "ReferenceID": "Account_Equifax",
+            "Namespace": "ResourceCenter"
+          }
+        },
+        "CallType": "DataConnection",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "Variable",
+              "Name": "ID"
+            }
+          }
+        ]
+      },
+      "SchemaVersion": "0-2-0",
+      "CallType": "DataPage",
+      "Namespace": "ResourceCenter",
+      "Name": "Account_Equifax lookup",
+      "ObjectType": {
+        "ReferenceID": "Account_Equifax",
+        "Namespace": "ResourceCenter"
+      },
+      "Type": "DataPage",
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "Account_Equifax",
+          "Namespace": "ResourceCenter",
+          "Type": "TypeReference"
+        }
+      },
+      "RuleResolutionID": "Account_EquifaxLookup",
+      "Inputs": [
+        {
+          "Description": "object key",
+          "Mode": "SingleRecord",
+          "Name": "ID",
+          "Required": "true",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          }
+        }
+      ],
       "ActionToBePerformed": "ADDED"
     },
     {
@@ -417,69 +480,6 @@
     },
     {
       "DataPageMode": "SingleRecord",
-      "Description": "Account lookup",
-      "Reusability": "Private",
-      "DataConnection": {
-        "CallReference": {
-          "ReferenceID": "AccountLookup",
-          "Namespace": "ResourceCenter",
-          "ReferenceScope": {
-            "ReferenceID": "Account",
-            "Namespace": "ResourceCenter"
-          }
-        },
-        "CallType": "DataConnection",
-        "CallInputs": [
-          {
-            "ParameterName": "ID",
-            "Source": {
-              "Type": "Variable",
-              "Name": "ID"
-            }
-          }
-        ]
-      },
-      "SchemaVersion": "0-2-0",
-      "CallType": "DataPage",
-      "Namespace": "ResourceCenter",
-      "Name": "Account lookup",
-      "ObjectType": {
-        "ReferenceID": "Account",
-        "Namespace": "ResourceCenter"
-      },
-      "Type": "DataPage",
-      "Output": {
-        "Description": "",
-        "Mode": "SingleRecord",
-        "ObjectType": {
-          "TypeReferenceID": "Account",
-          "Namespace": "ResourceCenter",
-          "Type": "TypeReference"
-        }
-      },
-      "RuleResolutionID": "AccountLookup",
-      "Inputs": [
-        {
-          "Description": "object key",
-          "Mode": "SingleRecord",
-          "Name": "ID",
-          "Required": "true",
-          "ObjectType": {
-            "TypeReferenceID": "Text",
-            "Namespace": "PegaPlatform",
-            "Type": "TypeReference",
-            "Format": {
-              "ReferenceID": "Text",
-              "Namespace": "PegaPlatform",
-              "Type": "RuleReference"
-            }
-          }
-        }
-      ],
-      "ActionToBePerformed": "ADDED"
-    },
-    {
-      "DataPageMode": "SingleRecord",
       "Description": "VerifyAccount lookup",
       "Reusability": "Private",
       "DataConnection": {
@@ -584,6 +584,72 @@
       },
       "RuleResolutionID": "AccountVerificationResponseList",
       "Inputs": [],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DataPageMode": "SingleRecord",
+      "CallableRule": {
+        "CallReference": {
+          "ReferenceID": "PIIVerification",
+          "Namespace": "ResourceCenter",
+          "ReferenceScope": {
+            "ReferenceID": "VerifyAccount",
+            "Namespace": "ResourceCenter"
+          }
+        },
+        "CallType": "Automation",
+        "CallInputs": [
+          {
+            "ParameterName": "ssn",
+            "Source": {
+              "Type": "Variable",
+              "Name": "ssn"
+            }
+          }
+        ]
+      },
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-0",
+      "IsNative": false,
+      "CallType": "DataPage",
+      "Namespace": "ResourceCenter",
+      "Name": "ValidateWithEquifax",
+      "ObjectType": {
+        "ReferenceID": "AccountVerificationResponse",
+        "Namespace": "ResourceCenter"
+      },
+      "UseAutomationSource": true,
+      "Type": "DataPage",
+      "Output": {
+        "ObjectType": {
+          "TypeReferenceID": "AccountVerificationResponse",
+          "Type": "TypeReference",
+          "Namespace": "ResourceCenter"
+        },
+        "Description": "",
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "ValidateWithEquifax",
+      "Inputs": [
+        {
+          "ObjectType": {
+            "TypeReferenceID": "Integer",
+            "Type": "TypeReference",
+            "Format": {
+              "Type": "RuleReference",
+              "ReferenceID": "Integer",
+              "Namespace": "PegaPlatform"
+            },
+            "Namespace": "PegaPlatform"
+          },
+          "Type": "",
+          "Description": "ssn",
+          "Required": "true",
+          "Mode": "SingleRecord",
+          "Name": "ssn"
+        }
+      ],
       "ActionToBePerformed": "ADDED"
     },
     {
@@ -1991,72 +2057,6 @@
     },
     {
       "Type": "Query",
-      "Description": "Query to lookup Account instance.",
-      "Reusability": "Private",
-      "SchemaVersion": "0-1-0",
-      "Filter": {
-        "ExpressionType": "",
-        "Expressions": [
-          {
-            "Type": "Condition",
-            "OperandOne": {
-              "Type": "FieldReference",
-              "Field": {
-                "ReferenceID": "ID",
-                "Namespace": "PegaPlatform"
-              },
-              "Root": {
-                "Type": "Variable",
-                "Name": "Primary"
-              }
-            },
-            "Comparator": "==",
-            "OperandTwo": {
-              "Name": "ID",
-              "Type": "Variable"
-            }
-          }
-        ]
-      },
-      "AppliesTo": {
-        "ReferenceID": "Account",
-        "Namespace": "ResourceCenter"
-      },
-      "Output": {
-        "Description": "",
-        "Mode": "SingleRecord",
-        "ObjectType": {
-          "TypeReferenceID": "Account",
-          "Namespace": "ResourceCenter",
-          "Type": "TypeReference"
-        }
-      },
-      "RuleResolutionID": "AccountLookup",
-      "Inputs": [
-        {
-          "Description": "object key",
-          "Mode": "SingleRecord",
-          "Name": "ID",
-          "Required": "true",
-          "ObjectType": {
-            "TypeReferenceID": "Text",
-            "Namespace": "PegaPlatform",
-            "Type": "TypeReference",
-            "Format": {
-              "ReferenceID": "Text",
-              "Namespace": "PegaPlatform",
-              "Type": "RuleReference"
-            }
-          },
-          "Type": ""
-        }
-      ],
-      "Namespace": "ResourceCenter",
-      "Name": "Account lookup",
-      "ActionToBePerformed": "ADDED"
-    },
-    {
-      "Type": "Query",
       "Description": "Query to lookup Name instance.",
       "Reusability": "Private",
       "SchemaVersion": "0-1-0",
@@ -2119,6 +2119,91 @@
       ],
       "Namespace": "ResourceCenter",
       "Name": "Name lookup",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Query",
+      "Description": "Query to List all Account_Equifax instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Filter": {
+        "ExpressionType": "AND",
+        "Expressions": [
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Field": {
+                "ReferenceID": "Status",
+                "Namespace": "PegaPlatform",
+                "Type": "RuleReference"
+              },
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              }
+            },
+            "Comparator": "!=",
+            "OperandTwo": {
+              "Value": "Resolved-Inactive",
+              "Type": "ConstantText"
+            }
+          },
+          {
+            "Type": "Condition",
+            "OperandOne": {
+              "Type": "FieldReference",
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
+              },
+              "Field": {
+                "Type": "RuleReference",
+                "ReferenceID": "Status",
+                "Namespace": "PegaPlatform"
+              }
+            },
+            "Comparator": "!=",
+            "OperandTwo": {
+              "Type": "ConstantText",
+              "Value": "Resolved-Cancelled"
+            }
+          }
+        ],
+        "Type": "ExpressionGroup"
+      },
+      "SortBy": [
+        {
+          "Field": {
+            "ReferenceID": "CreateDateTime",
+            "Namespace": "PegaPlatform"
+          },
+          "Direction": "Descending"
+        }
+      ],
+      "AppliesTo": {
+        "ReferenceID": "Account_Equifax",
+        "Namespace": "ResourceCenter"
+      },
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "List",
+          "Type": "TypeReference",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "Account_Equifax",
+              "Namespace": "ResourceCenter",
+              "Type": "TypeReference"
+            }
+          ]
+        }
+      },
+      "RuleResolutionID": "Account_EquifaxList",
+      "Namespace": "ResourceCenter",
+      "Name": "Account_Equifax list",
       "ActionToBePerformed": "ADDED"
     },
     {
@@ -2359,87 +2444,68 @@
     },
     {
       "Type": "Query",
-      "Description": "Query to List all Account instance.",
+      "Description": "Query to lookup Account_Equifax instance.",
       "Reusability": "Private",
       "SchemaVersion": "0-1-0",
       "Filter": {
-        "ExpressionType": "AND",
+        "ExpressionType": "",
         "Expressions": [
           {
             "Type": "Condition",
             "OperandOne": {
               "Type": "FieldReference",
               "Field": {
-                "ReferenceID": "Status",
-                "Namespace": "PegaPlatform",
-                "Type": "RuleReference"
-              },
-              "Root": {
-                "Type": "Variable",
-                "Name": "Primary"
-              }
-            },
-            "Comparator": "!=",
-            "OperandTwo": {
-              "Value": "Resolved-Inactive",
-              "Type": "ConstantText"
-            }
-          },
-          {
-            "Type": "Condition",
-            "OperandOne": {
-              "Type": "FieldReference",
-              "Root": {
-                "Type": "Variable",
-                "Name": "Primary"
-              },
-              "Field": {
-                "Type": "RuleReference",
-                "ReferenceID": "Status",
+                "ReferenceID": "ID",
                 "Namespace": "PegaPlatform"
+              },
+              "Root": {
+                "Type": "Variable",
+                "Name": "Primary"
               }
             },
-            "Comparator": "!=",
+            "Comparator": "==",
             "OperandTwo": {
-              "Type": "ConstantText",
-              "Value": "Resolved-Cancelled"
+              "Name": "ID",
+              "Type": "Variable"
             }
           }
-        ],
-        "Type": "ExpressionGroup"
+        ]
       },
-      "SortBy": [
-        {
-          "Field": {
-            "ReferenceID": "CreateDateTime",
-            "Namespace": "PegaPlatform"
-          },
-          "Direction": "Descending"
-        }
-      ],
       "AppliesTo": {
-        "ReferenceID": "Account",
+        "ReferenceID": "Account_Equifax",
         "Namespace": "ResourceCenter"
       },
       "Output": {
         "Description": "",
         "Mode": "SingleRecord",
         "ObjectType": {
-          "TypeReferenceID": "List",
-          "Type": "TypeReference",
-          "Namespace": "PegaPlatform",
-          "TypeArguments": [
-            {
-              "TypeReferenceID": "Account",
-              "Namespace": "ResourceCenter",
-              "Type": "TypeReference"
-            }
-          ]
+          "TypeReferenceID": "Account_Equifax",
+          "Namespace": "ResourceCenter",
+          "Type": "TypeReference"
         }
       },
-      "RuleResolutionID": "AccountList",
+      "RuleResolutionID": "Account_EquifaxLookup",
+      "Inputs": [
+        {
+          "Description": "object key",
+          "Mode": "SingleRecord",
+          "Name": "ID",
+          "Required": "true",
+          "ObjectType": {
+            "TypeReferenceID": "Text",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Text",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          },
+          "Type": ""
+        }
+      ],
       "Namespace": "ResourceCenter",
-      "Name": "Account list",
+      "Name": "Account_Equifax lookup",
       "ActionToBePerformed": "ADDED"
     },
     {
@@ -2668,6 +2734,111 @@
       ],
       "Display": {
         "ReferenceID": "ConsentForServicesDisplay",
+        "Namespace": "ResourceCenter"
+      },
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Description": "",
+      "Reusability": "Private",
+      "Category": "Data",
+      "SchemaVersion": "2-12-0",
+      "AppliesTo": {
+        "ReferenceID": "Account_Equifax",
+        "Namespace": "ResourceCenter"
+      },
+      "OptionalActions": [
+        {
+          "Action": {
+            "ReferenceID": "Edit",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Always"
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "Create",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Always"
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "MarkAsActive",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsDataInactive",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        },
+        {
+          "Action": {
+            "ReferenceID": "MarkAsInactive",
+            "Namespace": "PegaPlatform"
+          },
+          "VisibilityCondition": {
+            "ConditionType": "Condition",
+            "Decision": {
+              "CallReference": {
+                "ReferenceID": "IsDataActive",
+                "Namespace": "PegaPlatform"
+              },
+              "CallType": "Decision"
+            }
+          }
+        }
+      ],
+      "PrimaryFields": [
+        {
+          "ReferenceID": "Name",
+          "Namespace": "PegaPlatform"
+        },
+        {
+          "ReferenceID": "Description",
+          "Namespace": "PegaPlatform"
+        },
+        {
+          "ReferenceID": "CreditCardNumber",
+          "Namespace": "ResourceCenter"
+        }
+      ],
+      "Namespace": "ResourceCenter",
+      "PrimaryStages": [],
+      "AlternateStages": [],
+      "Name": "Account_Equifax",
+      "PluralName": "",
+      "LookupDataPage": {
+        "ReferenceID": "Account_EquifaxLookup",
+        "Namespace": "ResourceCenter"
+      },
+      "ListDataPage": {
+        "ReferenceID": "Account_EquifaxList",
+        "Namespace": "ResourceCenter"
+      },
+      "Type": "CaseType",
+      "IdPrefix": "A-",
+      "RuleResolutionID": "Account_Equifax",
+      "AllowedInitializationFields": [
+        {
+          "Name": {
+            "ReferenceID": "CreditCardNumber",
+            "Namespace": "ResourceCenter"
+          }
+        }
+      ],
+      "Display": {
+        "ReferenceID": "Account_EquifaxDisplay",
         "Namespace": "ResourceCenter"
       },
       "ActionToBePerformed": "ADDED"
@@ -3652,103 +3823,6 @@
       "Category": "Data",
       "SchemaVersion": "2-12-0",
       "AppliesTo": {
-        "ReferenceID": "Account",
-        "Namespace": "ResourceCenter"
-      },
-      "OptionalActions": [
-        {
-          "Action": {
-            "ReferenceID": "Edit",
-            "Namespace": "PegaPlatform"
-          },
-          "VisibilityCondition": {
-            "ConditionType": "Always"
-          }
-        },
-        {
-          "Action": {
-            "ReferenceID": "Create",
-            "Namespace": "PegaPlatform"
-          },
-          "VisibilityCondition": {
-            "ConditionType": "Always"
-          }
-        },
-        {
-          "Action": {
-            "ReferenceID": "MarkAsActive",
-            "Namespace": "PegaPlatform"
-          },
-          "VisibilityCondition": {
-            "ConditionType": "Condition",
-            "Decision": {
-              "CallReference": {
-                "ReferenceID": "IsDataInactive",
-                "Namespace": "PegaPlatform"
-              },
-              "CallType": "Decision"
-            }
-          }
-        },
-        {
-          "Action": {
-            "ReferenceID": "MarkAsInactive",
-            "Namespace": "PegaPlatform"
-          },
-          "VisibilityCondition": {
-            "ConditionType": "Condition",
-            "Decision": {
-              "CallReference": {
-                "ReferenceID": "IsDataActive",
-                "Namespace": "PegaPlatform"
-              },
-              "CallType": "Decision"
-            }
-          }
-        }
-      ],
-      "PrimaryFields": [
-        {
-          "ReferenceID": "Name",
-          "Namespace": "PegaPlatform"
-        }
-      ],
-      "Namespace": "ResourceCenter",
-      "PrimaryStages": [],
-      "AlternateStages": [],
-      "Name": "Account",
-      "PluralName": "Accounts",
-      "LookupDataPage": {
-        "ReferenceID": "AccountLookup",
-        "Namespace": "ResourceCenter"
-      },
-      "ListDataPage": {
-        "ReferenceID": "AccountList",
-        "Namespace": "ResourceCenter"
-      },
-      "Type": "CaseType",
-      "IdPrefix": "A-",
-      "RuleResolutionID": "Account",
-      "AllowedInitializationFields": [
-        {
-          "Name": {
-            "ReferenceID": "CreditCardNumber",
-            "Namespace": "ResourceCenter"
-          }
-        }
-      ],
-      "Display": {
-        "ReferenceID": "AccountDisplay",
-        "Namespace": "ResourceCenter"
-      },
-      "ActionToBePerformed": "ADDED"
-    },
-    {
-      "Description": "",
-      "Reusability": "Private",
-      "Category": "Data",
-      "SchemaVersion": "2-12-0",
-      "AppliesTo": {
         "ReferenceID": "Name",
         "Namespace": "ResourceCenter"
       },
@@ -3879,6 +3953,689 @@
       "ActionToBePerformed": "ADDED"
     }
   ],
+  "Automation": [
+    {
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-0",
+      "IsSystemAutomation": false,
+      "AppliesTo": {
+        "ReferenceID": "VerifyAccount",
+        "Namespace": "ResourceCenter"
+      },
+      "CallType": "ResourceObject",
+      "Namespace": "ResourceCenter",
+      "Name": "PIIVerification",
+      "Type": "Automation",
+      "Output": {
+        "Description": "",
+        "Mode": "SingleRecord",
+        "ObjectType": {
+          "TypeReferenceID": "AccountVerificationResponse",
+          "Namespace": "ResourceCenter",
+          "Type": "TypeReference"
+        }
+      },
+      "RuleResolutionID": "PIIVerification",
+      "RuleSteps": [
+        {
+          "Id": "_qrr2owfs5",
+          "Type": "ActionSet",
+          "Sets": [
+            {
+              "Id": "_q5824ut3k",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "SSN",
+                  "Namespace": "ResourceCenter",
+                  "Type": "RuleReference"
+                },
+                "ReferencePath": [
+                  {
+                    "Field": {
+                      "ReferenceID": "Identification",
+                      "Namespace": "ResourceCenter",
+                      "Type": "RuleReference"
+                    },
+                    "Type": "FieldReference"
+                  }
+                ]
+              },
+              "Source": {
+                "Type": "Variable",
+                "Name": "ssn"
+              }
+            },
+            {
+              "Id": "_dyzrm9ad2",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "MerchantId",
+                  "Namespace": "ResourceCenter",
+                  "Type": "RuleReference"
+                }
+              },
+              "Source": {
+                "Type": "ConstantText",
+                "Value": "efxtest"
+              }
+            },
+            {
+              "Id": "_crxu1er34",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "ServiceType",
+                  "Namespace": "ResourceCenter",
+                  "Type": "RuleReference"
+                }
+              },
+              "Source": {
+                "Type": "ConstantText",
+                "Value": "CV"
+              }
+            }
+          ]
+        },
+        {
+          "Id": "_d9gxp6wxq",
+          "Type": "ActionSet",
+          "Sets": [
+            {
+              "Id": "_g75nysi88",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "AccountVerificationResponse",
+                  "Namespace": "ResourceCenter",
+                  "Type": "RuleReference"
+                }
+              },
+              "Source": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Type": "CallExpression",
+                  "CallType": "DataConnection",
+                  "CallReference": {
+                    "Type": "RuleReference",
+                    "ReferenceID": "EquifaxAccountVerification",
+                    "Namespace": "ResourceCenter",
+                    "ReferenceScope": {
+                      "Type": "RuleReference",
+                      "ReferenceID": "VerifyAccount",
+                      "Namespace": "ResourceCenter"
+                    }
+                  },
+                  "CallInputs": [
+                    {
+                      "Type": "CallInput",
+                      "ParameterName": "thisObject",
+                      "Source": {
+                        "Type": "Variable",
+                        "Name": "Primary"
+                      }
+                    }
+                  ]
+                },
+                "Field": {
+                  "Type": "RuleReference",
+                  "ReferenceID": "AccountVerificationResponse",
+                  "Namespace": "ResourceCenter"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Id": "_9rzaawn5u",
+          "Type": "ActionReturn",
+          "Source": {
+            "Type": "FieldReference",
+            "Root": {
+              "Name": "Primary",
+              "Type": "Variable"
+            },
+            "Field": {
+              "ReferenceID": "AccountVerificationResponse",
+              "Namespace": "ResourceCenter",
+              "Type": "RuleReference"
+            }
+          }
+        }
+      ],
+      "Inputs": [
+        {
+          "Mode": "SingleRecord",
+          "Required": "true",
+          "Name": "ssn",
+          "ObjectType": {
+            "TypeReferenceID": "Integer",
+            "Namespace": "PegaPlatform",
+            "Type": "TypeReference",
+            "Format": {
+              "ReferenceID": "Integer",
+              "Namespace": "PegaPlatform",
+              "Type": "RuleReference"
+            }
+          },
+          "Description": "SSN",
+          "Type": ""
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Automation",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-0",
+      "IsSystemAutomation": false,
+      "Output": {
+        "Description": "",
+        "Mode": ""
+      },
+      "AppliesTo": {
+        "ReferenceID": "VerifyAccount",
+        "Namespace": "ResourceCenter"
+      },
+      "RuleResolutionID": "SetDescription",
+      "CallType": "ResourceObject",
+      "RuleSteps": [
+        {
+          "Id": "_ekgofkiy5",
+          "Type": "ActionSet",
+          "Sets": [
+            {
+              "Id": "_2ste37tiy",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "ResourceDescription",
+                  "Namespace": "ResourceCenter",
+                  "Type": "RuleReference"
+                }
+              },
+              "Source": {
+                "Type": "ConstantText",
+                "Value": "Equifax provides Verification APIs that help businesses confirm an individual’s identity and validate their financial accounts in real time. These APIs use Equifax’s extensive data sources to authenticate personal information (e.g., SSN, name, DOB, address) and verify bank account ownership, status, and balance. They're widely used for KYC (Know Your Customer), fraud prevention, and onboarding workflows in financial services and fintech.  This Case type demostrates the Account Verification API of Equifax. The Account Verification API is used for customers to verify details about payments using creditcards and bank accounts (individual consumer and commercial bank accounts). The customer can pass the PII data attribute list and credit card or bank account information for verification. The response will be a Boolean Y or N response to each category of Identity data passed in Request."
+              }
+            }
+          ]
+        }
+      ],
+      "Namespace": "ResourceCenter",
+      "Name": "SetDescription",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-0",
+      "IsSystemAutomation": false,
+      "AppliesTo": {
+        "ReferenceID": "VerifyAccount",
+        "Namespace": "ResourceCenter"
+      },
+      "CallType": "ResourceObject",
+      "Namespace": "ResourceCenter",
+      "Name": "EquifaxAccountVerificationConnect",
+      "Locals": [
+        {
+          "Mode": "SingleRecord",
+          "Name": "thisCase",
+          "Description": "thisCase",
+          "ObjectType": {
+            "TypeReferenceID": "VerifyAccount",
+            "Namespace": "ResourceCenter",
+            "Type": "TypeReference"
+          }
+        }
+      ],
+      "Type": "Automation",
+      "Output": {
+        "Description": "",
+        "Mode": ""
+      },
+      "RuleResolutionID": "EquifaxAccountVerificationConnect",
+      "RuleSteps": [
+        {
+          "Id": "_iv4q9tb5k",
+          "Type": "ActionSet",
+          "Sets": [
+            {
+              "Id": "_bl575fvnv",
+              "Target": {
+                "Type": "Variable",
+                "Name": "thisCase"
+              },
+              "Source": {
+                "Type": "Variable",
+                "Name": "Primary"
+              }
+            }
+          ]
+        },
+        {
+          "Id": "_29ai1h5d1",
+          "Type": "ActionSet",
+          "Sets": [
+            {
+              "Id": "_ncfx90xr4",
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "Primary",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "AccountVerificationResponse",
+                  "Namespace": "ResourceCenter",
+                  "Type": "RuleReference"
+                }
+              },
+              "Source": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Type": "CallExpression",
+                  "CallType": "DataConnection",
+                  "CallReference": {
+                    "Type": "RuleReference",
+                    "ReferenceID": "EquifaxAccountVerification",
+                    "Namespace": "ResourceCenter",
+                    "ReferenceScope": {
+                      "Type": "RuleReference",
+                      "ReferenceID": "VerifyAccount",
+                      "Namespace": "ResourceCenter"
+                    }
+                  },
+                  "CallInputs": [
+                    {
+                      "Type": "CallInput",
+                      "ParameterName": "thisObject",
+                      "Source": {
+                        "Type": "Variable",
+                        "Name": "thisCase"
+                      }
+                    }
+                  ]
+                },
+                "Field": {
+                  "Type": "RuleReference",
+                  "ReferenceID": "AccountVerificationResponse",
+                  "Namespace": "ResourceCenter"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
+  "Class": [
+    {
+      "Type": "Class",
+      "Description": "History-Account_Equifax",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "History",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "History-Account_Equifax",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceCenter",
+      "Name": "History-Account_Equifax",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "History-VerifyAccount",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "History",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "History-VerifyAccount",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceCenter",
+      "Name": "History-VerifyAccount",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "Identification",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "BusinessObject",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "Identification",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceCenter",
+      "Name": "Identification",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "History-Identification",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "History",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "History-Identification",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceCenter",
+      "Name": "History-Identification",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "Consumer Consent",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "BusinessObject",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "ConsumerConsent",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceCenter",
+      "Name": "Consumer Consent",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "History-ConsumerConsent",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "History",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "History-ConsumerConsent",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceCenter",
+      "Name": "History-ConsumerConsent",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "History-AccountVerificationResponse",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "History",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "History-AccountVerificationResponse",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceCenter",
+      "Name": "History-AccountVerificationResponse",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "History-Address",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "History",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "History-Address",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceCenter",
+      "Name": "History-Address",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "Account Info",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "BusinessObject",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "AccountInfo",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceCenter",
+      "Name": "Account Info",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "History-AccountInfo",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "History",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "History-AccountInfo",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceCenter",
+      "Name": "History-AccountInfo",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "Account_Equifax",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "BusinessObject",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "Account_Equifax",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceCenter",
+      "Name": "Account_Equifax",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "History-Contact",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "History",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "History-Contact",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceCenter",
+      "Name": "History-Contact",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "History-Name",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "History",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "History-Name",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceCenter",
+      "Name": "History-Name",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "History-ConsentForServices",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "History",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "History-ConsentForServices",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceCenter",
+      "Name": "History-ConsentForServices",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "VerifyAccount",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "Case",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "VerifyAccount",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceCenter",
+      "Name": "VerifyAccount",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "Consent For Services",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "BusinessObject",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "ConsentForServices",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceCenter",
+      "Name": "Consent For Services",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "Name",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "BusinessObject",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "Name",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceCenter",
+      "Name": "Name",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "Account Verification Response",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "BusinessObject",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "AccountVerificationResponse",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceCenter",
+      "Name": "Account Verification Response",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "Address",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "BusinessObject",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "Address",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceCenter",
+      "Name": "Address",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Class",
+      "Description": "Contact",
+      "Reusability": "Private",
+      "SchemaVersion": "0-1-0",
+      "Parents": [
+        {
+          "ReferenceID": "BusinessObject",
+          "Namespace": "PegaPlatform"
+        }
+      ],
+      "RuleResolutionID": "Contact",
+      "Modifier": "Concrete",
+      "Namespace": "ResourceCenter",
+      "Name": "Contact",
+      "ActionToBePerformed": "ADDED"
+    }
+  ],
   "Field": [
     {
       "DisplayAs": "EmbeddedData",
@@ -3913,56 +4670,6 @@
       "RuleResolutionID": "EmailAddressMatchFound",
       "Namespace": "ResourceCenter",
       "Name": "Email Address Match Found",
-      "ActionToBePerformed": "ADDED"
-    },
-    {
-      "DisplayAs": "ObjectReference",
-      "Description": "This field holds the reference to a Account instance.",
-      "Reusability": "Private",
-      "SchemaVersion": "0-2-7",
-      "RecordClass": {
-        "ReferenceID": "Account",
-        "Namespace": "ResourceCenter"
-      },
-      "AppliesTo": {
-        "ReferenceID": "History-Account",
-        "Namespace": "ResourceCenter"
-      },
-      "Mode": "SingleRecord",
-      "RelationshipType": "Peer",
-      "Namespace": "ResourceCenter",
-      "Name": "Account Reference",
-      "DataAccess": "Refer",
-      "DataSource": {
-        "CallReference": {
-          "ReferenceID": "AccountLookup",
-          "ReferenceScope": {
-            "ReferenceID": "Account",
-            "Namespace": "ResourceCenter"
-          },
-          "Namespace": "ResourceCenter"
-        },
-        "CallType": "DataPage",
-        "CallInputs": [
-          {
-            "ParameterName": "ID",
-            "Source": {
-              "Type": "FieldReference",
-              "Root": {
-                "Type": "Variable",
-                "Name": "Current"
-              },
-              "Field": {
-                "Type": "RuleReference",
-                "ReferenceID": "ID",
-                "Namespace": "PegaPlatform"
-              }
-            }
-          }
-        ]
-      },
-      "Type": "Field",
-      "RuleResolutionID": "ObjectReference",
       "ActionToBePerformed": "ADDED"
     },
     {
@@ -4343,6 +5050,26 @@
       "ActionToBePerformed": "ADDED"
     },
     {
+      "DisplayAs": "EmbeddedData",
+      "Type": "Field",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "RecordClass": {
+        "ReferenceID": "Account_Equifax",
+        "Namespace": "ResourceCenter"
+      },
+      "AppliesTo": {
+        "ReferenceID": "VerifyAccount",
+        "Namespace": "ResourceCenter"
+      },
+      "Mode": "SingleRecord",
+      "RuleResolutionID": "Account",
+      "Namespace": "ResourceCenter",
+      "Name": "Account",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
       "DisplayAs": "ObjectReference",
       "Description": "This field holds the reference to a Address instance.",
       "Reusability": "Private",
@@ -4440,26 +5167,6 @@
       },
       "Type": "Field",
       "RuleResolutionID": "ObjectReference",
-      "ActionToBePerformed": "ADDED"
-    },
-    {
-      "DisplayAs": "EmbeddedData",
-      "Type": "Field",
-      "Description": "",
-      "Reusability": "Private",
-      "SchemaVersion": "0-2-7",
-      "RecordClass": {
-        "ReferenceID": "Account",
-        "Namespace": "ResourceCenter"
-      },
-      "AppliesTo": {
-        "ReferenceID": "VerifyAccount",
-        "Namespace": "ResourceCenter"
-      },
-      "Mode": "SingleRecord",
-      "RuleResolutionID": "Accounts",
-      "Namespace": "ResourceCenter",
-      "Name": "Accounts",
       "ActionToBePerformed": "ADDED"
     },
     {
@@ -4658,21 +5365,6 @@
       "RuleResolutionID": "DateOfBirth",
       "Namespace": "ResourceCenter",
       "Name": "Date Of Birth",
-      "ActionToBePerformed": "ADDED"
-    },
-    {
-      "Type": "Field",
-      "Description": "",
-      "Reusability": "Private",
-      "SchemaVersion": "0-2-7",
-      "AppliesTo": {
-        "ReferenceID": "Account",
-        "Namespace": "ResourceCenter"
-      },
-      "Mode": "Text",
-      "RuleResolutionID": "CreditCardNumber",
-      "Namespace": "ResourceCenter",
-      "Name": "Credit Card Number",
       "ActionToBePerformed": "ADDED"
     },
     {
@@ -5181,6 +5873,21 @@
       "Reusability": "Private",
       "SchemaVersion": "0-2-7",
       "AppliesTo": {
+        "ReferenceID": "Account_Equifax",
+        "Namespace": "ResourceCenter"
+      },
+      "Mode": "Text",
+      "RuleResolutionID": "CreditCardNumber",
+      "Namespace": "ResourceCenter",
+      "Name": "Credit Card Number",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "Field",
+      "Description": "",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "AppliesTo": {
         "ReferenceID": "AccountVerificationResponse",
         "Namespace": "ResourceCenter"
       },
@@ -5188,6 +5895,56 @@
       "RuleResolutionID": "SSNMatchFound",
       "Namespace": "ResourceCenter",
       "Name": "SSN Match Found",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "DisplayAs": "ObjectReference",
+      "Description": "This field holds the reference to a Account_Equifax instance.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-2-7",
+      "RecordClass": {
+        "ReferenceID": "Account_Equifax",
+        "Namespace": "ResourceCenter"
+      },
+      "AppliesTo": {
+        "ReferenceID": "History-Account_Equifax",
+        "Namespace": "ResourceCenter"
+      },
+      "Mode": "SingleRecord",
+      "RelationshipType": "Peer",
+      "Namespace": "ResourceCenter",
+      "Name": "Account_Equifax Reference",
+      "DataAccess": "Refer",
+      "DataSource": {
+        "CallReference": {
+          "ReferenceID": "Account_EquifaxLookup",
+          "ReferenceScope": {
+            "ReferenceID": "Account_Equifax",
+            "Namespace": "ResourceCenter"
+          },
+          "Namespace": "ResourceCenter"
+        },
+        "CallType": "DataPage",
+        "CallInputs": [
+          {
+            "ParameterName": "ID",
+            "Source": {
+              "Type": "FieldReference",
+              "Root": {
+                "Type": "Variable",
+                "Name": "Current"
+              },
+              "Field": {
+                "Type": "RuleReference",
+                "ReferenceID": "ID",
+                "Namespace": "PegaPlatform"
+              }
+            }
+          }
+        ]
+      },
+      "Type": "Field",
+      "RuleResolutionID": "ObjectReference",
       "ActionToBePerformed": "ADDED"
     },
     {
@@ -5224,348 +5981,6 @@
       "RuleResolutionID": "EntityName",
       "Namespace": "ResourceCenter",
       "Name": "Entity Name",
-      "ActionToBePerformed": "ADDED"
-    }
-  ],
-  "Class": [
-    {
-      "Type": "Class",
-      "Description": "History-VerifyAccount",
-      "Reusability": "Private",
-      "SchemaVersion": "0-1-0",
-      "Parents": [
-        {
-          "ReferenceID": "History",
-          "Namespace": "PegaPlatform"
-        }
-      ],
-      "RuleResolutionID": "History-VerifyAccount",
-      "Modifier": "Concrete",
-      "Namespace": "ResourceCenter",
-      "Name": "History-VerifyAccount",
-      "ActionToBePerformed": "ADDED"
-    },
-    {
-      "Type": "Class",
-      "Description": "Identification",
-      "Reusability": "Private",
-      "SchemaVersion": "0-1-0",
-      "Parents": [
-        {
-          "ReferenceID": "BusinessObject",
-          "Namespace": "PegaPlatform"
-        }
-      ],
-      "RuleResolutionID": "Identification",
-      "Modifier": "Concrete",
-      "Namespace": "ResourceCenter",
-      "Name": "Identification",
-      "ActionToBePerformed": "ADDED"
-    },
-    {
-      "Type": "Class",
-      "Description": "Account",
-      "Reusability": "Private",
-      "SchemaVersion": "0-1-0",
-      "Parents": [
-        {
-          "ReferenceID": "BusinessObject",
-          "Namespace": "PegaPlatform"
-        }
-      ],
-      "RuleResolutionID": "Account",
-      "Modifier": "Concrete",
-      "Namespace": "ResourceCenter",
-      "Name": "Account",
-      "ActionToBePerformed": "ADDED"
-    },
-    {
-      "Type": "Class",
-      "Description": "History-Identification",
-      "Reusability": "Private",
-      "SchemaVersion": "0-1-0",
-      "Parents": [
-        {
-          "ReferenceID": "History",
-          "Namespace": "PegaPlatform"
-        }
-      ],
-      "RuleResolutionID": "History-Identification",
-      "Modifier": "Concrete",
-      "Namespace": "ResourceCenter",
-      "Name": "History-Identification",
-      "ActionToBePerformed": "ADDED"
-    },
-    {
-      "Type": "Class",
-      "Description": "Consumer Consent",
-      "Reusability": "Private",
-      "SchemaVersion": "0-1-0",
-      "Parents": [
-        {
-          "ReferenceID": "BusinessObject",
-          "Namespace": "PegaPlatform"
-        }
-      ],
-      "RuleResolutionID": "ConsumerConsent",
-      "Modifier": "Concrete",
-      "Namespace": "ResourceCenter",
-      "Name": "Consumer Consent",
-      "ActionToBePerformed": "ADDED"
-    },
-    {
-      "Type": "Class",
-      "Description": "History-ConsumerConsent",
-      "Reusability": "Private",
-      "SchemaVersion": "0-1-0",
-      "Parents": [
-        {
-          "ReferenceID": "History",
-          "Namespace": "PegaPlatform"
-        }
-      ],
-      "RuleResolutionID": "History-ConsumerConsent",
-      "Modifier": "Concrete",
-      "Namespace": "ResourceCenter",
-      "Name": "History-ConsumerConsent",
-      "ActionToBePerformed": "ADDED"
-    },
-    {
-      "Type": "Class",
-      "Description": "History-AccountVerificationResponse",
-      "Reusability": "Private",
-      "SchemaVersion": "0-1-0",
-      "Parents": [
-        {
-          "ReferenceID": "History",
-          "Namespace": "PegaPlatform"
-        }
-      ],
-      "RuleResolutionID": "History-AccountVerificationResponse",
-      "Modifier": "Concrete",
-      "Namespace": "ResourceCenter",
-      "Name": "History-AccountVerificationResponse",
-      "ActionToBePerformed": "ADDED"
-    },
-    {
-      "Type": "Class",
-      "Description": "History-Address",
-      "Reusability": "Private",
-      "SchemaVersion": "0-1-0",
-      "Parents": [
-        {
-          "ReferenceID": "History",
-          "Namespace": "PegaPlatform"
-        }
-      ],
-      "RuleResolutionID": "History-Address",
-      "Modifier": "Concrete",
-      "Namespace": "ResourceCenter",
-      "Name": "History-Address",
-      "ActionToBePerformed": "ADDED"
-    },
-    {
-      "Type": "Class",
-      "Description": "Account Info",
-      "Reusability": "Private",
-      "SchemaVersion": "0-1-0",
-      "Parents": [
-        {
-          "ReferenceID": "BusinessObject",
-          "Namespace": "PegaPlatform"
-        }
-      ],
-      "RuleResolutionID": "AccountInfo",
-      "Modifier": "Concrete",
-      "Namespace": "ResourceCenter",
-      "Name": "Account Info",
-      "ActionToBePerformed": "ADDED"
-    },
-    {
-      "Type": "Class",
-      "Description": "History-AccountInfo",
-      "Reusability": "Private",
-      "SchemaVersion": "0-1-0",
-      "Parents": [
-        {
-          "ReferenceID": "History",
-          "Namespace": "PegaPlatform"
-        }
-      ],
-      "RuleResolutionID": "History-AccountInfo",
-      "Modifier": "Concrete",
-      "Namespace": "ResourceCenter",
-      "Name": "History-AccountInfo",
-      "ActionToBePerformed": "ADDED"
-    },
-    {
-      "Type": "Class",
-      "Description": "History-Contact",
-      "Reusability": "Private",
-      "SchemaVersion": "0-1-0",
-      "Parents": [
-        {
-          "ReferenceID": "History",
-          "Namespace": "PegaPlatform"
-        }
-      ],
-      "RuleResolutionID": "History-Contact",
-      "Modifier": "Concrete",
-      "Namespace": "ResourceCenter",
-      "Name": "History-Contact",
-      "ActionToBePerformed": "ADDED"
-    },
-    {
-      "Type": "Class",
-      "Description": "History-Name",
-      "Reusability": "Private",
-      "SchemaVersion": "0-1-0",
-      "Parents": [
-        {
-          "ReferenceID": "History",
-          "Namespace": "PegaPlatform"
-        }
-      ],
-      "RuleResolutionID": "History-Name",
-      "Modifier": "Concrete",
-      "Namespace": "ResourceCenter",
-      "Name": "History-Name",
-      "ActionToBePerformed": "ADDED"
-    },
-    {
-      "Type": "Class",
-      "Description": "History-ConsentForServices",
-      "Reusability": "Private",
-      "SchemaVersion": "0-1-0",
-      "Parents": [
-        {
-          "ReferenceID": "History",
-          "Namespace": "PegaPlatform"
-        }
-      ],
-      "RuleResolutionID": "History-ConsentForServices",
-      "Modifier": "Concrete",
-      "Namespace": "ResourceCenter",
-      "Name": "History-ConsentForServices",
-      "ActionToBePerformed": "ADDED"
-    },
-    {
-      "Type": "Class",
-      "Description": "History-Account",
-      "Reusability": "Private",
-      "SchemaVersion": "0-1-0",
-      "Parents": [
-        {
-          "ReferenceID": "History",
-          "Namespace": "PegaPlatform"
-        }
-      ],
-      "RuleResolutionID": "History-Account",
-      "Modifier": "Concrete",
-      "Namespace": "ResourceCenter",
-      "Name": "History-Account",
-      "ActionToBePerformed": "ADDED"
-    },
-    {
-      "Type": "Class",
-      "Description": "VerifyAccount",
-      "Reusability": "Private",
-      "SchemaVersion": "0-1-0",
-      "Parents": [
-        {
-          "ReferenceID": "Case",
-          "Namespace": "PegaPlatform"
-        }
-      ],
-      "RuleResolutionID": "VerifyAccount",
-      "Modifier": "Concrete",
-      "Namespace": "ResourceCenter",
-      "Name": "VerifyAccount",
-      "ActionToBePerformed": "ADDED"
-    },
-    {
-      "Type": "Class",
-      "Description": "Consent For Services",
-      "Reusability": "Private",
-      "SchemaVersion": "0-1-0",
-      "Parents": [
-        {
-          "ReferenceID": "BusinessObject",
-          "Namespace": "PegaPlatform"
-        }
-      ],
-      "RuleResolutionID": "ConsentForServices",
-      "Modifier": "Concrete",
-      "Namespace": "ResourceCenter",
-      "Name": "Consent For Services",
-      "ActionToBePerformed": "ADDED"
-    },
-    {
-      "Type": "Class",
-      "Description": "Name",
-      "Reusability": "Private",
-      "SchemaVersion": "0-1-0",
-      "Parents": [
-        {
-          "ReferenceID": "BusinessObject",
-          "Namespace": "PegaPlatform"
-        }
-      ],
-      "RuleResolutionID": "Name",
-      "Modifier": "Concrete",
-      "Namespace": "ResourceCenter",
-      "Name": "Name",
-      "ActionToBePerformed": "ADDED"
-    },
-    {
-      "Type": "Class",
-      "Description": "Account Verification Response",
-      "Reusability": "Private",
-      "SchemaVersion": "0-1-0",
-      "Parents": [
-        {
-          "ReferenceID": "BusinessObject",
-          "Namespace": "PegaPlatform"
-        }
-      ],
-      "RuleResolutionID": "AccountVerificationResponse",
-      "Modifier": "Concrete",
-      "Namespace": "ResourceCenter",
-      "Name": "Account Verification Response",
-      "ActionToBePerformed": "ADDED"
-    },
-    {
-      "Type": "Class",
-      "Description": "Address",
-      "Reusability": "Private",
-      "SchemaVersion": "0-1-0",
-      "Parents": [
-        {
-          "ReferenceID": "BusinessObject",
-          "Namespace": "PegaPlatform"
-        }
-      ],
-      "RuleResolutionID": "Address",
-      "Modifier": "Concrete",
-      "Namespace": "ResourceCenter",
-      "Name": "Address",
-      "ActionToBePerformed": "ADDED"
-    },
-    {
-      "Type": "Class",
-      "Description": "Contact",
-      "Reusability": "Private",
-      "SchemaVersion": "0-1-0",
-      "Parents": [
-        {
-          "ReferenceID": "BusinessObject",
-          "Namespace": "PegaPlatform"
-        }
-      ],
-      "RuleResolutionID": "Contact",
-      "Modifier": "Concrete",
-      "Namespace": "ResourceCenter",
-      "Name": "Contact",
       "ActionToBePerformed": "ADDED"
     }
   ],
@@ -5831,6 +6246,24 @@
     },
     {
       "Type": "View",
+      "Description": "Update details",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "Account_Equifax",
+        "Namespace": "ResourceCenter"
+      },
+      "RuleResolutionID": "Edit",
+      "AutoGenerated": false,
+      "ViewType": "",
+      "Namespace": "PegaPlatform",
+      "Name": "Edit",
+      "Template": "DefaultForm",
+      "ViewMetadata": "{\"name\":\"Edit\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"Account_Equifax\",\"label\":\"Update case details\"},\"children\":[{\"name\":\"Fields\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"label\":\"@L Credit Card Number\",\"value\":\"@P .CreditCardNumber\"}}]}],\"ID\":\"5a7564ae-da3c-48c8-9493-830dee9fef20\"}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
       "Description": "View to collect details for Object creation.",
       "Reusability": "Private",
       "SchemaVersion": "0-0-2",
@@ -6019,7 +6452,7 @@
       "Namespace": "ResourceCenter",
       "Name": "Enter Request Data",
       "Template": "DefaultForm",
-      "ViewMetadata": "{\"name\":\"EnterRequestData\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"VerifyAccount\",\"ruleClassNamespace\":\"ResourceCenter\",\"label\":\"@L Enter Request Data\"},\"children\":[{\"name\":\"Fields\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .MerchantId\",\"label\":\"@L Merchant Id\"}},{\"type\":\"Dropdown\",\"config\":{\"value\":\"@P .ServiceType\",\"label\":\"@L Service Type\",\"placeholder\":\"@L Select...\",\"listType\":\"associated\",\"datasource\":\"@ASSOCIATED .ServiceType\",\"deferDatasource\":true}},{\"type\":\"reference\",\"config\":{\"name\":\"Edit\",\"inheritedProps\":[{\"prop\":\"label\",\"value\":\"@L Entity Name\"},{\"prop\":\"showLabel\",\"value\":true}],\"context\":\".EntityName\",\"ruleClass\":\"Name\",\"ruleNamespace\":\"PegaPlatform\",\"ruleClassNamespace\":\"ResourceCenter\",\"type\":\"view\",\"displayAs\":\"Form\"}},{\"type\":\"reference\",\"config\":{\"name\":\"EnterRequestData_Addresses\",\"inheritedProps\":[{\"prop\":\"label\",\"value\":\"@L Addresses\"}],\"authorContext\":\".Addresses\",\"ruleClass\":\"VerifyAccount\",\"ruleNamespace\":\"ResourceCenter\",\"ruleClassNamespace\":\"ResourceCenter\",\"type\":\"view\"}},{\"type\":\"reference\",\"config\":{\"name\":\"Create\",\"inheritedProps\":[{\"prop\":\"label\",\"value\":\"@L Identification\"},{\"prop\":\"showLabel\",\"value\":true}],\"context\":\".Identification\",\"ruleClass\":\"Identification\",\"ruleNamespace\":\"PegaPlatform\",\"ruleClassNamespace\":\"ResourceCenter\",\"type\":\"view\",\"displayAs\":\"Form\"}},{\"type\":\"reference\",\"config\":{\"name\":\"Create\",\"inheritedProps\":[{\"prop\":\"label\",\"value\":\"@L Contact\"},{\"prop\":\"showLabel\",\"value\":true}],\"context\":\".Contact\",\"ruleClass\":\"Contact\",\"ruleNamespace\":\"PegaPlatform\",\"ruleClassNamespace\":\"ResourceCenter\",\"type\":\"view\",\"displayAs\":\"Form\"}},{\"type\":\"reference\",\"config\":{\"name\":\"Create\",\"inheritedProps\":[{\"prop\":\"label\",\"value\":\"@L Accounts\"},{\"prop\":\"showLabel\",\"value\":true}],\"context\":\".Accounts\",\"ruleClass\":\"Account\",\"ruleNamespace\":\"PegaPlatform\",\"ruleClassNamespace\":\"ResourceCenter\",\"type\":\"view\",\"displayAs\":\"Form\"}},{\"type\":\"reference\",\"config\":{\"name\":\"EnterRequestData_AccountInfo\",\"inheritedProps\":[{\"prop\":\"label\",\"value\":\"@L Account Info\"}],\"authorContext\":\".AccountInfo\",\"ruleClass\":\"VerifyAccount\",\"ruleNamespace\":\"ResourceCenter\",\"ruleClassNamespace\":\"ResourceCenter\",\"type\":\"view\"}},{\"type\":\"reference\",\"config\":{\"name\":\"Create\",\"inheritedProps\":[{\"prop\":\"label\",\"value\":\"@L Consumer Consent\"},{\"prop\":\"showLabel\",\"value\":true}],\"context\":\".ConsumerConsent\",\"ruleClass\":\"ConsumerConsent\",\"ruleNamespace\":\"PegaPlatform\",\"ruleClassNamespace\":\"ResourceCenter\",\"type\":\"view\",\"displayAs\":\"Form\"}}]}],\"ID\":\"97280946-fdef-414f-a6c1-ef28876f7dcb\"}",
+      "ViewMetadata": "{\"name\":\"EnterRequestData\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"VerifyAccount\",\"ruleClassNamespace\":\"ResourceCenter\",\"label\":\"@L Enter Request Data\"},\"children\":[{\"name\":\"Fields\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .MerchantId\",\"label\":\"@L Merchant Id\"}},{\"type\":\"Dropdown\",\"config\":{\"value\":\"@P .ServiceType\",\"label\":\"@L Service Type\",\"placeholder\":\"@L Select...\",\"listType\":\"associated\",\"datasource\":\"@ASSOCIATED .ServiceType\",\"deferDatasource\":true}},{\"type\":\"reference\",\"config\":{\"name\":\"Edit\",\"inheritedProps\":[{\"prop\":\"label\",\"value\":\"@L Entity Name\"},{\"prop\":\"showLabel\",\"value\":true}],\"context\":\".EntityName\",\"ruleClass\":\"Name\",\"ruleNamespace\":\"PegaPlatform\",\"ruleClassNamespace\":\"ResourceCenter\",\"type\":\"view\",\"displayAs\":\"Form\"}},{\"type\":\"reference\",\"config\":{\"name\":\"EnterRequestData_Addresses\",\"inheritedProps\":[{\"prop\":\"label\",\"value\":\"@L Addresses\"}],\"authorContext\":\".Addresses\",\"ruleClass\":\"VerifyAccount\",\"ruleNamespace\":\"ResourceCenter\",\"ruleClassNamespace\":\"ResourceCenter\",\"type\":\"view\"}},{\"type\":\"reference\",\"config\":{\"name\":\"Create\",\"inheritedProps\":[{\"prop\":\"label\",\"value\":\"@L Identification\"},{\"prop\":\"showLabel\",\"value\":true}],\"context\":\".Identification\",\"ruleClass\":\"Identification\",\"ruleNamespace\":\"PegaPlatform\",\"ruleClassNamespace\":\"ResourceCenter\",\"type\":\"view\",\"displayAs\":\"Form\"}},{\"type\":\"reference\",\"config\":{\"name\":\"Edit\",\"inheritedProps\":[{\"prop\":\"label\",\"value\":\"@L Account\"},{\"prop\":\"showLabel\",\"value\":true}],\"context\":\".Account\",\"ruleClass\":\"Account_Equifax\",\"ruleNamespace\":\"PegaPlatform\",\"ruleClassNamespace\":\"ResourceCenter\",\"type\":\"view\",\"displayAs\":\"Form\"}},{\"type\":\"reference\",\"config\":{\"name\":\"Create\",\"inheritedProps\":[{\"prop\":\"label\",\"value\":\"@L Contact\"},{\"prop\":\"showLabel\",\"value\":true}],\"context\":\".Contact\",\"ruleClass\":\"Contact\",\"ruleNamespace\":\"PegaPlatform\",\"ruleClassNamespace\":\"ResourceCenter\",\"type\":\"view\",\"displayAs\":\"Form\"}},{\"type\":\"reference\",\"config\":{\"name\":\"EnterRequestData_AccountInfo\",\"inheritedProps\":[{\"prop\":\"label\",\"value\":\"@L Account Info\"}],\"authorContext\":\".AccountInfo\",\"ruleClass\":\"VerifyAccount\",\"ruleNamespace\":\"ResourceCenter\",\"ruleClassNamespace\":\"ResourceCenter\",\"type\":\"view\"}},{\"type\":\"reference\",\"config\":{\"name\":\"Create\",\"inheritedProps\":[{\"prop\":\"label\",\"value\":\"@L Consumer Consent\"},{\"prop\":\"showLabel\",\"value\":true}],\"context\":\".ConsumerConsent\",\"ruleClass\":\"ConsumerConsent\",\"ruleNamespace\":\"PegaPlatform\",\"ruleClassNamespace\":\"ResourceCenter\",\"type\":\"view\",\"displayAs\":\"Form\"}}]}],\"ID\":\"97280946-fdef-414f-a6c1-ef28876f7dcb\"}",
       "ActionToBePerformed": "ADDED"
     },
     {
@@ -6183,6 +6616,41 @@
     },
     {
       "Type": "View",
+      "Description": "Account_Equifax list",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "Data-Portal",
+        "Namespace": "PegaPlatform"
+      },
+      "RuleResolutionID": "Account_EquifaxList",
+      "ViewType": "landingpage",
+      "Namespace": "ResourceCenter",
+      "Template": "ListPage",
+      "Name": "Account_Equifax list",
+      "ViewMetadata": "{\"name\":\"Account_Equifax list\",\"type\":\"View\",\"config\":{\"type\":\"listpage\",\"template\":\"ListPage\",\"icon\":\"pi pi-headline\",\"title\":\"@L Account_Equifax list\",\"personalization\":true,\"grouping\":true,\"globalSearch\":true,\"reorderFields\":true,\"toggleFieldVisibility\":true,\"showUploadRecords\":true,\"referenceList\":\"Account_EquifaxList\",\"ruleClass\":\"Data-Portal\",\"ruleClassNamespace\":\"ResourceCenter\",\"presets\":[{\"name\":\"presets\",\"label\":\"Account_Equifax list\",\"template\":\"Table\",\"config\":{},\"children\":[{\"name\":\"Columns\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .BusinessID\",\"label\": \"@L ID\",\"displayAsLink\":true}},{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .Name\",\"label\": \"@L Name\",\"displayAsLink\":true}},{\"type\":\"TextInput\",\"config\":{\"value\": \"@P .Status\",\"label\": \"@L Status\",\"displayAsLink\":false}},{\"type\":\"TextArea\",\"config\":{\"value\":\"@P .Description\",\"label\":\"@L Description\"}}]}]}],\"actions\":[{\"action\":\"UPLOAD_RECORDS\",\"config\":{\"label\":\"@L Upload\",\"objectType\":\"Account_Equifax\"}}]}}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
+      "Description": "View to collect details for Object creation.",
+      "Reusability": "Private",
+      "SchemaVersion": "0-0-2",
+      "AppliesTo": {
+        "ReferenceID": "Account_Equifax",
+        "Namespace": "ResourceCenter"
+      },
+      "RuleResolutionID": "Create",
+      "AutoGenerated": true,
+      "ViewType": "embeddedform",
+      "Namespace": "PegaPlatform",
+      "Template": "DefaultForm",
+      "Name": "Create",
+      "ViewMetadata": "{\"name\":\"Create\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"BusinessObject\",\"ruleClassNamespace\":\"PegaPlatform\",\"label\":\"@L View to collect details for Object creation.\"},\"children\":[{\"type\":\"Region\",\"name\":\"Fields\",\"children\":[]}],\"ID\":\"86b7273f-c4d8-43e4-89b3-3931d4018a18\"}",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "View",
       "Description": "Consent For Services",
       "Reusability": "Private",
       "SchemaVersion": "0-0-2",
@@ -6196,24 +6664,6 @@
       "Template": "OneColumnPage",
       "Name": "Consent For Services",
       "ViewMetadata": "{\"name\":\"Consent For Services\",\"type\":\"View\",\"config\":{\"template\":\"OneColumnPage\",\"ruleClass\":\"Data-Portal\",\"ruleClassNamespace\":\"PegaPlatform\",\"label\":\"Consent For Services\",\"type\":\"landingpage\",\"referenceList\":\"ConsentForServicesList\",\"title\":\"@L Consent For Services\"},\"children\":[{\"name\":\"A\",\"type\":\"Region\",\"children\":[{\"type\":\"Insight\",\"config\":{\"id\":\"ConsentForServices\",\"label\":\"@L Consent For Services\",\"className\":{\"ReferenceID\":\"ConsentForServices\",\"Namespace\":\"ResourceCenter\"},\"layoutConfig\":{\"width\":\"full\"}}}]}]}",
-      "ActionToBePerformed": "ADDED"
-    },
-    {
-      "Type": "View",
-      "Description": "View to collect details for Object creation.",
-      "Reusability": "Private",
-      "SchemaVersion": "0-0-2",
-      "AppliesTo": {
-        "ReferenceID": "Account",
-        "Namespace": "ResourceCenter"
-      },
-      "RuleResolutionID": "Create",
-      "AutoGenerated": false,
-      "ViewType": "embeddedform",
-      "Namespace": "PegaPlatform",
-      "Name": "Create",
-      "Template": "DefaultForm",
-      "ViewMetadata": "{\"name\":\"Create\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"Account\",\"ruleClassNamespace\":\"PegaPlatform\",\"label\":\"@L View to collect details for Object creation.\"},\"children\":[{\"type\":\"Region\",\"name\":\"Fields\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .CreditCardNumber\",\"label\":\"@L Credit Card Number\",\"helperText\":\"@L Required for Credit Card Verification\"}}]}],\"ID\":\"f4315e3b-0541-4cbe-a603-4f210239ab0b\"}",
       "ActionToBePerformed": "ADDED"
     },
     {
@@ -6267,24 +6717,6 @@
       "Template": "DefaultForm",
       "Name": "Create",
       "ViewMetadata": "{\"name\":\"Create\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"BusinessObject\",\"ruleClassNamespace\":\"PegaPlatform\",\"label\":\"@L View to collect details for Object creation.\"},\"children\":[{\"type\":\"Region\",\"name\":\"Fields\",\"children\":[]}],\"ID\":\"86b7273f-c4d8-43e4-89b3-3931d4018a18\"}",
-      "ActionToBePerformed": "ADDED"
-    },
-    {
-      "Type": "View",
-      "Description": "Update details",
-      "Reusability": "Private",
-      "SchemaVersion": "0-0-2",
-      "AppliesTo": {
-        "ReferenceID": "Account",
-        "Namespace": "ResourceCenter"
-      },
-      "RuleResolutionID": "Edit",
-      "AutoGenerated": true,
-      "ViewType": "",
-      "Namespace": "PegaPlatform",
-      "Template": "DefaultForm",
-      "Name": "Edit",
-      "ViewMetadata": "{\"name\":\"Edit\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"ruleClass\":\"BusinessObject\",\"label\":\"Update case details\"},\"children\":[{\"name\":\"Fields\",\"type\":\"Region\",\"children\":[{\"type\":\"TextInput\",\"config\":{\"value\":\"@P .Name\",\"label\":\"@L Label\"}},{\"type\":\"TextArea\",\"config\":{\"value\":\"@P .Description\",\"label\":\"@L Description\"}}]}],\"ID\":\"4e78a729-1eb6-4e4e-94c2-6dc6e112fc86\"}",
       "ActionToBePerformed": "ADDED"
     }
   ],
@@ -6467,6 +6899,100 @@
           }
         }
       ],
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Heading": {
+        "Type": "FieldReference",
+        "Root": {
+          "Name": "Primary",
+          "Type": "Variable"
+        },
+        "Field": {
+          "ReferenceID": "Name",
+          "Type": "RuleReference",
+          "Namespace": "PegaPlatform"
+        }
+      },
+      "Description": "Account_Equifax Display",
+      "Reusability": "PublicMayOverride",
+      "UsePrimaryFields": true,
+      "SchemaVersion": "0-1-0",
+      "AppliesTo": {
+        "ReferenceID": "Account_Equifax",
+        "Namespace": "ResourceCenter"
+      },
+      "ShowLifecycle": false,
+      "Namespace": "ResourceCenter",
+      "Name": "Account_Equifax Display",
+      "Type": "FullObjectDisplay",
+      "Utilities": [
+        {
+          "EmbedListUUID__": "_00zbu1emq",
+          "Widget": {
+            "Namespace": "PegaPlatform",
+            "ReferenceID": "Attachments",
+            "Type": "RuleReference"
+          },
+          "Type": "WidgetItem",
+          "Config": "{\"label\":\"@L Attachments\",\"iconName\":\"paper-clip\"}"
+        },
+        {
+          "EmbedListUUID__": "_51ip15gre",
+          "Widget": {
+            "Namespace": "PegaPlatform",
+            "ReferenceID": "Followers",
+            "Type": "RuleReference"
+          },
+          "Type": "WidgetItem",
+          "Config": "{\"label\":\"@L Followers\",\"iconName\":\"user-star\"}"
+        }
+      ],
+      "Subheading": {
+        "Type": "FieldReference",
+        "Root": {
+          "Name": "Primary",
+          "Type": "Variable"
+        },
+        "Field": {
+          "ReferenceID": "BusinessID",
+          "Type": "RuleReference",
+          "Namespace": "PegaPlatform"
+        }
+      },
+      "RuleResolutionID": "Account_EquifaxDisplay",
+      "Tabs": [
+        {
+          "EmbedListUUID__": "_cadlaiisu",
+          "Heading": "Details",
+          "View": {
+            "ReferenceID": "pyDetailsTabContent",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        },
+        {
+          "EmbedListUUID__": "_cyidkzfhw",
+          "Heading": "Pulse",
+          "View": {
+            "ReferenceID": "pyCasePulse",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        },
+        {
+          "EmbedListUUID__": "_n24mr5ssw",
+          "Heading": "History",
+          "View": {
+            "ReferenceID": "History",
+            "Namespace": "PegaPlatform"
+          },
+          "ShowCount": false
+        }
+      ],
+      "Icon": "disc-stack-solid",
+      "FieldsToHighlight": 0,
+      "SummaryFields": [],
       "ActionToBePerformed": "ADDED"
     },
     {
@@ -7220,100 +7746,6 @@
       "FieldsToHighlight": 0,
       "SummaryFields": [],
       "ActionToBePerformed": "ADDED"
-    },
-    {
-      "Heading": {
-        "Type": "FieldReference",
-        "Root": {
-          "Name": "Primary",
-          "Type": "Variable"
-        },
-        "Field": {
-          "ReferenceID": "Name",
-          "Type": "RuleReference",
-          "Namespace": "PegaPlatform"
-        }
-      },
-      "Description": "Account Display",
-      "Reusability": "PublicMayOverride",
-      "UsePrimaryFields": true,
-      "SchemaVersion": "0-1-0",
-      "AppliesTo": {
-        "ReferenceID": "Account",
-        "Namespace": "ResourceCenter"
-      },
-      "ShowLifecycle": false,
-      "Namespace": "ResourceCenter",
-      "Name": "Account Display",
-      "Type": "FullObjectDisplay",
-      "Utilities": [
-        {
-          "EmbedListUUID__": "_7h29mau0z",
-          "Widget": {
-            "Namespace": "PegaPlatform",
-            "ReferenceID": "Attachments",
-            "Type": "RuleReference"
-          },
-          "Type": "WidgetItem",
-          "Config": "{\"label\":\"@L Attachments\",\"iconName\":\"paper-clip\"}"
-        },
-        {
-          "EmbedListUUID__": "_756k0r24w",
-          "Widget": {
-            "Namespace": "PegaPlatform",
-            "ReferenceID": "Followers",
-            "Type": "RuleReference"
-          },
-          "Type": "WidgetItem",
-          "Config": "{\"label\":\"@L Followers\",\"iconName\":\"user-star\"}"
-        }
-      ],
-      "Subheading": {
-        "Type": "FieldReference",
-        "Root": {
-          "Name": "Primary",
-          "Type": "Variable"
-        },
-        "Field": {
-          "ReferenceID": "BusinessID",
-          "Type": "RuleReference",
-          "Namespace": "PegaPlatform"
-        }
-      },
-      "RuleResolutionID": "AccountDisplay",
-      "Tabs": [
-        {
-          "EmbedListUUID__": "_j7uhaslvs",
-          "Heading": "Details",
-          "View": {
-            "ReferenceID": "pyDetailsTabContent",
-            "Namespace": "PegaPlatform"
-          },
-          "ShowCount": false
-        },
-        {
-          "EmbedListUUID__": "_v74889dec",
-          "Heading": "Pulse",
-          "View": {
-            "ReferenceID": "pyCasePulse",
-            "Namespace": "PegaPlatform"
-          },
-          "ShowCount": false
-        },
-        {
-          "EmbedListUUID__": "_gcdfgtzwg",
-          "Heading": "History",
-          "View": {
-            "ReferenceID": "History",
-            "Namespace": "PegaPlatform"
-          },
-          "ShowCount": false
-        }
-      ],
-      "Icon": "disc-stack-solid",
-      "FieldsToHighlight": 0,
-      "SummaryFields": [],
-      "ActionToBePerformed": "ADDED"
     }
   ],
   "Insight": [
@@ -7411,18 +7843,6 @@
       "InsightMetadata": "{\"type\":\"raw\",\"classID\":\"{\\\"ReferenceID\\\":\\\"ConsumerConsent\\\",\\\"Namespace\\\":\\\"ResourceCenter\\\"}\",\"defaultListDataView\":\"ConsumerConsentList\",\"classType\":\"Abstract\",\"objectType\":\"\",\"query\":{\"columns\":[],\"sort\":[],\"filters\":[],\"groups\":[],\"aggregations\":[],\"calculations\":[]},\"settings\":{\"persistedInfo\":{\"template\":\"Table\",\"presetId\":\"insightTableDefaultPresetID\",\"selectedHeightOption\":\"1\"},\"promotedFilters\":[],\"promotedFiltersConfig\":{\"cascade\":true},\"personalization\":{\"enabled\":false},\"actions\":{\"create\":{\"enabled\":false},\"edit\":{\"enabled\":false},\"bulkActions\":{\"enabled\":false},\"reorder\":{\"enabled\":false},\"delete\":{\"enabled\":false},\"import\":{\"enabled\":false}},\"aliases\":{\"columns\":{}},\"renderers\":{\"columns\":{}},\"conditionalStyleFormats\":[],\"conditionalStyleFormatsConfig\":{\"hideIcons\":false}},\"details\":{\"showTitle\":false,\"title\":\"\",\"titleAlignment\":\"LEFT\"},\"className\":\"{\\\"ReferenceID\\\":\\\"ConsumerConsent\\\",\\\"Namespace\\\":\\\"ResourceCenter\\\"}\",\"isDefaultWorkList\":true}",
       "Namespace": "ResourceCenter",
       "Name": "Consumer Consent",
-      "ActionToBePerformed": "ADDED"
-    },
-    {
-      "Type": "Insight",
-      "Description": "",
-      "Reusability": "Private",
-      "DisplayType": "RAW_TABLE",
-      "SchemaVersion": "0-0-1",
-      "RuleResolutionID": "Account",
-      "InsightMetadata": "{\"type\":\"raw\",\"classID\":\"{\\\"ReferenceID\\\":\\\"Account\\\",\\\"Namespace\\\":\\\"ResourceCenter\\\"}\",\"defaultListDataView\":\"AccountList\",\"classType\":\"Abstract\",\"objectType\":\"\",\"query\":{\"columns\":[],\"sort\":[],\"filters\":[],\"groups\":[],\"aggregations\":[],\"calculations\":[]},\"settings\":{\"persistedInfo\":{\"template\":\"Table\",\"presetId\":\"insightTableDefaultPresetID\",\"selectedHeightOption\":\"1\"},\"promotedFilters\":[],\"promotedFiltersConfig\":{\"cascade\":true},\"personalization\":{\"enabled\":false},\"actions\":{\"create\":{\"enabled\":false},\"edit\":{\"enabled\":false},\"bulkActions\":{\"enabled\":false},\"reorder\":{\"enabled\":false},\"delete\":{\"enabled\":false},\"import\":{\"enabled\":false}},\"aliases\":{\"columns\":{}},\"renderers\":{\"columns\":{}},\"conditionalStyleFormats\":[],\"conditionalStyleFormatsConfig\":{\"hideIcons\":false}},\"details\":{\"showTitle\":false,\"title\":\"\",\"titleAlignment\":\"LEFT\"},\"className\":\"{\\\"ReferenceID\\\":\\\"Account\\\",\\\"Namespace\\\":\\\"ResourceCenter\\\"}\",\"isDefaultWorkList\":true}",
-      "Namespace": "ResourceCenter",
-      "Name": "Account",
       "ActionToBePerformed": "ADDED"
     },
     {
@@ -7542,6 +7962,49 @@
       "Operation": "READ",
       "Namespace": "ResourceCenter",
       "Name": "Identification list",
+      "ActionToBePerformed": "ADDED"
+    },
+    {
+      "Type": "DataConnection",
+      "Description": "Account_Equifax list",
+      "Reusability": "Private",
+      "Query": {
+        "CallReference": {
+          "ReferenceID": "Account_EquifaxList",
+          "Namespace": "ResourceCenter",
+          "ReferenceScope": {
+            "ReferenceID": "Account_Equifax",
+            "Namespace": "ResourceCenter"
+          }
+        },
+        "CallType": "Query",
+        "CallInputs": []
+      },
+      "ConnectionType": "QUERY",
+      "SchemaVersion": "1-0-1",
+      "AppliesTo": {
+        "ReferenceID": "Account_Equifax",
+        "Namespace": "ResourceCenter"
+      },
+      "Output": {
+        "ObjectType": {
+          "Type": "TypeReference",
+          "TypeReferenceID": "List",
+          "Namespace": "PegaPlatform",
+          "TypeArguments": [
+            {
+              "TypeReferenceID": "Account_Equifax",
+              "Namespace": "ResourceCenter",
+              "Type": "TypeReference"
+            }
+          ]
+        },
+        "Mode": "SingleRecord"
+      },
+      "RuleResolutionID": "Account_EquifaxList",
+      "Operation": "READ",
+      "Namespace": "ResourceCenter",
+      "Name": "Account_Equifax list",
       "ActionToBePerformed": "ADDED"
     },
     {
@@ -8109,49 +8572,6 @@
     },
     {
       "Type": "DataConnection",
-      "Description": "Account list",
-      "Reusability": "Private",
-      "Query": {
-        "CallReference": {
-          "ReferenceID": "AccountList",
-          "Namespace": "ResourceCenter",
-          "ReferenceScope": {
-            "ReferenceID": "Account",
-            "Namespace": "ResourceCenter"
-          }
-        },
-        "CallType": "Query",
-        "CallInputs": []
-      },
-      "ConnectionType": "QUERY",
-      "SchemaVersion": "1-0-1",
-      "AppliesTo": {
-        "ReferenceID": "Account",
-        "Namespace": "ResourceCenter"
-      },
-      "Output": {
-        "ObjectType": {
-          "Type": "TypeReference",
-          "TypeReferenceID": "List",
-          "Namespace": "PegaPlatform",
-          "TypeArguments": [
-            {
-              "TypeReferenceID": "Account",
-              "Namespace": "ResourceCenter",
-              "Type": "TypeReference"
-            }
-          ]
-        },
-        "Mode": "SingleRecord"
-      },
-      "RuleResolutionID": "AccountList",
-      "Operation": "READ",
-      "Namespace": "ResourceCenter",
-      "Name": "Account list",
-      "ActionToBePerformed": "ADDED"
-    },
-    {
-      "Type": "DataConnection",
       "Description": "Name list",
       "Reusability": "Private",
       "Query": {
@@ -8385,15 +8805,15 @@
       "ActionToBePerformed": "ADDED"
     },
     {
-      "Description": "Account lookup",
+      "Description": "Account_Equifax lookup",
       "Reusability": "Private",
       "Query": {
         "CallReference": {
           "ReferenceScope": {
-            "ReferenceID": "Account",
+            "ReferenceID": "Account_Equifax",
             "Namespace": "ResourceCenter"
           },
-          "ReferenceID": "AccountLookup",
+          "ReferenceID": "Account_EquifaxLookup",
           "Namespace": "ResourceCenter"
         },
         "CallType": "Query",
@@ -8410,22 +8830,22 @@
       "ConnectionType": "QUERY",
       "SchemaVersion": "1-0-1",
       "AppliesTo": {
-        "ReferenceID": "Account",
+        "ReferenceID": "Account_Equifax",
         "Namespace": "ResourceCenter"
       },
       "Operation": "READ",
       "Namespace": "ResourceCenter",
-      "Name": "Account lookup",
+      "Name": "Account_Equifax lookup",
       "Type": "DataConnection",
       "Output": {
         "ObjectType": {
-          "TypeReferenceID": "Account",
+          "TypeReferenceID": "Account_Equifax",
           "Namespace": "ResourceCenter",
           "Type": "TypeReference"
         },
         "Mode": "SingleRecord"
       },
-      "RuleResolutionID": "AccountLookup",
+      "RuleResolutionID": "Account_EquifaxLookup",
       "Inputs": [
         {
           "ObjectType": {
@@ -9200,6 +9620,16 @@
               "Namespace": "ResourceCenter"
             }
           }
+        },
+        {
+          "CaseType": {
+            "ReferenceID": "Account_Equifax",
+            "Namespace": "ResourceCenter",
+            "ReferenceScope": {
+              "ReferenceID": "Account_Equifax",
+              "Namespace": "ResourceCenter"
+            }
+          }
         }
       ],
       "NavigationPages": [
@@ -9311,6 +9741,16 @@
               "Namespace": "PegaPlatform"
             }
           }
+        },
+        {
+          "Page": {
+            "ReferenceID": "Account_EquifaxList",
+            "Namespace": "ResourceCenter",
+            "ReferenceScope": {
+              "ReferenceID": "Data-Portal",
+              "Namespace": "PegaPlatform"
+            }
+          }
         }
       ],
       "Namespace": "ResourceCenter",
@@ -9397,7 +9837,7 @@
         "Description": "",
         "Mode": "SingleRecord"
       },
-      "MappingsDefinition": "{\"AtlasMapping\":{\"jsonType\":\"io.atlasmap.v2.AtlasMapping\",\"dataSource\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"input\",\"name\":\"VerifyAccount\",\"description\":\"input\",\"uri\":\"atlas:json:input\",\"dataSourceType\":\"SOURCE\"},{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"output\",\"name\":\"Account Verification Request\",\"description\":\"output\",\"uri\":\"atlas:json:output\",\"dataSourceType\":\"TARGET\"}],\"mappings\":{\"mapping\":[{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.833305\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"MerchantId\",\"path\":\"/ResourceCenter;;MerchantId\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"merchantId\",\"path\":\"/merchantId\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.368272\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"ServiceType\",\"path\":\"/ResourceCenter;;ServiceType\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"serviceType\",\"path\":\"/serviceType\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.749934\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"FirstName\",\"path\":\"/ResourceCenter;;EntityName/ResourceCenter;;FirstName\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"firstName \",\"path\":\"/identity/name/firstName \",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.822042\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"LastName\",\"path\":\"/ResourceCenter;;EntityName/ResourceCenter;;LastName\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"lastName\",\"path\":\"/identity/name/lastName\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.749669\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"DateOfBirth\",\"path\":\"/ResourceCenter;;Identification/ResourceCenter;;DateOfBirth\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"dob\",\"path\":\"/identity/identification/dob\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.26428\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"SSN\",\"path\":\"/ResourceCenter;;Identification/ResourceCenter;;SSN\",\"fieldType\":\"NUMBER\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"ssn\",\"path\":\"/identity/identification/ssn\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.316930\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"CreditCardNumber\",\"path\":\"/ResourceCenter;;Accounts/ResourceCenter;;CreditCardNumber\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"creditCardNumber\",\"path\":\"/identity/accounts/creditCardNumber\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.165004\",\"inputFieldGroup\":{\"jsonType\":\"io.atlasmap.v2.FieldGroup\",\"actions\":[],\"field\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"AddressType\",\"path\":\"/ResourceCenter;;Addresses<>/ResourceCenter;;AddressType\",\"fieldType\":\"STRING\",\"docId\":\"input\"}]},\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"type\",\"path\":\"/identity/addresses<>/type\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.600285\",\"inputFieldGroup\":{\"jsonType\":\"io.atlasmap.v2.FieldGroup\",\"actions\":[],\"field\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"City\",\"path\":\"/ResourceCenter;;Addresses<>/ResourceCenter;;City\",\"fieldType\":\"STRING\",\"docId\":\"input\"}]},\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"city\",\"path\":\"/identity/addresses<>/city\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.350965\",\"inputFieldGroup\":{\"jsonType\":\"io.atlasmap.v2.FieldGroup\",\"actions\":[],\"field\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"State\",\"path\":\"/ResourceCenter;;Addresses<>/ResourceCenter;;State\",\"fieldType\":\"STRING\",\"docId\":\"input\"}]},\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"state\",\"path\":\"/identity/addresses<>/state\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.818010\",\"inputFieldGroup\":{\"jsonType\":\"io.atlasmap.v2.FieldGroup\",\"actions\":[],\"field\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"StreetAddress\",\"path\":\"/ResourceCenter;;Addresses<>/ResourceCenter;;StreetAddress\",\"fieldType\":\"STRING\",\"docId\":\"input\"}]},\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"streetAddress\",\"path\":\"/identity/addresses<>/streetAddress\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.495386\",\"inputFieldGroup\":{\"jsonType\":\"io.atlasmap.v2.FieldGroup\",\"actions\":[],\"field\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"ZipCode\",\"path\":\"/ResourceCenter;;Addresses<>/ResourceCenter;;ZipCode\",\"fieldType\":\"STRING\",\"docId\":\"input\"}]},\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"zipCode\",\"path\":\"/identity/addresses<>/zipCode\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.674369\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"Email\",\"path\":\"/ResourceCenter;;Contact/ResourceCenter;;Email\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"emailAddress\",\"path\":\"/identity/contact/emailAddress\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.999536\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"HomePhone\",\"path\":\"/ResourceCenter;;Contact/ResourceCenter;;HomePhone\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"homePhone\",\"path\":\"/identity/contact/homePhone\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.839626\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"ConsentEvent\",\"path\":\"/ResourceCenter;;ConsumerConsent/ResourceCenter;;ConsentEvent\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"consentEvent\",\"path\":\"/consumerConsent/consentEvent\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.839533\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"ConsentEventDate\",\"path\":\"/ResourceCenter;;ConsumerConsent/ResourceCenter;;ConsentEventDate\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"consentEventDate\",\"path\":\"/consumerConsent/consentEventDate\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.699152\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"ConsentType\",\"path\":\"/ResourceCenter;;ConsumerConsent/ResourceCenter;;ConsentType\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"consentType\",\"path\":\"/consumerConsent/consentType\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.295938\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"consentMethod\",\"path\":\"/ResourceCenter;;ConsumerConsent/ResourceCenter;;consentMethod\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"consentMethod\",\"path\":\"/consumerConsent/consentMethod\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]}]},\"name\":\"UI.0\",\"version\":\"1.0.0\",\"lookupTables\":{\"lookupTable\":[]},\"constants\":{\"constant\":[]},\"properties\":{\"property\":[]}}}",
+      "MappingsDefinition": "{\"AtlasMapping\":{\"jsonType\":\"io.atlasmap.v2.AtlasMapping\",\"dataSource\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"input\",\"name\":\"VerifyAccount\",\"description\":\"input\",\"uri\":\"atlas:json:input\",\"dataSourceType\":\"SOURCE\"},{\"jsonType\":\"io.atlasmap.json.v2.JsonDataSource\",\"id\":\"output\",\"name\":\"Account Verification Request\",\"description\":\"output\",\"uri\":\"atlas:json:output\",\"dataSourceType\":\"TARGET\"}],\"mappings\":{\"mapping\":[{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.833305\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"MerchantId\",\"path\":\"/ResourceCenter;;MerchantId\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"merchantId\",\"path\":\"/merchantId\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.368272\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"ServiceType\",\"path\":\"/ResourceCenter;;ServiceType\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"serviceType\",\"path\":\"/serviceType\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.749934\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"FirstName\",\"path\":\"/ResourceCenter;;EntityName/ResourceCenter;;FirstName\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"firstName \",\"path\":\"/identity/name/firstName \",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.822042\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"LastName\",\"path\":\"/ResourceCenter;;EntityName/ResourceCenter;;LastName\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"lastName\",\"path\":\"/identity/name/lastName\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.749669\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"DateOfBirth\",\"path\":\"/ResourceCenter;;Identification/ResourceCenter;;DateOfBirth\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"dob\",\"path\":\"/identity/identification/dob\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.26428\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"SSN\",\"path\":\"/ResourceCenter;;Identification/ResourceCenter;;SSN\",\"fieldType\":\"NUMBER\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"ssn\",\"path\":\"/identity/identification/ssn\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.165004\",\"inputFieldGroup\":{\"jsonType\":\"io.atlasmap.v2.FieldGroup\",\"actions\":[],\"field\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"AddressType\",\"path\":\"/ResourceCenter;;Addresses<>/ResourceCenter;;AddressType\",\"fieldType\":\"STRING\",\"docId\":\"input\"}]},\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"type\",\"path\":\"/identity/addresses<>/type\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.600285\",\"inputFieldGroup\":{\"jsonType\":\"io.atlasmap.v2.FieldGroup\",\"actions\":[],\"field\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"City\",\"path\":\"/ResourceCenter;;Addresses<>/ResourceCenter;;City\",\"fieldType\":\"STRING\",\"docId\":\"input\"}]},\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"city\",\"path\":\"/identity/addresses<>/city\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.350965\",\"inputFieldGroup\":{\"jsonType\":\"io.atlasmap.v2.FieldGroup\",\"actions\":[],\"field\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"State\",\"path\":\"/ResourceCenter;;Addresses<>/ResourceCenter;;State\",\"fieldType\":\"STRING\",\"docId\":\"input\"}]},\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"state\",\"path\":\"/identity/addresses<>/state\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.818010\",\"inputFieldGroup\":{\"jsonType\":\"io.atlasmap.v2.FieldGroup\",\"actions\":[],\"field\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"StreetAddress\",\"path\":\"/ResourceCenter;;Addresses<>/ResourceCenter;;StreetAddress\",\"fieldType\":\"STRING\",\"docId\":\"input\"}]},\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"streetAddress\",\"path\":\"/identity/addresses<>/streetAddress\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.495386\",\"inputFieldGroup\":{\"jsonType\":\"io.atlasmap.v2.FieldGroup\",\"actions\":[],\"field\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"ZipCode\",\"path\":\"/ResourceCenter;;Addresses<>/ResourceCenter;;ZipCode\",\"fieldType\":\"STRING\",\"docId\":\"input\"}]},\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"zipCode\",\"path\":\"/identity/addresses<>/zipCode\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.674369\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"Email\",\"path\":\"/ResourceCenter;;Contact/ResourceCenter;;Email\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"emailAddress\",\"path\":\"/identity/contact/emailAddress\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.999536\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"HomePhone\",\"path\":\"/ResourceCenter;;Contact/ResourceCenter;;HomePhone\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"homePhone\",\"path\":\"/identity/contact/homePhone\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.839626\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"ConsentEvent\",\"path\":\"/ResourceCenter;;ConsumerConsent/ResourceCenter;;ConsentEvent\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"consentEvent\",\"path\":\"/consumerConsent/consentEvent\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.839533\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"ConsentEventDate\",\"path\":\"/ResourceCenter;;ConsumerConsent/ResourceCenter;;ConsentEventDate\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"consentEventDate\",\"path\":\"/consumerConsent/consentEventDate\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.699152\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"ConsentType\",\"path\":\"/ResourceCenter;;ConsumerConsent/ResourceCenter;;ConsentType\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"consentType\",\"path\":\"/consumerConsent/consentType\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.295938\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"consentMethod\",\"path\":\"/ResourceCenter;;ConsumerConsent/ResourceCenter;;consentMethod\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"consentMethod\",\"path\":\"/consumerConsent/consentMethod\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]},{\"jsonType\":\"io.atlasmap.v2.Mapping\",\"id\":\"mapping.525640\",\"inputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"CreditCardNumber\",\"path\":\"/ResourceCenter;;Account/ResourceCenter;;CreditCardNumber\",\"fieldType\":\"STRING\",\"docId\":\"input\"}],\"outputField\":[{\"jsonType\":\"io.atlasmap.json.v2.JsonField\",\"name\":\"creditCardNumber\",\"path\":\"/identity/accounts/creditCardNumber\",\"fieldType\":\"STRING\",\"docId\":\"output\"}]}]},\"name\":\"UI.0\",\"version\":\"1.0.0\",\"lookupTables\":{\"lookupTable\":[]},\"constants\":{\"constant\":[]},\"properties\":{\"property\":[]}}}",
       "TopElementStructure": "",
       "Inputs": [
         {
@@ -9414,159 +9854,6 @@
         }
       ],
       "MappingModel": "",
-      "ActionToBePerformed": "ADDED"
-    }
-  ],
-  "Automation": [
-    {
-      "Type": "Automation",
-      "Description": "",
-      "Reusability": "Private",
-      "SchemaVersion": "0-2-0",
-      "IsSystemAutomation": false,
-      "Output": {
-        "Description": "",
-        "Mode": ""
-      },
-      "AppliesTo": {
-        "ReferenceID": "VerifyAccount",
-        "Namespace": "ResourceCenter"
-      },
-      "RuleResolutionID": "SetDescription",
-      "CallType": "ResourceObject",
-      "RuleSteps": [
-        {
-          "Id": "_ekgofkiy5",
-          "Type": "ActionSet",
-          "Sets": [
-            {
-              "Id": "_2ste37tiy",
-              "Target": {
-                "Type": "FieldReference",
-                "Root": {
-                  "Name": "Primary",
-                  "Type": "Variable"
-                },
-                "Field": {
-                  "ReferenceID": "ResourceDescription",
-                  "Namespace": "ResourceCenter",
-                  "Type": "RuleReference"
-                }
-              },
-              "Source": {
-                "Type": "ConstantText",
-                "Value": "Equifax provides Verification APIs that help businesses confirm an individual’s identity and validate their financial accounts in real time. These APIs use Equifax’s extensive data sources to authenticate personal information (e.g., SSN, name, DOB, address) and verify bank account ownership, status, and balance. They're widely used for KYC (Know Your Customer), fraud prevention, and onboarding workflows in financial services and fintech.  This Case type demostrates the Account Verification API of Equifax. The Account Verification API is used for customers to verify details about payments using creditcards and bank accounts (individual consumer and commercial bank accounts). The customer can pass the PII data attribute list and credit card or bank account information for verification. The response will be a Boolean Y or N response to each category of Identity data passed in Request."
-              }
-            }
-          ]
-        }
-      ],
-      "Namespace": "ResourceCenter",
-      "Name": "SetDescription",
-      "ActionToBePerformed": "ADDED"
-    },
-    {
-      "Description": "",
-      "Reusability": "Private",
-      "SchemaVersion": "0-2-0",
-      "IsSystemAutomation": false,
-      "AppliesTo": {
-        "ReferenceID": "VerifyAccount",
-        "Namespace": "ResourceCenter"
-      },
-      "CallType": "ResourceObject",
-      "Namespace": "ResourceCenter",
-      "Name": "EquifaxAccountVerificationConnect",
-      "Locals": [
-        {
-          "Mode": "SingleRecord",
-          "Name": "thisCase",
-          "Description": "thisCase",
-          "ObjectType": {
-            "TypeReferenceID": "VerifyAccount",
-            "Namespace": "ResourceCenter",
-            "Type": "TypeReference"
-          }
-        }
-      ],
-      "Type": "Automation",
-      "Output": {
-        "Description": "",
-        "Mode": ""
-      },
-      "RuleResolutionID": "EquifaxAccountVerificationConnect",
-      "RuleSteps": [
-        {
-          "Id": "_iv4q9tb5k",
-          "Type": "ActionSet",
-          "Sets": [
-            {
-              "Id": "_bl575fvnv",
-              "Target": {
-                "Type": "Variable",
-                "Name": "thisCase"
-              },
-              "Source": {
-                "Type": "Variable",
-                "Name": "Primary"
-              }
-            }
-          ]
-        },
-        {
-          "Id": "_29ai1h5d1",
-          "Type": "ActionSet",
-          "Sets": [
-            {
-              "Id": "_ncfx90xr4",
-              "Target": {
-                "Type": "FieldReference",
-                "Root": {
-                  "Name": "Primary",
-                  "Type": "Variable"
-                },
-                "Field": {
-                  "ReferenceID": "AccountVerificationResponse",
-                  "Namespace": "ResourceCenter",
-                  "Type": "RuleReference"
-                }
-              },
-              "Source": {
-                "Type": "FieldReference",
-                "Root": {
-                  "Type": "CallExpression",
-                  "CallType": "DataConnection",
-                  "CallReference": {
-                    "Type": "RuleReference",
-                    "ReferenceID": "EquifaxAccountVerification",
-                    "Namespace": "ResourceCenter",
-                    "ReferenceScope": {
-                      "Type": "RuleReference",
-                      "ReferenceID": "VerifyAccount",
-                      "Namespace": "ResourceCenter"
-                    }
-                  },
-                  "CallInputs": [
-                    {
-                      "Type": "CallInput",
-                      "ParameterName": "thisObject",
-                      "Source": {
-                        "Type": "Variable",
-                        "Name": "thisCase"
-                      }
-                    }
-                  ]
-                },
-                "Field": {
-                  "Type": "RuleReference",
-                  "ReferenceID": "AccountVerificationResponse",
-                  "Namespace": "ResourceCenter"
-                }
-              }
-            }
-          ]
-        }
-      ],
       "ActionToBePerformed": "ADDED"
     }
   ]
