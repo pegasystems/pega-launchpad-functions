@@ -11,6 +11,8 @@ This java code can be imported into a Function rule in your application for simp
     * [Method: listBuckets()](#method-listbuckets)
     * [Method: putObject()](#method-putobject)
     * [Method: getObject()](#method-getobject)
+    * [Method: presignPutObject()](#method-presignputobject)
+    * [Method: presignGetObject()](#method-presigngetobject)
   * [Class: ComprehendHelper](#class-comprehendhelper)
     * [Method: detectKeyPhrases()](#method-detectkeyphrases)
   * [Class: TranslateHelper](#class-translatehelper)
@@ -114,6 +116,38 @@ Output:
 
 - String: The base64 encoded object content
 
+### Method: presignGetObject()
+
+This method will get an AWS presigned URL that you can use to directly get an object from a specific bucket.
+
+**Function handler: com.pega.launchpad.aws.S3Helper::presignGetObject**
+
+Inputs:
+
+1. bucketName (String): Name of the bucket
+2. objectKey (String): Key for the object in s3
+3. durationInMinutes (String): optional, sets the signature duration. Default is 5 minutes.
+   
+Output:
+
+- String: The URL to use to get the specific object
+
+### Method: presignPutObject()
+
+This method will get an AWS presigned URL that you can use to directly put an object into a specific bucket.
+
+**Function handler: com.pega.launchpad.aws.S3Helper::presignPutObject**
+
+Inputs:
+
+1. bucketName (String): Name of the bucket
+2. objectKey (String): Key for the object in s3
+3. durationInMinutes (String): optional, sets the signature duration. Default is 5 minutes.
+
+Output:
+
+- String: The URL to use to upload the specific object using standard HTTP file upload mechanisms
+  
 ## Class: ComprehendHelper
 
 This example shows how to integrate with Amazon's [Comprehend](https://aws.amazon.com/comprehend/) service
