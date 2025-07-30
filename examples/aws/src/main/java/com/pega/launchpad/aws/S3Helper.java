@@ -132,8 +132,9 @@ public class S3Helper {
                     .key(input.get("objectKey"))
                     .build();
 
+            long duration = Long.parseLong(input.getOrDefault("durationInMinutes", "5"));
             GetObjectPresignRequest presignRequest = GetObjectPresignRequest.builder()
-                    .signatureDuration(Duration.ofMinutes(1))  // The URL will expire in 1 minute.
+                    .signatureDuration(Duration.ofMinutes(duration))  // The URL will expire in 1 minute.
                     .getObjectRequest(objectRequest)
                     .build();
 
@@ -145,7 +146,7 @@ public class S3Helper {
     /**
      * Get a presigned URL to put an object into a bucket
      *
-     * @param input Must contain accessKeyId, secretAccessKey, bucketName, objectKey
+     * @param input Must contain accessKeyId, secretAccessKey, bucketName, objectKey. Can contain durationInMinutes as well
      * @return String URL to use to put content into the specified bucket and object key
      */
     public static String presignPutObject(Map<String, String> input) {
@@ -154,6 +155,7 @@ public class S3Helper {
 
         try (S3Presigner presigner = S3Presigner.builder()
                 .region(Region.of(input.getOrDefault("region", Region.US_EAST_1.id())))
+
                 .build()) {
 
             PutObjectRequest objectRequest = PutObjectRequest.builder()
@@ -161,15 +163,14 @@ public class S3Helper {
                     .key(input.get("objectKey"))
                     .build();
 
+            long duration = Long.parseLong(input.getOrDefault("durationInMinutes", "5"));
+
             PutObjectPresignRequest presignRequest = PutObjectPresignRequest.builder()
-                    .signatureDuration(Duration.ofMinutes(1))  // The URL expires in 1 minute
+                    .signatureDuration(Duration.ofMinutes(duration))  // The URL expires in 1 minute
                     .putObjectRequest(objectRequest)
                     .build();
 
-            PresignedPutObjectRequest presignedRequest = presigner.presignPutObject(presignRequest);
-            String myURL = presignedRequest.url().toString();
-
-            return presignedRequest.url().toExternalForm();
+            return presigner.presignPutObject(presignRequest).url().toExternalForm();
         }
     }
 
