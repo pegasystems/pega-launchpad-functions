@@ -127,7 +127,7 @@ Inputs:
 1. bucketName (String): Name of the bucket
 2. objectKey (String): Key for the object in s3
 3. durationInMinutes (String): optional, sets the signature duration. Default is 5 minutes.
-   
+
 Output:
 
 - String: The URL to use to get the specific object
@@ -147,7 +147,7 @@ Inputs:
 Output:
 
 - String: The URL to use to upload the specific object using standard HTTP file upload mechanisms
-  
+
 ## Class: ComprehendHelper
 
 This example shows how to integrate with Amazon's [Comprehend](https://aws.amazon.com/comprehend/) service
@@ -218,7 +218,9 @@ This class shows how to integrate with AWS Key Management Service (KMS). AWS Key
 
 ### Method: encrypt()
 
-This method will encrypt text using the specified KMS key and return base64 encoded encrypted value. 
+This method will encrypt text using the specified KMS key and return base64 encoded encrypted value.
+
+**Function handler: com.pega.launchpad.aws.KMSHelper::encrypt**
 
 **Function handler: com.pega.launchpad.aws.KMSHelper::encrypt**
 
