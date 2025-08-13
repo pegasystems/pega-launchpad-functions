@@ -1,5 +1,9 @@
 package com.pega.launchpad.aws;
 
+import com.google.gson.ExclusionStrategy;
+import com.google.gson.FieldAttributes;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import software.amazon.awssdk.core.ResponseBytes;
 import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.regions.Region;
@@ -11,7 +15,6 @@ import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 import software.amazon.awssdk.services.s3.presigner.S3Presigner;
 import software.amazon.awssdk.services.s3.presigner.model.GetObjectPresignRequest;
 import software.amazon.awssdk.services.s3.presigner.model.PresignedGetObjectRequest;
-import software.amazon.awssdk.services.s3.presigner.model.PresignedPutObjectRequest;
 import software.amazon.awssdk.services.s3.presigner.model.PutObjectPresignRequest;
 
 import java.time.Duration;
@@ -35,7 +38,8 @@ public class S3Helper {
                 .region(Region.of(input.getOrDefault("region", Region.US_EAST_1.id())))
                 .build()) {
 
-            return s3.listBuckets();
+            return new Gson().fromJson(new GsonBuilder().setExclusionStrategies(new MyExclusionStrategy()).
+                    create().toJson(s3.listBuckets()), Map.class);
         }
     }
 
@@ -56,7 +60,8 @@ public class S3Helper {
                 .build()) {
 
             CreateBucketRequest cbr = CreateBucketRequest.builder().bucket(input.get("bucketName")).build();
-            return s3.createBucket(cbr);
+            return new Gson().fromJson(new GsonBuilder().setExclusionStrategies(new MyExclusionStrategy()).
+                    create().toJson(s3.createBucket(cbr)), Map.class);
         }
     }
 
@@ -81,7 +86,8 @@ public class S3Helper {
                     .key(input.get("objectKey"))
                     .build();
 
-            return s3.putObject(objectRequest, RequestBody.fromBytes(Base64.getDecoder().decode(input.get("objectBase64"))));
+            return new Gson().fromJson(new GsonBuilder().setExclusionStrategies(new MyExclusionStrategy()).
+                    create().toJson(s3.putObject(objectRequest, RequestBody.fromBytes(Base64.getDecoder().decode(input.get("objectBase64"))))), Map.class);
         }
     }
 
@@ -174,4 +180,16 @@ public class S3Helper {
         }
     }
 
+    public static class MyExclusionStrategy implements ExclusionStrategy {
+        private MyExclusionStrategy() {
+        }
+
+        public boolean shouldSkipClass(Class<?> clazz) {
+            return false;
+        }
+
+        public boolean shouldSkipField(FieldAttributes f) {
+            return f.getName().equals("responseMetadata");
+        }
+    }
 }
