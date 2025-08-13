@@ -12,8 +12,8 @@ repositories {
 dependencies {
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
-    implementation("com.oracle.oci.sdk:oci-java-sdk-objectstorage-generated:3.64.0")
-    implementation("com.oracle.oci.sdk:oci-java-sdk-common-httpclient-jersey:3.64.0")
+    implementation("com.oracle.oci.sdk:oci-java-sdk-objectstorage:3.70.1")
+    implementation("com.oracle.oci.sdk:oci-java-sdk-common-httpclient-jersey:3.70.1")
     implementation("com.google.code.gson:gson:2.12.1")
 }
 
@@ -26,11 +26,9 @@ tasks.jar {
         attributes(mapOf("Implementation-Title" to project.name,
             "Implementation-Version" to project.version))
     }
-    val dependencies = configurations
-        .runtimeClasspath
-        .get()
-        .map(::zipTree) // OR .map { zipTree(it) }
-    from(dependencies)
+    into("lib") {
+        from(configurations.runtimeClasspath)
+    }
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     shouldRunAfter(tasks.build)
 }
