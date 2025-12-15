@@ -1,8 +1,15 @@
-
 plugins {
     id("java")
 }
 
+// set flags for shared dependencies
+extra["useCommonTestLibraries"] = true
+extra["useAnnotations"] = true
+extra["useGson"] = true
+
+apply(from = rootProject.file("gradle/common-dependencies.gradle.kts"))
+
+//parser-specific libs
 group = "com.pega.launchpad.parser"
 version = extra["PegaLaunchpadFunctionsGroupVersion"].toString() + "-SNAPSHOT"
 
@@ -13,11 +20,15 @@ repositories {
 val junitVersion = extra["PegaLaunchpadFunctionsJunitVersion"].toString()
 
 dependencies {
-    testImplementation(platform("org.junit:junit-bom:${junitVersion}"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
-    implementation("org.apache.commons:commons-csv:1.13.0")
-    implementation("com.google.code.gson:gson:2.12.1")
-    compileOnly("org.jetbrains:annotations:24.1.0")
+    implementation("org.apache.commons:commons-csv:1.14.1")
+    // gson will be provided by shared script via useGson flag
+}
+
+// Ensure module compiles with Java 11
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
 }
 
 tasks.test {

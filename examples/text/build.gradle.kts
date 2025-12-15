@@ -1,7 +1,12 @@
-
 plugins {
     id("java")
 }
+
+// set flags for shared dependencies
+extra["useCommonTestLibraries"] = true
+extra["useAnnotations"] = true
+
+apply(from = rootProject.file("gradle/common-dependencies.gradle.kts"))
 
 group = "com.pega.launchpad.text"
 version = extra["PegaLaunchpadFunctionsGroupVersion"].toString() + "-SNAPSHOT"
@@ -13,9 +18,14 @@ repositories {
 val junitVersion = extra["PegaLaunchpadFunctionsJunitVersion"].toString()
 
 dependencies {
-    testImplementation(platform("org.junit:junit-bom:${junitVersion}"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
-    compileOnly("org.jetbrains:annotations:24.1.0")
+    // module-specific dependencies only
+}
+
+// Ensure module compiles with Java 11
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
 }
 
 tasks.test {
