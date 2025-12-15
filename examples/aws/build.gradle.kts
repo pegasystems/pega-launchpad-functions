@@ -25,12 +25,18 @@ dependencies {
     implementation("software.amazon.awssdk:comprehend")
     implementation("software.amazon.awssdk:translate")
     implementation("software.amazon.awssdk:kms")
-    implementation("com.google.code.gson:gson:2.12.1")
 }
 
 
 tasks.test {
     useJUnitPlatform()
+}
+
+// Ensure module compiles and tests with Java 11 (java.net.http etc.)
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
 }
 
 tasks.jar {

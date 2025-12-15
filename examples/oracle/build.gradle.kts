@@ -18,7 +18,14 @@ repositories {
 dependencies {
     implementation("com.oracle.oci.sdk:oci-java-sdk-objectstorage-generated:3.67.0")
     implementation("com.oracle.oci.sdk:oci-java-sdk-common-httpclient-jersey:3.67.0")
-    implementation("com.google.code.gson:gson:2.12.1")
+    // gson will be supplied by the shared script
+}
+
+// Ensure module compiles with Java 11
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
 }
 
 tasks.test {

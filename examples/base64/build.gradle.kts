@@ -21,6 +21,12 @@ dependencies {
     // module-specific dependencies only
 }
 
+// Ensure module compiles with Java 11
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
+}
 
 tasks.test {
     useJUnitPlatform()

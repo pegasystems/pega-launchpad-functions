@@ -20,9 +20,16 @@ val junitVersion = extra["PegaLaunchpadFunctionsJunitVersion"].toString()
 
 dependencies {
     implementation("org.apache.httpcomponents.client5:httpclient5:5.4.4")
-    implementation("com.google.code.gson:gson:2.12.1")
+    // gson is provided by shared script via useGson flag
     implementation("com.google.maps:google-maps-services:2.2.0")
     implementation("org.slf4j:slf4j-simple:2.0.17")
+}
+
+// Ensure module compiles with Java 11
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
 }
 
 tasks.test {

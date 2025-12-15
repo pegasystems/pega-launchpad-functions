@@ -23,6 +23,13 @@ dependencies {
     implementation("com.google.auth:google-auth-library-credentials")
 }
 
+// Ensure module compiles with Java 11
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
+}
+
 tasks.test {
     useJUnitPlatform()
 }

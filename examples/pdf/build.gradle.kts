@@ -19,9 +19,16 @@ repositories {
 val junitVersion = extra["PegaLaunchpadFunctionsJunitVersion"].toString()
 
 dependencies {
-    implementation("com.google.code.gson:gson:2.12.1")
+    // gson is provided by shared script via useGson flag
     implementation("org.apache.pdfbox:pdfbox:3.0.6")
     implementation("com.amazonaws:aws-lambda-java-core:1.4.0")
+}
+
+// Ensure module compiles with Java 11
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
 }
 
 tasks.test {

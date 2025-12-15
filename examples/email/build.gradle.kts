@@ -19,10 +19,16 @@ repositories {
 val junitVersion = extra["PegaLaunchpadFunctionsJunitVersion"].toString()
 
 dependencies {
-    implementation("com.google.code.gson:gson:2.12.1")
+    // gson provided by shared script
     implementation("com.sun.mail:javax.mail:1.6.2")
 }
 
+// Ensure module compiles with Java 11 so APIs like InputStream.readAllBytes() are available
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
+}
 
 tasks.test {
     useJUnitPlatform()

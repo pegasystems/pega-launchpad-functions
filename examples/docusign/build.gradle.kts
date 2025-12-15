@@ -21,7 +21,7 @@ val junitVersion = extra["PegaLaunchpadFunctionsJunitVersion"].toString()
 dependencies {
     // module-specific dependencies
     implementation("com.docusign:docusign-esign-java:6.4.0")
-    implementation("com.fasterxml.jackson.core:jackson-databind:2.17.2")
+    // jackson-databind will be provided by shared script via useJacksonImplementation flag
     implementation("jakarta.ws.rs:jakarta.ws.rs-api:3.1.0")
     implementation("org.glassfish.jersey.media:jersey-media-multipart:3.1.10")
     implementation("org.glassfish.jersey.core:jersey-client:3.1.10")
@@ -31,6 +31,13 @@ dependencies {
 }
 
 // shared deps are applied via flags above
+
+// Ensure module compiles with Java 11 so APIs like List.of are available
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
+}
 
 tasks.test {
     useJUnitPlatform()

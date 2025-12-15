@@ -2,6 +2,11 @@ plugins {
     id("java")
 }
 
+// set flags for shared dependencies
+extra["useCommonTestLibraries"] = true
+extra["useAnnotations"] = true
+extra["useGson"] = true
+
 apply(from = rootProject.file("gradle/common-dependencies.gradle.kts"))
 
 group = "com.pega.launchpad.net"
@@ -16,13 +21,17 @@ val junitVersion = extra["PegaLaunchpadFunctionsJunitVersion"].toString()
 
 dependencies {
     implementation("org.apache.httpcomponents.client5:httpclient5:5.4.4")
-    implementation("com.google.code.gson:gson:2.12.1")
+    // gson supplied by shared script via useGson flag
 }
 
-// call shared helpers
-applyCommonTestLibraries()
-applyAnnotations()
-applyGson()
+// Ensure module compiles with Java 11
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
+}
+
+// shared deps are applied via flags above
 
 tasks.test {
     useJUnitPlatform()
