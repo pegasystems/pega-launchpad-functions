@@ -37,11 +37,9 @@ tasks.jar {
         attributes(mapOf("Implementation-Title" to project.name,
             "Implementation-Version" to project.version))
     }
-    val dependencies = configurations
-        .runtimeClasspath
-        .get()
-        .map(::zipTree) // OR .map { zipTree(it) }
-    from(dependencies)
+    into("lib") {
+        from(configurations.runtimeClasspath)
+    }
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     shouldRunAfter(tasks.build)
 }
