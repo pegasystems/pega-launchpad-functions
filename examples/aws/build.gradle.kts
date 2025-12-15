@@ -1,7 +1,13 @@
-
 plugins {
     id("java")
 }
+
+// set flags for shared dependencies
+extra["useCommonTestLibraries"] = true
+extra["useAnnotations"] = true
+extra["useGson"] = true
+
+apply(from = rootProject.file("gradle/common-dependencies.gradle.kts"))
 
 group = "com.pega.launchpad.aws"
 version = extra["PegaLaunchpadFunctionsGroupVersion"].toString() + "-SNAPSHOT"
@@ -13,16 +19,15 @@ repositories {
 val junitVersion = extra["PegaLaunchpadFunctionsJunitVersion"].toString()
 
 dependencies {
-    testImplementation(platform("org.junit:junit-bom:${junitVersion}"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
-    implementation(platform("software.amazon.awssdk:bom:2.27.21"))
+    // module-specific AWS deps
+    implementation(platform("software.amazon.awssdk:bom:2.28.24"))
     implementation("software.amazon.awssdk:s3")
     implementation("software.amazon.awssdk:comprehend")
     implementation("software.amazon.awssdk:translate")
     implementation("software.amazon.awssdk:kms")
     implementation("com.google.code.gson:gson:2.12.1")
-    compileOnly("org.jetbrains:annotations:24.1.0")
 }
+
 
 tasks.test {
     useJUnitPlatform()

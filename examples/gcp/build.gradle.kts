@@ -1,7 +1,12 @@
-
 plugins {
     id("java")
 }
+
+// set flags for shared dependencies
+extra["useCommonTestLibraries"] = true
+extra["useAnnotations"] = true
+
+apply(from = rootProject.file("gradle/common-dependencies.gradle.kts"))
 
 group = "com.pega.launchpad.gcp"
 version = extra["PegaLaunchpadFunctionsGroupVersion"].toString() + "-SNAPSHOT"
@@ -13,12 +18,9 @@ repositories {
 val junitVersion = extra["PegaLaunchpadFunctionsJunitVersion"].toString()
 
 dependencies {
-    testImplementation(platform("org.junit:junit-bom:${junitVersion}"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
-    implementation(platform("com.google.cloud:libraries-bom:26.59.0"))
+    implementation(platform("com.google.cloud:libraries-bom:26.67.0"))
     implementation("com.google.cloud:google-cloud-storage")
     implementation("com.google.auth:google-auth-library-credentials")
-    compileOnly("org.jetbrains:annotations:24.1.0")
 }
 
 tasks.test {

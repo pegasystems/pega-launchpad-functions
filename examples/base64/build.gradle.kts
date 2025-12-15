@@ -1,7 +1,12 @@
-
 plugins {
     id("java")
 }
+
+// set desired shared dependency flags BEFORE applying the shared script
+extra["useCommonTestLibraries"] = true
+extra["useAnnotations"] = true
+
+apply(from = rootProject.file("gradle/common-dependencies.gradle.kts"))
 
 group = "com.pega.launchpad.base64"
 version = extra["PegaLaunchpadFunctionsGroupVersion"].toString() + "-SNAPSHOT"
@@ -13,10 +18,9 @@ repositories {
 val junitVersion = extra["PegaLaunchpadFunctionsJunitVersion"].toString()
 
 dependencies {
-    testImplementation(platform("org.junit:junit-bom:${junitVersion}"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
-    compileOnly("org.jetbrains:annotations:24.1.0")
+    // module-specific dependencies only
 }
+
 
 tasks.test {
     useJUnitPlatform()

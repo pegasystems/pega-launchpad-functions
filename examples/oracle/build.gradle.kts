@@ -2,6 +2,12 @@ plugins {
     id("java")
 }
 
+// set flags for shared dependencies
+extra["useCommonTestLibraries"] = true
+extra["useGson"] = true
+
+apply(from = rootProject.file("gradle/common-dependencies.gradle.kts"))
+
 group = "com.pega.launchpad.oracle"
 version = extra["PegaLaunchpadFunctionsGroupVersion"].toString() + "-SNAPSHOT"
 
@@ -10,10 +16,8 @@ repositories {
 }
 
 dependencies {
-    testImplementation(platform("org.junit:junit-bom:5.10.0"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
-    implementation("com.oracle.oci.sdk:oci-java-sdk-objectstorage-generated:3.64.0")
-    implementation("com.oracle.oci.sdk:oci-java-sdk-common-httpclient-jersey:3.64.0")
+    implementation("com.oracle.oci.sdk:oci-java-sdk-objectstorage-generated:3.67.0")
+    implementation("com.oracle.oci.sdk:oci-java-sdk-common-httpclient-jersey:3.67.0")
     implementation("com.google.code.gson:gson:2.12.1")
 }
 
