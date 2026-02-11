@@ -2,27 +2,15 @@
 
 <!-- TOC -->
 * [Python Functions](#python-functions)
-  * [Managing Dependencies](#managing-dependencies)
   * [Calculator function](#calculator-function)
     * [Python code info](#python-code-info)
     * [Function rule configuration](#function-rule-configuration)
+  * [Analysis function](#analysis-function)
+    * [Python code info](#python-code-info-1)
+    * [Function rule configuration](#function-rule-configuration-1)
+    * [Additional configuration](#additional-configuration)
     * [Deployment](#deployment)
 <!-- TOC -->
-
-## Managing Dependencies
-
-This project automatically includes Python package dependencies in the build output.
-
-### requirements.txt
-
-The `requirements.txt` file specifies all Python packages required by the functions. When you build the project, pip will download these dependencies and include them in the final zip file.
-
-To add a new dependency:
-1. Add the package to `requirements.txt` (e.g., `requests>=2.25.0`)
-2. Run the build - dependencies will be automatically downloaded and included
-
-Current dependencies:
-- requests: For making HTTP requests
 
 ## Calculator function
 
@@ -38,8 +26,8 @@ This function performs basic mathematical operations \(addition, subtraction, mu
 - **Runtime**: Python 3.12
 - **Function handler**: Calculator.handler
 - **Input parameters**:
-  - **num1 \(\Integer\)**: number 1
-  - **num2 \(\Integer\)**: number 2
+  - **num1 (Integer)**: number 1
+  - **num2 (Integer)**: number 2
 - **Output parameters**:
   - **Type**: (the object type you want to map data into)
   - **Cardinality**: Single object
@@ -69,7 +57,7 @@ This function takes the URL for a CSV file as input, reads the data, and identif
 - **Runtime**: Python 3.12
 - **Function handler**: Calculator.handler
 - **Input parameters**:
-    - **SignedURL \(\Text\)**: the URL of the CSV file to analyze. For attachments in launchpad, you need to generate a signed URL
+    - **SignedURL (Text)**: the URL of the CSV file to analyze. For attachments in launchpad, you need to generate a signed URL
 - **Output parameters**:
     - **Type**: (the object type you want to map data into)
     - **Cardinality**: Single object
