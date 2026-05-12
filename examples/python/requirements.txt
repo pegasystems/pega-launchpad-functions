@@ -1,6 +1,0 @@
-requests>=2.25.0
-pymongo[srv]>=4.6.0
-babel>=2.12.0
-
-
-
