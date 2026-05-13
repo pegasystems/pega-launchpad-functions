@@ -16,8 +16,8 @@ repositories {
 }
 
 dependencies {
-    implementation("com.oracle.oci.sdk:oci-java-sdk-objectstorage-generated:3.67.0")
-    implementation("com.oracle.oci.sdk:oci-java-sdk-common-httpclient-jersey:3.67.0")
+    implementation("com.oracle.oci.sdk:oci-java-sdk-objectstorage-generated:3.86.2")
+    implementation("com.oracle.oci.sdk:oci-java-sdk-common-httpclient-jersey:3.86.2")
     // gson will be supplied by the shared script
 }
 

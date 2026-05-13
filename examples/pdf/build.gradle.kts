@@ -20,7 +20,7 @@ val junitVersion = extra["PegaLaunchpadFunctionsJunitVersion"].toString()
 
 dependencies {
     // gson is provided by shared script via useGson flag
-    implementation("org.apache.pdfbox:pdfbox:3.0.6")
+    implementation("org.apache.pdfbox:pdfbox:3.0.7")
     implementation("com.amazonaws:aws-lambda-java-core:1.4.0")
 }
 
