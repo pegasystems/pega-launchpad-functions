@@ -24,26 +24,14 @@ permissions:
   pull-requests: write
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout sources
-      uses: actions/checkout@v4
-    - name: Setup Gradle
-      uses: gradle/gradle-build-action@v3
-    - name: Build with Gradle
-      run: ./gradlew build
   dependency-review:
-    needs : build
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout repository'
         uses: actions/checkout@v4
       - name: 'Dependency Review'
         uses: actions/dependency-review-action@v4
-        # Commonly enabled options, see https://github.com/actions/dependency-review-action#configuration-options for all available options.
         with:
           comment-summary-in-pr: always
-        #   fail-on-severity: moderate
-        #   deny-licenses: GPL-1.0-or-later, LGPL-2.0-or-later
+          fail-on-severity: moderate
           retry-on-snapshot-warnings: true
