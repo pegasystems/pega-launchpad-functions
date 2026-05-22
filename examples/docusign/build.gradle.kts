@@ -22,7 +22,7 @@ dependencies {
     // module-specific dependencies
     implementation("com.docusign:docusign-esign-java:6.6.0")
     // jackson-databind will be provided by shared script via useJacksonImplementation flag
-    implementation("jakarta.ws.rs:jakarta.ws.rs-api:3.1.0")
+    implementation("jakarta.ws.rs:jakarta.ws.rs-api:4.0.0")
     implementation("org.glassfish.jersey.media:jersey-media-multipart:4.0.2")
     implementation("org.glassfish.jersey.core:jersey-client:3.1.10")
     implementation("org.glassfish.jersey.media:jersey-media-json-jackson:4.0.2")
