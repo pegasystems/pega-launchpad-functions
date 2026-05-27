@@ -24,7 +24,7 @@ dependencies {
     // jackson-databind will be provided by shared script via useJacksonImplementation flag
     implementation("jakarta.ws.rs:jakarta.ws.rs-api:3.1.0")
     implementation("org.glassfish.jersey.media:jersey-media-multipart:4.0.2")
-    implementation("org.glassfish.jersey.core:jersey-client:3.1.10")
+    implementation("org.glassfish.jersey.core:jersey-client:4.0.2")
     implementation("org.glassfish.jersey.media:jersey-media-json-jackson:4.0.2")
     implementation("com.auth0:java-jwt:4.5.2")
     implementation("org.bouncycastle:bcprov-jdk15to18:1.84")
