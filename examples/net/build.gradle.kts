@@ -20,7 +20,7 @@ repositories {
 val junitVersion = extra["PegaLaunchpadFunctionsJunitVersion"].toString()
 
 dependencies {
-    implementation("org.apache.httpcomponents.client5:httpclient5:5.6.2")
+    implementation("org.apache.httpcomponents.client5:httpclient5:5.6.4")
     // gson supplied by shared script via useGson flag
 }
 
