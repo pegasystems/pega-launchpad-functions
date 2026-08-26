@@ -10,6 +10,7 @@ val jv = extra["PegaLaunchpadFunctionsJunitVersion"].toString()
 val av = extra["annotationsVersion"].toString()
 val gv = extra["gsonVersion"].toString()
 val jacksonV = extra["jacksonVersion"].toString()
+val jacksonAnnotationsV = extra["jacksonAnnotationsVersion"].toString()
 
 fun hasFlag(name: String): Boolean {
     return try {
@@ -25,6 +26,8 @@ if (hasFlag("useCommonTestLibraries")) {
         add("testImplementation", platform("org.junit:junit-bom:$jv"))
         add("testImplementation", "org.junit.jupiter:junit-jupiter")
         add("testRuntimeOnly", "org.junit.jupiter:junit-jupiter-engine:$jv")
+        // Gradle 9 no longer auto-adds the launcher to the test runtime classpath
+        add("testRuntimeOnly", "org.junit.platform:junit-platform-launcher")
     }
 }
 
@@ -60,8 +63,8 @@ if (hasFlag("useJacksonImplementation")) {
 // Jackson test libraries + compileOnly annotation
 if (hasFlag("useJacksonTestLibraries")) {
     dependencies {
-        add("compileOnly", "com.fasterxml.jackson.core:jackson-annotations:$jacksonV")
-        add("testImplementation", "com.fasterxml.jackson.core:jackson-annotations:$jacksonV")
+        add("compileOnly", "com.fasterxml.jackson.core:jackson-annotations:$jacksonAnnotationsV")
+        add("testImplementation", "com.fasterxml.jackson.core:jackson-annotations:$jacksonAnnotationsV")
         add("testImplementation", "com.fasterxml.jackson.core:jackson-core:$jacksonV")
         add("testImplementation", "com.fasterxml.jackson.core:jackson-databind:$jacksonV")
     }

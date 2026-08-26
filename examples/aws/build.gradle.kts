@@ -21,6 +21,8 @@ val junitVersion = extra["PegaLaunchpadFunctionsJunitVersion"].toString()
 dependencies {
     // module-specific AWS deps
     implementation(platform("software.amazon.awssdk:bom:2.49.0"))
+    implementation(platform("io.netty:netty-bom:4.1.137.Final"))
+    implementation("org.apache.httpcomponents.client5:httpclient5:5.6.3")
     implementation("software.amazon.awssdk:s3")
     implementation("software.amazon.awssdk:comprehend")
     implementation("software.amazon.awssdk:translate")
