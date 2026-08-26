@@ -1,3 +1,7 @@
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
+}
+
 rootProject.name = "pega-launchpad-functions"
 include(
     "examples:aws",
@@ -21,5 +25,6 @@ include(
     "examples:python:emailtojson",
     "examples:python:mongoreader",
     "examples:python:mongowriter",
-    "examples:python:mongoanalysis"
+    "examples:python:mongoanalysis",
+    "examples:python:mcpclient"
 )
