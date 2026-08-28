@@ -45,3 +45,36 @@ bin/
 
 ### Python ###
 __pycache__/
+
+### Secrets and local credentials ###
+.env
+.env.*
+*.env
+!.env.example
+!.env.sample
+!.env.template
+
+**/secrets/
+*.secret
+*.secrets
+*secret*
+*credential*
+credentials.json
+*-credentials.json
+service-account*.json
+
+# Python and Node package credentials
+.netrc
+.pypirc
+.npmrc
+pip.conf
+pip.ini
+
+# Private keys, certificates, and Java keystores
+*.key
+*.pem
+*.p12
+*.pfx
+*.p8
+*.jks
+*.keystore
