@@ -10,6 +10,7 @@ This directory contains a collection of Python function examples for Pega Launch
 | [analysis](./analysis)           | CSV voltage data min/max analysis (`requests`) |
 | [babel](./babel)                 | Currency formatting via `babel` |
 | [emailtojson](./emailtojson)     | Parse `.eml` / `.msg` files to JSON (`extract-msg`) |
+| [mcpclient](./mcpclient)         | Wrap with an automation and Tool rule to allow your Agent to dynamically invoke MCP servers |
 | [mongoreader](./mongoreader)     | Read documents from MongoDB (`pymongo[srv]`) |
 | [mongowriter](./mongowriter)     | Insert / bulk-write documents to MongoDB (`pymongo[srv]`, `requests`, `certifi`) |
 | [mongoanalysis](./mongoanalysis) | Aggregation analysis on a MongoDB time-series collection (`pymongo[srv]`) |
