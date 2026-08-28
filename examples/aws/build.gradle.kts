@@ -52,3 +52,7 @@ tasks.jar {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     shouldRunAfter(tasks.build)
 }
+
+extra["resourceCenterArtifactTask"] = "jar"
+extra["resourceCenterArtifactTarget"] = "aws.jar"
+apply(from = rootProject.file("gradle/resourcecenter-artifact.gradle.kts"))
