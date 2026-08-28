@@ -94,5 +94,14 @@ Once it's filed:
 3. Make sure your module has a README.MD similar to the other modules. This is for people to learn how to install and use your example.
 4. Create a build.gradle.kts in your module, similar to the other modules. This will pull dependent libraries into your binary, and will let gradlew build generate the JAR or ZIP for your module, and run unit tests
 5. Try to include at least one test, even if it is just a single scenario smoke test to ensure the build works correctly.
-6. Build the whole project from /pega-launchpad-functions with gradlew build. Use the JAR or ZIP generated in the /build directory of your module to import into a Function rule and test your example in Launchpad.
-7. Commit your changes to your branch, push them to github, create a pull request.
+6. Build the whole project from /pega-launchpad-functions with `gradlew build`. Use the JAR or ZIP generated in the `/build` directory of your module to import into a Function rule and test your example in Launchpad.
+7. If the example provides a binary in `/resourcecenter`, declare its archive task and target filename at the end of the module's `build.gradle.kts`, then apply the shared sync script:
+
+  ```kotlin
+  extra["resourceCenterArtifactTask"] = "jar"
+  extra["resourceCenterArtifactTarget"] = "example.jar"
+  apply(from = rootProject.file("gradle/resourcecenter-artifact.gradle.kts"))
+  ```
+
+  Building that module will then refresh its Resource Center binary automatically. Include the regenerated binary in the same pull request as the source changes; CI rejects stale copies.
+8. Commit your changes to your branch, push them to github, create a pull request.

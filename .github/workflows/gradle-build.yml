@@ -26,7 +26,15 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v6
+        with:
+          node-version: '20'
       - name: Build with Gradle
         uses: gradle/gradle-build-action@v2
         with:
           arguments: clean build
+      - name: Check Resource Center artifacts
+        run: |
+          git diff --exit-code -- resourcecenter
+          test -z "$(git ls-files --others --exclude-standard -- resourcecenter)"
