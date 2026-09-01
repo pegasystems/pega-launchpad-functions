@@ -20,7 +20,7 @@ val junitVersion = extra["PegaLaunchpadFunctionsJunitVersion"].toString()
 
 dependencies {
     implementation(platform("com.squareup.okio:okio-bom:3.18.1"))
-    implementation("org.apache.httpcomponents.client5:httpclient5:5.6.3")
+    implementation("org.apache.httpcomponents.client5:httpclient5:5.6.4")
     // gson is provided by shared script via useGson flag
     implementation("com.google.maps:google-maps-services:2.2.0")
     implementation("org.slf4j:slf4j-simple:2.0.18")
