@@ -1,1 +1,1 @@
-fastmcp-slim[client]==3.4.7
+fastmcp-slim[client]==4.0.3
