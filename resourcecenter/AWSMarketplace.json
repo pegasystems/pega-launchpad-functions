@@ -10048,7 +10048,7 @@
         {
           "Id": "_e2iqt5wug",
           "Type": "ActionSet",
-          "Enabled": false,
+          "Enabled": true,
           "PersistChanges": false,
           "Sets": [
             {
@@ -10115,7 +10115,7 @@
         {
           "Id": "_submitbundle_call",
           "Type": "ActionSet",
-          "Enabled": false,
+          "Enabled": true,
           "PersistChanges": false,
           "Sets": [
             {
@@ -10274,7 +10274,7 @@
             {
               "Id": "_7plz3gnc2",
               "Type": "ActionErrorHandler",
-              "Enabled": false,
+              "Enabled": true,
               "VariableName": "CurrentError",
               "ErrorType": {
                 "ReferenceID": "Error",
@@ -10285,7 +10285,7 @@
                 {
                   "Id": "_oksr4w455",
                   "Type": "ActionSet",
-                  "Enabled": false,
+                  "Enabled": true,
                   "PersistChanges": false,
                   "Sets": [
                     {
@@ -10514,7 +10514,7 @@
                 {
                   "Id": "_s9x74mznr",
                   "Type": "ActionExitAutomation",
-                  "Enabled": false
+                  "Enabled": true
                 }
               ]
             }
@@ -12068,7 +12068,7 @@
         {
           "Id": "_s4",
           "Type": "ActionSet",
-          "Enabled": false,
+          "Enabled": true,
           "PersistChanges": false,
           "Sets": [
             {
@@ -12255,13 +12255,13 @@
             {
               "Id": "_slupldmtr",
               "Type": "ActionErrorHandler",
-              "Enabled": false,
+              "Enabled": true,
               "VariableName": "CurrentError",
               "RuleSteps": [
                 {
                   "Id": "_o3ep9mod9",
                   "Type": "ActionSet",
-                  "Enabled": false,
+                  "Enabled": true,
                   "Sets": [
                     {
                       "Id": "_vne59vnlm",
@@ -14441,7 +14441,7 @@
         {
           "Id": "_submitrelease_setbody",
           "Type": "ActionSet",
-          "Enabled": false,
+          "Enabled": true,
           "Sets": [
             {
               "Id": "_submitrelease_setbody_val",
@@ -14656,13 +14656,13 @@
             {
               "Id": "_c6heh03qk",
               "Type": "ActionErrorHandler",
-              "Enabled": false,
+              "Enabled": true,
               "VariableName": "CurrentError",
               "RuleSteps": [
                 {
                   "Id": "_l0sbq2hi1",
                   "Type": "ActionSet",
-                  "Enabled": false,
+                  "Enabled": true,
                   "Sets": [
                     {
                       "Id": "_hr9vhnl98",
@@ -14899,7 +14899,7 @@
                 {
                   "Id": "_v8y5qmksb",
                   "Type": "ActionExitAutomation",
-                  "Enabled": false
+                  "Enabled": true
                 }
               ],
               "ErrorType": {
@@ -16746,7 +16746,7 @@
         {
           "Id": "_pco_step1",
           "Type": "ActionSet",
-          "Enabled": false,
+          "Enabled": true,
           "Sets": [
             {
               "Id": "_pco_set_idx",
@@ -16859,7 +16859,7 @@
                 "Expressions": [
                   {
                     "Type": "ConstantText",
-                    "Value": "{\"Catalog\":\"AWSMarketplace\",\"ChangeSetId\":\""
+                    "Value": "{\\\"Catalog\\\":\\\"AWSMarketplace\\\",\\\"ChangeSetId\\\":\\\""
                   },
                   {
                     "Type": "FieldReference",
@@ -16889,7 +16889,7 @@
                   },
                   {
                     "Type": "ConstantText",
-                    "Value": "\"}"
+                    "Value": "\\\"}"
                   }
                 ]
               }
