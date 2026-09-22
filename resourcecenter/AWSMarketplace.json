@@ -12794,7 +12794,7 @@
                       "Type": "Variable"
                     },
                     "Field": {
-                      "ReferenceID": "FulfillmentUrl",
+                      "ReferenceID": "LogoUrl",
                       "Namespace": "PegaSocialClub",
                       "Type": "RuleReference"
                     }
@@ -16343,44 +16343,22 @@
               ]
             },
             {
-              "Id": "_a4nb9tsxf",
+              "Id": "_bo0yu20w5",
               "Type": "ActionAppend",
               "Enabled": true,
               "VariableName": "AppendedULTDDTPage",
-              "Target": {
-                "Type": "FieldReference",
-                "Root": {
-                  "Type": "Variable",
-                  "Name": "AppendedUSTPage"
-                },
-                "ReferencePath": [
-                  {
-                    "Type": "FieldReference",
-                    "Field": {
-                      "Type": "RuleReference",
-                      "ReferenceID": "DetailsDocument",
-                      "Namespace": "PegaSocialClub"
-                    }
-                  }
-                ],
-                "Field": {
-                  "Type": "RuleReference",
-                  "ReferenceID": "Terms",
-                  "Namespace": "PegaSocialClub"
-                }
-              },
               "RuleSteps": [
                 {
-                  "Id": "_bpzeww2qz",
+                  "Id": "_qifpom7ng",
                   "Type": "ActionSet",
                   "Enabled": true,
                   "PersistChanges": false,
                   "Sets": [
                     {
-                      "Id": "_op1s8cbzc",
+                      "Id": "_8ydh6ppf0",
                       "Source": {
                         "Type": "ConstantText",
-                        "Value": "LegalTerm"
+                        "Value": "SupportTerm"
                       },
                       "Target": {
                         "Type": "FieldReference",
@@ -16394,86 +16372,51 @@
                           "Type": "RuleReference"
                         }
                       }
-                    }
-                  ]
-                },
-                {
-                  "Id": "_k7nn4lkwa",
-                  "Type": "ActionAppend",
-                  "Enabled": true,
-                  "VariableName": "AppendedULTDDTPage",
-                  "Target": {
-                    "Type": "FieldReference",
-                    "Root": {
-                      "Name": "AppendedUSTPage",
-                      "Type": "Variable"
                     },
-                    "Field": {
-                      "ReferenceID": "Terms",
-                      "Namespace": "PegaSocialClub",
-                      "Type": "RuleReference"
-                    },
-                    "ReferencePath": [
-                      {
+                    {
+                      "Id": "_scinjwe0u",
+                      "Source": {
+                        "Type": "Variable",
+                        "Name": "RefundPolicy"
+                      },
+                      "Target": {
+                        "Type": "FieldReference",
+                        "Root": {
+                          "Name": "AppendedULTDDTPage",
+                          "Type": "Variable"
+                        },
                         "Field": {
-                          "ReferenceID": "DetailsDocument",
+                          "ReferenceID": "RefundPolicy",
                           "Namespace": "PegaSocialClub",
                           "Type": "RuleReference"
-                        },
-                        "Type": "FieldReference"
-                      }
-                    ]
-                  },
-                  "RuleSteps": [
-                    {
-                      "Id": "_r45kn6bii",
-                      "Type": "ActionSet",
-                      "Enabled": true,
-                      "PersistChanges": false,
-                      "Sets": [
-                        {
-                          "Id": "_8ydh6ppf0",
-                          "Target": {
-                            "Type": "FieldReference",
-                            "Root": {
-                              "Name": "AppendedULTDDTPage",
-                              "Type": "Variable"
-                            },
-                            "Field": {
-                              "ReferenceID": "Type",
-                              "Namespace": "PegaSocialClub",
-                              "Type": "RuleReference"
-                            }
-                          },
-                          "Source": {
-                            "Type": "ConstantText",
-                            "Value": "SupportTerm"
-                          }
-                        },
-                        {
-                          "Id": "_scinjwe0u",
-                          "Target": {
-                            "Type": "FieldReference",
-                            "Root": {
-                              "Name": "AppendedULTDDTPage",
-                              "Type": "Variable"
-                            },
-                            "Field": {
-                              "ReferenceID": "RefundPolicy",
-                              "Namespace": "PegaSocialClub",
-                              "Type": "RuleReference"
-                            }
-                          },
-                          "Source": {
-                            "Type": "Variable",
-                            "Name": "RefundPolicy"
-                          }
                         }
-                      ]
+                      }
                     }
                   ]
                 }
-              ]
+              ],
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "AppendedUSTPage",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "Terms",
+                  "Namespace": "PegaSocialClub",
+                  "Type": "RuleReference"
+                },
+                "ReferencePath": [
+                  {
+                    "Field": {
+                      "ReferenceID": "DetailsDocument",
+                      "Namespace": "PegaSocialClub",
+                      "Type": "RuleReference"
+                    },
+                    "Type": "FieldReference"
+                  }
+                ]
+              }
             }
           ]
         },
