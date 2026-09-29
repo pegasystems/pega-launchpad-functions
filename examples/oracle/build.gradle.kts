@@ -16,9 +16,9 @@ repositories {
 }
 
 dependencies {
-    implementation(platform("com.fasterxml.jackson:jackson-bom:2.22.2"))
-    implementation("com.oracle.oci.sdk:oci-java-sdk-objectstorage-generated:3.96.0")
-    implementation("com.oracle.oci.sdk:oci-java-sdk-common-httpclient-jersey:3.96.0")
+    implementation(platform("com.fasterxml.jackson:jackson-bom:2.22.3"))
+    implementation("com.oracle.oci.sdk:oci-java-sdk-objectstorage-generated:3.97.0")
+    implementation("com.oracle.oci.sdk:oci-java-sdk-common-httpclient-jersey:3.97.0")
     // gson will be supplied by the shared script
 }
 
