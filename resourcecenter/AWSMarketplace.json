@@ -16439,6 +16439,167 @@
           ]
         },
         {
+          "Id": "_caq1pkbps",
+          "Type": "ActionAppend",
+          "Enabled": true,
+          "VariableName": "AppendedUSTPage",
+          "RuleSteps": [
+            {
+              "Id": "_l6o054yby",
+              "Type": "ActionSet",
+              "Enabled": true,
+              "PersistChanges": false,
+              "Sets": [
+                {
+                  "Id": "_a8eecase8",
+                  "Source": {
+                    "Type": "ConstantText",
+                    "Value": "UpdateRenewalTerms"
+                  },
+                  "Target": {
+                    "Type": "FieldReference",
+                    "Root": {
+                      "Name": "AppendedUSTPage",
+                      "Type": "Variable"
+                    },
+                    "Field": {
+                      "ReferenceID": "ChangeType",
+                      "Namespace": "PegaSocialClub",
+                      "Type": "RuleReference"
+                    }
+                  }
+                },
+                {
+                  "Id": "_600mf5bma",
+                  "Source": {
+                    "Type": "ConstantText",
+                    "Value": "UpdateRenewalTermsChange"
+                  },
+                  "Target": {
+                    "Type": "FieldReference",
+                    "Root": {
+                      "Name": "AppendedUSTPage",
+                      "Type": "Variable"
+                    },
+                    "Field": {
+                      "ReferenceID": "ChangeName",
+                      "Namespace": "PegaSocialClub",
+                      "Type": "RuleReference"
+                    }
+                  }
+                },
+                {
+                  "Id": "_9y1kkqfz8",
+                  "Source": {
+                    "Type": "ConstantText",
+                    "Value": "Offer@1.0"
+                  },
+                  "Target": {
+                    "Type": "FieldReference",
+                    "Root": {
+                      "Name": "AppendedUSTPage",
+                      "Type": "Variable"
+                    },
+                    "Field": {
+                      "ReferenceID": "EntityType",
+                      "Namespace": "PegaSocialClub",
+                      "Type": "RuleReference"
+                    }
+                  }
+                },
+                {
+                  "Id": "_mbha63c9t",
+                  "Source": {
+                    "Type": "ConstantText",
+                    "Value": "$CreateOfferChange.Entity.Identifier"
+                  },
+                  "Target": {
+                    "Type": "FieldReference",
+                    "Root": {
+                      "Name": "AppendedUSTPage",
+                      "Type": "Variable"
+                    },
+                    "Field": {
+                      "ReferenceID": "EntityIdentifier",
+                      "Namespace": "PegaSocialClub",
+                      "Type": "RuleReference"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "Id": "_lfrmagjh6",
+              "Type": "ActionAppend",
+              "Enabled": true,
+              "VariableName": "AppendedULTDDTPage",
+              "RuleSteps": [
+                {
+                  "Id": "_f2837y9yc",
+                  "Type": "ActionSet",
+                  "Enabled": true,
+                  "PersistChanges": false,
+                  "Sets": [
+                    {
+                      "Id": "_8ydh6ppf0",
+                      "Source": {
+                        "Type": "ConstantText",
+                        "Value": "RenewalTerm"
+                      },
+                      "Target": {
+                        "Type": "FieldReference",
+                        "Root": {
+                          "Name": "AppendedULTDDTPage",
+                          "Type": "Variable"
+                        },
+                        "Field": {
+                          "ReferenceID": "Type",
+                          "Namespace": "PegaSocialClub",
+                          "Type": "RuleReference"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "Target": {
+                "Type": "FieldReference",
+                "Root": {
+                  "Name": "AppendedUSTPage",
+                  "Type": "Variable"
+                },
+                "Field": {
+                  "ReferenceID": "Terms",
+                  "Namespace": "PegaSocialClub",
+                  "Type": "RuleReference"
+                },
+                "ReferencePath": [
+                  {
+                    "Field": {
+                      "ReferenceID": "DetailsDocument",
+                      "Namespace": "PegaSocialClub",
+                      "Type": "RuleReference"
+                    },
+                    "Type": "FieldReference"
+                  }
+                ]
+              }
+            }
+          ],
+          "Target": {
+            "Type": "FieldReference",
+            "Root": {
+              "Name": "CSRPage",
+              "Type": "Variable"
+            },
+            "Field": {
+              "ReferenceID": "Changes",
+              "Namespace": "PegaSocialClub",
+              "Type": "RuleReference"
+            }
+          }
+        },
+        {
           "Id": "_m67ko6vbx",
           "Type": "ActionReturn",
           "Enabled": true,
