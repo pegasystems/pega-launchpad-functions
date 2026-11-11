@@ -1553,7 +1553,7 @@
     },
     {
       "Type": "Class",
-      "Description": "Holds the DetailsDocument payload for an AWS Marketplace Catalog API change  fields vary by ChangeType",
+      "Description": "Holds the DetailsDocument payload for an AWS Marketplace Catalog API change - fields vary by ChangeType",
       "Reusability": "Private",
       "SchemaVersion": "0-1-0",
       "RuleResolutionID": "DetailsDocument",
@@ -3228,7 +3228,7 @@
     {
       "IsCalculated": false,
       "Type": "Field",
-      "Description": "HTML guidance content for Stage 1 Step 1  set by pre-processing Automation, displayed read-only in the view",
+      "Description": "HTML guidance content for Stage 1 Step 1 - set by pre-processing Automation, displayed read-only in the view",
       "Reusability": "Private",
       "SchemaVersion": "0-2-7",
       "RuleResolutionID": "Step1GuidanceContent",
@@ -3354,7 +3354,7 @@
     {
       "IsCalculated": false,
       "Type": "Field",
-      "Description": "AWS Marketplace catalog name  always AWSMarketplace",
+      "Description": "AWS Marketplace catalog name - always AWSMarketplace",
       "Reusability": "Private",
       "SchemaVersion": "0-2-0",
       "RuleResolutionID": "Catalog",
@@ -3684,7 +3684,7 @@
     {
       "IsCalculated": false,
       "Type": "Field",
-      "Description": "Product visibility  Public or Limited",
+      "Description": "Product visibility - Public or Limited",
       "Reusability": "Private",
       "SchemaVersion": "0-2-0",
       "RuleResolutionID": "Visibility",
@@ -4154,7 +4154,7 @@
     {
       "IsCalculated": false,
       "Type": "Field",
-      "Description": "Description of the offer  used in Offer UpdateInformation",
+      "Description": "Description of the offer - used in Offer UpdateInformation",
       "Reusability": "Private",
       "SchemaVersion": "0-2-8",
       "RuleResolutionID": "OfferDescription",
@@ -4307,7 +4307,7 @@
     {
       "IsCalculated": false,
       "Type": "Field",
-      "Description": "AWS entity identifier e.g. ProductId or OfferId  blank for CreateProduct",
+      "Description": "AWS entity identifier e.g. ProductId or OfferId - blank for CreateProduct",
       "Reusability": "Private",
       "SchemaVersion": "0-2-0",
       "RuleResolutionID": "EntityIdentifier",
@@ -4471,7 +4471,7 @@
     {
       "IsCalculated": false,
       "Type": "Field",
-      "Description": "HTML guidance content for Stage 1 Step 3  set by pre-processing Automation, displayed read-only in the view",
+      "Description": "HTML guidance content for Stage 1 Step 3 - set by pre-processing Automation, displayed read-only in the view",
       "Reusability": "Private",
       "SchemaVersion": "0-2-7",
       "RuleResolutionID": "Step3GuidanceContent",
@@ -4724,7 +4724,7 @@
     {
       "IsCalculated": false,
       "Type": "Field",
-      "Description": "AWS Marketplace product identifier  used in CreateOffer",
+      "Description": "AWS Marketplace product identifier - used in CreateOffer",
       "Reusability": "Private",
       "SchemaVersion": "0-2-0",
       "RuleResolutionID": "ProductId",
@@ -4981,7 +4981,7 @@
     {
       "IsCalculated": false,
       "Type": "Field",
-      "Description": "Name of the offer  used in CreateOffer",
+      "Description": "Name of the offer - used in CreateOffer",
       "Reusability": "Private",
       "SchemaVersion": "0-2-0",
       "RuleResolutionID": "OfferName",
@@ -5796,7 +5796,7 @@
     {
       "IsCalculated": false,
       "Type": "Field",
-      "Description": "HTML guidance content for Stage 1 Step 2  set by pre-processing Automation, displayed read-only in the view",
+      "Description": "HTML guidance content for Stage 1 Step 2 - set by pre-processing Automation, displayed read-only in the view",
       "Reusability": "Private",
       "SchemaVersion": "0-2-7",
       "RuleResolutionID": "Step2GuidanceContent",
@@ -6768,7 +6768,7 @@
       "ActionToBePerformed": "ADDED"
     },
     {
-      "Description": "Serializes case fields into UpdateVisibility StartChangeSet request body per catalog.js  must be its own StartChangeSet call",
+      "Description": "Serializes case fields into UpdateVisibility StartChangeSet request body per catalog.js - must be its own StartChangeSet call",
       "Reusability": "Private",
       "SchemaVersion": "3-1-1",
       "AppliesTo": {
@@ -7545,7 +7545,7 @@
     },
     {
       "Type": "View",
-      "Description": "Stage 5 Step 14: Select the AWS Marketplace review outcome  Waiting, Approved, or Rejected",
+      "Description": "Stage 5 Step 14: Select the AWS Marketplace review outcome - Waiting, Approved, or Rejected",
       "Reusability": "Private",
       "SchemaVersion": "0-0-3",
       "RuleResolutionID": "AWSReviewStatus",
@@ -7715,7 +7715,7 @@
       "ViewType": "form",
       "Name": "Step16 FTR Submission",
       "Template": "DefaultForm",
-      "ViewMetadata": "{\"children\":[{\"children\":[{\"type\":\"RichText\",\"config\":{\"label\":\"@FL .PegaSocialClub$$FTRSubmissionContent\",\"labelOption\":\"default\",\"value\":\"@P .PegaSocialClub$$FTRSubmissionContent\",\"readOnly\":true}}],\"name\":\"Fields\",\"type\":\"Region\"}],\"name\":\"Step16FTRSubmission\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"instructions\":\"@L There is no API for FTR submission  it is portal-only. AWS now uses Bedrock to auto-review submissions. A complete submission can receive approval in as little as 30 minutes. FTR approval is valid for 3 years.\",\"NumCols\":\"1\",\"ruleClassNamespace\":\"PegaSocialClub\",\"label\":\"@L Submit FTR via Partner Central\",\"ruleClass\":\"PegaSocialClub$$AWSMarketplaceListing\"}}",
+      "ViewMetadata": "{\"children\":[{\"children\":[{\"type\":\"RichText\",\"config\":{\"label\":\"@FL .PegaSocialClub$$FTRSubmissionContent\",\"labelOption\":\"default\",\"value\":\"@P .PegaSocialClub$$FTRSubmissionContent\",\"readOnly\":true}}],\"name\":\"Fields\",\"type\":\"Region\"}],\"name\":\"Step16FTRSubmission\",\"type\":\"View\",\"config\":{\"template\":\"DefaultForm\",\"instructions\":\"@L There is no API for FTR submission - it is portal-only. AWS now uses Bedrock to auto-review submissions. A complete submission can receive approval in as little as 30 minutes. FTR approval is valid for 3 years.\",\"NumCols\":\"1\",\"ruleClassNamespace\":\"PegaSocialClub\",\"label\":\"@L Submit FTR via Partner Central\",\"ruleClass\":\"PegaSocialClub$$AWSMarketplaceListing\"}}",
       "ActionToBePerformed": "ADDED"
     },
     {
@@ -16011,7 +16011,7 @@
               },
               "Source": {
                 "Type": "ConstantText",
-                "Value": "<p><strong>Required artifacts:</strong></p><ol><li>CIS AWS Foundations Benchmark report<br/>Generate via: AWS Security Hub, nOps, or Vanta</li><li>FTR self-assessment checklist<br/>Download from: Partner Central � Build � Validation</li><li>Architecture diagrams:<ul><li>Network topology diagram</li><li>Data flow diagram</li><li>Deployment pipeline diagram</li></ul></li><li>Encryption evidence:<ul><li>KMS key policies</li><li>TLS certificate configs</li><li>S3 bucket policies</li></ul></li><li>Operational runbooks:<ul><li>Incident response procedure</li></ul></li></ol><p><strong>Tip:</strong> Start with the FTR checklist  it tells you exactly what evidence is needed for each control.</p>"
+                "Value": "<p><strong>Required artifacts:</strong></p><ol><li>CIS AWS Foundations Benchmark report<br/>Generate via: AWS Security Hub, nOps, or Vanta</li><li>FTR self-assessment checklist<br/>Download from: Partner Central � Build � Validation</li><li>Architecture diagrams:<ul><li>Network topology diagram</li><li>Data flow diagram</li><li>Deployment pipeline diagram</li></ul></li><li>Encryption evidence:<ul><li>KMS key policies</li><li>TLS certificate configs</li><li>S3 bucket policies</li></ul></li><li>Operational runbooks:<ul><li>Incident response procedure</li></ul></li></ol><p><strong>Tip:</strong> Start with the FTR checklist - it tells you exactly what evidence is needed for each control.</p>"
               }
             }
           ],
@@ -17501,7 +17501,7 @@
               },
               "Source": {
                 "Type": "ConstantText",
-                "Value": "<h3>What to Build</h3><p>Set up a cron job or scheduled Lambda that runs <strong>hourly</strong>. Each record needs:</p><ul><li><code>CustomerIdentifier</code> (from ResolveCustomer, stored in your DB)</li><li><code>Dimension</code> key (must match keys defined in your pricing)</li><li><code>Quantity</code> (integer  usage for that hour)</li><li><code>Timestamp</code> (ISO 8601, within the last 1 hour)</li></ul><p>Handle <code>CustomerNotSubscribed</code> by revoking access.</p><h3>Example (Node.js)</h3><pre><code>import { MarketplaceMeteringClient, BatchMeterUsageCommand } from '@aws-sdk/client-marketplace-metering';\nconst metering = new MarketplaceMeteringClient({ region: 'us-east-1' });\n\nasync function sendHourlyUsage(subscribers) {\n  const records = subscribers.map(s => ({\n    CustomerIdentifier: s.marketplaceCustomerId,\n    Dimension: 'api_calls',\n    Quantity: s.usageThisHour,\n    Timestamp: new Date(),\n  }));\n  const { Results } = await metering.send(\n    new BatchMeterUsageCommand({ ProductCode: '&lt;your-product-code&gt;', UsageRecords: records })\n  );\n  for (const r of Results) {\n    if (r.Status === 'CustomerNotSubscribed')\n      await db.users.revokeAccess(r.UsageRecord.CustomerIdentifier);\n  }\n}</code></pre><p><strong>Verify:</strong> Records should appear in AWS Marketplace Management Portal � Reports � Metering</p>"
+                "Value": "<h3>What to Build</h3><p>Set up a cron job or scheduled Lambda that runs <strong>hourly</strong>. Each record needs:</p><ul><li><code>CustomerIdentifier</code> (from ResolveCustomer, stored in your DB)</li><li><code>Dimension</code> key (must match keys defined in your pricing)</li><li><code>Quantity</code> (integer - usage for that hour)</li><li><code>Timestamp</code> (ISO 8601, within the last 1 hour)</li></ul><p>Handle <code>CustomerNotSubscribed</code> by revoking access.</p><h3>Example (Node.js)</h3><pre><code>import { MarketplaceMeteringClient, BatchMeterUsageCommand } from '@aws-sdk/client-marketplace-metering';\nconst metering = new MarketplaceMeteringClient({ region: 'us-east-1' });\n\nasync function sendHourlyUsage(subscribers) {\n  const records = subscribers.map(s => ({\n    CustomerIdentifier: s.marketplaceCustomerId,\n    Dimension: 'api_calls',\n    Quantity: s.usageThisHour,\n    Timestamp: new Date(),\n  }));\n  const { Results } = await metering.send(\n    new BatchMeterUsageCommand({ ProductCode: '&lt;your-product-code&gt;', UsageRecords: records })\n  );\n  for (const r of Results) {\n    if (r.Status === 'CustomerNotSubscribed')\n      await db.users.revokeAccess(r.UsageRecord.CustomerIdentifier);\n  }\n}</code></pre><p><strong>Verify:</strong> Records should appear in AWS Marketplace Management Portal � Reports � Metering</p>"
               },
               "Id": "_zz_set_batch_content"
             }
@@ -20761,7 +20761,7 @@
               },
               "Source": {
                 "Type": "ConstantText",
-                "Value": "<p><strong>Metering Dimensions</strong>  Add all dimensions below.</p> <p>Each dimension key must be lowercase, start with a letter, and match the pattern <code>^[a-z][a-z0-9_]{0,29}$</code>  for example: <code>api_calls</code>, <code>active_users</code>, <code>gb_stored</code>.</p> <p>These keys must exactly match what your application sends to <code>BatchMeterUsage</code>. Agree on them before writing your metering code.</p>        <p><strong>Examples:</strong></p>  <table border=\"1\" cellpadding=\"6\" cellspacing=\"0\">   <thead>     <tr>       <th>Dimension Name</th>       <th>Description</th>       <th>Key</th>       <th>Price per Unit (USD)</th>     </tr>   </thead>   <tbody>     <tr>       <td>API Calls</td>       <td>Number of API requests made to the service</td>       <td>api_calls</td>       <td>0.001</td>     </tr>     <tr>       <td>Active Users</td>       <td>Monthly active users authenticated against the platform</td>       <td>active_users</td>       <td>5.00</td>     </tr>   </tbody> </table>"
+                "Value": "<p><strong>Metering Dimensions</strong> - Add all dimensions below.</p> <p>Each dimension key must be lowercase, start with a letter, and match the pattern <code>^[a-z][a-z0-9_]{0,29}$</code> - for example: <code>api_calls</code>, <code>active_users</code>, <code>gb_stored</code>.</p> <p>These keys must exactly match what your application sends to <code>BatchMeterUsage</code>. Agree on them before writing your metering code.</p>        <p><strong>Examples:</strong></p>  <table border=\"1\" cellpadding=\"6\" cellspacing=\"0\">   <thead>     <tr>       <th>Dimension Name</th>       <th>Description</th>       <th>Key</th>       <th>Price per Unit (USD)</th>     </tr>   </thead>   <tbody>     <tr>       <td>API Calls</td>       <td>Number of API requests made to the service</td>       <td>api_calls</td>       <td>0.001</td>     </tr>     <tr>       <td>Active Users</td>       <td>Monthly active users authenticated against the platform</td>       <td>active_users</td>       <td>5.00</td>     </tr>   </tbody> </table>"
               }
             }
           ],
@@ -20950,7 +20950,7 @@
               },
               "Source": {
                 "Type": "ConstantText",
-                "Value": "<h3>How to Register</h3><ol><li>Go to the <a href=\"https://aws.amazon.com/marketplace/management\" target=\"_blank\">AWS Marketplace Management Portal</a></li><li>Click <strong>Register now</strong> and provide:<ul><li>Legal company name</li><li>Company website</li><li>Business address</li><li>Tax form  W-9 (US) or W-8BEN-E (non-US)</li><li>Bank routing and account number (USD disbursements)</li><li>Notification email address</li></ul></li><li>Submit and wait <strong>13 business days</strong> for approval.</li></ol><p><strong>� Do not proceed until you receive the approval email from AWS.</strong></p>"
+                "Value": "<h3>How to Register</h3><ol><li>Go to the <a href=\"https://aws.amazon.com/marketplace/management\" target=\"_blank\">AWS Marketplace Management Portal</a></li><li>Click <strong>Register now</strong> and provide:<ul><li>Legal company name</li><li>Company website</li><li>Business address</li><li>Tax form - W-9 (US) or W-8BEN-E (non-US)</li><li>Bank routing and account number (USD disbursements)</li><li>Notification email address</li></ul></li><li>Submit and wait <strong>1 - 3 business days</strong> for approval.</li></ol><p><strong>� Do not proceed until you receive the approval email from AWS.</strong></p>"
               }
             }
           ]
@@ -20993,7 +20993,7 @@
               },
               "Source": {
                 "Type": "ConstantText",
-                "Value": "<h3>Required artifacts:</h3><ol><li><strong>CIS AWS Foundations Benchmark report</strong><br/>Generate via: AWS Security Hub, nOps, or Vanta</li><li><strong>FTR self-assessment checklist</strong><br/>Download from: Partner Central � Build � Validation</li><li><strong>Architecture diagrams:</strong><ul><li>Network topology diagram</li><li>Data flow diagram</li><li>Deployment pipeline diagram</li></ul></li><li><strong>Encryption evidence:</strong><ul><li>KMS key policies</li><li>TLS certificate configs</li><li>S3 bucket policies</li></ul></li><li><strong>Operational runbooks:</strong><ul><li>Incident response procedure</li></ul></li></ol><p><strong>Tip:</strong> Start with the FTR checklist  it tells you exactly what evidence is needed for each control.</p>"
+                "Value": "<h3>Required artifacts:</h3><ol><li><strong>CIS AWS Foundations Benchmark report</strong><br/>Generate via: AWS Security Hub, nOps, or Vanta</li><li><strong>FTR self-assessment checklist</strong><br/>Download from: Partner Central � Build � Validation</li><li><strong>Architecture diagrams:</strong><ul><li>Network topology diagram</li><li>Data flow diagram</li><li>Deployment pipeline diagram</li></ul></li><li><strong>Encryption evidence:</strong><ul><li>KMS key policies</li><li>TLS certificate configs</li><li>S3 bucket policies</li></ul></li><li><strong>Operational runbooks:</strong><ul><li>Incident response procedure</li></ul></li></ol><p><strong>Tip:</strong> Start with the FTR checklist - it tells you exactly what evidence is needed for each control.</p>"
               },
               "Id": "_zz_set_review_status_content"
             }
@@ -21044,7 +21044,7 @@
               },
               "Source": {
                 "Type": "ConstantText",
-                "Value": "<h3>Required IAM Policies</h3><p>Create an IAM user (long-lived access keys) and attach the following policies:</p><ul><li><code>AWSMarketplaceSellerFullAccess</code></li><li><code>aws-marketplace:StartChangeSet</code>  explicit allow</li><li><code>aws-marketplace:ResolveCustomer</code>  explicit allow</li></ul><h3>Generate Access Keys</h3><p>In the IAM console, create an access key for the user. You will get an <strong>Access Key ID</strong> (starts with <code>AKIA</code>) and a <strong>Secret Access Key</strong>.</p><h3>Enter Credentials in Configuration Settings</h3><p>An application administrator must enter these values into the <strong>AWS Marketplace Credentials</strong> configuration set (in Studio):</p><ul><li><strong>AWS Access Key</strong>  the AKIA... value</li><li><strong>AWS Secret Key</strong>  the secret access key</li><li><strong>AWS Region</strong>  already set to <code>us-east-1</code></li><li><strong>AWS Standard EULA Version</strong>  defaults to <code>2022-07-14</code>. This is the Standard Contract version submitted with listings. Before going live, verify this matches the current <code>LegalDocumentVersion</code> accepted by the AWS Marketplace Catalog API (see <em>AWS Marketplace Seller Guide &gt; Catalog API &gt; Offer &gt; LegalDocumentVersion</em> for the latest accepted value).</li></ul><p>The application reads these at runtime to call the AWS Marketplace Catalog API. You cannot continue past this step until the Access Key and Secret Key are configured.</p><p><strong>� Do not paste credentials into case fields, source code, or notes. Only enter them in the configuration set.</strong></p><h3>Useful Links</h3><ul><li><a href=\"https://docs.aws.amazon.com/marketplace/latest/userguide/marketplace-management-portal-user-access.html\" target=\"_blank\">AWS Marketplace IAM setup guide</a></li><li><a href=\"https://console.aws.amazon.com/iam\" target=\"_blank\">Open IAM Console</a></li></ul>"
+                "Value": "<h3>Required IAM Policies</h3><p>Create an IAM user (long-lived access keys) and attach the following policies:</p><ul><li><code>AWSMarketplaceSellerFullAccess</code></li><li><code>aws-marketplace:StartChangeSet</code> - explicit allow</li><li><code>aws-marketplace:ResolveCustomer</code> - explicit allow</li></ul><h3>Generate Access Keys</h3><p>In the IAM console, create an access key for the user. You will get an <strong>Access Key ID</strong> (starts with <code>AKIA</code>) and a <strong>Secret Access Key</strong>.</p><h3>Enter Credentials in Configuration Settings</h3><p>An application administrator must enter these values into the <strong>AWS Marketplace Credentials</strong> configuration set (in Studio):</p><ul><li><strong>AWS Access Key</strong> - the AKIA... value</li><li><strong>AWS Secret Key</strong> - the secret access key</li><li><strong>AWS Region</strong> - already set to <code>us-east-1</code></li><li><strong>AWS Standard EULA Version</strong> - defaults to <code>2022-07-14</code>. This is the Standard Contract version submitted with listings. Before going live, verify this matches the current <code>LegalDocumentVersion</code> accepted by the AWS Marketplace Catalog API (see <em>AWS Marketplace Seller Guide &gt; Catalog API &gt; Offer &gt; LegalDocumentVersion</em> for the latest accepted value).</li></ul><p>The application reads these at runtime to call the AWS Marketplace Catalog API. You cannot continue past this step until the Access Key and Secret Key are configured.</p><p><strong>� Do not paste credentials into case fields, source code, or notes. Only enter them in the configuration set.</strong></p><h3>Useful Links</h3><ul><li><a href=\"https://docs.aws.amazon.com/marketplace/latest/userguide/marketplace-management-portal-user-access.html\" target=\"_blank\">AWS Marketplace IAM setup guide</a></li><li><a href=\"https://console.aws.amazon.com/iam\" target=\"_blank\">Open IAM Console</a></li></ul>"
               },
               "Id": "_step3_content"
             }
@@ -21091,7 +21091,7 @@
               },
               "Source": {
                 "Type": "ConstantText",
-                "Value": "<h3><strong>Before you submit, confirm:</strong></h3><p> Metering integration tested in Limited state<br/> Fulfillment URL is live and returns HTTP 200<br/> Logo is accessible at the S3 URL you provided<br/> Short/long descriptions are accurate<br/> Support contact is real and monitored</p><p><strong>Note:</strong> UpdateVisibility must be its own StartChangeSet call  it cannot be bundled with other changes.</p>"
+                "Value": "<h3><strong>Before you submit, confirm:</strong></h3><p>- Metering integration tested in Limited state<br/>- Fulfillment URL is live and returns HTTP 200<br/>- Logo is accessible at the S3 URL you provided<br/>- Short/long descriptions are accurate<br/>- Support contact is real and monitored</p><p><strong>Note:</strong> UpdateVisibility must be its own StartChangeSet call - it cannot be bundled with other changes.</p>"
               },
               "Id": "_zz_set_checklist_content"
             }
@@ -21288,7 +21288,7 @@
       "Reusability": "Private",
       "Description": "Categories",
       "SchemaVersion": "0-0-1",
-      "Content": "<p>Choose 1 to 3 categories that best describe your product. Buyers use these to filter and discover products in AWS Marketplace. Only pick categories that genuinely fit  incorrect categories may be rejected during AWS review.</p>",
+      "Content": "<p>Choose 1 to 3 categories that best describe your product. Buyers use these to filter and discover products in AWS Marketplace. Only pick categories that genuinely fit - incorrect categories may be rejected during AWS review.</p>",
       "RuleResolutionID": "Categories_additionalInfo2",
       "AppliesTo": {
         "ReferenceID": "AWSMarketplaceListing",
@@ -21318,7 +21318,7 @@
       "Description": "Target Visibility in AWS Marketplace",
       "Reusability": "Private",
       "SchemaVersion": "0-0-1",
-      "Content": "<p>"&nbsp;Public  Product is visible and purchasable by all eligible AWS Marketplace customers.</p><p>"&nbsp;Limited  Product is available only to specifically approved AWS accounts.</p><p>"&nbsp;Restricted  Product is removed from new-customer visibility/purchase; existing customer access remains unaffected.</p>",
+      "Content": "<p>&nbsp;Public - Product is visible and purchasable by all eligible AWS Marketplace customers.</p><p>&nbsp;Limited - Product is available only to specifically approved AWS accounts.</p><p>&nbsp;Restricted - Product is removed from new-customer visibility/purchase; existing customer access remains unaffected.</p>",
       "AppliesTo": {
         "ReferenceID": "AWSMarketplaceListing",
         "Namespace": "PegaSocialClub"
@@ -21615,7 +21615,7 @@
     },
     {
       "Type": "Stage",
-      "Description": "Initialization stage  runs once when the case is first created",
+      "Description": "Initialization stage - runs once when the case is first created",
       "Reusability": "Private",
       "SchemaVersion": "2-2-0",
       "RuleResolutionID": "AWSMarketplaceListingCreation",
@@ -23581,7 +23581,7 @@
         {
           "ID": "assign-9",
           "Type": "Assignment",
-          "Name": "Waiting for AWS  Bundle",
+          "Name": "Waiting for AWS - Bundle",
           "Routing": {
             "RoutingType": "CurrentUser"
           },
@@ -23653,7 +23653,7 @@
         {
           "ID": "df473fbf-034b-4e42-873f-eea1a6b12137",
           "Type": "GoTo",
-          "Name": "Go to Waiting for AWS  Bundle",
+          "Name": "Go to Waiting for AWS - Bundle",
           "ToConnectors": [
             {
               "ID": "9f58ae71-de57-4d13-b67f-5f2948595400",
@@ -23803,7 +23803,7 @@
         {
           "ID": "assign-13poll",
           "Type": "Assignment",
-          "Name": "Waiting for AWS  Go Public",
+          "Name": "Waiting for AWS - Go Public",
           "Routing": {
             "RoutingType": "CurrentUser"
           },
@@ -23875,7 +23875,7 @@
         {
           "ID": "goto-13poll",
           "Type": "GoTo",
-          "Name": "Go to Waiting for AWS  Go Public",
+          "Name": "Go to Waiting for AWS - Go Public",
           "GoToNode": "assign-13poll",
           "ToConnectors": [
             {
@@ -24304,7 +24304,7 @@
         {
           "ID": "assign-7",
           "Type": "Assignment",
-          "Name": "Waiting for AWS  Create Product",
+          "Name": "Waiting for AWS - Create Product",
           "Routing": {
             "RoutingType": "CurrentUser"
           },
@@ -24376,7 +24376,7 @@
         {
           "ID": "35f2d0cd-ee2e-4ebc-a07e-ecdbf8654a11",
           "Type": "GoTo",
-          "Name": "Go to Waiting for AWS  Create Product",
+          "Name": "Go to Waiting for AWS - Create Product",
           "ToConnectors": [
             {
               "ID": "e9949960-21d4-4a3b-9edf-a9b3556c287b",
@@ -24500,7 +24500,7 @@
         {
           "ID": "assign-10",
           "Type": "Assignment",
-          "Name": "Waiting for AWS  Release",
+          "Name": "Waiting for AWS - Release",
           "Routing": {
             "RoutingType": "CurrentUser"
           },
@@ -24572,7 +24572,7 @@
         {
           "ID": "23ad2ddb-1fae-4aca-a067-774152996355",
           "Type": "GoTo",
-          "Name": "Go to Waiting for AWS  Release",
+          "Name": "Go to Waiting for AWS - Release",
           "ToConnectors": [
             {
               "ID": "5bc51758-f42f-4089-bab7-2af1e04a91b6",
@@ -24667,7 +24667,7 @@
         }
       ],
       "Type": "Process",
-      "Description": "Initialization process  creates the case and advances to Account Setup stage",
+      "Description": "Initialization process - creates the case and advances to Account Setup stage",
       "Reusability": "Private",
       "SchemaVersion": "2-3-0",
       "RuleResolutionID": "CreateAWSMarketplaceListing",
@@ -25292,7 +25292,7 @@
         }
       ],
       "Type": "Process",
-      "Description": "Step 14: Wait for AWS review outcome  Waiting / Approved / Rejected",
+      "Description": "Step 14: Wait for AWS review outcome - Waiting / Approved / Rejected",
       "Reusability": "Private",
       "SchemaVersion": "2-3-0",
       "RuleResolutionID": "AWSMarketplaceReviewProcess",
@@ -26445,7 +26445,7 @@
         "ExpressionType": "AND",
         "Type": "ExpressionGroup"
       },
-      "Description": "Returns true when ProductTypeSelection is 'Subscribing with SaaS upfront commitments'  metering is not needed for upfront commitment products",
+      "Description": "Returns true when ProductTypeSelection is 'Subscribing with SaaS upfront commitments' - metering is not needed for upfront commitment products",
       "Reusability": "Private",
       "SchemaVersion": "0-1-0",
       "ExecutionPolicy": "",
@@ -27443,7 +27443,7 @@
     },
     {
       "Type": "Decision",
-      "Description": "Returns true when PursueFTR is false  meaning the provider chose not to pursue FTR certification",
+      "Description": "Returns true when PursueFTR is false - meaning the provider chose not to pursue FTR certification",
       "Reusability": "Private",
       "DefaultReturn": {
         "Type": "ExpressionGroup",
@@ -30782,7 +30782,7 @@
         "Namespace": "PegaSocialClub"
       },
       "Type": "ConfigurationSetting",
-      "Description": "AWS Marketplace IAM user secret access key used to sign Catalog API requests. Sensitive  never log this value.",
+      "Description": "AWS Marketplace IAM user secret access key used to sign Catalog API requests. Sensitive - never log this value.",
       "Reusability": "PublicMayReuse",
       "SchemaVersion": "0-2-0",
       "RuleResolutionID": "AWSSecretKey",
