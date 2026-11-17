@@ -19,7 +19,7 @@ val junitVersion = extra["PegaLaunchpadFunctionsJunitVersion"].toString()
 
 dependencies {
     implementation(platform("com.google.cloud:libraries-bom:26.93.0"))
-    implementation(platform("com.fasterxml.jackson:jackson-bom:2.22.4"))
+    implementation(platform("com.fasterxml.jackson:jackson-bom:2.23.0"))
     implementation("com.google.cloud:google-cloud-storage")
     implementation("com.google.auth:google-auth-library-credentials")
 }
